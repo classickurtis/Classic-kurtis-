@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Classic Kurtis</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#fff8fa;color:#241b20}
+header{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid #eee;padding:14px 5%;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:25px;font-weight:800;color:#6c2450}.tag{font-size:11px;background:#6c2450;color:#fff;padding:7px 10px;border-radius:20px}
+.hero{text-align:center;padding:65px 18px;background:linear-gradient(135deg,#fff0f5,#f6e3ee)}
+.hero h1{font-size:42px;margin:0 0 10px}.hero p{margin:0 0 25px;color:#594b51}
+.btn{display:inline-block;border:0;border-radius:10px;padding:13px 20px;background:#6c2450;color:#fff;font-weight:700;text-decoration:none;cursor:pointer}
+section{max-width:1100px;margin:auto;padding:38px 5%}h2{text-align:center;margin-top:0}
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 18px #00000012;padding-bottom:18px}
+.photo{height:270px;background:#eadde4;display:flex;align-items:center;justify-content:center;color:#765f6a}
+.card h3,.card p{margin:12px 16px}.price{font-weight:800;color:#6c2450}
+.order{background:#fff;border-radius:16px;padding:24px;box-shadow:0 4px 18px #00000012;max-width:650px;margin:auto}
+label{display:block;font-weight:700;margin-top:12px}input,select,textarea{width:100%;padding:12px;border:1px solid #ddd;border-radius:9px;margin-top:6px;font-size:15px}
+.note{margin-top:18px;background:#fff0f5;padding:14px;border-radius:10px;font-size:14px}
+footer{text-align:center;background:#241b20;color:#fff;padding:25px}
+@media(max-width:500px){.hero h1{font-size:32px}}
+</style>
+</head>
+<body>
+<header><div class="logo">Classic Kurtis</div><div class="tag">PREPAID ONLY • NO COD</div></header>
+
+<div class="hero">
+<h1>Classic Kurtis</h1>
+<p>Beautiful styles. Easy prepaid ordering.</p>
+<a class="btn" href="#products">Shop Now</a>
+</div>
+
+<section id="products">
+<h2>Our Collection</h2>
+<div class="products">
+<!-- Apne products yahan add/edit karna -->
+<div class="card"><div class="photo">Your Product Photo</div><h3>Product Name</h3><p class="price">₹ Price</p><p>Size: S, M, L, XL</p></div>
+<div class="card"><div class="photo">Your Product Photo</div><h3>Product Name</h3><p class="price">₹ Price</p><p>Size: S, M, L, XL</p></div>
+<div class="card"><div class="photo">Your Product Photo</div><h3>Product Name</h3><p class="price">₹ Price</p><p>Size: S, M, L, XL</p></div>
+</div>
+</section>
+
+<section>
+<h2>Place Your Order</h2>
+<div class="order">
+<label>Product</label><select id="product"><option>Product Name</option></select>
+<label>Size</label><select id="size"><option>Select Size</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option></select>
+<label>Colour</label><input id="colour" placeholder="Enter colour">
+<label>Full Name</label><input id="name" placeholder="Your name">
+<label>Mobile Number</label><input id="phone" placeholder="10-digit mobile number">
+<label>Delivery Address</label><textarea id="address" rows="4" placeholder="Full delivery address"></textarea>
+<button class="btn" style="margin-top:15px;width:100%" onclick="instagram()">📲 Get QR Code on Instagram</button>
+<div class="note"><b>Prepaid orders only.</b><br>Order details fill karke Instagram par QR code maango. Payment ke baad screenshot DM kar dena.</div>
+</div>
+</section>
+
+<footer>Classic Kurtis<br>@classic.___kurtis</footer>
+
+<script>
+function instagram(){
+ const vals=['product','size','colour','name','phone','address'];
+ if(vals.some(id=>!document.getElementById(id).value.trim())){
+   alert('Please fill all order details first.'); return;
+ }
+ window.open('https://www.instagram.com/classic.___kurtis/','_blank');
+}
+</script>
+</body>
+</html>
