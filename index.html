@@ -72,10 +72,22 @@ footer{text-align:center;background:#241b20;color:#fff;padding:25px}
 <script>
 function instagram(){
  const vals=['product','size','colour','name','phone','address'];
+
  if(vals.some(id=>!document.getElementById(id).value.trim())){
-   alert('Please fill all order details first.'); return;
+   alert('Please fill all order details first.');
+   return;
  }
- window.open('https://www.instagram.com/classic.___kurtis/','_blank');
+
+ const msg =
+ `🛍️ New Order - Classic Kurtis%0A%0A` +
+ `Product: ${encodeURIComponent(document.getElementById('product').value)}%0A` +
+ `Size: ${encodeURIComponent(document.getElementById('size').value)}%0A` +
+ `Colour: ${encodeURIComponent(document.getElementById('colour').value)}%0A` +
+ `Name: ${encodeURIComponent(document.getElementById('name').value)}%0A` +
+ `Mobile: ${encodeURIComponent(document.getElementById('phone').value)}%0A` +
+ `Address: ${encodeURIComponent(document.getElementById('address').value)}`;
+
+ window.open('https://www.instagram.com/direct/new/?text=' + msg,'_blank');
 }
 </script>
 </body>
