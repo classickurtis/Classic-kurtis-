@@ -84,7 +84,9 @@ footer{text-align:center;background:#241b20;color:#fff;padding:25px}
 <label>Full Name</label><input id="name" placeholder="Your name">
 <label>Mobile Number</label><input id="phone" placeholder="10-digit mobile number">
 <label>Delivery Address</label><textarea id="address" rows="4" placeholder="Full delivery address"></textarea>
-<button class="btn" style="margin-top:15px;width:100%;text-align:center" onclick="instagram()">🛍️ Place Your Order</button>
+<button class="btn" style="margin-top:15px;width:100%;text-align:center" onclick="copyOrder()">📋 Copy Order Details</button>
+
+<button class="btn" style="margin-top:10px;width:100%;text-align:center" onclick="instagram()">📲 Open Instagram</button>
 <div class="note"><b>Prepaid orders only.</b><br>Order details fill karke Instagram par QR code maango. Payment ke baad screenshot DM kar dena.</div>
 </div>
 </section>
@@ -92,7 +94,28 @@ footer{text-align:center;background:#241b20;color:#fff;padding:25px}
 <footer>Classic Kurtis<br>@classic.___kurtis</footer>
 
 <script>
-function instagram(){
+function copyOrder(){
+ const vals=['product','size','colour','name','phone','address'];
+
+ if(vals.some(id=>!document.getElementById(id).value.trim())){
+   alert('Please fill all order details first.');
+   return;
+ }
+
+ const msg =
+ `🛍️ New Order - Classic Kurtis\n\n` +
+ `Product: ${document.getElementById('product').value}\n` +
+ `Size: ${document.getElementById('size').value}\n` +
+ `Colour: ${document.getElementById('colour').value}\n` +
+ `Name: ${document.getElementById('name').value}\n` +
+ `Mobile: ${document.getElementById('phone').value}\n` +
+ `Address: ${document.getElementById('address').value}`;
+
+ navigator.clipboard.writeText(msg).then(()=>{
+   alert('Order details copied! Now open Instagram and paste the message.');
+ });
+}
+ function instagram(){
  const vals=['product','size','colour','name','phone','address'];
 
  if(vals.some(id=>!document.getElementById(id).value.trim())){
