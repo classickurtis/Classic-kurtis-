@@ -61,7 +61,11 @@ footer{text-align:center;background:#241b20;color:#fff;padding:25px}
 <label>Product</label>
 <select id="product" required>
   <option value="">Select Product number </option>
- 
+ <script>
+for(let i=1;i<=100;i++){
+  document.getElementById("product").add(new Option(i,i));
+}
+</script>
 </select>
 <label>Size</label>
 <select id="size" required>
