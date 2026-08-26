@@ -235,6 +235,7 @@ footer{
 
 <div class="products">
 
+
 <!-- PRODUCT 1 -->
 
 <div class="card">
@@ -307,6 +308,17 @@ style="display:block;margin:15px 16px 0;text-align:center;">
 <div class="order">
 
 
+<!-- QUANTITY -->
+
+<label>Quantity</label>
+
+<input
+id="quantity"
+type="number"
+min="1"
+placeholder="Total number of products">
+
+
 <!-- PRODUCT NUMBER -->
 
 <label>Product Number</label>
@@ -314,10 +326,11 @@ style="display:block;margin:15px 16px 0;text-align:center;">
 <div class="checkbox-box">
 
 <script>
+
 for(let i=1;i<=100;i++){
 
 document.write(`
-<div class="option" id="product-option-${i}">
+<div class="option">
 
 <div class="option-left">
 
@@ -331,17 +344,11 @@ onchange="toggleOption(this)">
 
 </div>
 
-<input
-type="number"
-class="qty product-qty"
-min="1"
-value="1"
-placeholder="Qty">
-
 </div>
 `);
 
 }
+
 </script>
 
 </div>
@@ -377,13 +384,6 @@ onchange="toggleOption(this)">
 <span>${size}</span>
 
 </div>
-
-<input
-type="number"
-class="qty size-qty"
-min="1"
-value="1"
-placeholder="Qty">
 
 </div>
 `);
@@ -445,7 +445,7 @@ maxlength="6"
 placeholder="6-digit PIN code">
 
 
-<!-- COPY BUTTON -->
+<!-- COPY -->
 
 <button
 class="btn"
@@ -512,7 +512,7 @@ Classic Kurtis<br>
 <script>
 
 
-/* CHECKBOX + QUANTITY */
+/* CHECKBOX */
 
 function toggleOption(checkbox){
 
@@ -531,7 +531,7 @@ option.classList.remove('selected');
 }
 
 
-/* GET SELECTED PRODUCTS */
+/* GET PRODUCTS */
 
 function getProducts(){
 
@@ -539,13 +539,7 @@ const selected=[];
 
 document.querySelectorAll('.product-check:checked').forEach(check=>{
 
-const option=check.closest('.option');
-
-const qty=option.querySelector('.product-qty').value || 1;
-
-selected.push(
-check.value + " × " + qty
-);
+selected.push(check.value);
 
 });
 
@@ -554,7 +548,7 @@ return selected.join(", ");
 }
 
 
-/* GET SELECTED SIZES */
+/* GET SIZES */
 
 function getSizes(){
 
@@ -562,13 +556,7 @@ const selected=[];
 
 document.querySelectorAll('.size-check:checked').forEach(check=>{
 
-const option=check.closest('.option');
-
-const qty=option.querySelector('.size-qty').value || 1;
-
-selected.push(
-check.value + " × " + qty
-);
+selected.push(check.value);
 
 });
 
@@ -580,6 +568,8 @@ return selected.join(", ");
 /* VALIDATION */
 
 function validateOrder(){
+
+const quantity=document.getElementById('quantity').value.trim();
 
 const products=getProducts();
 
@@ -594,6 +584,24 @@ const phone=document.getElementById('phone').value.trim();
 const address=document.getElementById('address').value.trim();
 
 const pincode=document.getElementById('pincode').value.trim();
+
+
+if(!quantity){
+
+alert('Please enter Quantity.');
+
+return false;
+
+}
+
+
+if(quantity<1){
+
+alert('Quantity must be at least 1.');
+
+return false;
+
+}
 
 
 if(!products){
@@ -671,6 +679,8 @@ function copyOrder(){
 if(!validateOrder()) return;
 
 
+const quantity=document.getElementById('quantity').value.trim();
+
 const products=getProducts();
 
 const sizes=getSizes();
@@ -688,6 +698,8 @@ const pincode=document.getElementById('pincode').value.trim();
 
 const msg =
 `🛍️ New Order - Classic Kurtis
+
+Quantity: ${quantity}
 
 Product Number: ${products}
 
