@@ -76,8 +76,8 @@ for(let i=1;i<=100;i++){
 }
 </script>
 </select>
-<label>Size</label>
-<select id="size" required>
+<label>Size 1</label>
+<select id="size1" required>
   <option value="">Select Size</option>
   <option>XS</option>
   <option>S</option>
@@ -94,7 +94,69 @@ for(let i=1;i<=100;i++){
   <option>9XL</option>
   <option>10XL</option>
 </select>
-<label>Colour</label><input id="colour" placeholder="Enter colour">
+  <label>Product 2</label>
+<select id="product2">
+  <option value="">Select Product</option>
+  <script>
+    for(let i=1;i<=100;i++){
+      document.getElementById("product2").add(new Option(i,i));
+    }
+  </script>
+</select>
+
+<label>Size 2</label>
+<select id="size2">
+  <option value="">Select Size</option>
+  <option>XS</option>
+  <option>S</option>
+  <option>M</option>
+  <option>L</option>
+  <option>XL</option>
+  <option>2XL</option>
+  <option>3XL</option>
+  <option>4XL</option>
+  <option>5XL</option>
+  <option>6XL</option>
+  <option>7XL</option>
+  <option>8XL</option>
+  <option>9XL</option>
+  <option>10XL</option>
+</select>
+<label>Product 3</label>
+<select id="product3">
+  <option value="">Select Product</option>
+  <script>
+    for(let i=1;i<=100;i++){
+      document.getElementById("product3").add(new Option(i,i));
+    }
+  </script>
+</select>
+  <label>Size 3</label>
+<select id="size3">
+  <option value="">Select Size</option>
+  <option>XS</option>
+  <option>S</option>
+  <option>M</option>
+  <option>L</option>
+  <option>XL</option>
+  <option>2XL</option>
+  <option>3XL</option>
+  <option>4XL</option>
+  <option>5XL</option>
+  <option>6XL</option>
+  <option>7XL</option>
+  <option>8XL</option>
+  <option>9XL</option>
+  <option>10XL</option>
+</select>
+<label>Colour 1</label>
+<input id="colour" placeholder="Enter colour">
+
+<label>Colour 2</label>
+<input id="colour2" placeholder="Enter colour">
+
+<label>Colour 3</label>
+<input id="colour3" placeholder="Enter colour">
 <label>Full Name</label><input id="name" placeholder="Your name">
 <label>Mobile Number</label><input id="phone" placeholder="10-digit mobile number">
 <label>Delivery Address</label><textarea id="address" rows="4" placeholder="Full delivery address"></textarea>
@@ -123,7 +185,7 @@ aur aapko <b>Tracking ID</b> Instagram DM par mil jayegi.
 
 <script>
 function copyOrder(){
- const vals=['product','size','colour','name','phone','address'];
+ const vals=['product1','size1','colour','product2','size2','colour2','name','phone','address'];
 
  if(vals.some(id=>!document.getElementById(id).value.trim())){
    alert('Please fill all order details first.');
@@ -132,9 +194,14 @@ function copyOrder(){
 
  const msg =
  `🛍️ New Order - Classic Kurtis\n\n` +
- `Product: ${document.getElementById('product').value}\n` +
- `Size: ${document.getElementById('size').value}\n` +
- `Colour: ${document.getElementById('colour').value}\n` +
+ `Product 1: ${document.getElementById('product1').value}\n` +
+ `Size 1: ${document.getElementById('size1').value}\n` +
+ `Colour 1: ${document.getElementById('colour').value}\n\n` +
+ `Product 2: ${document.getElementById('product2').value}\n` +
+ `Colour 3: ${document.getElementById('colour3').value}\n\n` +
+ `Size 2: ${document.getElementById('size2').value}\n` +
+ `Colour 2: ${document.getElementById('colour2').value}\n\n` +
+ `Colour 3: ${encodeURIComponent(document.getElementById('colour3').value)}%0A%0A` +
  `Name: ${document.getElementById('name').value}\n` +
  `Mobile: ${document.getElementById('phone').value}\n` +
  `Address: ${document.getElementById('address').value}`;
@@ -144,7 +211,7 @@ function copyOrder(){
  });
 }
  function instagram(){
- const vals=['product','size','colour','name','phone','address'];
+ const vals=['product1','size1','colour','product2','size2','colour2','name','phone','address'];
 
  if(vals.some(id=>!document.getElementById(id).value.trim())){
    alert('Please fill all order details first.');
@@ -153,9 +220,12 @@ function copyOrder(){
 
  const msg =
  `🛍️ New Order - Classic Kurtis%0A%0A` +
- `Product: ${encodeURIComponent(document.getElementById('product').value)}%0A` +
- `Size: ${encodeURIComponent(document.getElementById('size').value)}%0A` +
- `Colour: ${encodeURIComponent(document.getElementById('colour').value)}%0A` +
+ `Product 1: ${encodeURIComponent(document.getElementById('product1').value)}%0A` +
+ `Size 1: ${encodeURIComponent(document.getElementById('size1').value)}%0A` +
+ `Colour 1: ${encodeURIComponent(document.getElementById('colour').value)}%0A%0A` +
+ `Product 2: ${encodeURIComponent(document.getElementById('product2').value)}%0A` +
+ `Size 2: ${encodeURIComponent(document.getElementById('size2').value)}%0A` +
+ `Colour 2: ${encodeURIComponent(document.getElementById('colour2').value)}%0A%0A` +
  `Name: ${encodeURIComponent(document.getElementById('name').value)}%0A` +
  `Mobile: ${encodeURIComponent(document.getElementById('phone').value)}%0A` +
  `Address: ${encodeURIComponent(document.getElementById('address').value)}`;
