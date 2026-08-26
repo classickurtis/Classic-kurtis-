@@ -4,234 +4,731 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Classic Kurtis</title>
+
 <style>
-*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#fff8fa;color:#241b20}
-header{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid #eee;padding:14px 5%;display:flex;justify-content:space-between;align-items:center}
-.logo{font-size:25px;font-weight:800;color:#6c2450}.tag{font-size:11px;background:#6c2450;color:#fff;padding:7px 10px;border-radius:20px}
-.hero{text-align:center;padding:65px 18px;background:linear-gradient(135deg,#fff0f5,#f6e3ee)}
-.hero h1{font-size:42px;margin:0 0 10px}.hero p{margin:0 0 25px;color:#594b51}
-.btn{display:inline-block;border:0;border-radius:10px;padding:13px 20px;background:#6c2450;color:#fff;font-weight:700;text-decoration:none;cursor:pointer}
-section{max-width:1100px;margin:auto;padding:38px 5%}h2{text-align:center;margin-top:0}
-.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
-.card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 18px #00000012;padding-bottom:18px}
-.photo{height:270px;background:#eadde4;display:flex;align-items:center;justify-content:center;color:#765f6a}
-.card h3,.card p{margin:12px 16px}.price{font-weight:800;color:#6c2450}
-.order{background:#fff;border-radius:16px;padding:24px;box-shadow:0 4px 18px #00000012;max-width:650px;margin:auto}
-label{display:block;font-weight:700;margin-top:12px}input,select,textarea{width:100%;padding:12px;border:1px solid #ddd;border-radius:9px;margin-top:6px;font-size:15px}
-.note{margin-top:18px;background:#fff0f5;padding:14px;border-radius:10px;font-size:14px}
-footer{text-align:center;background:#241b20;color:#fff;padding:25px}
-@media(max-width:500px){.hero h1{font-size:32px}}
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#fff8fa;
+  color:#241b20
+}
+
+header{
+  position:sticky;
+  top:0;
+  z-index:20;
+  background:#fff;
+  border-bottom:1px solid #eee;
+  padding:14px 5%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center
+}
+
+.logo img{
+  height:50px;
+  width:auto
+}
+
+.tag{
+  font-size:11px;
+  background:#6c2450;
+  color:#fff;
+  padding:7px 10px;
+  border-radius:20px
+}
+
+.hero{
+  text-align:center;
+  padding:65px 18px;
+  background:linear-gradient(135deg,#fff0f5,#f6e3ee)
+}
+
+.hero h1{
+  font-size:42px;
+  margin:0 0 10px
+}
+
+.hero p{
+  margin:0 0 25px;
+  color:#594b51
+}
+
+.btn{
+  display:inline-block;
+  border:0;
+  border-radius:10px;
+  padding:13px 20px;
+  background:#6c2450;
+  color:#fff;
+  font-weight:700;
+  text-decoration:none;
+  cursor:pointer
+}
+
+section{
+  max-width:1100px;
+  margin:auto;
+  padding:38px 5%
+}
+
+h2{
+  text-align:center;
+  margin-top:0
+}
+
+.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px
+}
+
+.card{
+  background:#fff;
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 4px 18px #00000012;
+  padding-bottom:18px
+}
+
+.photo{
+  height:270px;
+  background:#eadde4;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#765f6a
+}
+
+.card h3,.card p{
+  margin:12px 16px
+}
+
+.price{
+  font-weight:800;
+  color:#6c2450
+}
+
+.order{
+  background:#fff;
+  border-radius:16px;
+  padding:24px;
+  box-shadow:0 4px 18px #00000012;
+  max-width:650px;
+  margin:auto
+}
+
+label{
+  display:block;
+  font-weight:700;
+  margin-top:16px
+}
+
+input,textarea{
+  width:100%;
+  padding:12px;
+  border:1px solid #ddd;
+  border-radius:9px;
+  margin-top:6px;
+  font-size:15px
+}
+
+.checkbox-box{
+  margin-top:8px;
+  border:1px solid #ddd;
+  border-radius:10px;
+  padding:10px;
+  max-height:300px;
+  overflow-y:auto;
+  background:#fff
+}
+
+.option{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding:8px 5px;
+  border-bottom:1px solid #f0f0f0
+}
+
+.option:last-child{
+  border-bottom:0
+}
+
+.option-left{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-weight:500
+}
+
+.option-left input[type="checkbox"]{
+  width:20px;
+  height:20px;
+  margin:0
+}
+
+.qty{
+  width:75px;
+  padding:8px;
+  margin:0;
+  display:none
+}
+
+.option.selected .qty{
+  display:block
+}
+
+.note{
+  margin-top:18px;
+  background:#fff0f5;
+  padding:14px;
+  border-radius:10px;
+  font-size:14px
+}
+
+footer{
+  text-align:center;
+  background:#241b20;
+  color:#fff;
+  padding:25px
+}
+
+@media(max-width:500px){
+  .hero h1{
+    font-size:32px
+  }
+
+  .tag{
+    font-size:9px
+  }
+}
 </style>
 </head>
+
 <body>
+
 <header>
   <div class="logo">
-    <img src="IMG_3612.jpeg" alt="Classic Kurtis" style="height:50px;width:auto;">
+    <img src="IMG_3612.jpeg" alt="Classic Kurtis">
   </div>
-  <div class="tag">PREPAID ONLY • NO COD</div>
+
+  <div class="tag">
+    PREPAID ONLY • NO COD
+  </div>
 </header>
 
+
 <div class="hero">
-<h1>Classic Kurtis</h1>
-<p>Beautiful styles. Easy prepaid ordering.</p>
-<a class="btn" href="#products">Shop Now</a>
+  <h1>Classic Kurtis</h1>
+  <p>Beautiful styles. Easy prepaid ordering.</p>
+  <a class="btn" href="#products">Shop Now</a>
 </div>
+
 
 <section id="products">
-<h2>Our Collection</h2>
-<div class="products">
-<!-- Apne products yahan add/edit karna -->
-<div class="card">
-<div class="photo" style="height:400px;overflow-x:auto;display:flex;scroll-snap-type:x mandatory;">
-<img src="IMG_3535.jpeg" alt="Anarkali Suit" style="min-width:100%;height:100%;object-fit:contain;scroll-snap-align:start;">
-<img src="IMG_3536.jpeg" alt="Anarkali Suit" style="min-width:100%;height:100%;object-fit:contain;scroll-snap-align:start;">
-<img src="IMG_3537.jpeg" alt="Anarkali Suit" style="min-width:100%;height:100%;object-fit:contain;scroll-snap-align:start;">
-<img src="IMG_3538.jpeg" alt="Anarkali Suit" style="min-width:100%;height:100%;object-fit:contain;scroll-snap-align:start;">
-</div>
-<h3>Anarkali Suit 
- ALL SET COMPLETE </h3>
-<p class="price">₹999</p>
-<p>Size: XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL</p>
 
-<a class="btn" href="#order" style="display:block;margin:15px 16px 0;text-align:center;">
+<h2>Our Collection</h2>
+
+<div class="products">
+
+<!-- PRODUCT 1 -->
+
+<div class="card">
+
+<div class="photo"
+style="height:400px;overflow-x:auto;display:flex;scroll-snap-type:x mandatory;">
+
+<img src="IMG_3535.jpeg"
+alt="Anarkali Suit"
+style="min-width:100%;height:100%;object-fit:contain;scroll-snap-align:start;">
+
+<img src="IMG_3536.jpeg"
+alt="Anarkali Suit"
+style="min-width:100%;height:100%;object-fit:contain;scroll-snap-align:start;">
+
+<img src="IMG_3537.jpeg"
+alt="Anarkali Suit"
+style="min-width:100%;height:100%;object-fit:contain;scroll-snap-align:start;">
+
+<img src="IMG_3538.jpeg"
+alt="Anarkali Suit"
+style="min-width:100%;height:100%;object-fit:contain;scroll-snap-align:start;">
+
+</div>
+
+<h3>Anarkali Suit ALL SET COMPLETE</h3>
+
+<p class="price">₹999</p>
+
+<p>
+Size: XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
+</p>
+
+<a class="btn"
+href="#order"
+style="display:block;margin:15px 16px 0;text-align:center;">
 🛒 Order Now
 </a>
 
 </div>
- 
-<div class="card"><div class="photo">Your Product Photo</div><h3>Product Name</h3><p class="price">₹ Price</p><p>Size: S, M, L, XL</p></div>
-<div class="card"><div class="photo">Your Product Photo</div><h3>Product Name</h3><p class="price">₹ Price</p><p>Size: S, M, L, XL</p></div>
+
+
+<!-- PRODUCT 2 -->
+
+<div class="card">
+<div class="photo">Your Product Photo</div>
+<h3>Product Name</h3>
+<p class="price">₹ Price</p>
+<p>Size: XS, S, M, L, XL, 2XL, 3XL</p>
+</div>
+
+
+<!-- PRODUCT 3 -->
+
+<div class="card">
+<div class="photo">Your Product Photo</div>
+<h3>Product Name</h3>
+<p class="price">₹ Price</p>
+<p>Size: XS, S, M, L, XL, 2XL, 3XL</p>
+</div>
+
 </div>
 </section>
+
 
 <section id="order">
+
 <h2>Place Your Order</h2>
+
 <div class="order">
-<label>Product 1</label>
-<select id="product1" required>
-  <option value="">Select Product number </option>
- <script>
-for(let i=1;i<=100;i++){
-  document.getElementById("product1").add(new Option(i,i));
-}
-</script>
-</select>
-<label>Size 1</label>
-<select id="size1" required>
-  <option value="">Select Size</option>
-  <option>XS</option>
-  <option>S</option>
-  <option>M</option>
-  <option>L</option>
-  <option>XL</option>
-  <option>2XL</option>
-  <option>3XL</option>
-  <option>4XL</option>
-  <option>5XL</option>
-  <option>6XL</option>
-  <option>7XL</option>
-  <option>8XL</option>
-  <option>9XL</option>
-  <option>10XL</option>
-</select>
-  <label>Product 2</label>
-<select id="product2">
-  <option value="">Select Product</option>
-  <script>
-    for(let i=1;i<=100;i++){
-      document.getElementById("product2").add(new Option(i,i));
-    }
-  </script>
-</select>
 
-<label>Size 2</label>
-<select id="size2">
-  <option value="">Select Size</option>
-  <option>XS</option>
-  <option>S</option>
-  <option>M</option>
-  <option>L</option>
-  <option>XL</option>
-  <option>2XL</option>
-  <option>3XL</option>
-  <option>4XL</option>
-  <option>5XL</option>
-  <option>6XL</option>
-  <option>7XL</option>
-  <option>8XL</option>
-  <option>9XL</option>
-  <option>10XL</option>
-</select>
-<label>Product 3</label>
-<select id="product3">
-  <option value="">Select Product</option>
-  <script>
-    for(let i=1;i<=100;i++){
-      document.getElementById("product3").add(new Option(i,i));
-    }
-  </script>
-</select>
-  <label>Size 3</label>
-<select id="size3">
-  <option value="">Select Size</option>
-  <option>XS</option>
-  <option>S</option>
-  <option>M</option>
-  <option>L</option>
-  <option>XL</option>
-  <option>2XL</option>
-  <option>3XL</option>
-  <option>4XL</option>
-  <option>5XL</option>
-  <option>6XL</option>
-  <option>7XL</option>
-  <option>8XL</option>
-  <option>9XL</option>
-  <option>10XL</option>
-</select>
-<label>Colour 1</label>
-<input id="colour" placeholder="Enter colour">
 
-<label>Colour 2</label>
-<input id="colour2" placeholder="Enter colour">
+<!-- PRODUCT NUMBER -->
 
-<label>Colour 3</label>
-<input id="colour3" placeholder="Enter colour">
-<label>Full Name</label><input id="name" placeholder="Your name">
-<label>Mobile Number</label><input id="phone" placeholder="10-digit mobile number">
-<label>Delivery Address</label><textarea id="address" rows="4" placeholder="Full delivery address"></textarea>
-<button class="btn" style="margin-top:15px;width:100%;text-align:center" onclick="copyOrder()">📋 Copy Order Details</button>
+<label>Product Number</label>
 
-<button class="btn" style="margin-top:10px;width:100%;text-align:center" onclick="instagram()">📲 Open Instagram</button>
-<div class="note">
-<b>Prepaid Orders Only</b><br><br>
-
-Order details fill karein, phir <b>📋 Copy Order Details</b> par click karein.
-Uske baad <b>📲 Open Instagram</b> par click karke hamare profile ke DM mein
-details <b>Paste</b> karke <b>Send</b> karein.
-<br><br>
-
-Instagram DM par <b>QR Code</b> maangein. Payment complete karke
-<b>payment screenshot</b> DM kar dein.
-<br><br>
-
-Payment screenshot receive hone ke baad aapka order <b>Confirm</b> kar diya jayega
-aur aapko <b>Tracking ID</b> Instagram DM par mil jayegi.
-</div>
-</div>
-</section>
-
-<footer>Classic Kurtis<br>@classic.___kurtis</footer>
+<div class="checkbox-box">
 
 <script>
-function copyOrder(){
- const vals=['product1','size1','colour','product2','size2','colour2','name','phone','address'];
+for(let i=1;i<=100;i++){
 
- if(vals.some(id=>!document.getElementById(id).value.trim())){
-   alert('Please fill all order details first.');
-   return;
- }
+document.write(`
+<div class="option" id="product-option-${i}">
 
- const msg =
- `🛍️ New Order - Classic Kurtis\n\n` +
- `Product 1: ${document.getElementById('product1').value}\n` +
- `Size 1: ${document.getElementById('size1').value}\n` +
- `Colour 1: ${document.getElementById('colour').value}\n\n` +
- `Product 2: ${document.getElementById('product2').value}\n` +
- `Colour 3: ${document.getElementById('colour3').value}\n\n` +
- `Size 2: ${document.getElementById('size2').value}\n` +
- `Colour 2: ${document.getElementById('colour2').value}\n\n` +
- `Colour 3: ${encodeURIComponent(document.getElementById('colour3').value)}%0A%0A` +
- `Name: ${document.getElementById('name').value}\n` +
- `Mobile: ${document.getElementById('phone').value}\n` +
- `Address: ${document.getElementById('address').value}`;
+<div class="option-left">
 
- navigator.clipboard.writeText(msg).then(()=>{
-   alert('Order details copied! Now open Instagram and paste the message.');
- });
-}
- function instagram(){
- const vals=['product1','size1','colour','product2','size2','colour2','name','phone','address'];
+<input
+type="checkbox"
+class="product-check"
+value="${i}"
+onchange="toggleOption(this)">
 
- if(vals.some(id=>!document.getElementById(id).value.trim())){
-   alert('Please fill all order details first.');
-   return;
- }
+<span>Product ${i}</span>
 
- const msg =
- `🛍️ New Order - Classic Kurtis%0A%0A` +
- `Product 1: ${encodeURIComponent(document.getElementById('product1').value)}%0A` +
- `Size 1: ${encodeURIComponent(document.getElementById('size1').value)}%0A` +
- `Colour 1: ${encodeURIComponent(document.getElementById('colour').value)}%0A%0A` +
- `Product 2: ${encodeURIComponent(document.getElementById('product2').value)}%0A` +
- `Size 2: ${encodeURIComponent(document.getElementById('size2').value)}%0A` +
- `Colour 2: ${encodeURIComponent(document.getElementById('colour2').value)}%0A%0A` +
- `Name: ${encodeURIComponent(document.getElementById('name').value)}%0A` +
- `Mobile: ${encodeURIComponent(document.getElementById('phone').value)}%0A` +
- `Address: ${encodeURIComponent(document.getElementById('address').value)}`;
+</div>
 
- window.open('https://www.instagram.com/classic.___kurtis/','_blank');
+<input
+type="number"
+class="qty product-qty"
+min="1"
+value="1"
+placeholder="Qty">
+
+</div>
+`);
+
 }
 </script>
+
+</div>
+
+
+<!-- SIZE -->
+
+<label>Size</label>
+
+<div class="checkbox-box">
+
+<script>
+
+const sizes=[
+"XS","S","M","L","XL",
+"2XL","3XL","4XL","5XL",
+"6XL","7XL","8XL","9XL","10XL"
+];
+
+sizes.forEach(size=>{
+
+document.write(`
+<div class="option">
+
+<div class="option-left">
+
+<input
+type="checkbox"
+class="size-check"
+value="${size}"
+onchange="toggleOption(this)">
+
+<span>${size}</span>
+
+</div>
+
+<input
+type="number"
+class="qty size-qty"
+min="1"
+value="1"
+placeholder="Qty">
+
+</div>
+`);
+
+});
+
+</script>
+
+</div>
+
+
+<!-- COLOUR -->
+
+<label>Colour</label>
+
+<input
+id="colour"
+placeholder="Enter colour e.g. Red, Black, Pink">
+
+
+<!-- NAME -->
+
+<label>Full Name</label>
+
+<input
+id="name"
+placeholder="Your name">
+
+
+<!-- MOBILE -->
+
+<label>Mobile Number</label>
+
+<input
+id="phone"
+type="tel"
+maxlength="10"
+placeholder="10-digit mobile number">
+
+
+<!-- ADDRESS -->
+
+<label>Delivery Address</label>
+
+<textarea
+id="address"
+rows="4"
+placeholder="Full delivery address"></textarea>
+
+
+<!-- PIN CODE -->
+
+<label>PIN Code</label>
+
+<input
+id="pincode"
+type="tel"
+maxlength="6"
+placeholder="6-digit PIN code">
+
+
+<!-- COPY BUTTON -->
+
+<button
+class="btn"
+style="margin-top:15px;width:100%;text-align:center"
+onclick="copyOrder()">
+
+📋 Copy Order Details
+
+</button>
+
+
+<!-- INSTAGRAM -->
+
+<button
+class="btn"
+style="margin-top:10px;width:100%;text-align:center"
+onclick="instagram()">
+
+📲 Open Instagram
+
+</button>
+
+
+<div class="note">
+
+<b>Prepaid Orders Only</b>
+<br><br>
+
+Order details fill karein, phir
+<b>📋 Copy Order Details</b>
+par click karein.
+
+Uske baad
+<b>📲 Open Instagram</b>
+par click karke hamare profile ke DM mein
+details <b>Paste</b> karke <b>Send</b> karein.
+
+<br><br>
+
+Instagram DM par <b>QR Code</b> maangein.
+
+Payment complete karke
+<b>payment screenshot</b> DM kar dein.
+
+<br><br>
+
+Payment screenshot receive hone ke baad
+aapka order <b>Confirm</b> kar diya jayega
+aur aapko <b>Tracking ID</b> Instagram DM par mil jayegi.
+
+</div>
+
+</div>
+
+</section>
+
+
+<footer>
+Classic Kurtis<br>
+@classic.___kurtis
+</footer>
+
+
+<script>
+
+
+/* CHECKBOX + QUANTITY */
+
+function toggleOption(checkbox){
+
+const option=checkbox.closest('.option');
+
+if(checkbox.checked){
+
+option.classList.add('selected');
+
+}else{
+
+option.classList.remove('selected');
+
+}
+
+}
+
+
+/* GET SELECTED PRODUCTS */
+
+function getProducts(){
+
+const selected=[];
+
+document.querySelectorAll('.product-check:checked').forEach(check=>{
+
+const option=check.closest('.option');
+
+const qty=option.querySelector('.product-qty').value || 1;
+
+selected.push(
+check.value + " × " + qty
+);
+
+});
+
+return selected.join(", ");
+
+}
+
+
+/* GET SELECTED SIZES */
+
+function getSizes(){
+
+const selected=[];
+
+document.querySelectorAll('.size-check:checked').forEach(check=>{
+
+const option=check.closest('.option');
+
+const qty=option.querySelector('.size-qty').value || 1;
+
+selected.push(
+check.value + " × " + qty
+);
+
+});
+
+return selected.join(", ");
+
+}
+
+
+/* VALIDATION */
+
+function validateOrder(){
+
+const products=getProducts();
+
+const sizes=getSizes();
+
+const colour=document.getElementById('colour').value.trim();
+
+const name=document.getElementById('name').value.trim();
+
+const phone=document.getElementById('phone').value.trim();
+
+const address=document.getElementById('address').value.trim();
+
+const pincode=document.getElementById('pincode').value.trim();
+
+
+if(!products){
+
+alert('Please select Product Number.');
+
+return false;
+
+}
+
+
+if(!sizes){
+
+alert('Please select Size.');
+
+return false;
+
+}
+
+
+if(!colour){
+
+alert('Please enter Colour.');
+
+return false;
+
+}
+
+
+if(!name){
+
+alert('Please enter Full Name.');
+
+return false;
+
+}
+
+
+if(!/^[0-9]{10}$/.test(phone)){
+
+alert('Please enter a valid 10-digit mobile number.');
+
+return false;
+
+}
+
+
+if(!address){
+
+alert('Please enter Delivery Address.');
+
+return false;
+
+}
+
+
+if(!/^[0-9]{6}$/.test(pincode)){
+
+alert('Please enter a valid 6-digit PIN Code.');
+
+return false;
+
+}
+
+
+return true;
+
+}
+
+
+/* COPY ORDER */
+
+function copyOrder(){
+
+if(!validateOrder()) return;
+
+
+const products=getProducts();
+
+const sizes=getSizes();
+
+const colour=document.getElementById('colour').value.trim();
+
+const name=document.getElementById('name').value.trim();
+
+const phone=document.getElementById('phone').value.trim();
+
+const address=document.getElementById('address').value.trim();
+
+const pincode=document.getElementById('pincode').value.trim();
+
+
+const msg =
+`🛍️ New Order - Classic Kurtis
+
+Product Number: ${products}
+
+Size: ${sizes}
+
+Colour: ${colour}
+
+Name: ${name}
+
+Mobile: ${phone}
+
+Address: ${address}
+
+PIN Code: ${pincode}`;
+
+
+navigator.clipboard.writeText(msg).then(()=>{
+
+alert(
+'Order details copied! Now open Instagram and paste the message.'
+);
+
+});
+
+}
+
+
+/* INSTAGRAM */
+
+function instagram(){
+
+if(!validateOrder()) return;
+
+window.open(
+'https://www.instagram.com/classic.___kurtis/',
+'_blank'
+);
+
+}
+
+</script>
+
 </body>
 </html>
