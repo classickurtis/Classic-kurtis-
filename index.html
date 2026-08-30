@@ -6,6 +6,7 @@
 <title>Classic Kurtis</title>
 
 <style>
+
 *{
   box-sizing:border-box;
 }
@@ -226,18 +227,25 @@ footer{
   .photo{
     height:400px;
   }
+
 }
+
 </style>
 </head>
 
 <body>
+
 
 <!-- HEADER -->
 
 <header>
 
   <div class="logo">
-    <img src="IMG_3612.jpeg" alt="Classic Kurtis">
+
+    <img
+    src="IMG_3612.jpeg"
+    alt="Classic Kurtis">
+
   </div>
 
   <div class="tag">
@@ -251,14 +259,20 @@ footer{
 
 <div class="hero">
 
-  <h1>Classic Kurtis</h1>
+  <h1>
+    Classic Kurtis
+  </h1>
 
   <p>
     7 days exchange and return available.
   </p>
 
-  <a class="btn" href="#products">
+  <a
+  class="btn"
+  href="#products">
+
     Shop Now
+
   </a>
 
 </div>
@@ -268,12 +282,16 @@ footer{
 
 <section id="products">
 
-<h2>Our Collection</h2>
+<h2>
+  Our Collection
+</h2>
 
 <div class="products">
 
 
+<!-- ================================================= -->
 <!-- PRODUCT 1 -->
+<!-- ================================================= -->
 
 <div class="card">
 
@@ -281,31 +299,19 @@ footer{
 
     <div class="photo-slider">
 
-      <img
-      src="IMG_3535.jpeg"
-      alt="Anarkali Suit">
-
-      <img
-      src="IMG_3536.jpeg"
-      alt="Anarkali Suit">
-
-      <img
-      src="IMG_3537.jpeg"
-      alt="Anarkali Suit">
-
-      <img
-      src="IMG_3538.jpeg"
-      alt="Anarkali Suit">
+      <img src="IMG_3535.jpeg" alt="Product 1">
+      <img src="IMG_3536.jpeg" alt="Product 1">
+      <img src="IMG_3537.jpeg" alt="Product 1">
+      <img src="IMG_3538.jpeg" alt="Product 1">
+      <img src="PRODUCT1-5.jpeg" alt="Product 1">
 
     </div>
 
   </div>
 
-
   <h3>
     ROSHANAK HEAVY EMBROIDERED MAXI SET
   </h3>
-
 
   <div class="product-description">
 
@@ -317,17 +323,14 @@ footer{
 
   </div>
 
-
   <p class="price">
     PRICE ₹999
   </p>
-
 
   <p>
     Size available:
     XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
   </p>
-
 
   <a
   class="btn"
@@ -341,50 +344,88 @@ footer{
 </div>
 
 
-<!-- PRODUCT 2 -->
+<!-- ================================================= -->
+<!-- PRODUCT 2 - 100 -->
+<!-- ================================================= -->
 
-<div class="card">
+<script>
 
-  <div class="photo">
-    Your Product Photo
+const productContainer =
+document.querySelector(".products");
+
+for(let i=2;i<=100;i++){
+
+  productContainer.insertAdjacentHTML("beforeend",`
+
+  <div class="card">
+
+    <div class="photo">
+
+      <div class="photo-slider">
+
+        <img
+        src="PRODUCT${i}-1.jpeg"
+        alt="Product ${i}">
+
+        <img
+        src="PRODUCT${i}-2.jpeg"
+        alt="Product ${i}">
+
+        <img
+        src="PRODUCT${i}-3.jpeg"
+        alt="Product ${i}">
+
+        <img
+        src="PRODUCT${i}-4.jpeg"
+        alt="Product ${i}">
+
+        <img
+        src="PRODUCT${i}-5.jpeg"
+        alt="Product ${i}">
+
+      </div>
+
+    </div>
+
+    <h3>
+      PRODUCT ${i} NAME
+    </h3>
+
+    <div class="product-description">
+
+      • Fabric: Product Fabric<br>
+      • Length: 57"<br>
+      • Front Neck: 7.5"<br>
+      • Back Neck: 11"<br>
+      • Sleeves: 7"
+
+    </div>
+
+    <p class="price">
+      PRICE ₹999
+    </p>
+
+    <p>
+      Size available:
+      XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
+    </p>
+
+    <a
+    class="btn"
+    href="#order"
+    style="display:block;margin:15px 16px 0;text-align:center;">
+
+      🛒 Order Now
+
+    </a>
+
   </div>
 
-  <h3>
-    Product Name
-  </h3>
+  `);
 
-  <p class="price">
-    ₹ Price
-  </p>
+}
 
-  <p>
-    Size: XS, S, M, L, XL, 2XL, 3XL
-  </p>
-
-</div>
-
-
-<!-- PRODUCT 3 -->
-
-<div class="card">
-
-  <div class="photo">
-    Your Product Photo
-  </div>
-
-  <h3>
-    Product Name
-  </h3>
-
-  <p class="price">
-    ₹ Price
-  </p>
-
-  <p>
-    Size: XS, S, M, L, XL, 2XL, 3XL
-  </p>
-
-</div>
+</script>
 
 
 </div>
@@ -399,7 +440,6 @@ footer{
 <h2>
   Place Your Order
 </h2>
-
 
 <div class="order">
 
@@ -468,6 +508,7 @@ document.write(`
 <script>
 
 const sizes = [
+
   "XS",
   "S",
   "M",
@@ -482,6 +523,7 @@ const sizes = [
   "8XL",
   "9XL",
   "10XL"
+
 ];
 
 sizes.forEach(size=>{
@@ -866,6 +908,7 @@ PIN Code: ${pincode}`;
 
 
   navigator.clipboard.writeText(msg)
+
   .then(()=>{
 
     alert(
@@ -873,6 +916,7 @@ PIN Code: ${pincode}`;
     );
 
   })
+
   .catch(()=>{
 
     alert(
@@ -899,6 +943,7 @@ function instagram(){
 }
 
 </script>
+
 
 </body>
 </html>
