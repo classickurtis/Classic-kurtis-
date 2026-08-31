@@ -411,55 +411,46 @@ footer{
 const productContainer =
 document.querySelector(".products");
 
-for(let i=3;i<=100;i++){
+for(let i=4;i<=100;i++){
 
   productContainer.insertAdjacentHTML("beforeend",`
 
-  <div class="card">
+<div class="card">
 
-    <div class="photo">
+  <div class="photo">
+    <div class="photo-slider">
 
-      <div class="photo-slider">
-
-        <img src="PRODUCT${i}-1.jpeg" alt="Product ${i}">
-        <img src="PRODUCT${i}-2.jpeg" alt="Product ${i}">
-        <img src="PRODUCT${i}-3.jpeg" alt="Product ${i}">
-        <img src="PRODUCT${i}-4.jpeg" alt="Product ${i}">
-        <img src="PRODUCT${i}-5.jpeg" alt="Product ${i}">
-
-      </div>
+      <img src="IMG_3683.jpeg" alt="Product 3">
+      <img src="IMG_3684.jpeg" alt="Product 3">
+      <img src="IMG_3685.jpeg" alt="Product 3">
+      <img src="IMG_3686.jpeg" alt="Product 3">
+      <img src="IMG_3687.jpeg" alt="Product 3">
 
     </div>
+  </div>
 
-    <h3>
-      PRODUCT ${i} NAME
-    </h3>
+  <h3>PRODUCT 3 NAME</h3>
 
-    <div class="product-description">
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
+  </div>
 
-      • Fabric: Product Fabric<br>
-      • Length: 57"<br>
-      • Front Neck: 7.5"<br>
-      • Back Neck: 11"<br>
-      • Sleeves: 7"
+  <p class="price">
+    PRICE ₹999
+  </p>
 
-    </div>
+  <p>
+    Size available:
+    XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
+  </p>
 
-    <p class="price">
-      PRICE ₹999
-    </p>
-
-    <p>
-      Size available:
-      XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
-    </p>
-
-    <a
-      class="btn"
-      href="#order"
-      style="display:block;margin:15px 16px 0;text-align:center;">
-
-      🛒 Order Now
+  <a class="btn" href="#order"
+     style="display:block;margin:15px 16px 0;text-align:center;">
+    🛒 Order Now
 
     </a>
 
