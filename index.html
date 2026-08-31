@@ -1,8 +1,11 @@
 <!doctype html>
 <html lang="hi">
+
 <head>
+
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+
 <title>Classic Kurtis</title>
 
 <style>
@@ -231,20 +234,21 @@ footer{
 }
 
 </style>
+
 </head>
 
 <body>
 
 
-<!-- HEADER -->
+<!-- ================= HEADER ================= -->
 
 <header>
 
   <div class="logo">
 
     <img
-    src="IMG_3612.jpeg"
-    alt="Classic Kurtis">
+      src="IMG_3612.jpeg"
+      alt="Classic Kurtis">
 
   </div>
 
@@ -255,7 +259,7 @@ footer{
 </header>
 
 
-<!-- HERO -->
+<!-- ================= HERO ================= -->
 
 <div class="hero">
 
@@ -268,8 +272,8 @@ footer{
   </p>
 
   <a
-  class="btn"
-  href="#products">
+    class="btn"
+    href="#products">
 
     Shop Now
 
@@ -278,7 +282,7 @@ footer{
 </div>
 
 
-<!-- PRODUCTS -->
+<!-- ================= PRODUCTS ================= -->
 
 <section id="products">
 
@@ -289,9 +293,7 @@ footer{
 <div class="products">
 
 
-<!-- ================================================= -->
-<!-- PRODUCT 1 -->
-<!-- ================================================= -->
+<!-- ================= PRODUCT 1 ================= -->
 
 <div class="card">
 
@@ -333,9 +335,9 @@ footer{
   </p>
 
   <a
-  class="btn"
-  href="#order"
-  style="display:block;margin:15px 16px 0;text-align:center;">
+    class="btn"
+    href="#order"
+    style="display:block;margin:15px 16px 0;text-align:center;">
 
     🛒 Order Now
 
@@ -344,14 +346,13 @@ footer{
 </div>
 
 
-<!-- ================================================= -->
-<!-- PRODUCT 2 - 100 -->
-<!-- ================================================= -->
+<!-- ================= PRODUCT 2 TO 100 ================= -->
 
 <script>
 
 const productContainer =
 document.querySelector(".products");
+
 
 for(let i=2;i<=100;i++){
 
@@ -364,24 +365,24 @@ for(let i=2;i<=100;i++){
       <div class="photo-slider">
 
         <img
-        src="PRODUCT${i}-1.jpeg"
-        alt="Product ${i}">
+          src="PRODUCT${i}-1.jpeg"
+          alt="Product ${i}">
 
         <img
-        src="PRODUCT${i}-2.jpeg"
-        alt="Product ${i}">
+          src="PRODUCT${i}-2.jpeg"
+          alt="Product ${i}">
 
         <img
-        src="PRODUCT${i}-3.jpeg"
-        alt="Product ${i}">
+          src="PRODUCT${i}-3.jpeg"
+          alt="Product ${i}">
 
         <img
-        src="PRODUCT${i}-4.jpeg"
-        alt="Product ${i}">
+          src="PRODUCT${i}-4.jpeg"
+          alt="Product ${i}">
 
         <img
-        src="PRODUCT${i}-5.jpeg"
-        alt="Product ${i}">
+          src="PRODUCT${i}-5.jpeg"
+          alt="Product ${i}">
 
       </div>
 
@@ -411,9 +412,9 @@ for(let i=2;i<=100;i++){
     </p>
 
     <a
-    class="btn"
-    href="#order"
-    style="display:block;margin:15px 16px 0;text-align:center;">
+      class="btn"
+      href="#order"
+      style="display:block;margin:15px 16px 0;text-align:center;">
 
       🛒 Order Now
 
@@ -427,13 +428,12 @@ for(let i=2;i<=100;i++){
 
 </script>
 
-
 </div>
 
 </section>
 
 
-<!-- ORDER FORM -->
+<!-- ================= ORDER FORM ================= -->
 
 <section id="order">
 
@@ -451,10 +451,10 @@ for(let i=2;i<=100;i++){
 </label>
 
 <input
-id="quantity"
-type="number"
-min="1"
-placeholder="Total number of products">
+  id="quantity"
+  type="number"
+  min="1"
+  placeholder="Total number of products">
 
 
 <!-- PRODUCT NUMBER -->
@@ -469,26 +469,26 @@ placeholder="Total number of products">
 
 for(let i=1;i<=100;i++){
 
-document.write(`
+  document.write(`
 
-<div class="option">
+  <div class="option">
 
-  <div class="option-left">
+    <div class="option-left">
 
-    <input
-    type="checkbox"
-    class="product-check"
-    value="${i}">
+      <input
+        type="checkbox"
+        class="product-check"
+        value="${i}">
 
-    <span>
-      Product ${i}
-    </span>
+      <span>
+        Product ${i}
+      </span>
+
+    </div>
 
   </div>
 
-</div>
-
-`);
+  `);
 
 }
 
@@ -526,28 +526,29 @@ const sizes = [
 
 ];
 
+
 sizes.forEach(size=>{
 
-document.write(`
+  document.write(`
 
-<div class="option">
+  <div class="option">
 
-  <div class="option-left">
+    <div class="option-left">
 
-    <input
-    type="checkbox"
-    class="size-check"
-    value="${size}">
+      <input
+        type="checkbox"
+        class="size-check"
+        value="${size}">
 
-    <span>
-      ${size}
-    </span>
+      <span>
+        ${size}
+      </span>
+
+    </div>
 
   </div>
 
-</div>
-
-`);
+  `);
 
 });
 
@@ -563,8 +564,8 @@ document.write(`
 </label>
 
 <input
-id="colour"
-placeholder="Enter colour e.g. Red, Black, Pink">
+  id="colour"
+  placeholder="Enter colour e.g. Red, Black, Pink">
 
 
 <!-- NAME -->
@@ -574,8 +575,8 @@ placeholder="Enter colour e.g. Red, Black, Pink">
 </label>
 
 <input
-id="name"
-placeholder="Your name">
+  id="name"
+  placeholder="Your name">
 
 
 <!-- MOBILE -->
@@ -585,10 +586,10 @@ placeholder="Your name">
 </label>
 
 <input
-id="phone"
-type="tel"
-maxlength="10"
-placeholder="10-digit mobile number">
+  id="phone"
+  type="tel"
+  maxlength="10"
+  placeholder="10-digit mobile number">
 
 
 <!-- ADDRESS -->
@@ -598,9 +599,9 @@ placeholder="10-digit mobile number">
 </label>
 
 <textarea
-id="address"
-rows="4"
-placeholder="Full delivery address"></textarea>
+  id="address"
+  rows="4"
+  placeholder="Full delivery address"></textarea>
 
 
 <!-- PIN CODE -->
@@ -610,18 +611,18 @@ placeholder="Full delivery address"></textarea>
 </label>
 
 <input
-id="pincode"
-type="tel"
-maxlength="6"
-placeholder="6-digit PIN code">
+  id="pincode"
+  type="tel"
+  maxlength="6"
+  placeholder="6-digit PIN code">
 
 
 <!-- COPY ORDER -->
 
 <button
-class="btn"
-style="margin-top:15px;width:100%;text-align:center"
-onclick="copyOrder()">
+  class="btn"
+  style="margin-top:15px;width:100%;text-align:center"
+  onclick="copyOrder()">
 
   📋 Copy Order Details
 
@@ -631,9 +632,9 @@ onclick="copyOrder()">
 <!-- INSTAGRAM -->
 
 <button
-class="btn"
-style="margin-top:10px;width:100%;text-align:center"
-onclick="instagram()">
+  class="btn"
+  style="margin-top:10px;width:100%;text-align:center"
+  onclick="instagram()">
 
   📲 Open Instagram
 
@@ -644,35 +645,35 @@ onclick="instagram()">
 
 <div class="note">
 
-<b>Prepaid Orders Only</b>
+  <b>Prepaid Orders Only</b>
 
-<br><br>
+  <br><br>
 
-Order details fill karein, phir
-<b>📋 Copy Order Details</b>
-par click karein.
+  Order details fill karein, phir
+  <b>📋 Copy Order Details</b>
+  par click karein.
 
-<br><br>
+  <br><br>
 
-Uske baad
-<b>📲 Open Instagram</b>
-par click karke hamare profile ke DM mein
-details <b>Paste</b> karke <b>Send</b> karein.
+  Uske baad
+  <b>📲 Open Instagram</b>
+  par click karke hamare profile ke DM mein
+  details <b>Paste</b> karke <b>Send</b> karein.
 
-<br><br>
+  <br><br>
 
-Instagram DM par <b>QR Code</b> maangein.
+  Instagram DM par <b>QR Code</b> maangein.
 
-<br><br>
+  <br><br>
 
-Payment complete karke
-<b>payment screenshot</b> DM kar dein.
+  Payment complete karke
+  <b>payment screenshot</b> DM kar dein.
 
-<br><br>
+  <br><br>
 
-Payment screenshot receive hone ke baad
-aapka order <b>Confirm</b> kar diya jayega
-aur aapko <b>Tracking ID</b> Instagram DM par mil jayegi.
+  Payment screenshot receive hone ke baad
+  aapka order <b>Confirm</b> kar diya jayega
+  aur aapko <b>Tracking ID</b> Instagram DM par mil jayegi.
 
 </div>
 
@@ -682,87 +683,89 @@ aur aapko <b>Tracking ID</b> Instagram DM par mil jayegi.
 </section>
 
 
-<!-- FOOTER -->
+<!-- ================= FOOTER ================= -->
 
 <footer>
 
-Classic Kurtis
-<br>
-@classic.___kurtis
+  Classic Kurtis
+
+  <br>
+
+  @classic.___kurtis
 
 </footer>
 
 
-<!-- JAVASCRIPT -->
+<!-- ================= JAVASCRIPT ================= -->
 
 <script>
 
 
-/* GET PRODUCTS */
+/* ================= GET PRODUCTS ================= */
 
 function getProducts(){
 
   const selected = [];
 
   document
-  .querySelectorAll('.product-check:checked')
-  .forEach(check => {
+    .querySelectorAll('.product-check:checked')
+    .forEach(check => {
 
-    selected.push(check.value);
+      selected.push(check.value);
 
-  });
+    });
 
   return selected.join(", ");
 
 }
 
 
-/* GET SIZES */
+/* ================= GET SIZES ================= */
 
 function getSizes(){
 
   const selected = [];
 
   document
-  .querySelectorAll('.size-check:checked')
-  .forEach(check => {
+    .querySelectorAll('.size-check:checked')
+    .forEach(check => {
 
-    selected.push(check.value);
+      selected.push(check.value);
 
-  });
+    });
 
   return selected.join(", ");
 
 }
 
 
-/* VALIDATION */
+/* ================= VALIDATION ================= */
 
 function validateOrder(){
 
   const quantity =
-  document.getElementById('quantity').value.trim();
+    document.getElementById('quantity').value.trim();
 
   const products =
-  getProducts();
+    getProducts();
 
   const sizes =
-  getSizes();
+    getSizes();
 
   const colour =
-  document.getElementById('colour').value.trim();
+    document.getElementById('colour').value.trim();
 
   const name =
-  document.getElementById('name').value.trim();
+    document.getElementById('name').value.trim();
 
   const phone =
-  document.getElementById('phone').value.trim();
+    document.getElementById('phone').value.trim();
 
   const address =
-  document.getElementById('address').value.trim();
+    document.getElementById('address').value.trim();
 
   const pincode =
-  document.getElementById('pincode').value.trim();
+    document.getElementById('pincode').value.trim();
 
 
   if(!quantity){
@@ -855,7 +858,7 @@ function validateOrder(){
 }
 
 
-/* COPY ORDER */
+/* ================= COPY ORDER ================= */
 
 function copyOrder(){
 
@@ -863,28 +866,28 @@ function copyOrder(){
 
 
   const quantity =
-  document.getElementById('quantity').value.trim();
+    document.getElementById('quantity').value.trim();
 
   const products =
-  getProducts();
+    getProducts();
 
   const sizes =
-  getSizes();
+    getSizes();
 
   const colour =
-  document.getElementById('colour').value.trim();
+    document.getElementById('colour').value.trim();
 
   const name =
-  document.getElementById('name').value.trim();
+    document.getElementById('name').value.trim();
 
   const phone =
-  document.getElementById('phone').value.trim();
+    document.getElementById('phone').value.trim();
 
   const address =
-  document.getElementById('address').value.trim();
+    document.getElementById('address').value.trim();
 
   const pincode =
-  document.getElementById('pincode').value.trim();
+    document.getElementById('pincode').value.trim();
 
 
   const msg =
@@ -928,7 +931,7 @@ PIN Code: ${pincode}`;
 }
 
 
-/* INSTAGRAM */
+/* ================= INSTAGRAM ================= */
 
 function instagram(){
 
@@ -946,4 +949,5 @@ function instagram(){
 
 
 </body>
+
 </html>
