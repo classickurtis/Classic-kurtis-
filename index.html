@@ -117,8 +117,6 @@ h2{
   overflow:hidden;
 }
 
-/* ================= PHOTO SLIDER ================= */
-
 .photo-slider{
   overflow-x:auto;
   display:flex;
@@ -126,6 +124,7 @@ h2{
   scroll-snap-type:x mandatory;
   scroll-behavior:smooth;
   scrollbar-width:none;
+  align-items:center;
 }
 
 .photo-slider::-webkit-scrollbar{
@@ -136,34 +135,12 @@ h2{
   min-width:100%;
   width:100%;
   height:auto;
+  max-height:520px;
   object-fit:contain;
   scroll-snap-align:start;
   flex-shrink:0;
   display:block;
 }
-
-/* ================= PRODUCT 2 PHOTO FIX ================= */
-
-.product-2 .photo{
-  aspect-ratio:4 / 5;
-}
-
-.product-2 .photo-slider{
-  height:100%;
-  width:100%;
-  align-items:center;
-}
-
-.product-2 .photo-slider img{
-  height:100%;
-  width:100%;
-  min-width:100%;
-  object-fit:contain;
-  object-position:center center;
-  align-self:center;
-}
-
-/* ================= PHOTO ARROWS ================= */
 
 .photo-arrow{
   position:absolute;
@@ -209,6 +186,105 @@ h2{
   font-size:18px;
 }
 
+/* ================= SIZE ================= */
+
+.size-area{
+  margin:14px 16px 0;
+}
+
+.size-area label{
+  display:block;
+  font-weight:700;
+  margin-bottom:6px;
+}
+
+.size-select{
+  width:100%;
+  padding:11px;
+  border:1px solid #ddd;
+  border-radius:9px;
+  background:#fff;
+  font-size:15px;
+}
+
+/* ================= ADD CART ================= */
+
+.add-cart{
+  display:block;
+  width:calc(100% - 32px);
+  margin:12px 16px 0;
+  text-align:center;
+}
+
+/* ================= CART ================= */
+
+.cart-box{
+  background:#fff;
+  border-radius:16px;
+  padding:20px;
+  box-shadow:0 4px 18px #00000012;
+  max-width:700px;
+  margin:auto;
+}
+
+.cart-item{
+  border:1px solid #eee;
+  border-radius:12px;
+  padding:12px;
+  margin-bottom:10px;
+  background:#fff8fa;
+}
+
+.cart-item-title{
+  font-weight:700;
+  color:#6c2450;
+}
+
+.cart-item-info{
+  font-size:14px;
+  margin-top:5px;
+}
+
+.qty-row{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-top:10px;
+}
+
+.qty-btn{
+  width:34px;
+  height:34px;
+  border:0;
+  border-radius:8px;
+  background:#6c2450;
+  color:#fff;
+  font-size:20px;
+  cursor:pointer;
+}
+
+.remove-btn{
+  margin-left:auto;
+  border:0;
+  background:#eee;
+  padding:8px 10px;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+.cart-total{
+  font-size:18px;
+  font-weight:800;
+  color:#6c2450;
+  margin-top:15px;
+}
+
+.empty-cart{
+  text-align:center;
+  color:#777;
+  padding:15px;
+}
+
 /* ================= ORDER ================= */
 
 .order{
@@ -234,42 +310,6 @@ textarea{
   border-radius:9px;
   margin-top:6px;
   font-size:15px;
-}
-
-.checkbox-box{
-  margin-top:8px;
-  border:1px solid #ddd;
-  border-radius:10px;
-  padding:10px;
-  max-height:300px;
-  overflow-y:auto;
-  background:#fff;
-}
-
-.option{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:10px;
-  padding:8px 5px;
-  border-bottom:1px solid #f0f0f0;
-}
-
-.option:last-child{
-  border-bottom:0;
-}
-
-.option-left{
-  display:flex;
-  align-items:center;
-  gap:8px;
-  font-weight:500;
-}
-
-.option-left input[type="checkbox"]{
-  width:20px;
-  height:20px;
-  margin:0;
 }
 
 .note{
@@ -367,1483 +407,45 @@ footer{
   Our Collection
 </h2>
 
-<div class="products">
+<div class="products" id="productContainer"></div>
+
+</section>
 
 
-<!-- ================= PRODUCT 1 ================= -->
+<!-- ================= CART ================= -->
 
-<div class="card">
+<section id="cart">
 
-  <div class="photo">
+<h2>
+  🛒 Your Cart
+</h2>
 
-    <div class="photo-slider">
+<div class="cart-box">
 
-      <img src="IMG_3721.jpeg" alt="Product 1">
-      <img src="IMG_3722.jpeg" alt="Product 1">
-      <img src="IMG_3723.jpeg" alt="Product 1">
-      <img src="IMG_3724.jpeg" alt="Product 1">
-      <img src="IMG_3725.jpeg" alt="Product 1">
+  <div id="cartItems">
 
+    <div class="empty-cart">
+      Your cart is empty.
     </div>
 
-    <button class="photo-arrow left"
-            onclick="movePhoto(this,-1)">❮</button>
-
-    <button class="photo-arrow right"
-            onclick="movePhoto(this,1)">❯</button>
-
   </div>
 
-  <h3>PRODUCT NUMBER 1</h3>
-
-  <div class="product-description">
-    • Fabric: Heavy Embroidered Crepe<br>
-    • Length: 57"<br>
-    • Front Neck: 7.5"<br>
-    • Back Neck: 11"<br>
-    • Sleeves: 7"
+  <div
+    id="cartTotal"
+    class="cart-total">
   </div>
 
-  <p class="price">PRICE ₹999</p>
+  <a
+    class="btn"
+    href="#order"
+    style="display:block;margin-top:15px;text-align:center;">
 
-  <p>
-    Size available:
-    XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
-  </p>
+    Continue to Order
 
-  <a class="btn"
-     href="#order"
-     style="display:block;margin:15px 16px 0;text-align:center;">
-    🛒 Order Now
   </a>
 
 </div>
 
-
-<!-- ================= PRODUCT 2 ================= -->
-
-<div class="card product-2">
-
-  <div class="photo">
-
-    <div class="photo-slider">
-
-      <img src="IMG_3843.jpeg" alt="Product 2">
-      <img src="IMG_3844.jpeg" alt="Product 2">
-      <img src="IMG_3845.jpeg" alt="Product 2">
-      <img src="IMG_3846.jpeg" alt="Product 2">
-      <img src="IMG_3847.jpeg" alt="Product 2">
-      <img src="IMG_3848.jpeg" alt="Product 2">
-      <img src="IMG_3849.jpeg" alt="Product 2">
-
-    </div>
-
-    <button class="photo-arrow left"
-            onclick="movePhoto(this,-1)">❮</button>
-
-    <button class="photo-arrow right"
-            onclick="movePhoto(this,1)">❯</button>
-
-  </div>
-
-  <h3>PRODUCT NUMBER 2</h3>
-
-  <div class="product-description">
-    • Fabric: Product Fabric<br>
-    • Length: 57"<br>
-    • Front Neck: 7.5"<br>
-    • Back Neck: 11"<br>
-    • Sleeves: 7"
-  </div>
-
-  <p class="price">PRICE ₹999</p>
-
-  <p>
-    Size available:
-    XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL
-  </p>
-
-  <a class="btn"
-     href="#order"
-     style="display:block;margin:15px 16px 0;text-align:center;">
-    🛒 Order Now
-  </a>
-
-</div>
-
-
-<!-- ================= PRODUCT 3 ================= -->
-
-<div class="card">
-
-  <div class="photo">
-
-    <div class="photo-slider">
-
-      <img src="IMG_3687.jpeg" alt="Product 3">
-      <img src="IMG_3683.jpeg" alt="Product 3">
-      <img src="IMG_3684.jpeg" alt="Product 3">
-      <img src="IMG_3685.jpeg" alt="Product 3">
-      <img src="IMG_3686.jpeg" alt="Product 3">
-
-    </div>
-
-    <button class="photo-arrow left"
-            onclick="movePhoto(this,-1)">❮</button>
-
-    <button class="photo-arrow right"
-            onclick="movePhoto(this,1)">❯</button>
-
-  </div>
-
-  <h3>PRODUCT NUMBER 3</h3>
-
-  <div class="product-description">
-    • Fabric: Product Fabric<br>
-    • Length: 57"<br>
-    • Front Neck: 7.5"<br>
-    • Back Neck: 11"<br>
-    • Sleeves: 7"
-  </div>
-
-  <p class="price">PRICE ₹999</p>
-
-  <p>
-    Size available:
-    XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL
-  </p>
-
-  <a class="btn" href="#order"
-     style="display:block;margin:15px 16px 0;text-align:center;">
-    🛒 Order Now
-  </a>
-
-</div>
-
-
-<!-- ================= PRODUCT 4 ================= -->
-
-<div class="card">
-
-  <div class="photo">
-
-    <div class="photo-slider">
-
-      <img src="IMG_3691.jpeg" alt="Product 4">
-      <img src="IMG_3689.jpeg" alt="Product 4">
-      <img src="IMG_3690.jpeg" alt="Product 4">
-      <img src="IMG_3688.jpeg" alt="Product 4">
-      <img src="IMG_3692.jpeg" alt="Product 4">
-      <img src="IMG_3693.jpeg" alt="Product 4">
-
-    </div>
-
-    <button class="photo-arrow left"
-            onclick="movePhoto(this,-1)">❮</button>
-
-    <button class="photo-arrow right"
-            onclick="movePhoto(this,1)">❯</button>
-
-  </div>
-
-  <h3>PRODUCT NUMBER 4</h3>
-
-  <div class="product-description">
-    • Fabric: Product Fabric<br>
-    • Length: 57"<br>
-    • Front Neck: 7.5"<br>
-    • Back Neck: 11"<br>
-    • Sleeves: 7"
-  </div>
-
-  <p class="price">PRICE ₹999</p>
-
-  <p>
-    Size available:
-    XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
-  </p>
-
-  <a class="btn" href="#order"
-     style="display:block;margin:15px 16px 0;text-align:center;">
-    🛒 Order Now
-  </a>
-
-</div>
-
-
-<!-- ================= PRODUCT 5 ================= -->
-
-<div class="card">
-
-  <div class="photo">
-
-    <div class="photo-slider">
-
-      <img src="IMG_3695.jpeg" alt="Product 5">
-      <img src="IMG_3696.jpeg" alt="Product 5">
-      <img src="IMG_3697.jpeg" alt="Product 5">
-      <img src="IMG_3698.jpeg" alt="Product 5">
-
-    </div>
-
-    <button class="photo-arrow left"
-            onclick="movePhoto(this,-1)">❮</button>
-
-    <button class="photo-arrow right"
-            onclick="movePhoto(this,1)">❯</button>
-
-  </div>
-
-  <h3>PRODUCT NUMBER 5</h3>
-
-  <div class="product-description">
-    • Fabric: Product Fabric<br>
-    • Length: 57"<br>
-    • Front Neck: 7.5"<br>
-    • Back Neck: 11"<br>
-    • Sleeves: 7"
-  </div>
-
-  <p class="price">PRICE ₹999</p>
-
-  <p>
-    Size available:
-    XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
-  </p>
-
-  <a class="btn" href="#order"
-     style="display:block;margin:15px 16px 0;text-align:center;">
-    🛒 Order Now
-  </a>
-
-</div>
-
-
-<!-- ================= PRODUCT 6 ================= -->
-
-<div class="card">
-
-  <div class="photo">
-
-    <div class="photo-slider">
-
-      <img src="IMG_3699.jpeg" alt="Product 6">
-      <img src="IMG_3700.jpeg" alt="Product 6">
-      <img src="IMG_3701.jpeg" alt="Product 6">
-      <img src="IMG_3702.jpeg" alt="Product 6">
-      <img src="IMG_3703.jpeg" alt="Product 6">
-
-    </div>
-
-    <button class="photo-arrow left"
-            onclick="movePhoto(this,-1)">❮</button>
-
-    <button class="photo-arrow right"
-            onclick="movePhoto(this,1)">❯</button>
-
-  </div>
-
-  <h3>PRODUCT NUMBER 6</h3>
-
-  <div class="product-description">
-    • Fabric: Product Fabric<br>
-    • Length: 57"<br>
-    • Front Neck: 7.5"<br>
-    • Back Neck: 11"<br>
-    • Sleeves: 7"
-  </div>
-
-  <p class="price">PRICE ₹999</p>
-
-  <p>
-    Size available:
-    XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
-  </p>
-
-  <a class="btn" href="#order"
-     style="display:block;margin:15px 16px 0;text-align:center;">
-    🛒 Order Now
-  </a>
-
-</div>
-
-
-<!-- ================= PRODUCT 7 ================= -->
-
-<div class="card">
-
-  <div class="photo">
-
-    <div class="photo-slider">
-
-      <img src="IMG_3705.jpeg" alt="Product 7">
-      <img src="IMG_3706.jpeg" alt="Product 7">
-      <img src="IMG_3707.jpeg" alt="Product 7">
-      <img src="IMG_3708.jpeg" alt="Product 7">
-      <img src="IMG_3709.jpeg" alt="Product 7">
-
-    </div>
-
-    <button class="photo-arrow left"
-            onclick="movePhoto(this,-1)">❮</button>
-
-    <button class="photo-arrow right"
-            onclick="movePhoto(this,1)">❯</button>
-
-  </div>
-
-  <h3>PRODUCT NUMBER 7</h3>
-
-  <div class="product-description">
-    • Fabric: Product Fabric<br>
-    • Length: 57"<br>
-    • Front Neck: 7.5"<br>
-    • Back Neck: 11"<br>
-    • Sleeves: 7"
-  </div>
-
-  <p class="price">PRICE ₹999</p>
-
-  <p>
-    Size available:
-    XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
-  </p>
-
-  <a class="btn" href="#order"
-     style="display:block;margin:15px 16px 0;text-align:center;">
-    🛒 Order Now
-  </a>
-
-</div>
-
-
-<!-- ================= PRODUCT 8 ================= -->
-
-<div class="card">
-
-  <div class="photo">
-
-    <div class="photo-slider">
-
-      <img src="IMG_3710.jpeg" alt="Product 8">
-      <img src="IMG_3711.jpeg" alt="Product 8">
-      <img src="IMG_3712.jpeg" alt="Product 8">
-      <img src="IMG_3713.jpeg" alt="Product 8">
-      <img src="IMG_3714.jpeg" alt="Product 8">
-
-    </div>
-
-    <button class="photo-arrow left"
-            onclick="movePhoto(this,-1)">❮</button>
-
-    <button class="photo-arrow right"
-            onclick="movePhoto(this,1)">❯</button>
-
-  </div>
-
-  <h3>PRODUCT NUMBER 8</h3>
-
-  <div class="product-description">
-    • Fabric: Product Fabric<br>
-    • Length: 57"<br>
-    • Front Neck: 7.5"<br>
-    • Back Neck: 11"<br>
-    • Sleeves: 7"
-  </div>
-
-  <p class="price">PRICE ₹999</p>
-
-  <p>
-    Size available:
-    XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
-  </p>
-
-  <a class="btn" href="#order"
-     style="display:block;margin:15px 16px 0;text-align:center;">
-    🛒 Order Now
-  </a>
-
-</div>
-
-
-<!-- ================= PRODUCT 9 ================= -->
-
-<div class="card">
-
-  <div class="photo">
-
-    <div class="photo-slider">
-
-      <img src="IMG_3715.jpeg" alt="Product 9">
-      <img src="IMG_3716.jpeg" alt="Product 9">
-      <img src="IMG_3717.jpeg" alt="Product 9">
-      <img src="IMG_3718.jpeg" alt="Product 9">
-      <img src="IMG_3719.jpeg" alt="Product 9">
-      <img src="IMG_3720.jpeg" alt="Product 9">
-
-    </div>
-
-    <button class="photo-arrow left"
-            onclick="movePhoto(this,-1)">❮</button>
-
-    <button class="photo-arrow right"
-            onclick="movePhoto(this,1)">❯</button>
-
-  </div>
-
-  <h3>PRODUCT NUMBER 9</h3>
-
-  <div class="product-description">
-    • Fabric: Product Fabric<br>
-    • Length: 57"<br>
-    • Front Neck: 7.5"<br>
-    • Back Neck: 11"<br>
-    • Sleeves: 7"
-  </div>
-
-  <p class="price">PRICE ₹999</p>
-
-  <p>
-    Size available:
-    XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
-  </p>
-
-  <a class="btn" href="#order"
-     style="display:block;margin:15px 16px 0;text-align:center;">
-    🛒 Order Now
-  </a>
-
-</div>
-
-
-<!-- ================= PRODUCT 10 ================= -->
-
-<div class="card">
-
-  <div class="photo">
-
-    <div class="photo-slider">
-
-      <img src="IMG_3726.jpeg" alt="Product 10">
-      <img src="IMG_3727.jpeg" alt="Product 10">
-      <img src="IMG_3728.jpeg" alt="Product 10">
-      <img src="IMG_3729.jpeg" alt="Product 10">
-      <img src="IMG_3730.jpeg" alt="Product 10">
-
-    </div>
-
-    <button class="photo-arrow left"
-            onclick="movePhoto(this,-1)">❮</button>
-
-    <button class="photo-arrow right"
-            onclick="movePhoto(this,1)">❯</button>
-
-  </div>
-
-  <h3>PRODUCT NUMBER 10</h3>
-
-  <div class="product-description">
-    • Fabric: Product Fabric<br>
-    • Length: 57"<br>
-    • Front Neck: 7.5"<br>
-    • Back Neck: 11"<br>
-    • Sleeves: 7"
-  </div>
-
-  <p class="price">PRICE ₹999</p>
-
-  <p>
-    Size available:
-    XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
-  </p>
-
-  <a class="btn" href="#order"
-     style="display:block;margin:15px 16px 0;text-align:center;">
-    🛒 Order Now
-  </a>
-
-</div>
-
-
-<!-- ================= PRODUCT 11 ================= -->
-
-<div class="card">
-
-  <div class="photo">
-
-    <div class="photo-slider">
-
-      <img src="IMG_3731.jpeg" alt="Product 11">
-      <img src="IMG_3732.jpeg" alt="Product 11">
-      <img src="IMG_3733.jpeg" alt="Product 11">
-      <img src="IMG_3734.jpeg" alt="Product 11">
-      <img src="IMG_3735.jpeg" alt="Product 11">
-
-    </div>
-
-    <button class="photo-arrow left"
-            onclick="movePhoto(this,-1)">❮</button>
-
-    <button class="photo-arrow right"
-            onclick="movePhoto(this,1)">❯</button>
-
-  </div>
-
-  <h3>PRODUCT NUMBER 11</h3>
-
-  <div class="product-description">
-    • Fabric: Product Fabric<br>
-    • Length: 57"<br>
-    • Front Neck: 7.5"<br>
-    • Back Neck: 11"<br>
-    • Sleeves: 7"
-  </div>
-
-  <p class="price">PRICE ₹999</p>
-
-  <p>
-    Size available:
-    XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
-  </p>
-
-  <a class="btn" href="#order"
-     style="display:block;margin:15px 16px 0;text-align:center;">
-    🛒 Order Now
-  </a>
-
-</div>
-
-
-<!-- ================= PRODUCT 12 ================= -->
-
-<div class="card">
-
-  <div class="photo">
-
-    <div class="photo-slider">
-
-      <img src="IMG_3736.jpeg" alt="Product 12">
-      <img src="IMG_3737.jpeg" alt="Product 12">
-      <img src="IMG_3738.jpeg" alt="Product 12">
-      <img src="IMG_3739.jpeg" alt="Product 12">
-      <img src="IMG_3740.jpeg" alt="Product 12">
-      <img src="IMG_3741.jpeg" alt="Product 12">
-
-    </div>
-
-    <button class="photo-arrow left"
-            onclick="movePhoto(this,-1)">❮</button>
-
-    <button class="photo-arrow right"
-            onclick="movePhoto(this,1)">❯</button>
-
-  </div>
-
-  <h3>PRODUCT NUMBER 12</h3>
-
-  <div class="product-description">
-    • Fabric: Product Fabric<br>
-    • Length: 57"<br>
-    • Front Neck: 7.5"<br>
-    • Back Neck: 11"<br>
-    • Sleeves: 7"
-  </div>
-
-  <p class="price">PRICE ₹999</p>
-
-  <p>
-    Size available:
-    XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
-  </p>
-
-  <a class="btn" href="#order"
-     style="display:block;margin:15px 16px 0;text-align:center;">
-    🛒 Order Now
-  </a>
-
-</div>
-
-
-<!-- ================= PRODUCT 13 ================= -->
-
-<div class="card">
-
-  <div class="photo">
-
-    <div class="photo-slider">
-
-      <img src="IMG_3742.jpeg" alt="Product 13">
-      <img src="IMG_3743.jpeg" alt="Product 13">
-      <img src="IMG_3744.jpeg" alt="Product 13">
-      <img src="IMG_3745.jpeg" alt="Product 13">
-      <img src="IMG_3746.jpeg" alt="Product 13">
-
-    </div>
-
-    <button class="photo-arrow left"
-            onclick="movePhoto(this,-1)">❮</button>
-
-    <button class="photo-arrow right"
-            onclick="movePhoto(this,1)">❯</button>
-
-  </div>
-
-  <h3>PRODUCT NUMBER 13</h3>
-
-  <div class="product-description">
-    • Fabric: Product Fabric<br>
-    • Length: 57"<br>
-    • Front Neck: 7.5"<br>
-    • Back Neck: 11"<br>
-    • Sleeves: 7"
-  </div>
-
-  <p class="price">PRICE ₹999</p>
-
-  <p>
-    Size available:
-    XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
-  </p>
-
-  <a class="btn" href="#order"
-     style="display:block;margin:15px 16px 0;text-align:center;">
-    🛒 Order Now
-  </a>
-
-</div>
-
-
-<!-- ================= PRODUCT 14 ================= -->
-
-<div class="card">
-
-  <div class="photo">
-
-    <div class="photo-slider">
-
-      <img src="IMG_3751.jpeg" alt="Product 14">
-      <img src="IMG_3752.jpeg" alt="Product 14">
-      <img src="IMG_3753.jpeg" alt="Product 14">
-      <img src="IMG_3754.jpeg" alt="Product 14">
-      <img src="IMG_3755.jpeg" alt="Product 14">
-
-    </div>
-
-    <button class="photo-arrow left"
-            onclick="movePhoto(this,-1)">❮</button>
-
-    <button class="photo-arrow right"
-            onclick="movePhoto(this,1)">❯</button>
-
-  </div>
-
-  <h3>PRODUCT NUMBER 14</h3>
-
-  <div class="product-description">
-    • Fabric: Product Fabric<br>
-    • Length: 57"<br>
-    • Front Neck: 7.5"<br>
-    • Back Neck: 11"<br>
-    • Sleeves: 7"
-  </div>
-
-  <p class="price">PRICE ₹999</p>
-
-  <p>
-    Size available:
-    XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
-  </p>
-
-  <a class="btn" href="#order"
-     style="display:block;margin:15px 16px 0;text-align:center;">
-    🛒 Order Now
-  </a>
-
-</div>
-
-
-<!-- ================= PRODUCT 15 ================= -->
-
-<div class="card">
-
-  <div class="photo">
-
-    <div class="photo-slider">
-
-      <img src="IMG_3747.jpeg" alt="Product 15">
-      <img src="IMG_3748.jpeg" alt="Product 15">
-      <img src="IMG_3749.jpeg" alt="Product 15">
-      <img src="IMG_3750.jpeg" alt="Product 15">
-
-    </div>
-
-    <button class="photo-arrow left"
-            onclick="movePhoto(this,-1)">❮</button>
-
-    <button class="photo-arrow right"
-            onclick="movePhoto(this,1)">❯</button>
-
-  </div>
-
-  <h3>PRODUCT NUMBER 15</h3>
-
-  <div class="product-description">
-    • Fabric: Product Fabric<br>
-    • Length: 57"<br>
-    • Front Neck: 7.5"<br>
-    • Back Neck: 11"<br>
-    • Sleeves: 7"
-  </div>
-
-  <p class="price">PRICE ₹999</p>
-
-  <p>
-    Size available:
-    XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
-  </p>
-
-  <a class="btn" href="#order"
-     style="display:block;margin:15px 16px 0;text-align:center;">
-    🛒 Order Now
-  </a>
-
-</div>
-
-
-<!-- ================= PRODUCT 16 ================= -->
-
-<div class="card">
-
-  <div class="photo">
-
-    <div class="photo-slider">
-
-      <img src="IMG_3757.jpeg" alt="Product 16">
-      <img src="IMG_3758.jpeg" alt="Product 16">
-      <img src="IMG_3759.jpeg" alt="Product 16">
-      <img src="IMG_3760.jpeg" alt="Product 16">
-      <img src="IMG_3762.jpeg" alt="Product 16">
-      <img src="IMG_3763.jpeg" alt="Product 16">
-
-    </div>
-
-    <button class="photo-arrow left"
-            onclick="movePhoto(this,-1)">❮</button>
-
-    <button class="photo-arrow right"
-            onclick="movePhoto(this,1)">❯</button>
-
-  </div>
-
-  <h3>PRODUCT NUMBER 16</h3>
-
-  <div class="product-description">
-    • Fabric: Product Fabric<br>
-    • Length: 57"<br>
-    • Front Neck: 7.5"<br>
-    • Back Neck: 11"<br>
-    • Sleeves: 7"
-  </div>
-
-  <p class="price">PRICE ₹1250</p>
-
-  <p>
-    Size available:
-    XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
-  </p>
-
-  <a class="btn" href="#order"
-     style="display:block;margin:15px 16px 0;text-align:center;">
-    🛒 Order Now
-  </a>
-
-</div>
-
-
-<!-- ================= PRODUCT 17 ================= -->
-
-<div class="card">
-
-  <div class="photo">
-
-    <div class="photo-slider">
-
-      <img src="IMG_3765.jpeg" alt="Product 17">
-      <img src="IMG_3766.jpeg" alt="Product 17">
-      <img src="IMG_3767.jpeg" alt="Product 17">
-      <img src="IMG_3768.jpeg" alt="Product 17">
-      <img src="IMG_3769.jpeg" alt="Product 17">
-
-    </div>
-
-    <button class="photo-arrow left"
-            onclick="movePhoto(this,-1)">❮</button>
-
-    <button class="photo-arrow right"
-            onclick="movePhoto(this,1)">❯</button>
-
-  </div>
-
-  <h3>PRODUCT NUMBER 17</h3>
-
-  <div class="product-description">
-    • Fabric: Product Fabric<br>
-    • Length: 57"<br>
-    • Front Neck: 7.5"<br>
-    • Back Neck: 11"<br>
-    • Sleeves: 7"
-  </div>
-
-  <p class="price">PRICE ₹1250</p>
-
-  <p>
-    Size available:
-    XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
-  </p>
-
-  <a class="btn" href="#order"
-     style="display:block;margin:15px 16px 0;text-align:center;">
-    🛒 Order Now
-  </a>
-
-</div>
-
-
-<!-- ================= PRODUCT 18 ================= -->
-
-<div class="card">
-
-  <div class="photo">
-
-    <div class="photo-slider">
-
-      <img src="IMG_3771.jpeg" alt="Product 18">
-      <img src="IMG_3772.jpeg" alt="Product 18">
-      <img src="IMG_3773.jpeg" alt="Product 18">
-      <img src="IMG_3774.jpeg" alt="Product 18">
-
-    </div>
-
-    <button class="photo-arrow left"
-            onclick="movePhoto(this,-1)">❮</button>
-
-    <button class="photo-arrow right"
-            onclick="movePhoto(this,1)">❯</button>
-
-  </div>
-
-  <h3>PRODUCT NUMBER 18</h3>
-
-  <div class="product-description">
-    • Fabric: Product Fabric<br>
-    • Length: 57"<br>
-    • Front Neck: 7.5"<br>
-    • Back Neck: 11"<br>
-    • Sleeves: 7"
-  </div>
-
-  <p class="price">PRICE ₹1250</p>
-
-  <p>
-    Size available:
-    XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
-  </p>
-
-  <a class="btn" href="#order"
-     style="display:block;margin:15px 16px 0;text-align:center;">
-    🛒 Order Now
-  </a>
-
-</div>
-
-
-<!-- ================= PRODUCT 19 ================= -->
-
-<div class="card">
-
-  <div class="photo">
-
-    <div class="photo-slider">
-
-      <img src="IMG_3775.jpeg" alt="Product 19">
-      <img src="IMG_3776.jpeg" alt="Product 19">
-      <img src="IMG_3777.jpeg" alt="Product 19">
-      <img src="IMG_3778.jpeg" alt="Product 19">
-
-    </div>
-
-    <button class="photo-arrow left"
-            onclick="movePhoto(this,-1)">❮</button>
-
-    <button class="photo-arrow right"
-            onclick="movePhoto(this,1)">❯</button>
-
-  </div>
-
-  <h3>PRODUCT NUMBER 19</h3>
-
-  <div class="product-description">
-    • Fabric: Product Fabric<br>
-    • Length: 57"<br>
-    • Front Neck: 7.5"<br>
-    • Back Neck: 11"<br>
-    • Sleeves: 7"
-  </div>
-
-  <p class="price">PRICE ₹1250</p>
-
-  <p>
-    Size available:
-    XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
-  </p>
-
-  <a class="btn" href="#order"
-     style="display:block;margin:15px 16px 0;text-align:center;">
-    🛒 Order Now
-  </a>
-
-</div>
-
-
-<!-- ================= PRODUCT 20 ================= -->
-
-<div class="card">
-
-  <div class="photo">
-
-    <div class="photo-slider">
-
-      <img src="IMG_3779.jpeg" alt="Product 20">
-      <img src="IMG_3780.jpeg" alt="Product 20">
-      <img src="IMG_3781.jpeg" alt="Product 20">
-      <img src="IMG_3782.jpeg" alt="Product 20">
-      <img src="IMG_3783.jpeg" alt="Product 20">
-
-    </div>
-
-    <button class="photo-arrow left"
-            onclick="movePhoto(this,-1)">❮</button>
-
-    <button class="photo-arrow right"
-            onclick="movePhoto(this,1)">❯</button>
-
-  </div>
-
-  <h3>PRODUCT NUMBER 20</h3>
-
-  <div class="product-description">
-    • Fabric: Product Fabric<br>
-    • Length: 57"<br>
-    • Front Neck: 7.5"<br>
-    • Back Neck: 11"<br>
-    • Sleeves: 7"
-  </div>
-
-  <p class="price">PRICE ₹999</p>
-
-  <p>
-    Size available:
-    XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
-  </p>
-
-  <a class="btn" href="#order"
-     style="display:block;margin:15px 16px 0;text-align:center;">
-    🛒 Order Now
-  </a>
-
-</div>
-
-
-<!-- ================= PRODUCT 21 ================= -->
-
-<div class="card">
-
-  <div class="photo">
-
-    <div class="photo-slider">
-
-      <img src="IMG_3785.jpeg" alt="Product 21">
-      <img src="IMG_3786.jpeg" alt="Product 21">
-      <img src="IMG_3787.jpeg" alt="Product 21">
-      <img src="IMG_3788.jpeg" alt="Product 21">
-      <img src="IMG_3789.jpeg" alt="Product 21">
-
-    </div>
-
-    <button class="photo-arrow left"
-            onclick="movePhoto(this,-1)">❮</button>
-
-    <button class="photo-arrow right"
-            onclick="movePhoto(this,1)">❯</button>
-
-  </div>
-
-  <h3>PRODUCT NUMBER 21</h3>
-
-  <div class="product-description">
-    • Fabric: Product Fabric<br>
-    • Length: 57"<br>
-    • Front Neck: 7.5"<br>
-    • Back Neck: 11"<br>
-    • Sleeves: 7"
-  </div>
-
-  <p class="price">PRICE ₹999</p>
-
-  <p>
-    Size available:
-    XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
-  </p>
-
-  <a class="btn" href="#order"
-     style="display:block;margin:15px 16px 0;text-align:center;">
-    🛒 Order Now
-  </a>
-
-</div>
-
-
-<!-- ================= PRODUCT 22 ================= -->
-
-<div class="card">
-
-  <div class="photo">
-
-    <div class="photo-slider">
-
-      <img src="IMG_3791.jpeg" alt="Product 22">
-      <img src="IMG_3792.jpeg" alt="Product 22">
-      <img src="IMG_3793.jpeg" alt="Product 22">
-      <img src="IMG_3794.jpeg" alt="Product 22">
-      <img src="IMG_3795.jpeg" alt="Product 22">
-
-    </div>
-
-    <button class="photo-arrow left"
-            onclick="movePhoto(this,-1)">❮</button>
-
-    <button class="photo-arrow right"
-            onclick="movePhoto(this,1)">❯</button>
-
-  </div>
-
-  <h3>PRODUCT NUMBER 22</h3>
-
-  <div class="product-description">
-    • Fabric: Product Fabric<br>
-    • Length: 57"<br>
-    • Front Neck: 7.5"<br>
-    • Back Neck: 11"<br>
-    • Sleeves: 7"
-  </div>
-
-  <p class="price">PRICE ₹999</p>
-
-  <p>
-    Size available:
-    XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
-  </p>
-
-  <a class="btn" href="#order"
-     style="display:block;margin:15px 16px 0;text-align:center;">
-    🛒 Order Now
-  </a>
-
-</div>
-
-
-<!-- ================= PRODUCT 23 ================= -->
-
-<div class="card">
-
-  <div class="photo">
-
-    <div class="photo-slider">
-
-      <img src="IMG_3796.jpeg" alt="Product 23">
-      <img src="IMG_3797.jpeg" alt="Product 23">
-      <img src="IMG_3798.jpeg" alt="Product 23">
-      <img src="IMG_3799.jpeg" alt="Product 23">
-      <img src="IMG_3800.jpeg" alt="Product 23">
-
-    </div>
-
-    <button class="photo-arrow left"
-            onclick="movePhoto(this,-1)">❮</button>
-
-    <button class="photo-arrow right"
-            onclick="movePhoto(this,1)">❯</button>
-
-  </div>
-
-  <h3>PRODUCT NUMBER 23</h3>
-
-  <div class="product-description">
-    • Fabric: Product Fabric<br>
-    • Length: 57"<br>
-    • Front Neck: 7.5"<br>
-    • Back Neck: 11"<br>
-    • Sleeves: 7"
-  </div>
-
-  <p class="price">PRICE ₹999</p>
-
-  <p>
-    Size available:
-    XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
-  </p>
-
-  <a class="btn" href="#order"
-     style="display:block;margin:15px 16px 0;text-align:center;">
-    🛒 Order Now
-  </a>
-
-</div>
-
-
-<!-- ================= PRODUCT 24 ================= -->
-
-<div class="card">
-
-  <div class="photo">
-
-    <div class="photo-slider">
-
-      <img src="IMG_3802.jpeg" alt="Product 24">
-      <img src="IMG_3803.jpeg" alt="Product 24">
-      <img src="IMG_3804.jpeg" alt="Product 24">
-      <img src="IMG_3805.jpeg" alt="Product 24">
-      <img src="IMG_3806.jpeg" alt="Product 24">
-
-    </div>
-
-    <button class="photo-arrow left"
-            onclick="movePhoto(this,-1)">❮</button>
-
-    <button class="photo-arrow right"
-            onclick="movePhoto(this,1)">❯</button>
-
-  </div>
-
-  <h3>PRODUCT NUMBER 24</h3>
-
-  <div class="product-description">
-    • Fabric: Product Fabric<br>
-    • Length: 57"<br>
-    • Front Neck: 7.5"<br>
-    • Back Neck: 11"<br>
-    • Sleeves: 7"
-  </div>
-
-  <p class="price">PRICE ₹999</p>
-
-  <p>
-    Size available:
-    XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
-  </p>
-
-  <a class="btn" href="#order"
-     style="display:block;margin:15px 16px 0;text-align:center;">
-    🛒 Order Now
-  </a>
-
-</div>
-
-
-<!-- ================= PRODUCT 25 ================= -->
-
-<div class="card">
-
-  <div class="photo">
-
-    <div class="photo-slider">
-
-      <img src="IMG_3807.jpeg" alt="Product 25">
-      <img src="IMG_3808.jpeg" alt="Product 25">
-      <img src="IMG_3809.jpeg" alt="Product 25">
-      <img src="IMG_3810.jpeg" alt="Product 25">
-      <img src="IMG_3811.jpeg" alt="Product 25">
-
-    </div>
-
-    <button class="photo-arrow left"
-            onclick="movePhoto(this,-1)">❮</button>
-
-    <button class="photo-arrow right"
-            onclick="movePhoto(this,1)">❯</button>
-
-  </div>
-
-  <h3>PRODUCT NUMBER 25</h3>
-
-  <div class="product-description">
-    • Fabric: Product Fabric<br>
-    • Length: 57"<br>
-    • Front Neck: 7.5"<br>
-    • Back Neck: 11"<br>
-    • Sleeves: 7"
-  </div>
-
-  <p class="price">PRICE ₹999</p>
-
-  <p>
-    Size available:
-    XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
-  </p>
-
-  <a class="btn" href="#order"
-     style="display:block;margin:15px 16px 0;text-align:center;">
-    🛒 Order Now
-  </a>
-
-</div>
-
-
-<!-- ================= PRODUCT 26 ================= -->
-
-<div class="card">
-
-  <div class="photo">
-
-    <div class="photo-slider">
-
-      <img src="IMG_3813.jpeg" alt="Product 26">
-      <img src="IMG_3814.jpeg" alt="Product 26">
-      <img src="IMG_3816.jpeg" alt="Product 26">
-      <img src="IMG_3817.jpeg" alt="Product 26">
-      <img src="IMG_3818.jpeg" alt="Product 26">
-
-    </div>
-
-    <button class="photo-arrow left"
-            onclick="movePhoto(this,-1)">❮</button>
-
-    <button class="photo-arrow right"
-            onclick="movePhoto(this,1)">❯</button>
-
-  </div>
-
-  <h3>PRODUCT NUMBER 26</h3>
-
-  <div class="product-description">
-    • Fabric: Product Fabric<br>
-    • Length: 57"<br>
-    • Front Neck: 7.5"<br>
-    • Back Neck: 11"<br>
-    • Sleeves: 7"
-  </div>
-
-  <p class="price">PRICE ₹999</p>
-
-  <p>
-    Size available:
-    XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
-  </p>
-
-  <a class="btn" href="#order"
-     style="display:block;margin:15px 16px 0;text-align:center;">
-    🛒 Order Now
-  </a>
-
-</div>
-
-
-<!-- ================= PRODUCT 27 ================= -->
-
-<div class="card">
-
-  <div class="photo">
-
-    <div class="photo-slider">
-
-      <img src="IMG_3819.jpeg" alt="Product 27">
-      <img src="IMG_3820.jpeg" alt="Product 27">
-      <img src="IMG_3821.jpeg" alt="Product 27">
-      <img src="IMG_3822.jpeg" alt="Product 27">
-      <img src="IMG_3823.jpeg" alt="Product 27">
-
-    </div>
-
-    <button class="photo-arrow left"
-            onclick="movePhoto(this,-1)">❮</button>
-
-    <button class="photo-arrow right"
-            onclick="movePhoto(this,1)">❯</button>
-
-  </div>
-
-  <h3>PRODUCT NUMBER 27</h3>
-
-  <div class="product-description">
-    • Fabric: Product Fabric<br>
-    • Length: 57"<br>
-    • Front Neck: 7.5"<br>
-    • Back Neck: 11"<br>
-    • Sleeves: 7"
-  </div>
-
-  <p class="price">PRICE ₹999</p>
-
-  <p>
-    Size available:
-    XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
-  </p>
-
-  <a class="btn" href="#order"
-     style="display:block;margin:15px 16px 0;text-align:center;">
-    🛒 Order Now
-  </a>
-
-</div>
-
-
-<!-- ================= PRODUCT 28 ================= -->
-
-<div class="card">
-
-  <div class="photo">
-
-    <div class="photo-slider">
-
-      <img src="IMG_3837.jpeg" alt="Product 28">
-      <img src="IMG_3838.jpeg" alt="Product 28">
-      <img src="IMG_3839.jpeg" alt="Product 28">
-      <img src="IMG_3840.jpeg" alt="Product 28">
-      <img src="IMG_3841.jpeg" alt="Product 28">
-
-    </div>
-
-    <button class="photo-arrow left"
-            onclick="movePhoto(this,-1)">❮</button>
-
-    <button class="photo-arrow right"
-            onclick="movePhoto(this,1)">❯</button>
-
-  </div>
-
-  <h3>PRODUCT NUMBER 28</h3>
-
-  <div class="product-description">
-    • Fabric: Product Fabric<br>
-    • Length: 57"<br>
-    • Front Neck: 7.5"<br>
-    • Back Neck: 11"<br>
-    • Sleeves: 7"
-  </div>
-
-  <p class="price">PRICE ₹999</p>
-
-  <p>
-    Size available:
-    XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
-  </p>
-
-  <a class="btn" href="#order"
-     style="display:block;margin:15px 16px 0;text-align:center;">
-    🛒 Order Now
-  </a>
-
-</div>
-
-
-<!-- ================= PRODUCT 29 ================= -->
-
-<div class="card">
-
-  <div class="photo">
-
-    <div class="photo-slider">
-
-      <img src="IMG_3833.jpeg" alt="Product 29">
-      <img src="IMG_3834.jpeg" alt="Product 29">
-      <img src="IMG_3835.jpeg" alt="Product 29">
-      <img src="IMG_3836.jpeg" alt="Product 29">
-
-    </div>
-
-    <button class="photo-arrow left"
-            onclick="movePhoto(this,-1)">❮</button>
-
-    <button class="photo-arrow right"
-            onclick="movePhoto(this,1)">❯</button>
-
-  </div>
-
-  <h3>PRODUCT NUMBER 29</h3>
-
-  <div class="product-description">
-    • Fabric: Product Fabric<br>
-    • Length: 57"<br>
-    • Front Neck: 7.5"<br>
-    • Back Neck: 11"<br>
-    • Sleeves: 7"
-  </div>
-
-  <p class="price">PRICE ₹999</p>
-
-  <p>
-    Size available:
-    XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
-  </p>
-
-  <a class="btn" href="#order"
-     style="display:block;margin:15px 16px 0;text-align:center;">
-    🛒 Order Now
-  </a>
-
-</div>
-
-
-<!-- ================= PRODUCT 30 ================= -->
-
-<div class="card">
-
-  <div class="photo">
-
-    <div class="photo-slider">
-
-      <img src="IMG_3828.jpeg" alt="Product 30">
-      <img src="IMG_3829.jpeg" alt="Product 30">
-      <img src="IMG_3830.jpeg" alt="Product 30">
-      <img src="IMG_3831.jpeg" alt="Product 30">
-      <img src="IMG_3832.jpeg" alt="Product 30">
-
-    </div>
-
-    <button class="photo-arrow left"
-            onclick="movePhoto(this,-1)">❮</button>
-
-    <button class="photo-arrow right"
-            onclick="movePhoto(this,1)">❯</button>
-
-  </div>
-
-  <h3>PRODUCT NUMBER 30</h3>
-
-  <div class="product-description">
-    • Fabric: Product Fabric<br>
-    • Length: 57"<br>
-    • Front Neck: 7.5"<br>
-    • Back Neck: 11"<br>
-    • Sleeves: 7"
-  </div>
-
-  <p class="price">PRICE ₹999</p>
-
-  <p>
-    Size available:
-    XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
-  </p>
-
-  <a class="btn" href="#order"
-     style="display:block;margin:15px 16px 0;text-align:center;">
-    🛒 Order Now
-  </a>
-
-</div>
-
-
-</div>
 </section>
 
 
@@ -1856,121 +458,6 @@ footer{
 </h2>
 
 <div class="order">
-
-
-<label>
-  Quantity
-</label>
-
-<input
-  id="quantity"
-  type="number"
-  min="1"
-  placeholder="Total number of products">
-
-
-<label>
-  Product Number
-</label>
-
-<div class="checkbox-box">
-
-<script>
-
-for(let i=1;i<=100;i++){
-
-  document.write(`
-
-    <div class="option">
-
-      <div class="option-left">
-
-        <input
-          type="checkbox"
-          class="product-check"
-          value="${i}">
-
-        <span>
-          Product ${i}
-        </span>
-
-      </div>
-
-    </div>
-
-  `);
-
-}
-
-</script>
-
-</div>
-
-
-<label>
-  Size
-</label>
-
-<div class="checkbox-box">
-
-<script>
-
-const sizes = [
-
-  "XS",
-  "S",
-  "M",
-  "L",
-  "XL",
-  "2XL",
-  "3XL",
-  "4XL",
-  "5XL",
-  "6XL",
-  "7XL",
-  "8XL",
-  "9XL",
-  "10XL"
-
-];
-
-sizes.forEach(size=>{
-
-  document.write(`
-
-    <div class="option">
-
-      <div class="option-left">
-
-        <input
-          type="checkbox"
-          class="size-check"
-          value="${size}">
-
-        <span>
-          ${size}
-        </span>
-
-      </div>
-
-    </div>
-
-  `);
-
-});
-
-</script>
-
-</div>
-
-
-<label>
-  Colour
-</label>
-
-<input
-  id="colour"
-  placeholder="Enter colour e.g. Red, Black, Pink">
 
 
 <label>
@@ -2040,13 +527,28 @@ sizes.forEach(size=>{
 
   <br><br>
 
-  Order details fill karein, phir
+  Pehle products me apni pasand ka
+  <b>Size select</b> karein aur
+  <b>🛒 Add to Cart</b> par click karein.
+
+  <br><br>
+
+  Cart me aap
+  <b>1, 2, 3, 4, 5 ya jitne chahein dresses</b>
+  select kar sakte hain.
+
+  <br><br>
+
+  Uske baad apni delivery details fill karein.
+
+  <br><br>
+
   <b>📋 Copy Order Details</b>
   par click karein.
 
   <br><br>
 
-  Uske baad
+  Phir
   <b>📲 Open Instagram</b>
   par click karke hamare profile ke DM mein
   details <b>Paste</b> karke <b>Send</b> karein.
@@ -2091,61 +593,865 @@ sizes.forEach(size=>{
 
 <script>
 
-/* ================= PHOTO ARROWS ================= */
+/* ================= PRODUCT DATA ================= */
 
-function movePhoto(button,direction){
+const products = [
 
-  const photo =
-    button.closest('.photo');
+{
+number:1,
+price:999,
+images:[
+"IMG_3721.jpeg",
+"IMG_3722.jpeg",
+"IMG_3723.jpeg",
+"IMG_3724.jpeg",
+"IMG_3725.jpeg"
+]
+},
 
-  const slider =
-    photo.querySelector('.photo-slider');
+{
+number:2,
+price:999,
+images:[
+"IMG_3843.jpeg",
+"IMG_3844.jpeg",
+"IMG_3845.jpeg",
+"IMG_3846.jpeg",
+"IMG_3847.jpeg",
+"IMG_3848.jpeg",
+"IMG_3849.jpeg"
+]
+},
 
-  slider.scrollBy({
+{
+number:3,
+price:999,
+images:[
+"IMG_3687.jpeg",
+"IMG_3683.jpeg",
+"IMG_3684.jpeg",
+"IMG_3685.jpeg",
+"IMG_3686.jpeg"
+]
+},
 
-    left: direction * slider.clientWidth,
+{
+number:4,
+price:999,
+images:[
+"IMG_3691.jpeg",
+"IMG_3689.jpeg",
+"IMG_3690.jpeg",
+"IMG_3688.jpeg",
+"IMG_3692.jpeg",
+"IMG_3693.jpeg"
+]
+},
 
-    behavior:'smooth'
+{
+number:5,
+price:999,
+images:[
+"IMG_3695.jpeg",
+"IMG_3696.jpeg",
+"IMG_3697.jpeg",
+"IMG_3698.jpeg"
+]
+},
+
+{
+number:6,
+price:999,
+images:[
+"IMG_3699.jpeg",
+"IMG_3700.jpeg",
+"IMG_3701.jpeg",
+"IMG_3702.jpeg",
+"IMG_3703.jpeg"
+]
+},
+
+{
+number:7,
+price:999,
+images:[
+"IMG_3705.jpeg",
+"IMG_3706.jpeg",
+"IMG_3707.jpeg",
+"IMG_3708.jpeg",
+"IMG_3709.jpeg"
+]
+},
+
+{
+number:8,
+price:999,
+images:[
+"IMG_3710.jpeg",
+"IMG_3711.jpeg",
+"IMG_3712.jpeg",
+"IMG_3713.jpeg",
+"IMG_3714.jpeg"
+]
+},
+
+{
+number:9,
+price:999,
+images:[
+"IMG_3715.jpeg",
+"IMG_3716.jpeg",
+"IMG_3717.jpeg",
+"IMG_3718.jpeg",
+"IMG_3719.jpeg",
+"IMG_3720.jpeg"
+]
+},
+
+{
+number:10,
+price:999,
+images:[
+"IMG_3726.jpeg",
+"IMG_3727.jpeg",
+"IMG_3728.jpeg",
+"IMG_3729.jpeg",
+"IMG_3730.jpeg"
+]
+},
+
+{
+number:11,
+price:999,
+images:[
+"IMG_3731.jpeg",
+"IMG_3732.jpeg",
+"IMG_3733.jpeg",
+"IMG_3734.jpeg",
+"IMG_3735.jpeg"
+]
+},
+
+{
+number:12,
+price:999,
+images:[
+"IMG_3736.jpeg",
+"IMG_3737.jpeg",
+"IMG_3738.jpeg",
+"IMG_3739.jpeg",
+"IMG_3740.jpeg",
+"IMG_3741.jpeg"
+]
+},
+
+{
+number:13,
+price:999,
+images:[
+"IMG_3742.jpeg",
+"IMG_3743.jpeg",
+"IMG_3744.jpeg",
+"IMG_3745.jpeg",
+"IMG_3746.jpeg"
+]
+},
+
+{
+number:14,
+price:999,
+images:[
+"IMG_3751.jpeg",
+"IMG_3752.jpeg",
+"IMG_3753.jpeg",
+"IMG_3754.jpeg",
+"IMG_3755.jpeg"
+]
+},
+
+{
+number:15,
+price:999,
+images:[
+"IMG_3747.jpeg",
+"IMG_3748.jpeg",
+"IMG_3749.jpeg",
+"IMG_3750.jpeg"
+]
+},
+
+{
+number:16,
+price:1250,
+images:[
+"IMG_3757.jpeg",
+"IMG_3758.jpeg",
+"IMG_3759.jpeg",
+"IMG_3760.jpeg",
+"IMG_3762.jpeg",
+"IMG_3763.jpeg"
+]
+},
+
+{
+number:17,
+price:1250,
+images:[
+"IMG_3765.jpeg",
+"IMG_3766.jpeg",
+"IMG_3767.jpeg",
+"IMG_3768.jpeg",
+"IMG_3769.jpeg"
+]
+},
+
+{
+number:18,
+price:1250,
+images:[
+"IMG_3771.jpeg",
+"IMG_3772.jpeg",
+"IMG_3773.jpeg",
+"IMG_3774.jpeg"
+]
+},
+
+{
+number:19,
+price:1250,
+images:[
+"IMG_3775.jpeg",
+"IMG_3776.jpeg",
+"IMG_3777.jpeg",
+"IMG_3778.jpeg"
+]
+},
+
+{
+number:20,
+price:999,
+images:[
+"IMG_3779.jpeg",
+"IMG_3780.jpeg",
+"IMG_3781.jpeg",
+"IMG_3782.jpeg",
+"IMG_3783.jpeg"
+]
+},
+
+{
+number:21,
+price:999,
+images:[
+"IMG_3785.jpeg",
+"IMG_3786.jpeg",
+"IMG_3787.jpeg",
+"IMG_3788.jpeg",
+"IMG_3789.jpeg"
+]
+},
+
+{
+number:22,
+price:999,
+images:[
+"IMG_3791.jpeg",
+"IMG_3792.jpeg",
+"IMG_3793.jpeg",
+"IMG_3794.jpeg",
+"IMG_3795.jpeg"
+]
+},
+
+{
+number:23,
+price:999,
+images:[
+"IMG_3796.jpeg",
+"IMG_3797.jpeg",
+"IMG_3798.jpeg",
+"IMG_3799.jpeg",
+"IMG_3800.jpeg"
+]
+},
+
+{
+number:24,
+price:999,
+images:[
+"IMG_3802.jpeg",
+"IMG_3803.jpeg",
+"IMG_3804.jpeg",
+"IMG_3805.jpeg",
+"IMG_3806.jpeg"
+]
+},
+
+{
+number:25,
+price:999,
+images:[
+"IMG_3807.jpeg",
+"IMG_3808.jpeg",
+"IMG_3809.jpeg",
+"IMG_3810.jpeg",
+"IMG_3811.jpeg"
+]
+},
+
+{
+number:26,
+price:999,
+images:[
+"IMG_3813.jpeg",
+"IMG_3814.jpeg",
+"IMG_3816.jpeg",
+"IMG_3817.jpeg",
+"IMG_3818.jpeg"
+]
+},
+
+{
+number:27,
+price:999,
+images:[
+"IMG_3819.jpeg",
+"IMG_3820.jpeg",
+"IMG_3821.jpeg",
+"IMG_3822.jpeg",
+"IMG_3823.jpeg"
+]
+},
+
+{
+number:28,
+price:999,
+images:[
+"IMG_3837.jpeg",
+"IMG_3838.jpeg",
+"IMG_3839.jpeg",
+"IMG_3840.jpeg",
+"IMG_3841.jpeg"
+]
+},
+
+{
+number:29,
+price:999,
+images:[
+"IMG_3833.jpeg",
+"IMG_3834.jpeg",
+"IMG_3835.jpeg",
+"IMG_3836.jpeg"
+]
+},
+
+{
+number:30,
+price:999,
+images:[
+"IMG_3828.jpeg",
+"IMG_3829.jpeg",
+"IMG_3830.jpeg",
+"IMG_3831.jpeg",
+"IMG_3832.jpeg"
+]
+}
+
+];
+
+
+/* ================= SIZES ================= */
+
+const sizes = [
+"XS",
+"S",
+"M",
+"L",
+"XL",
+"2XL",
+"3XL",
+"4XL",
+"5XL",
+"6XL",
+"7XL",
+"8XL",
+"9XL",
+"10XL"
+];
+
+
+/* ================= CART ================= */
+
+let cart = [];
+
+
+/* ================= CREATE PRODUCTS ================= */
+
+function createProducts(){
+
+  const container =
+    document.getElementById("productContainer");
+
+  products.forEach(product=>{
+
+    const card =
+      document.createElement("div");
+
+    card.className = "card";
+
+    const images =
+      product.images.map(image=>`
+
+        <img
+          src="${image}"
+          alt="Product ${product.number}">
+
+      `).join("");
+
+
+    const sizeOptions =
+      sizes.map(size=>`
+
+        <option value="${size}">
+          ${size}
+        </option>
+
+      `).join("");
+
+
+    card.innerHTML = `
+
+      <div class="photo">
+
+        <div class="photo-slider">
+
+          ${images}
+
+        </div>
+
+        <button
+          class="photo-arrow left"
+          onclick="movePhoto(this,-1)">
+
+          ❮
+
+        </button>
+
+        <button
+          class="photo-arrow right"
+          onclick="movePhoto(this,1)">
+
+          ❯
+
+        </button>
+
+      </div>
+
+
+      <h3>
+        PRODUCT NUMBER ${product.number}
+      </h3>
+
+
+      <div class="product-description">
+
+        • Fabric: Product Fabric<br>
+        • Length: 57"<br>
+        • Front Neck: 7.5"<br>
+        • Back Neck: 11"<br>
+        • Sleeves: 7"
+
+      </div>
+
+
+      <p class="price">
+        PRICE ₹${product.price}
+      </p>
+
+
+      <div class="size-area">
+
+        <label>
+          Select Size
+        </label>
+
+        <select
+          class="size-select"
+          id="size-${product.number}">
+
+          <option value="">
+            Select Size
+          </option>
+
+          ${sizeOptions}
+
+        </select>
+
+      </div>
+
+
+      <button
+        class="btn add-cart"
+        onclick="addToCart(${product.number})">
+
+        🛒 Add to Cart
+
+      </button>
+
+
+      <a
+        class="btn"
+        href="#cart"
+        style="display:block;margin:10px 16px 0;text-align:center;background:#eee;color:#6c2450;">
+
+        🛍️ View Cart
+
+      </a>
+
+    `;
+
+    container.appendChild(card);
 
   });
 
 }
 
 
-/* ================= GET PRODUCTS ================= */
+/* ================= PHOTO ARROWS ================= */
 
-function getProducts(){
+function movePhoto(button,direction){
 
-  const selected = [];
+  const photo =
+    button.closest(".photo");
 
-  document
-    .querySelectorAll('.product-check:checked')
-    .forEach(check => {
+  const slider =
+    photo.querySelector(".photo-slider");
 
-      selected.push(check.value);
+  slider.scrollBy({
 
-    });
+    left:
+      direction * slider.clientWidth,
 
-  return selected.join(", ");
+    behavior:"smooth"
+
+  });
 
 }
 
 
-/* ================= GET SIZES ================= */
+/* ================= ADD TO CART ================= */
 
-function getSizes(){
+function addToCart(productNumber){
 
-  const selected = [];
+  const size =
+    document.getElementById(
+      "size-" + productNumber
+    ).value;
 
-  document
-    .querySelectorAll('.size-check:checked')
-    .forEach(check => {
 
-      selected.push(check.value);
+  if(!size){
+
+    alert("Please select Size first.");
+
+    return;
+
+  }
+
+
+  const product =
+    products.find(
+      p => p.number === productNumber
+    );
+
+
+  const existing =
+    cart.find(
+      item =>
+        item.product === productNumber &&
+        item.size === size
+    );
+
+
+  if(existing){
+
+    existing.quantity++;
+
+  }else{
+
+    cart.push({
+
+      product:productNumber,
+
+      size:size,
+
+      price:product.price,
+
+      quantity:1
 
     });
 
-  return selected.join(", ");
+  }
+
+
+  renderCart();
+
+
+  alert(
+    "Product " +
+    productNumber +
+    " added to cart."
+  );
+
+
+  document
+    .getElementById("cart")
+    .scrollIntoView({
+      behavior:"smooth"
+    });
+
+}
+
+
+/* ================= RENDER CART ================= */
+
+function renderCart(){
+
+  const cartItems =
+    document.getElementById("cartItems");
+
+  const cartTotal =
+    document.getElementById("cartTotal");
+
+
+  if(cart.length === 0){
+
+    cartItems.innerHTML = `
+
+      <div class="empty-cart">
+        Your cart is empty.
+      </div>
+
+    `;
+
+    cartTotal.innerHTML = "";
+
+    return;
+
+  }
+
+
+  let total = 0;
+
+
+  cartItems.innerHTML = "";
+
+
+  cart.forEach((item,index)=>{
+
+    const itemTotal =
+      item.price * item.quantity;
+
+    total += itemTotal;
+
+
+    const div =
+      document.createElement("div");
+
+    div.className = "cart-item";
+
+
+    div.innerHTML = `
+
+      <div class="cart-item-title">
+
+        Product ${item.product}
+
+      </div>
+
+
+      <div class="cart-item-info">
+
+        Size: ${item.size}
+
+        <br>
+
+        Price: ₹${item.price}
+
+      </div>
+
+
+      <div class="qty-row">
+
+        <button
+          class="qty-btn"
+          onclick="changeQuantity(${index},-1)">
+
+          −
+
+        </button>
+
+
+        <b>
+          ${item.quantity}
+        </b>
+
+
+        <button
+          class="qty-btn"
+          onclick="changeQuantity(${index},1)">
+
+          +
+
+        </button>
+
+
+        <span>
+
+          ₹${itemTotal}
+
+        </span>
+
+
+        <button
+          class="remove-btn"
+          onclick="removeFromCart(${index})">
+
+          ❌ Remove
+
+        </button>
+
+      </div>
+
+    `;
+
+
+    cartItems.appendChild(div);
+
+  });
+
+
+  cartTotal.innerHTML =
+    "Total Quantity: " +
+    getTotalQuantity() +
+    "<br><br>" +
+    "Total Amount: ₹" +
+    total;
+
+}
+
+
+/* ================= QUANTITY ================= */
+
+function changeQuantity(index,change){
+
+  cart[index].quantity += change;
+
+
+  if(cart[index].quantity <= 0){
+
+    cart.splice(index,1);
+
+  }
+
+
+  renderCart();
+
+}
+
+
+/* ================= REMOVE ================= */
+
+function removeFromCart(index){
+
+  cart.splice(index,1);
+
+  renderCart();
+
+}
+
+
+/* ================= TOTAL QUANTITY ================= */
+
+function getTotalQuantity(){
+
+  return cart.reduce(
+
+    (total,item)=>
+      total + item.quantity,
+
+    0
+
+  );
+
+}
+
+
+/* ================= CART TEXT ================= */
+
+function getCartDetails(){
+
+  if(cart.length === 0){
+
+    return "";
+
+  }
+
+
+  let text =
+    "🛒 ORDER ITEMS\n\n";
+
+
+  cart.forEach((item,index)=>{
+
+    text +=
+
+      (index + 1) +
+      ". Product " +
+      item.product +
+      "\n" +
+
+      "Size: " +
+      item.size +
+      "\n" +
+
+      "Quantity: " +
+      item.quantity +
+      "\n" +
+
+      "Price: ₹" +
+      item.price +
+      "\n" +
+
+      "Subtotal: ₹" +
+      (item.price * item.quantity) +
+      "\n\n";
+
+  });
+
+
+  let totalAmount =
+    cart.reduce(
+
+      (total,item)=>
+        total +
+        (item.price * item.quantity),
+
+      0
+
+    );
+
+
+  text +=
+    "Total Quantity: " +
+    getTotalQuantity() +
+    "\n" +
+
+    "Total Amount: ₹" +
+    totalAmount;
+
+
+  return text;
 
 }
 
@@ -2154,79 +1460,48 @@ function getSizes(){
 
 function validateOrder(){
 
-  const quantity =
-    document.getElementById('quantity').value.trim();
+  if(cart.length === 0){
 
-  const products =
-    getProducts();
+    alert(
+      "Please add at least one product to cart."
+    );
 
-  const sizes =
-    getSizes();
+    return false;
 
-  const colour =
-    document.getElementById('colour').value.trim();
+  }
+
 
   const name =
-    document.getElementById('name').value.trim();
+    document
+      .getElementById("name")
+      .value
+      .trim();
+
 
   const phone =
-    document.getElementById('phone').value.trim();
+    document
+      .getElementById("phone")
+      .value
+      .trim();
+
 
   const address =
-    document.getElementById('address').value.trim();
+    document
+      .getElementById("address")
+      .value
+      .trim();
+
 
   const pincode =
-    document.getElementById('pincode').value.trim();
-
-
-  if(!quantity){
-
-    alert('Please enter Quantity.');
-
-    return false;
-
-  }
-
-
-  if(Number(quantity)<1){
-
-    alert('Quantity must be at least 1.');
-
-    return false;
-
-  }
-
-
-  if(!products){
-
-    alert('Please select Product Number.');
-
-    return false;
-
-  }
-
-
-  if(!sizes){
-
-    alert('Please select Size.');
-
-    return false;
-
-  }
-
-
-  if(!colour){
-
-    alert('Please enter Colour.');
-
-    return false;
-
-  }
+    document
+      .getElementById("pincode")
+      .value
+      .trim();
 
 
   if(!name){
 
-    alert('Please enter Full Name.');
+    alert("Please enter Full Name.");
 
     return false;
 
@@ -2236,7 +1511,7 @@ function validateOrder(){
   if(!/^[0-9]{10}$/.test(phone)){
 
     alert(
-      'Please enter a valid 10-digit mobile number.'
+      "Please enter a valid 10-digit mobile number."
     );
 
     return false;
@@ -2246,7 +1521,9 @@ function validateOrder(){
 
   if(!address){
 
-    alert('Please enter Delivery Address.');
+    alert(
+      "Please enter Delivery Address."
+    );
 
     return false;
 
@@ -2256,7 +1533,7 @@ function validateOrder(){
   if(!/^[0-9]{6}$/.test(pincode)){
 
     alert(
-      'Please enter a valid 6-digit PIN Code.'
+      "Please enter a valid 6-digit PIN Code."
     );
 
     return false;
@@ -2276,41 +1553,41 @@ function copyOrder(){
   if(!validateOrder()) return;
 
 
-  const quantity =
-    document.getElementById('quantity').value.trim();
-
-  const products =
-    getProducts();
-
-  const sizes =
-    getSizes();
-
-  const colour =
-    document.getElementById('colour').value.trim();
-
   const name =
-    document.getElementById('name').value.trim();
+    document
+      .getElementById("name")
+      .value
+      .trim();
+
 
   const phone =
-    document.getElementById('phone').value.trim();
+    document
+      .getElementById("phone")
+      .value
+      .trim();
+
 
   const address =
-    document.getElementById('address').value.trim();
+    document
+      .getElementById("address")
+      .value
+      .trim();
+
 
   const pincode =
-    document.getElementById('pincode').value.trim();
+    document
+      .getElementById("pincode")
+      .value
+      .trim();
 
 
   const msg =
+
 `🛍️ New Order - Classic Kurtis
 
-Quantity: ${quantity}
+${getCartDetails()}
 
-Product Number: ${products}
-
-Size: ${sizes}
-
-Colour: ${colour}
+👤 Customer Details
 
 Name: ${name}
 
@@ -2321,23 +1598,24 @@ Address: ${address}
 PIN Code: ${pincode}`;
 
 
-  navigator.clipboard.writeText(msg)
+  navigator.clipboard
+    .writeText(msg)
 
-  .then(()=>{
+    .then(()=>{
 
-    alert(
-      'Order details copied! Now open Instagram and paste the message.'
-    );
+      alert(
+        "Order details copied! Now open Instagram and paste the message."
+      );
 
-  })
+    })
 
-  .catch(()=>{
+    .catch(()=>{
 
-    alert(
-      'Copy failed. Please try again.'
-    );
+      alert(
+        "Copy failed. Please try again."
+      );
 
-  });
+    });
 
 }
 
@@ -2348,12 +1626,20 @@ function instagram(){
 
   if(!validateOrder()) return;
 
+
   window.open(
-    'https://www.instagram.com/classic.___kurtis/',
-    '_blank'
+    "https://www.instagram.com/classic.___kurtis/",
+    "_blank"
   );
 
 }
+
+
+/* ================= START ================= */
+
+createProducts();
+
+renderCart();
 
 </script>
 
