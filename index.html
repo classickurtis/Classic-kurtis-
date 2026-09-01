@@ -1729,34 +1729,6 @@ function instagram(){
 }
 
 </script>
-document.querySelectorAll('.photo-slider').forEach(slider => {
-
-  const left = document.createElement('button');
-  left.className = 'photo-arrow left';
-  left.innerHTML = '❮';
-
-  const right = document.createElement('button');
-  right.className = 'photo-arrow right';
-  right.innerHTML = '❯';
-
-  slider.parentElement.appendChild(left);
-  slider.parentElement.appendChild(right);
-
-  left.onclick = () => {
-    slider.scrollBy({
-      left: -slider.clientWidth,
-      behavior: 'smooth'
-    });
-  };
-
-  right.onclick = () => {
-    slider.scrollBy({
-      left: slider.clientWidth,
-      behavior: 'smooth'
-    });
-  };
-
-});
 
 </body>
 
