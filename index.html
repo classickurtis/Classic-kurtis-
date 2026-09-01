@@ -7,42 +7,21 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <title>Classic Kurtis</title>
+
 <style>
 
 *{
   box-sizing:border-box;
 }
-.photo{
-  position:relative;
-}
-  .photo-arrow{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  z-index:10;
-  width:42px;
-  height:42px;
-  border:none;
-  border-radius:50%;
-  background:rgba(255,255,255,0.9);
-  color:#6c2450;
-  font-size:28px;
-  font-weight:bold;
-  cursor:pointer;
-}
-  .photo-arrow.left{
-  left:8px;
-}
 
-.photo-arrow.right{
-  right:8px;
-}
 body{
   margin:0;
   font-family:Arial,sans-serif;
   background:#fff8fa;
   color:#241b20;
 }
+
+/* ================= HEADER ================= */
 
 header{
   position:sticky;
@@ -69,6 +48,8 @@ header{
   border-radius:20px;
 }
 
+/* ================= HERO ================= */
+
 .hero{
   text-align:center;
   padding:65px 18px;
@@ -85,6 +66,8 @@ header{
   color:#594b51;
 }
 
+/* ================= BUTTON ================= */
+
 .btn{
   display:inline-block;
   border:0;
@@ -97,6 +80,8 @@ header{
   cursor:pointer;
 }
 
+/* ================= SECTION ================= */
+
 section{
   max-width:1100px;
   margin:auto;
@@ -107,6 +92,8 @@ h2{
   text-align:center;
   margin-top:0;
 }
+
+/* ================= PRODUCTS ================= */
 
 .products{
   display:grid;
@@ -122,7 +109,10 @@ h2{
   padding-bottom:18px;
 }
 
+/* ================= PHOTO SLIDER ================= */
+
 .photo{
+  position:relative;
   aspect-ratio:3 / 4;
   background:#eadde4;
   overflow:hidden;
@@ -132,9 +122,14 @@ h2{
   height:100%;
   overflow-x:auto;
   display:flex;
-  gap:10px;
+  gap:0;
   scroll-snap-type:x mandatory;
   scroll-behavior:smooth;
+  scrollbar-width:none;
+}
+
+.photo-slider::-webkit-scrollbar{
+  display:none;
 }
 
 .photo-slider img{
@@ -145,6 +140,35 @@ h2{
   scroll-snap-align:start;
   flex-shrink:0;
 }
+
+/* ================= PHOTO ARROWS ================= */
+
+.photo-arrow{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  z-index:10;
+  width:42px;
+  height:42px;
+  border:none;
+  border-radius:50%;
+  background:rgba(255,255,255,0.9);
+  color:#6c2450;
+  font-size:28px;
+  font-weight:bold;
+  cursor:pointer;
+  box-shadow:0 2px 8px #00000020;
+}
+
+.photo-arrow.left{
+  left:8px;
+}
+
+.photo-arrow.right{
+  right:8px;
+}
+
+/* ================= CARD TEXT ================= */
 
 .card h3,
 .card p{
@@ -162,6 +186,8 @@ h2{
   color:#6c2450;
   font-size:18px;
 }
+
+/* ================= ORDER ================= */
 
 .order{
   background:#fff;
@@ -233,12 +259,16 @@ textarea{
   line-height:1.5;
 }
 
+/* ================= FOOTER ================= */
+
 footer{
   text-align:center;
   background:#241b20;
   color:#fff;
   padding:25px;
 }
+
+/* ================= MOBILE ================= */
 
 @media(max-width:500px){
 
@@ -250,7 +280,11 @@ footer{
     font-size:9px;
   }
 
-  
+  .photo-arrow{
+    width:38px;
+    height:38px;
+    font-size:24px;
+  }
 
 }
 
@@ -330,6 +364,22 @@ footer{
 
     </div>
 
+    <button
+      class="photo-arrow left"
+      onclick="movePhoto(this,-1)">
+
+      ❮
+
+    </button>
+
+    <button
+      class="photo-arrow right"
+      onclick="movePhoto(this,1)">
+
+      ❯
+
+    </button>
+
   </div>
 
   <h3>
@@ -355,10 +405,9 @@ footer{
     XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
   </p>
 
-  <a
-    class="btn"
-    href="#order"
-    style="display:block;margin:15px 16px 0;text-align:center;">
+  <a class="btn"
+     href="#order"
+     style="display:block;margin:15px 16px 0;text-align:center;">
 
     🛒 Order Now
 
@@ -367,9 +416,7 @@ footer{
 </div>
 
 
-<!-- ================================================= -->
-<!-- PRODUCT 2 -->
-<!-- ================================================= -->
+<!-- ================= PRODUCT 2 ================= -->
 
 <div class="card">
 
@@ -387,19 +434,25 @@ footer{
 
     </div>
 
+    <button class="photo-arrow left"
+            onclick="movePhoto(this,-1)">❮</button>
+
+    <button class="photo-arrow right"
+            onclick="movePhoto(this,1)">❯</button>
+
   </div>
 
   <h3>
-    PRODUCT NUMBER 2
+    PRODUCT NUMBER 2<br>
     BUY ONE GET ONE FREE
   </h3>
 
   <div class="product-description">
 
-    • Fabric: cotton
-    • Length: 48
+    • Fabric: Cotton<br>
+    • Length: 48"<br>
     • Front Neck: 7.5"<br>
-    • Back Neck: closed "<br>
+    • Back Neck: Closed<br>
     • Sleeves: 22"
 
   </div>
@@ -410,13 +463,12 @@ footer{
 
   <p>
     Size available:
-    XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL,
+    XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL
   </p>
 
-  <a
-    class="btn"
-    href="#order"
-    style="display:block;margin:15px 16px 0;text-align:center;">
+  <a class="btn"
+     href="#order"
+     style="display:block;margin:15px 16px 0;text-align:center;">
 
     🛒 Order Now
 
@@ -425,13 +477,7 @@ footer{
 </div>
 
 
-<!-- ================================================= -->
-<!-- PRODUCT 3 TO 100 -->
-<!-- ================================================= -->
-
-<!-- ================================================= -->
-<!-- PRODUCT 3 -->
-<!-- ================================================= -->
+<!-- ================= PRODUCT 3 ================= -->
 
 <div class="card">
 
@@ -444,9 +490,14 @@ footer{
       <img src="IMG_3684.jpeg" alt="Product 3">
       <img src="IMG_3685.jpeg" alt="Product 3">
       <img src="IMG_3686.jpeg" alt="Product 3">
-     
 
     </div>
+
+    <button class="photo-arrow left"
+            onclick="movePhoto(this,-1)">❮</button>
+
+    <button class="photo-arrow right"
+            onclick="movePhoto(this,1)">❯</button>
 
   </div>
 
@@ -470,13 +521,12 @@ footer{
 
   <p>
     Size available:
-    XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL,
+    XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL
   </p>
 
-  <a
-    class="btn"
-    href="#order"
-    style="display:block;margin:15px 16px 0;text-align:center;">
+  <a class="btn"
+     href="#order"
+     style="display:block;margin:15px 16px 0;text-align:center;">
 
     🛒 Order Now
 
@@ -485,32 +535,30 @@ footer{
 </div>
 
 
-<!-- ================================================= -->
-<!-- PRODUCT 4 TO 100 -->
-<!-- ================================================= -->
-
-<!-- ================================================= -->
-<!-- PRODUCT 4 -->
-<!-- ================================================= -->
+<!-- ================= PRODUCT 4 ================= -->
 
 <div class="card">
 
   <div class="photo">
 
-  <div class="photo-slider">
+    <div class="photo-slider">
 
-    <img src="IMG_3691.jpeg" alt="Product 4">
-    <img src="IMG_3689.jpeg" alt="Product 4">
-    <img src="IMG_3690.jpeg" alt="Product 4">
-    <img src="IMG_3688.jpeg" alt="Product 4">
-    <img src="IMG_3692.jpeg" alt="Product 4">
-    <img src="IMG_3693.jpeg" alt="Product 4">
+      <img src="IMG_3691.jpeg" alt="Product 4">
+      <img src="IMG_3689.jpeg" alt="Product 4">
+      <img src="IMG_3690.jpeg" alt="Product 4">
+      <img src="IMG_3688.jpeg" alt="Product 4">
+      <img src="IMG_3692.jpeg" alt="Product 4">
+      <img src="IMG_3693.jpeg" alt="Product 4">
+
+    </div>
+
+    <button class="photo-arrow left"
+            onclick="movePhoto(this,-1)">❮</button>
+
+    <button class="photo-arrow right"
+            onclick="movePhoto(this,1)">❯</button>
 
   </div>
-
-  
-
-</div>
 
   <h3>
     PRODUCT NUMBER 4
@@ -535,19 +583,19 @@ footer{
     XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
   </p>
 
-  <a
-    class="btn"
-    href="#order"
-    style="display:block;margin:15px 16px 0;text-align:center;">
+  <a class="btn"
+     href="#order"
+     style="display:block;margin:15px 16px 0;text-align:center;">
 
     🛒 Order Now
 
   </a>
 
-
 </div>
 
-<!-- PRODUCT 5 -->
+
+<!-- ================= PRODUCT 5 ================= -->
+
 <div class="card">
 
   <div class="photo">
@@ -560,6 +608,12 @@ footer{
       <img src="IMG_3698.jpeg" alt="Product 5">
 
     </div>
+
+    <button class="photo-arrow left"
+            onclick="movePhoto(this,-1)">❮</button>
+
+    <button class="photo-arrow right"
+            onclick="movePhoto(this,1)">❯</button>
 
   </div>
 
@@ -586,17 +640,19 @@ footer{
     XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
   </p>
 
-  <a
-    class="btn"
-    href="#order"
-    style="display:block;margin:15px 16px 0;text-align:center;">
+  <a class="btn"
+     href="#order"
+     style="display:block;margin:15px 16px 0;text-align:center;">
 
     🛒 Order Now
 
   </a>
 
 </div>
-<!-- PRODUCT 6 -->
+
+
+<!-- ================= PRODUCT 6 ================= -->
+
 <div class="card">
 
   <div class="photo">
@@ -610,6 +666,12 @@ footer{
       <img src="IMG_3703.jpeg" alt="Product 6">
 
     </div>
+
+    <button class="photo-arrow left"
+            onclick="movePhoto(this,-1)">❮</button>
+
+    <button class="photo-arrow right"
+            onclick="movePhoto(this,1)">❯</button>
 
   </div>
 
@@ -636,17 +698,19 @@ footer{
     XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
   </p>
 
-  <a
-    class="btn"
-    href="#order"
-    style="display:block;margin:15px 16px 0;text-align:center;">
+  <a class="btn"
+     href="#order"
+     style="display:block;margin:15px 16px 0;text-align:center;">
 
     🛒 Order Now
 
   </a>
 
 </div>
-  <!-- PRODUCT 7 -->
+
+
+<!-- ================= PRODUCT 7 ================= -->
+
 <div class="card">
 
   <div class="photo">
@@ -660,6 +724,12 @@ footer{
       <img src="IMG_3709.jpeg" alt="Product 7">
 
     </div>
+
+    <button class="photo-arrow left"
+            onclick="movePhoto(this,-1)">❮</button>
+
+    <button class="photo-arrow right"
+            onclick="movePhoto(this,1)">❯</button>
 
   </div>
 
@@ -686,17 +756,19 @@ footer{
     XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
   </p>
 
-  <a
-    class="btn"
-    href="#order"
-    style="display:block;margin:15px 16px 0;text-align:center;">
+  <a class="btn"
+     href="#order"
+     style="display:block;margin:15px 16px 0;text-align:center;">
 
     🛒 Order Now
 
   </a>
 
 </div>
- <!-- PRODUCT 8 -->
+
+
+<!-- ================= PRODUCT 8 ================= -->
+
 <div class="card">
 
   <div class="photo">
@@ -710,6 +782,12 @@ footer{
       <img src="IMG_3714.jpeg" alt="Product 8">
 
     </div>
+
+    <button class="photo-arrow left"
+            onclick="movePhoto(this,-1)">❮</button>
+
+    <button class="photo-arrow right"
+            onclick="movePhoto(this,1)">❯</button>
 
   </div>
 
@@ -736,17 +814,19 @@ footer{
     XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
   </p>
 
-  <a
-    class="btn"
-    href="#order"
-    style="display:block;margin:15px 16px 0;text-align:center;">
+  <a class="btn"
+     href="#order"
+     style="display:block;margin:15px 16px 0;text-align:center;">
 
     🛒 Order Now
 
   </a>
 
-</div> 
-  <!-- PRODUCT 9 -->
+</div>
+
+
+<!-- ================= PRODUCT 9 ================= -->
+
 <div class="card">
 
   <div class="photo">
@@ -761,6 +841,12 @@ footer{
       <img src="IMG_3720.jpeg" alt="Product 9">
 
     </div>
+
+    <button class="photo-arrow left"
+            onclick="movePhoto(this,-1)">❮</button>
+
+    <button class="photo-arrow right"
+            onclick="movePhoto(this,1)">❯</button>
 
   </div>
 
@@ -787,17 +873,19 @@ footer{
     XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
   </p>
 
-  <a
-    class="btn"
-    href="#order"
-    style="display:block;margin:15px 16px 0;text-align:center;">
+  <a class="btn"
+     href="#order"
+     style="display:block;margin:15px 16px 0;text-align:center;">
 
     🛒 Order Now
 
   </a>
 
 </div>
-   <!-- PRODUCT 10 -->
+
+
+<!-- ================= PRODUCT 10 ================= -->
+
 <div class="card">
 
   <div class="photo">
@@ -809,9 +897,14 @@ footer{
       <img src="IMG_3728.jpeg" alt="Product 10">
       <img src="IMG_3729.jpeg" alt="Product 10">
       <img src="IMG_3730.jpeg" alt="Product 10">
-     
 
     </div>
+
+    <button class="photo-arrow left"
+            onclick="movePhoto(this,-1)">❮</button>
+
+    <button class="photo-arrow right"
+            onclick="movePhoto(this,1)">❯</button>
 
   </div>
 
@@ -838,17 +931,19 @@ footer{
     XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
   </p>
 
-  <a
-    class="btn"
-    href="#order"
-    style="display:block;margin:15px 16px 0;text-align:center;">
+  <a class="btn"
+     href="#order"
+     style="display:block;margin:15px 16px 0;text-align:center;">
 
     🛒 Order Now
 
   </a>
 
-</div> 
-  <!-- PRODUCT 11 -->
+</div>
+
+
+<!-- ================= PRODUCT 11 ================= -->
+
 <div class="card">
 
   <div class="photo">
@@ -860,9 +955,14 @@ footer{
       <img src="IMG_3733.jpeg" alt="Product 11">
       <img src="IMG_3734.jpeg" alt="Product 11">
       <img src="IMG_3735.jpeg" alt="Product 11">
-     
 
     </div>
+
+    <button class="photo-arrow left"
+            onclick="movePhoto(this,-1)">❮</button>
+
+    <button class="photo-arrow right"
+            onclick="movePhoto(this,1)">❯</button>
 
   </div>
 
@@ -889,17 +989,19 @@ footer{
     XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
   </p>
 
-  <a
-    class="btn"
-    href="#order"
-    style="display:block;margin:15px 16px 0;text-align:center;">
+  <a class="btn"
+     href="#order"
+     style="display:block;margin:15px 16px 0;text-align:center;">
 
     🛒 Order Now
 
   </a>
 
-</div> 
-  <!-- PRODUCT 12 -->
+</div>
+
+
+<!-- ================= PRODUCT 12 ================= -->
+
 <div class="card">
 
   <div class="photo">
@@ -911,11 +1013,15 @@ footer{
       <img src="IMG_3738.jpeg" alt="Product 12">
       <img src="IMG_3739.jpeg" alt="Product 12">
       <img src="IMG_3740.jpeg" alt="Product 12">
-      <img src="IMG_3741.jpeg" alt="Product 12"> 
-    
-     
+      <img src="IMG_3741.jpeg" alt="Product 12">
 
     </div>
+
+    <button class="photo-arrow left"
+            onclick="movePhoto(this,-1)">❮</button>
+
+    <button class="photo-arrow right"
+            onclick="movePhoto(this,1)">❯</button>
 
   </div>
 
@@ -942,17 +1048,19 @@ footer{
     XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
   </p>
 
-  <a
-    class="btn"
-    href="#order"
-    style="display:block;margin:15px 16px 0;text-align:center;">
+  <a class="btn"
+     href="#order"
+     style="display:block;margin:15px 16px 0;text-align:center;">
 
     🛒 Order Now
 
   </a>
 
-</div> 
-  <!-- PRODUCT 13 -->
+</div>
+
+
+<!-- ================= PRODUCT 13 ================= -->
+
 <div class="card">
 
   <div class="photo">
@@ -963,11 +1071,15 @@ footer{
       <img src="IMG_3743.jpeg" alt="Product 13">
       <img src="IMG_3744.jpeg" alt="Product 13">
       <img src="IMG_3745.jpeg" alt="Product 13">
-      <img src="IMG_3746.jpeg" alt="Product 13"> 
-    
-     
+      <img src="IMG_3746.jpeg" alt="Product 13">
 
     </div>
+
+    <button class="photo-arrow left"
+            onclick="movePhoto(this,-1)">❮</button>
+
+    <button class="photo-arrow right"
+            onclick="movePhoto(this,1)">❯</button>
 
   </div>
 
@@ -994,17 +1106,19 @@ footer{
     XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
   </p>
 
-  <a
-    class="btn"
-    href="#order"
-    style="display:block;margin:15px 16px 0;text-align:center;">
+  <a class="btn"
+     href="#order"
+     style="display:block;margin:15px 16px 0;text-align:center;">
 
     🛒 Order Now
 
   </a>
 
-</div> 
-  <!-- PRODUCT 14 -->
+</div>
+
+
+<!-- ================= PRODUCT 14 ================= -->
+
 <div class="card">
 
   <div class="photo">
@@ -1015,11 +1129,15 @@ footer{
       <img src="IMG_3752.jpeg" alt="Product 14">
       <img src="IMG_3753.jpeg" alt="Product 14">
       <img src="IMG_3754.jpeg" alt="Product 14">
-      <img src="IMG_3755.jpeg" alt="Product 14"> 
-    
-     
+      <img src="IMG_3755.jpeg" alt="Product 14">
 
     </div>
+
+    <button class="photo-arrow left"
+            onclick="movePhoto(this,-1)">❮</button>
+
+    <button class="photo-arrow right"
+            onclick="movePhoto(this,1)">❯</button>
 
   </div>
 
@@ -1046,17 +1164,19 @@ footer{
     XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
   </p>
 
-  <a
-    class="btn"
-    href="#order"
-    style="display:block;margin:15px 16px 0;text-align:center;">
+  <a class="btn"
+     href="#order"
+     style="display:block;margin:15px 16px 0;text-align:center;">
 
     🛒 Order Now
 
   </a>
 
-</div> 
-  <!-- PRODUCT 15 -->
+</div>
+
+
+<!-- ================= PRODUCT 15 ================= -->
+
 <div class="card">
 
   <div class="photo">
@@ -1067,11 +1187,14 @@ footer{
       <img src="IMG_3748.jpeg" alt="Product 15">
       <img src="IMG_3749.jpeg" alt="Product 15">
       <img src="IMG_3750.jpeg" alt="Product 15">
-     
-    
-    
 
     </div>
+
+    <button class="photo-arrow left"
+            onclick="movePhoto(this,-1)">❮</button>
+
+    <button class="photo-arrow right"
+            onclick="movePhoto(this,1)">❯</button>
 
   </div>
 
@@ -1098,17 +1221,19 @@ footer{
     XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
   </p>
 
-  <a
-    class="btn"
-    href="#order"
-    style="display:block;margin:15px 16px 0;text-align:center;">
+  <a class="btn"
+     href="#order"
+     style="display:block;margin:15px 16px 0;text-align:center;">
 
     🛒 Order Now
 
   </a>
 
-</div> 
-  <!-- PRODUCT 16 -->
+</div>
+
+
+<!-- ================= PRODUCT 16 ================= -->
+
 <div class="card">
 
   <div class="photo">
@@ -1119,12 +1244,16 @@ footer{
       <img src="IMG_3758.jpeg" alt="Product 16">
       <img src="IMG_3759.jpeg" alt="Product 16">
       <img src="IMG_3760.jpeg" alt="Product 16">
-      <img src="IMG_3762.jpeg" alt="Product 16"> 
-      <img src="IMG_3763.jpeg" alt="Product 16"> 
-    
-     
+      <img src="IMG_3762.jpeg" alt="Product 16">
+      <img src="IMG_3763.jpeg" alt="Product 16">
 
     </div>
+
+    <button class="photo-arrow left"
+            onclick="movePhoto(this,-1)">❮</button>
+
+    <button class="photo-arrow right"
+            onclick="movePhoto(this,1)">❯</button>
 
   </div>
 
@@ -1151,17 +1280,19 @@ footer{
     XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
   </p>
 
-  <a
-    class="btn"
-    href="#order"
-    style="display:block;margin:15px 16px 0;text-align:center;">
+  <a class="btn"
+     href="#order"
+     style="display:block;margin:15px 16px 0;text-align:center;">
 
     🛒 Order Now
 
   </a>
 
-</div> 
-  <!-- PRODUCT 17 -->
+</div>
+
+
+<!-- ================= PRODUCT 17 ================= -->
+
 <div class="card">
 
   <div class="photo">
@@ -1172,12 +1303,15 @@ footer{
       <img src="IMG_3766.jpeg" alt="Product 17">
       <img src="IMG_3767.jpeg" alt="Product 17">
       <img src="IMG_3768.jpeg" alt="Product 17">
-      <img src="IMG_3769.jpeg" alt="Product 17"> 
-      
-    
-     
+      <img src="IMG_3769.jpeg" alt="Product 17">
 
     </div>
+
+    <button class="photo-arrow left"
+            onclick="movePhoto(this,-1)">❮</button>
+
+    <button class="photo-arrow right"
+            onclick="movePhoto(this,1)">❯</button>
 
   </div>
 
@@ -1204,17 +1338,20 @@ footer{
     XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
   </p>
 
-  <a
-    class="btn"
-    href="#order"
-    style="display:block;margin:15px 16px 0;text-align:center;">
+  <a class="btn"
+     href="#order"
+     style="display:block;margin:15px 16px 0;text-align:center;">
 
     🛒 Order Now
 
   </a>
 
-</div> 
+</div>
+
+
+</div>
 </section>
+
 
 <!-- ================= ORDER FORM ================= -->
 
@@ -1227,8 +1364,6 @@ footer{
 <div class="order">
 
 
-<!-- QUANTITY -->
-
 <label>
   Quantity
 </label>
@@ -1239,8 +1374,6 @@ footer{
   min="1"
   placeholder="Total number of products">
 
-
-<!-- PRODUCT NUMBER -->
 
 <label>
   Product Number
@@ -1254,22 +1387,22 @@ for(let i=1;i<=100;i++){
 
   document.write(`
 
-  <div class="option">
+    <div class="option">
 
-    <div class="option-left">
+      <div class="option-left">
 
-      <input
-        type="checkbox"
-        class="product-check"
-        value="${i}">
+        <input
+          type="checkbox"
+          class="product-check"
+          value="${i}">
 
-      <span>
-        Product ${i}
-      </span>
+        <span>
+          Product ${i}
+        </span>
+
+      </div>
 
     </div>
-
-  </div>
 
   `);
 
@@ -1279,8 +1412,6 @@ for(let i=1;i<=100;i++){
 
 </div>
 
-
-<!-- SIZE -->
 
 <label>
   Size
@@ -1309,27 +1440,26 @@ const sizes = [
 
 ];
 
-
 sizes.forEach(size=>{
 
   document.write(`
 
-  <div class="option">
+    <div class="option">
 
-    <div class="option-left">
+      <div class="option-left">
 
-      <input
-        type="checkbox"
-        class="size-check"
-        value="${size}">
+        <input
+          type="checkbox"
+          class="size-check"
+          value="${size}">
 
-      <span>
-        ${size}
-      </span>
+        <span>
+          ${size}
+        </span>
+
+      </div>
 
     </div>
-
-  </div>
 
   `);
 
@@ -1340,8 +1470,6 @@ sizes.forEach(size=>{
 </div>
 
 
-<!-- COLOUR -->
-
 <label>
   Colour
 </label>
@@ -1351,8 +1479,6 @@ sizes.forEach(size=>{
   placeholder="Enter colour e.g. Red, Black, Pink">
 
 
-<!-- NAME -->
-
 <label>
   Full Name
 </label>
@@ -1361,8 +1487,6 @@ sizes.forEach(size=>{
   id="name"
   placeholder="Your name">
 
-
-<!-- MOBILE -->
 
 <label>
   Mobile Number
@@ -1375,8 +1499,6 @@ sizes.forEach(size=>{
   placeholder="10-digit mobile number">
 
 
-<!-- ADDRESS -->
-
 <label>
   Delivery Address
 </label>
@@ -1386,8 +1508,6 @@ sizes.forEach(size=>{
   rows="4"
   placeholder="Full delivery address"></textarea>
 
-
-<!-- PIN CODE -->
 
 <label>
   PIN Code
@@ -1400,8 +1520,6 @@ sizes.forEach(size=>{
   placeholder="6-digit PIN code">
 
 
-<!-- COPY ORDER -->
-
 <button
   class="btn"
   style="margin-top:15px;width:100%;text-align:center"
@@ -1412,8 +1530,6 @@ sizes.forEach(size=>{
 </button>
 
 
-<!-- INSTAGRAM -->
-
 <button
   class="btn"
   style="margin-top:10px;width:100%;text-align:center"
@@ -1423,8 +1539,6 @@ sizes.forEach(size=>{
 
 </button>
 
-
-<!-- NOTE -->
 
 <div class="note">
 
@@ -1482,6 +1596,25 @@ sizes.forEach(size=>{
 <!-- ================= JAVASCRIPT ================= -->
 
 <script>
+
+
+/* ================= PHOTO ARROWS ================= */
+
+function movePhoto(button,direction){
+
+  const photo = button.closest('.photo');
+
+  const slider = photo.querySelector('.photo-slider');
+
+  slider.scrollBy({
+
+    left: direction * slider.clientWidth,
+
+    behavior:'smooth'
+
+  });
+
+}
 
 
 /* ================= GET PRODUCTS ================= */
@@ -1560,7 +1693,7 @@ function validateOrder(){
   }
 
 
-  if(Number(quantity) < 1){
+  if(Number(quantity)<1){
 
     alert('Quantity must be at least 1.');
 
@@ -1720,13 +1853,13 @@ function instagram(){
 
   if(!validateOrder()) return;
 
-
   window.open(
     'https://www.instagram.com/classic.___kurtis/',
     '_blank'
   );
 
 }
+
 
 </script>
 
