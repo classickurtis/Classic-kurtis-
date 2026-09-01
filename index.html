@@ -7,7 +7,6 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <title>Classic Kurtis</title>
-
 <style>
 
 *{
@@ -16,19 +15,27 @@
 .photo{
   position:relative;
 }
-
-.photo::after{
-  content:"📸 Swipe → More Photos";
+  .photo-arrow{
   position:absolute;
-  right:10px;
-  bottom:10px;
-  background:rgba(0,0,0,0.65);
-  color:white;
-  padding:7px 12px;
-  border-radius:20px;
-  font-size:12px;
-  font-weight:600;
-  pointer-events:none;
+  top:50%;
+  transform:translateY(-50%);
+  z-index:10;
+  width:42px;
+  height:42px;
+  border:none;
+  border-radius:50%;
+  background:rgba(255,255,255,0.9);
+  color:#6c2450;
+  font-size:28px;
+  font-weight:bold;
+  cursor:pointer;
+}
+  .photo-arrow.left{
+  left:8px;
+}
+
+.photo-arrow.right{
+  right:8px;
 }
 body{
   margin:0;
@@ -490,18 +497,28 @@ footer{
 
   <div class="photo">
 
-    <div class="photo-slider">
+  <button class="photo-arrow left"
+    onclick="this.parentElement.querySelector('.photo-slider').scrollBy({left:-300,behavior:'smooth'})">
+    ❮
+  </button>
 
-      <img src="IMG_3691.jpeg" alt="Product 4">
-      <img src="IMG_3689.jpeg" alt="Product 4">
-      <img src="IMG_3690.jpeg" alt="Product 4">
-      <img src="IMG_3688.jpeg" alt="Product 4">
-      <img src="IMG_3692.jpeg" alt="Product 4">
-      <img src="IMG_3693.jpeg" alt="Product 4">
+  <div class="photo-slider">
 
-    </div>
+    <img src="IMG_3691.jpeg" alt="Product 4">
+    <img src="IMG_3689.jpeg" alt="Product 4">
+    <img src="IMG_3690.jpeg" alt="Product 4">
+    <img src="IMG_3688.jpeg" alt="Product 4">
+    <img src="IMG_3692.jpeg" alt="Product 4">
+    <img src="IMG_3693.jpeg" alt="Product 4">
 
   </div>
+
+  <button class="photo-arrow right"
+    onclick="this.parentElement.querySelector('.photo-slider').scrollBy({left:300,behavior:'smooth'})">
+    ❯
+  </button>
+
+</div>
 
   <h3>
     PRODUCT NUMBER 4
