@@ -576,7 +576,13 @@ footer{
       Add to cart
 
     </button>
+<button
+  class="view-cart"
+  onclick="viewCart()">
 
+  🛒 View Cart
+
+</button>
   </div>
 
 </div>
@@ -2912,7 +2918,16 @@ function addToCart(button,product,price){
   );
 
 }
+function viewCart() {
+  const cartSection = document.getElementById("cart");
 
+  if (cartSection) {
+    cartSection.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+  }
+}
 
 /* ================= UPDATE CART ================= */
 
