@@ -3044,7 +3044,21 @@ function removeCartItem(index){
   updateCart();
 
 }
+document.querySelectorAll('.buy-row').forEach(function(row) {
 
+  if (!row.querySelector('.view-cart')) {
+
+    const button = document.createElement('button');
+
+    button.className = 'view-cart';
+    button.type = 'button';
+    button.textContent = '🛒 View Cart';
+    button.onclick = viewCart;
+
+    row.appendChild(button);
+  }
+
+});
 
 /* ================= SIZE CHART ================= */
 
