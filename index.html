@@ -108,14 +108,16 @@ h2{
   box-shadow:0 4px 18px #00000012;
   padding-bottom:18px;
 }
-/* ================= PHOTO ARROWS ================= */
-/* ================= PHOTO SLIDER ================= */
+
+/* ================= PHOTO ================= */
 
 .photo{
   position:relative;
   background:#eadde4;
   overflow:hidden;
 }
+
+/* ================= PHOTO SLIDER ================= */
 
 .photo-slider{
   overflow-x:auto;
@@ -139,6 +141,30 @@ h2{
   flex-shrink:0;
   display:block;
 }
+
+/* ================= PRODUCT 2 PHOTO FIX ================= */
+
+.product-2 .photo{
+  aspect-ratio:4 / 5;
+}
+
+.product-2 .photo-slider{
+  height:100%;
+  width:100%;
+  align-items:center;
+}
+
+.product-2 .photo-slider img{
+  height:100%;
+  width:100%;
+  min-width:100%;
+  object-fit:contain;
+  object-position:center center;
+  align-self:center;
+}
+
+/* ================= PHOTO ARROWS ================= */
+
 .photo-arrow{
   position:absolute;
   top:50%;
@@ -163,19 +189,7 @@ h2{
 .photo-arrow.right{
   right:8px;
 }
-.product-2 .photo{
-  aspect-ratio:4 / 5;
-}
 
-.product-2 .photo-slider{
-  height:auto;
-  align-items:center;
-}
-
-.product-2 .photo-slider img{
-  height:auto;
-  object-fit:contain;
-}
 /* ================= CARD TEXT ================= */
 
 .card h3,
@@ -372,41 +386,25 @@ footer{
 
     </div>
 
-    <button
-      class="photo-arrow left"
-      onclick="movePhoto(this,-1)">
+    <button class="photo-arrow left"
+            onclick="movePhoto(this,-1)">❮</button>
 
-      ❮
-
-    </button>
-
-    <button
-      class="photo-arrow right"
-      onclick="movePhoto(this,1)">
-
-      ❯
-
-    </button>
+    <button class="photo-arrow right"
+            onclick="movePhoto(this,1)">❯</button>
 
   </div>
 
-  <h3>
-    PRODUCT NUMBER 1
-  </h3>
+  <h3>PRODUCT NUMBER 1</h3>
 
   <div class="product-description">
-
     • Fabric: Heavy Embroidered Crepe<br>
     • Length: 57"<br>
     • Front Neck: 7.5"<br>
     • Back Neck: 11"<br>
     • Sleeves: 7"
-
   </div>
 
-  <p class="price">
-    PRICE ₹999
-  </p>
+  <p class="price">PRICE ₹999</p>
 
   <p>
     Size available:
@@ -416,15 +414,14 @@ footer{
   <a class="btn"
      href="#order"
      style="display:block;margin:15px 16px 0;text-align:center;">
-
     🛒 Order Now
-
   </a>
 
 </div>
 
 
 <!-- ================= PRODUCT 2 ================= -->
+
 <div class="card product-2">
 
   <div class="photo">
@@ -437,7 +434,7 @@ footer{
       <img src="IMG_3846.jpeg" alt="Product 2">
       <img src="IMG_3847.jpeg" alt="Product 2">
       <img src="IMG_3848.jpeg" alt="Product 2">
-      <img src="IMG_3849.jpeg" alt="Product 2">     
+      <img src="IMG_3849.jpeg" alt="Product 2">
 
     </div>
 
@@ -449,23 +446,17 @@ footer{
 
   </div>
 
-  <h3>
-    PRODUCT NUMBER 2
-  </h3>
+  <h3>PRODUCT NUMBER 2</h3>
 
   <div class="product-description">
-
     • Fabric: Product Fabric<br>
     • Length: 57"<br>
     • Front Neck: 7.5"<br>
     • Back Neck: 11"<br>
     • Sleeves: 7"
-
   </div>
 
-  <p class="price">
-    PRICE ₹999
-  </p>
+  <p class="price">PRICE ₹999</p>
 
   <p>
     Size available:
@@ -475,14 +466,10 @@ footer{
   <a class="btn"
      href="#order"
      style="display:block;margin:15px 16px 0;text-align:center;">
-
     🛒 Order Now
-
   </a>
 
 </div>
-
-
 
 
 <!-- ================= PRODUCT 3 ================= -->
@@ -509,35 +496,26 @@ footer{
 
   </div>
 
-  <h3>
-    PRODUCT NUMBER 3
-  </h3>
+  <h3>PRODUCT NUMBER 3</h3>
 
   <div class="product-description">
-
     • Fabric: Product Fabric<br>
     • Length: 57"<br>
     • Front Neck: 7.5"<br>
     • Back Neck: 11"<br>
     • Sleeves: 7"
-
   </div>
 
-  <p class="price">
-    PRICE ₹999
-  </p>
+  <p class="price">PRICE ₹999</p>
 
   <p>
     Size available:
     XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL
   </p>
 
-  <a class="btn"
-     href="#order"
+  <a class="btn" href="#order"
      style="display:block;margin:15px 16px 0;text-align:center;">
-
     🛒 Order Now
-
   </a>
 
 </div>
@@ -568,35 +546,26 @@ footer{
 
   </div>
 
-  <h3>
-    PRODUCT NUMBER 4
-  </h3>
+  <h3>PRODUCT NUMBER 4</h3>
 
   <div class="product-description">
-
     • Fabric: Product Fabric<br>
     • Length: 57"<br>
     • Front Neck: 7.5"<br>
     • Back Neck: 11"<br>
     • Sleeves: 7"
-
   </div>
 
-  <p class="price">
-    PRICE ₹999
-  </p>
+  <p class="price">PRICE ₹999</p>
 
   <p>
     Size available:
     XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
   </p>
 
-  <a class="btn"
-     href="#order"
+  <a class="btn" href="#order"
      style="display:block;margin:15px 16px 0;text-align:center;">
-
     🛒 Order Now
-
   </a>
 
 </div>
@@ -625,35 +594,26 @@ footer{
 
   </div>
 
-  <h3>
-    PRODUCT NUMBER 5
-  </h3>
+  <h3>PRODUCT NUMBER 5</h3>
 
   <div class="product-description">
-
     • Fabric: Product Fabric<br>
     • Length: 57"<br>
     • Front Neck: 7.5"<br>
     • Back Neck: 11"<br>
     • Sleeves: 7"
-
   </div>
 
-  <p class="price">
-    PRICE ₹999
-  </p>
+  <p class="price">PRICE ₹999</p>
 
   <p>
     Size available:
     XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
   </p>
 
-  <a class="btn"
-     href="#order"
+  <a class="btn" href="#order"
      style="display:block;margin:15px 16px 0;text-align:center;">
-
     🛒 Order Now
-
   </a>
 
 </div>
@@ -683,35 +643,26 @@ footer{
 
   </div>
 
-  <h3>
-    PRODUCT NUMBER 6
-  </h3>
+  <h3>PRODUCT NUMBER 6</h3>
 
   <div class="product-description">
-
     • Fabric: Product Fabric<br>
     • Length: 57"<br>
     • Front Neck: 7.5"<br>
     • Back Neck: 11"<br>
     • Sleeves: 7"
-
   </div>
 
-  <p class="price">
-    PRICE ₹999
-  </p>
+  <p class="price">PRICE ₹999</p>
 
   <p>
     Size available:
     XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
   </p>
 
-  <a class="btn"
-     href="#order"
+  <a class="btn" href="#order"
      style="display:block;margin:15px 16px 0;text-align:center;">
-
     🛒 Order Now
-
   </a>
 
 </div>
@@ -741,35 +692,26 @@ footer{
 
   </div>
 
-  <h3>
-    PRODUCT NUMBER 7
-  </h3>
+  <h3>PRODUCT NUMBER 7</h3>
 
   <div class="product-description">
-
     • Fabric: Product Fabric<br>
     • Length: 57"<br>
     • Front Neck: 7.5"<br>
     • Back Neck: 11"<br>
     • Sleeves: 7"
-
   </div>
 
-  <p class="price">
-    PRICE ₹999
-  </p>
+  <p class="price">PRICE ₹999</p>
 
   <p>
     Size available:
     XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
   </p>
 
-  <a class="btn"
-     href="#order"
+  <a class="btn" href="#order"
      style="display:block;margin:15px 16px 0;text-align:center;">
-
     🛒 Order Now
-
   </a>
 
 </div>
@@ -799,35 +741,26 @@ footer{
 
   </div>
 
-  <h3>
-    PRODUCT NUMBER 8
-  </h3>
+  <h3>PRODUCT NUMBER 8</h3>
 
   <div class="product-description">
-
     • Fabric: Product Fabric<br>
     • Length: 57"<br>
     • Front Neck: 7.5"<br>
     • Back Neck: 11"<br>
     • Sleeves: 7"
-
   </div>
 
-  <p class="price">
-    PRICE ₹999
-  </p>
+  <p class="price">PRICE ₹999</p>
 
   <p>
     Size available:
     XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
   </p>
 
-  <a class="btn"
-     href="#order"
+  <a class="btn" href="#order"
      style="display:block;margin:15px 16px 0;text-align:center;">
-
     🛒 Order Now
-
   </a>
 
 </div>
@@ -858,35 +791,26 @@ footer{
 
   </div>
 
-  <h3>
-    PRODUCT NUMBER 9
-  </h3>
+  <h3>PRODUCT NUMBER 9</h3>
 
   <div class="product-description">
-
     • Fabric: Product Fabric<br>
     • Length: 57"<br>
     • Front Neck: 7.5"<br>
     • Back Neck: 11"<br>
     • Sleeves: 7"
-
   </div>
 
-  <p class="price">
-    PRICE ₹999
-  </p>
+  <p class="price">PRICE ₹999</p>
 
   <p>
     Size available:
     XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
   </p>
 
-  <a class="btn"
-     href="#order"
+  <a class="btn" href="#order"
      style="display:block;margin:15px 16px 0;text-align:center;">
-
     🛒 Order Now
-
   </a>
 
 </div>
@@ -916,35 +840,26 @@ footer{
 
   </div>
 
-  <h3>
-    PRODUCT NUMBER 10
-  </h3>
+  <h3>PRODUCT NUMBER 10</h3>
 
   <div class="product-description">
-
     • Fabric: Product Fabric<br>
     • Length: 57"<br>
     • Front Neck: 7.5"<br>
     • Back Neck: 11"<br>
     • Sleeves: 7"
-
   </div>
 
-  <p class="price">
-    PRICE ₹999
-  </p>
+  <p class="price">PRICE ₹999</p>
 
   <p>
     Size available:
     XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
   </p>
 
-  <a class="btn"
-     href="#order"
+  <a class="btn" href="#order"
      style="display:block;margin:15px 16px 0;text-align:center;">
-
     🛒 Order Now
-
   </a>
 
 </div>
@@ -974,35 +889,26 @@ footer{
 
   </div>
 
-  <h3>
-    PRODUCT NUMBER 11
-  </h3>
+  <h3>PRODUCT NUMBER 11</h3>
 
   <div class="product-description">
-
     • Fabric: Product Fabric<br>
     • Length: 57"<br>
     • Front Neck: 7.5"<br>
     • Back Neck: 11"<br>
     • Sleeves: 7"
-
   </div>
 
-  <p class="price">
-    PRICE ₹999
-  </p>
+  <p class="price">PRICE ₹999</p>
 
   <p>
     Size available:
     XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
   </p>
 
-  <a class="btn"
-     href="#order"
+  <a class="btn" href="#order"
      style="display:block;margin:15px 16px 0;text-align:center;">
-
     🛒 Order Now
-
   </a>
 
 </div>
@@ -1033,35 +939,26 @@ footer{
 
   </div>
 
-  <h3>
-    PRODUCT NUMBER 12
-  </h3>
+  <h3>PRODUCT NUMBER 12</h3>
 
   <div class="product-description">
-
     • Fabric: Product Fabric<br>
     • Length: 57"<br>
     • Front Neck: 7.5"<br>
     • Back Neck: 11"<br>
     • Sleeves: 7"
-
   </div>
 
-  <p class="price">
-    PRICE ₹999
-  </p>
+  <p class="price">PRICE ₹999</p>
 
   <p>
     Size available:
     XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
   </p>
 
-  <a class="btn"
-     href="#order"
+  <a class="btn" href="#order"
      style="display:block;margin:15px 16px 0;text-align:center;">
-
     🛒 Order Now
-
   </a>
 
 </div>
@@ -1091,35 +988,26 @@ footer{
 
   </div>
 
-  <h3>
-    PRODUCT NUMBER 13
-  </h3>
+  <h3>PRODUCT NUMBER 13</h3>
 
   <div class="product-description">
-
     • Fabric: Product Fabric<br>
     • Length: 57"<br>
     • Front Neck: 7.5"<br>
     • Back Neck: 11"<br>
     • Sleeves: 7"
-
   </div>
 
-  <p class="price">
-    PRICE ₹999
-  </p>
+  <p class="price">PRICE ₹999</p>
 
   <p>
     Size available:
     XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
   </p>
 
-  <a class="btn"
-     href="#order"
+  <a class="btn" href="#order"
      style="display:block;margin:15px 16px 0;text-align:center;">
-
     🛒 Order Now
-
   </a>
 
 </div>
@@ -1149,35 +1037,26 @@ footer{
 
   </div>
 
-  <h3>
-    PRODUCT NUMBER 14
-  </h3>
+  <h3>PRODUCT NUMBER 14</h3>
 
   <div class="product-description">
-
     • Fabric: Product Fabric<br>
     • Length: 57"<br>
     • Front Neck: 7.5"<br>
     • Back Neck: 11"<br>
     • Sleeves: 7"
-
   </div>
 
-  <p class="price">
-    PRICE ₹999
-  </p>
+  <p class="price">PRICE ₹999</p>
 
   <p>
     Size available:
     XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
   </p>
 
-  <a class="btn"
-     href="#order"
+  <a class="btn" href="#order"
      style="display:block;margin:15px 16px 0;text-align:center;">
-
     🛒 Order Now
-
   </a>
 
 </div>
@@ -1206,35 +1085,26 @@ footer{
 
   </div>
 
-  <h3>
-    PRODUCT NUMBER 15
-  </h3>
+  <h3>PRODUCT NUMBER 15</h3>
 
   <div class="product-description">
-
     • Fabric: Product Fabric<br>
     • Length: 57"<br>
     • Front Neck: 7.5"<br>
     • Back Neck: 11"<br>
     • Sleeves: 7"
-
   </div>
 
-  <p class="price">
-    PRICE ₹999
-  </p>
+  <p class="price">PRICE ₹999</p>
 
   <p>
     Size available:
     XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
   </p>
 
-  <a class="btn"
-     href="#order"
+  <a class="btn" href="#order"
      style="display:block;margin:15px 16px 0;text-align:center;">
-
     🛒 Order Now
-
   </a>
 
 </div>
@@ -1265,35 +1135,26 @@ footer{
 
   </div>
 
-  <h3>
-    PRODUCT NUMBER 16
-  </h3>
+  <h3>PRODUCT NUMBER 16</h3>
 
   <div class="product-description">
-
     • Fabric: Product Fabric<br>
     • Length: 57"<br>
     • Front Neck: 7.5"<br>
     • Back Neck: 11"<br>
     • Sleeves: 7"
-
   </div>
 
-  <p class="price">
-    PRICE ₹1250
-  </p>
+  <p class="price">PRICE ₹1250</p>
 
   <p>
     Size available:
     XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
   </p>
 
-  <a class="btn"
-     href="#order"
+  <a class="btn" href="#order"
      style="display:block;margin:15px 16px 0;text-align:center;">
-
     🛒 Order Now
-
   </a>
 
 </div>
@@ -1323,42 +1184,32 @@ footer{
 
   </div>
 
-  <h3>
-    PRODUCT NUMBER 17
-  </h3>
+  <h3>PRODUCT NUMBER 17</h3>
 
   <div class="product-description">
-
     • Fabric: Product Fabric<br>
     • Length: 57"<br>
     • Front Neck: 7.5"<br>
     • Back Neck: 11"<br>
     • Sleeves: 7"
-
   </div>
 
-  <p class="price">
-    PRICE ₹1250
-  </p>
+  <p class="price">PRICE ₹1250</p>
 
   <p>
     Size available:
     XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
   </p>
 
-  <a class="btn"
-     href="#order"
+  <a class="btn" href="#order"
      style="display:block;margin:15px 16px 0;text-align:center;">
-
     🛒 Order Now
-
   </a>
 
 </div>
 
 
-</div>
-  <!-- ================= PRODUCT 18 ================= -->
+<!-- ================= PRODUCT 18 ================= -->
 
 <div class="card">
 
@@ -1370,7 +1221,6 @@ footer{
       <img src="IMG_3772.jpeg" alt="Product 18">
       <img src="IMG_3773.jpeg" alt="Product 18">
       <img src="IMG_3774.jpeg" alt="Product 18">
-      
 
     </div>
 
@@ -1382,42 +1232,32 @@ footer{
 
   </div>
 
-  <h3>
-    PRODUCT NUMBER 18
-  </h3>
+  <h3>PRODUCT NUMBER 18</h3>
 
   <div class="product-description">
-
     • Fabric: Product Fabric<br>
     • Length: 57"<br>
     • Front Neck: 7.5"<br>
     • Back Neck: 11"<br>
     • Sleeves: 7"
-
   </div>
 
-  <p class="price">
-    PRICE ₹1250
-  </p>
+  <p class="price">PRICE ₹1250</p>
 
   <p>
     Size available:
     XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
   </p>
 
-  <a class="btn"
-     href="#order"
+  <a class="btn" href="#order"
      style="display:block;margin:15px 16px 0;text-align:center;">
-
     🛒 Order Now
-
   </a>
 
 </div>
 
 
-</div>
-  <!-- ================= PRODUCT 19 ================= -->
+<!-- ================= PRODUCT 19 ================= -->
 
 <div class="card">
 
@@ -1429,7 +1269,6 @@ footer{
       <img src="IMG_3776.jpeg" alt="Product 19">
       <img src="IMG_3777.jpeg" alt="Product 19">
       <img src="IMG_3778.jpeg" alt="Product 19">
-      
 
     </div>
 
@@ -1441,42 +1280,32 @@ footer{
 
   </div>
 
-  <h3>
-    PRODUCT NUMBER 19
-  </h3>
+  <h3>PRODUCT NUMBER 19</h3>
 
   <div class="product-description">
-
     • Fabric: Product Fabric<br>
     • Length: 57"<br>
     • Front Neck: 7.5"<br>
     • Back Neck: 11"<br>
     • Sleeves: 7"
-
   </div>
 
-  <p class="price">
-    PRICE ₹1250
-  </p>
+  <p class="price">PRICE ₹1250</p>
 
   <p>
     Size available:
     XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
   </p>
 
-  <a class="btn"
-     href="#order"
+  <a class="btn" href="#order"
      style="display:block;margin:15px 16px 0;text-align:center;">
-
     🛒 Order Now
-
   </a>
 
 </div>
 
 
-</div>
-  <!-- ================= PRODUCT 20 ================= -->
+<!-- ================= PRODUCT 20 ================= -->
 
 <div class="card">
 
@@ -1500,38 +1329,31 @@ footer{
 
   </div>
 
-  <h3>
-    PRODUCT NUMBER 20
-  </h3>
+  <h3>PRODUCT NUMBER 20</h3>
 
   <div class="product-description">
-
     • Fabric: Product Fabric<br>
     • Length: 57"<br>
     • Front Neck: 7.5"<br>
     • Back Neck: 11"<br>
     • Sleeves: 7"
-
   </div>
 
-  <p class="price">
-    PRICE ₹999
-  </p>
+  <p class="price">PRICE ₹999</p>
 
   <p>
     Size available:
     XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
   </p>
 
-  <a class="btn"
-     href="#order"
+  <a class="btn" href="#order"
      style="display:block;margin:15px 16px 0;text-align:center;">
-
     🛒 Order Now
-
   </a>
 
 </div>
+
+
 <!-- ================= PRODUCT 21 ================= -->
 
 <div class="card">
@@ -1556,39 +1378,32 @@ footer{
 
   </div>
 
-  <h3>
-    PRODUCT NUMBER 21
-  </h3>
+  <h3>PRODUCT NUMBER 21</h3>
 
   <div class="product-description">
-
     • Fabric: Product Fabric<br>
     • Length: 57"<br>
     • Front Neck: 7.5"<br>
     • Back Neck: 11"<br>
     • Sleeves: 7"
-
   </div>
 
-  <p class="price">
-    PRICE ₹999
-  </p>
+  <p class="price">PRICE ₹999</p>
 
   <p>
     Size available:
     XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
   </p>
 
-  <a class="btn"
-     href="#order"
+  <a class="btn" href="#order"
      style="display:block;margin:15px 16px 0;text-align:center;">
-
     🛒 Order Now
-
   </a>
 
 </div>
-  <!-- ================= PRODUCT 22 ================= -->
+
+
+<!-- ================= PRODUCT 22 ================= -->
 
 <div class="card">
 
@@ -1612,39 +1427,32 @@ footer{
 
   </div>
 
-  <h3>
-    PRODUCT NUMBER 22
-  </h3>
+  <h3>PRODUCT NUMBER 22</h3>
 
   <div class="product-description">
-
     • Fabric: Product Fabric<br>
     • Length: 57"<br>
     • Front Neck: 7.5"<br>
     • Back Neck: 11"<br>
     • Sleeves: 7"
-
   </div>
 
-  <p class="price">
-    PRICE ₹999
-  </p>
+  <p class="price">PRICE ₹999</p>
 
   <p>
     Size available:
     XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
   </p>
 
-  <a class="btn"
-     href="#order"
+  <a class="btn" href="#order"
      style="display:block;margin:15px 16px 0;text-align:center;">
-
     🛒 Order Now
-
   </a>
 
 </div>
-  <!-- ================= PRODUCT 23 ================= -->
+
+
+<!-- ================= PRODUCT 23 ================= -->
 
 <div class="card">
 
@@ -1668,40 +1476,32 @@ footer{
 
   </div>
 
-  <h3>
-    PRODUCT NUMBER 23
-  </h3>
+  <h3>PRODUCT NUMBER 23</h3>
 
   <div class="product-description">
-
     • Fabric: Product Fabric<br>
     • Length: 57"<br>
     • Front Neck: 7.5"<br>
     • Back Neck: 11"<br>
     • Sleeves: 7"
-
   </div>
 
-  <p class="price">
-    PRICE ₹999
-  </p>
+  <p class="price">PRICE ₹999</p>
 
   <p>
     Size available:
     XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
   </p>
 
-  <a class="btn"
-     href="#order"
+  <a class="btn" href="#order"
      style="display:block;margin:15px 16px 0;text-align:center;">
-
     🛒 Order Now
-
   </a>
 
 </div>
- 
-  <!-- ================= PRODUCT 24 ================= -->
+
+
+<!-- ================= PRODUCT 24 ================= -->
 
 <div class="card">
 
@@ -1725,39 +1525,32 @@ footer{
 
   </div>
 
-  <h3>
-    PRODUCT NUMBER 24
-  </h3>
+  <h3>PRODUCT NUMBER 24</h3>
 
   <div class="product-description">
-
     • Fabric: Product Fabric<br>
     • Length: 57"<br>
     • Front Neck: 7.5"<br>
     • Back Neck: 11"<br>
     • Sleeves: 7"
-
   </div>
 
-  <p class="price">
-    PRICE ₹999
-  </p>
+  <p class="price">PRICE ₹999</p>
 
   <p>
     Size available:
     XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
   </p>
 
-  <a class="btn"
-     href="#order"
+  <a class="btn" href="#order"
      style="display:block;margin:15px 16px 0;text-align:center;">
-
     🛒 Order Now
-
   </a>
 
-</div> 
-  <!-- ================= PRODUCT 25 ================= -->
+</div>
+
+
+<!-- ================= PRODUCT 25 ================= -->
 
 <div class="card">
 
@@ -1781,39 +1574,32 @@ footer{
 
   </div>
 
-  <h3>
-    PRODUCT NUMBER 25
-  </h3>
+  <h3>PRODUCT NUMBER 25</h3>
 
   <div class="product-description">
-
     • Fabric: Product Fabric<br>
     • Length: 57"<br>
     • Front Neck: 7.5"<br>
     • Back Neck: 11"<br>
     • Sleeves: 7"
-
   </div>
 
-  <p class="price">
-    PRICE ₹999
-  </p>
+  <p class="price">PRICE ₹999</p>
 
   <p>
     Size available:
     XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
   </p>
 
-  <a class="btn"
-     href="#order"
+  <a class="btn" href="#order"
      style="display:block;margin:15px 16px 0;text-align:center;">
-
     🛒 Order Now
-
   </a>
 
-</div> 
- <!-- ================= PRODUCT 26 ================= -->
+</div>
+
+
+<!-- ================= PRODUCT 26 ================= -->
 
 <div class="card">
 
@@ -1837,39 +1623,32 @@ footer{
 
   </div>
 
-  <h3>
-    PRODUCT NUMBER 26
-  </h3>
+  <h3>PRODUCT NUMBER 26</h3>
 
   <div class="product-description">
-
     • Fabric: Product Fabric<br>
     • Length: 57"<br>
     • Front Neck: 7.5"<br>
     • Back Neck: 11"<br>
     • Sleeves: 7"
-
   </div>
 
-  <p class="price">
-    PRICE ₹999
-  </p>
+  <p class="price">PRICE ₹999</p>
 
   <p>
     Size available:
     XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
   </p>
 
-  <a class="btn"
-     href="#order"
+  <a class="btn" href="#order"
      style="display:block;margin:15px 16px 0;text-align:center;">
-
     🛒 Order Now
-
   </a>
 
-</div>  
-  <!-- ================= PRODUCT 27 ================= -->
+</div>
+
+
+<!-- ================= PRODUCT 27 ================= -->
 
 <div class="card">
 
@@ -1893,39 +1672,32 @@ footer{
 
   </div>
 
-  <h3>
-    PRODUCT NUMBER 27
-  </h3>
+  <h3>PRODUCT NUMBER 27</h3>
 
   <div class="product-description">
-
     • Fabric: Product Fabric<br>
     • Length: 57"<br>
     • Front Neck: 7.5"<br>
     • Back Neck: 11"<br>
     • Sleeves: 7"
-
   </div>
 
-  <p class="price">
-    PRICE ₹999
-  </p>
+  <p class="price">PRICE ₹999</p>
 
   <p>
     Size available:
     XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
   </p>
 
-  <a class="btn"
-     href="#order"
+  <a class="btn" href="#order"
      style="display:block;margin:15px 16px 0;text-align:center;">
-
     🛒 Order Now
-
   </a>
 
-</div>  
-  <!-- ================= PRODUCT 28 ================= -->
+</div>
+
+
+<!-- ================= PRODUCT 28 ================= -->
 
 <div class="card">
 
@@ -1949,39 +1721,32 @@ footer{
 
   </div>
 
-  <h3>
-    PRODUCT NUMBER 28
-  </h3>
+  <h3>PRODUCT NUMBER 28</h3>
 
   <div class="product-description">
-
     • Fabric: Product Fabric<br>
     • Length: 57"<br>
     • Front Neck: 7.5"<br>
     • Back Neck: 11"<br>
     • Sleeves: 7"
-
   </div>
 
-  <p class="price">
-    PRICE ₹999
-  </p>
+  <p class="price">PRICE ₹999</p>
 
   <p>
     Size available:
     XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
   </p>
 
-  <a class="btn"
-     href="#order"
+  <a class="btn" href="#order"
      style="display:block;margin:15px 16px 0;text-align:center;">
-
     🛒 Order Now
-
   </a>
 
-</div>  
-    <!-- ================= PRODUCT 29 ================= -->
+</div>
+
+
+<!-- ================= PRODUCT 29 ================= -->
 
 <div class="card">
 
@@ -1993,7 +1758,6 @@ footer{
       <img src="IMG_3834.jpeg" alt="Product 29">
       <img src="IMG_3835.jpeg" alt="Product 29">
       <img src="IMG_3836.jpeg" alt="Product 29">
-      
 
     </div>
 
@@ -2005,39 +1769,32 @@ footer{
 
   </div>
 
-  <h3>
-    PRODUCT NUMBER 29
-  </h3>
+  <h3>PRODUCT NUMBER 29</h3>
 
   <div class="product-description">
-
     • Fabric: Product Fabric<br>
     • Length: 57"<br>
     • Front Neck: 7.5"<br>
     • Back Neck: 11"<br>
     • Sleeves: 7"
-
   </div>
 
-  <p class="price">
-    PRICE ₹999
-  </p>
+  <p class="price">PRICE ₹999</p>
 
   <p>
     Size available:
     XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
   </p>
 
-  <a class="btn"
-     href="#order"
+  <a class="btn" href="#order"
      style="display:block;margin:15px 16px 0;text-align:center;">
-
     🛒 Order Now
-
   </a>
 
-</div>  
-   <!-- ================= PRODUCT 30 ================= -->
+</div>
+
+
+<!-- ================= PRODUCT 30 ================= -->
 
 <div class="card">
 
@@ -2061,38 +1818,32 @@ footer{
 
   </div>
 
-  <h3>
-    PRODUCT NUMBER 30
-  </h3>
+  <h3>PRODUCT NUMBER 30</h3>
 
   <div class="product-description">
-
     • Fabric: Product Fabric<br>
     • Length: 57"<br>
     • Front Neck: 7.5"<br>
     • Back Neck: 11"<br>
     • Sleeves: 7"
-
   </div>
 
-  <p class="price">
-    PRICE ₹999
-  </p>
+  <p class="price">PRICE ₹999</p>
 
   <p>
     Size available:
     XS, S, M, L, XL, 2XL, 3XL, 4XL, 5XL, 6XL, 7XL
   </p>
 
-  <a class="btn"
-     href="#order"
+  <a class="btn" href="#order"
      style="display:block;margin:15px 16px 0;text-align:center;">
-
     🛒 Order Now
-
   </a>
 
-</div>  
+</div>
+
+
+</div>
 </section>
 
 
@@ -2340,14 +2091,15 @@ sizes.forEach(size=>{
 
 <script>
 
-
 /* ================= PHOTO ARROWS ================= */
 
 function movePhoto(button,direction){
 
-  const photo = button.closest('.photo');
+  const photo =
+    button.closest('.photo');
 
-  const slider = photo.querySelector('.photo-slider');
+  const slider =
+    photo.querySelector('.photo-slider');
 
   slider.scrollBy({
 
@@ -2602,7 +2354,6 @@ function instagram(){
   );
 
 }
-
 
 </script>
 
