@@ -108,18 +108,16 @@ h2{
   box-shadow:0 4px 18px #00000012;
   padding-bottom:18px;
 }
-
+/* ================= PHOTO ARROWS ================= */
 /* ================= PHOTO SLIDER ================= */
 
 .photo{
   position:relative;
-  aspect-ratio:4 / 5;
   background:#eadde4;
   overflow:hidden;
 }
 
 .photo-slider{
-  height:100%;
   overflow-x:auto;
   display:flex;
   gap:0;
@@ -135,14 +133,12 @@ h2{
 .photo-slider img{
   min-width:100%;
   width:100%;
-  height:100%;
+  height:auto;
   object-fit:contain;
   scroll-snap-align:start;
   flex-shrink:0;
+  display:block;
 }
-
-/* ================= PHOTO ARROWS ================= */
-
 .photo-arrow{
   position:absolute;
   top:50%;
