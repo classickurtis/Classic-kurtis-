@@ -13,7 +13,23 @@
 *{
   box-sizing:border-box;
 }
+.photo{
+  position:relative;
+}
 
+.photo::after{
+  content:"📸 Swipe → More Photos";
+  position:absolute;
+  right:10px;
+  bottom:10px;
+  background:rgba(0,0,0,0.65);
+  color:white;
+  padding:7px 12px;
+  border-radius:20px;
+  font-size:12px;
+  font-weight:600;
+  pointer-events:none;
+}
 body{
   margin:0;
   font-family:Arial,sans-serif;
