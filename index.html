@@ -439,166 +439,95 @@ footer{
     width:100%;
   }
 
-  .add-cart{
-    width:50%;
-  }
-
-}
-.view-cart{
-  width:50%;
-  height:50px;
-  margin:0;
-  box-sizing:border-box;
-}
-.add-cart{
-  width:50%;
-  height:50px;
-  white-space:nowrap;
-  overflow:visible;
-  text-align:center;
-  font-size:15px;
-  padding:0 8px;
-  box-sizing:border-box;
-}  
-/* ================= PRODUCTS 2 COLUMN ================= */
+  
+/* ================= FINAL PRODUCT FIX ================= */
 
 .products{
   display:grid !important;
   grid-template-columns:repeat(2,minmax(0,1fr)) !important;
   gap:10px !important;
   width:100% !important;
-  padding:8px !important;
-  box-sizing:border-box !important;
+  padding:6px !important;
 }
 
-.products .card{
-  width:100% !important;
-  min-width:0 !important;
-  max-width:100% !important;
-  box-sizing:border-box !important;
-  overflow:hidden !important;
-}
+/* SIZE */
 
-/* ================= PRODUCT PHOTO ================= */
-
-.products .photo{
-  width:100% !important;
-  overflow:hidden !important;
-}
-
-.products .photo-slider{
-  width:100% !important;
-  display:flex !important;
-  overflow:hidden !important;
-}
-
-.products .photo-slider img{
-  width:100% !important;
-  min-width:100% !important;
-  flex-shrink:0 !important;
-  object-fit:contain !important;
-}
-
-/* ================= PRODUCT TEXT ================= */
-
-.products .card h3,
-.products .card h4,
-.products .card p{
-  max-width:100% !important;
-  overflow-wrap:break-word !important;
-  box-sizing:border-box !important;
-}
-
-/* ================= SIZE ================= */
-
-.products .card .size-row{
-  width:100% !important;
-  display:flex !important;
-  flex-wrap:wrap !important;
+.size-options{
+  display:grid !important;
+  grid-template-columns:repeat(3,1fr) !important;
   gap:6px !important;
-  box-sizing:border-box !important;
+  overflow:visible !important;
+  padding:0 12px 5px !important;
 }
 
-.products .card .size-row button{
-  flex:1 1 auto !important;
-  min-width:45px !important;
-  max-width:100% !important;
-  padding:8px 6px !important;
-  box-sizing:border-box !important;
-}
-
-/* ================= BUY ROW ================= */
-
-.products .card .buy-row{
+.size-btn{
+  min-width:0 !important;
   width:100% !important;
-  display:flex !important;
-  align-items:center !important;
+  height:45px !important;
+  padding:0 !important;
+}
+
+/* QUANTITY + ADD CART + VIEW CART */
+
+.buy-row{
+  display:grid !important;
+  grid-template-columns:1.2fr .7fr .8fr !important;
   gap:5px !important;
-  box-sizing:border-box !important;
-  overflow:hidden !important;
+  padding:10px 12px 0 !important;
+  width:100% !important;
 }
 
-/* Quantity */
-
-.products .card .buy-row > *{
+.quantity-box{
   min-width:0 !important;
-  box-sizing:border-box !important;
+  width:100% !important;
 }
 
-.products .card .quantity-control{
-  flex:1 1 55% !important;
-  width:auto !important;
-  max-width:100% !important;
+.quantity-box button{
+  width:30px !important;
 }
 
-/* Add Cart */
-
-.products .card .add-cart{
-  flex:1 1 45% !important;
-  width:auto !important;
-  max-width:100% !important;
+.add-cart,
+.view-cart{
+  width:100% !important;
   min-width:0 !important;
-  height:50px !important;
-  padding:0 5px !important;
-  font-size:12px !important;
-  white-space:nowrap !important;
-  overflow:hidden !important;
+  height:48px !important;
+  padding:0 3px !important;
+  font-size:11px !important;
+  white-space:normal !important;
   box-sizing:border-box !important;
 }
 
-/* ================= MOBILE ================= */
+/* MOBILE */
 
 @media(max-width:600px){
 
   .products{
     grid-template-columns:repeat(2,minmax(0,1fr)) !important;
     gap:8px !important;
-    padding:6px !important;
   }
 
-  .products .card{
-    font-size:14px !important;
+  .size-options{
+    grid-template-columns:repeat(3,1fr) !important;
+    gap:5px !important;
+    padding:0 10px 5px !important;
   }
 
-  .products .card h3{
-    font-size:17px !important;
+  .size-btn{
+    font-size:13px !important;
   }
 
-  .products .card p{
-    font-size:14px !important;
-    line-height:1.45 !important;
-  }
-
-  .products .card .buy-row{
+  .buy-row{
+    grid-template-columns:1.2fr .7fr .8fr !important;
     gap:4px !important;
+    padding:10px 10px 0 !important;
   }
 
-  .products .card .add-cart{
-    font-size:11px !important;
-    padding:0 3px !important;
+  .add-cart,
+  .view-cart{
+    font-size:10px !important;
   }
 
-}  
+}
 </style>
 
 </head>
