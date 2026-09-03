@@ -460,34 +460,11 @@ footer{
   padding:0 8px;
   box-sizing:border-box;
 }  
-  /* ================= PRODUCT SIDE BY SIDE ================= */
-
-.products{
-  display:grid;
-  grid-template-columns:repeat(2, 1fr);
-  gap:15px;
-  width:100%;
-  box-sizing:border-box;
-}
-
-.products .card{
-  width:100%;
-  box-sizing:border-box;
-}
-
-@media(max-width:600px){
-
-  .products{
-    grid-template-columns:repeat(2, 1fr);
-    gap:10px;
-  }
-
-}
-  /* ================= PRODUCT CARD FIX ================= */
+/* ================= PRODUCTS 2 COLUMN ================= */
 
 .products{
   display:grid !important;
-  grid-template-columns:repeat(2, minmax(0, 1fr)) !important;
+  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
   gap:10px !important;
   width:100% !important;
   padding:8px !important;
@@ -502,84 +479,94 @@ footer{
   overflow:hidden !important;
 }
 
-/* Product image slider */
+/* ================= PRODUCT PHOTO ================= */
 
 .products .photo{
   width:100% !important;
   overflow:hidden !important;
-  box-sizing:border-box !important;
 }
 
 .products .photo-slider{
   width:100% !important;
-  overflow-x:auto !important;
   display:flex !important;
-  gap:8px !important;
-  box-sizing:border-box !important;
+  overflow:hidden !important;
 }
 
 .products .photo-slider img{
   width:100% !important;
   min-width:100% !important;
-  height:auto !important;
-  object-fit:contain !important;
   flex-shrink:0 !important;
+  object-fit:contain !important;
 }
 
-/* Product information */
+/* ================= PRODUCT TEXT ================= */
 
 .products .card h3,
 .products .card h4,
 .products .card p{
   max-width:100% !important;
-  box-sizing:border-box !important;
   overflow-wrap:break-word !important;
+  box-sizing:border-box !important;
 }
 
-/* Size section */
+/* ================= SIZE ================= */
 
-.products .size-section,
-.products .sizes{
+.products .card .size-row{
   width:100% !important;
+  display:flex !important;
+  flex-wrap:wrap !important;
+  gap:6px !important;
+  box-sizing:border-box !important;
+}
+
+.products .card .size-row button{
+  flex:1 1 auto !important;
+  min-width:45px !important;
   max-width:100% !important;
+  padding:8px 6px !important;
+  box-sizing:border-box !important;
+}
+
+/* ================= BUY ROW ================= */
+
+.products .card .buy-row{
+  width:100% !important;
+  display:flex !important;
+  align-items:center !important;
+  gap:5px !important;
   box-sizing:border-box !important;
   overflow:hidden !important;
 }
 
-.products .size-buttons{
-  display:flex !important;
-  flex-wrap:wrap !important;
-  gap:7px !important;
-  width:100% !important;
-  box-sizing:border-box !important;
-}
-
-.products .size-buttons button{
-  flex:0 0 auto !important;
-  min-width:55px !important;
-  box-sizing:border-box !important;
-}
-
 /* Quantity */
 
-.products .quantity,
-.products .quantity-control{
-  width:100% !important;
-  max-width:100% !important;
+.products .card .buy-row > *{
+  min-width:0 !important;
   box-sizing:border-box !important;
 }
 
-/* Add to cart */
-
-.products .add-cart,
-.products .add-to-cart{
-  width:100% !important;
+.products .card .quantity-control{
+  flex:1 1 55% !important;
+  width:auto !important;
   max-width:100% !important;
-  box-sizing:border-box !important;
+}
+
+/* Add Cart */
+
+.products .card .add-cart{
+  flex:1 1 45% !important;
+  width:auto !important;
+  max-width:100% !important;
+  min-width:0 !important;
+  height:50px !important;
+  padding:0 5px !important;
+  font-size:12px !important;
   white-space:nowrap !important;
+  overflow:hidden !important;
+  box-sizing:border-box !important;
 }
 
-/* Mobile */
+/* ================= MOBILE ================= */
 
 @media(max-width:600px){
 
@@ -602,17 +589,16 @@ footer{
     line-height:1.45 !important;
   }
 
-  .products .size-buttons{
-    gap:5px !important;
+  .products .card .buy-row{
+    gap:4px !important;
   }
 
-  .products .size-buttons button{
-    min-width:48px !important;
-    padding:8px 5px !important;
-    font-size:14px !important;
+  .products .card .add-cart{
+    font-size:11px !important;
+    padding:0 3px !important;
   }
 
-}
+}  
 </style>
 
 </head>
