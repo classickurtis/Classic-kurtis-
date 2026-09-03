@@ -483,6 +483,136 @@ footer{
   }
 
 }
+  /* ================= PRODUCT CARD FIX ================= */
+
+.products{
+  display:grid !important;
+  grid-template-columns:repeat(2, minmax(0, 1fr)) !important;
+  gap:10px !important;
+  width:100% !important;
+  padding:8px !important;
+  box-sizing:border-box !important;
+}
+
+.products .card{
+  width:100% !important;
+  min-width:0 !important;
+  max-width:100% !important;
+  box-sizing:border-box !important;
+  overflow:hidden !important;
+}
+
+/* Product image slider */
+
+.products .photo{
+  width:100% !important;
+  overflow:hidden !important;
+  box-sizing:border-box !important;
+}
+
+.products .photo-slider{
+  width:100% !important;
+  overflow-x:auto !important;
+  display:flex !important;
+  gap:8px !important;
+  box-sizing:border-box !important;
+}
+
+.products .photo-slider img{
+  width:100% !important;
+  min-width:100% !important;
+  height:auto !important;
+  object-fit:contain !important;
+  flex-shrink:0 !important;
+}
+
+/* Product information */
+
+.products .card h3,
+.products .card h4,
+.products .card p{
+  max-width:100% !important;
+  box-sizing:border-box !important;
+  overflow-wrap:break-word !important;
+}
+
+/* Size section */
+
+.products .size-section,
+.products .sizes{
+  width:100% !important;
+  max-width:100% !important;
+  box-sizing:border-box !important;
+  overflow:hidden !important;
+}
+
+.products .size-buttons{
+  display:flex !important;
+  flex-wrap:wrap !important;
+  gap:7px !important;
+  width:100% !important;
+  box-sizing:border-box !important;
+}
+
+.products .size-buttons button{
+  flex:0 0 auto !important;
+  min-width:55px !important;
+  box-sizing:border-box !important;
+}
+
+/* Quantity */
+
+.products .quantity,
+.products .quantity-control{
+  width:100% !important;
+  max-width:100% !important;
+  box-sizing:border-box !important;
+}
+
+/* Add to cart */
+
+.products .add-cart,
+.products .add-to-cart{
+  width:100% !important;
+  max-width:100% !important;
+  box-sizing:border-box !important;
+  white-space:nowrap !important;
+}
+
+/* Mobile */
+
+@media(max-width:600px){
+
+  .products{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:8px !important;
+    padding:6px !important;
+  }
+
+  .products .card{
+    font-size:14px !important;
+  }
+
+  .products .card h3{
+    font-size:17px !important;
+  }
+
+  .products .card p{
+    font-size:14px !important;
+    line-height:1.45 !important;
+  }
+
+  .products .size-buttons{
+    gap:5px !important;
+  }
+
+  .products .size-buttons button{
+    min-width:48px !important;
+    padding:8px 5px !important;
+    font-size:14px !important;
+  }
+
+}
 </style>
 
 </head>
