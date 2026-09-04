@@ -606,8 +606,129 @@ footer{
   }
 
 }
+
+/* ================= PRODUCT LIST / DETAIL VIEW ================= */
+.products .card{cursor:pointer;}
+.products .card .product-description,
+.products .card .size-title,
+.products .card .size-options,
+.products .card .buy-row{display:none;}
+.products .card .photo-arrow{display:none;}
+.products .card h3{margin:12px 12px 4px;text-align:center;font-size:16px;}
+.products .card .price{margin:0 12px;text-align:center;font-size:18px;font-weight:700;}
+#productDetailView{display:none;max-width:700px;margin:auto;padding:25px 5%;}
+#productDetailView .detail-card{background:#fff;border-radius:18px;box-shadow:0 4px 20px #00000014;overflow:hidden;padding-bottom:20px;}
+#productDetailView .detail-photo{position:relative;background:#eadde4;width:100%;overflow:hidden;}
+#productDetailView .detail-photo .photo-slider{width:100%;}
+#productDetailView .detail-photo .photo-slider img{width:100%;height:min(75vh,700px);object-fit:contain;display:block;flex:0 0 100%;}
+#productDetailView .photo-arrow{display:flex;}
+#productDetailView h3{text-align:center;margin:18px 12px 8px;font-size:22px;}
+#productDetailView .product-description{display:block;margin:0 18px 12px;padding:14px;background:#fff0f5;border-radius:10px;line-height:1.7;}
+#productDetailView .price{display:block;text-align:center;font-size:22px;font-weight:700;margin:12px;}
+#productDetailView .size-title,#productDetailView .size-options,#productDetailView .buy-row{display:block;}
+#productDetailView .size-title{margin:15px 18px 8px;}
+#productDetailView .size-options{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;padding:0 18px 10px;}
+#productDetailView .buy-row{display:flex;flex-wrap:wrap;gap:8px;padding:8px 18px;}
+#productDetailView .buy-row>*{flex:1;min-width:120px;}
+.detail-back{display:block;width:100%;margin:0 0 15px;padding:13px;border:0;border-radius:10px;background:#241b20;color:#fff;font-size:16px;cursor:pointer;}
+.buy-now-detail{width:100%;height:50px;border:0;border-radius:10px;background:#d81b60;color:#fff;font-size:16px;font-weight:700;cursor:pointer;margin:8px 18px 0;width:calc(100% - 36px);}
+@media(max-width:500px){#productDetailView .detail-photo .photo-slider img{height:65vh;}#productDetailView .size-options{grid-template-columns:repeat(5,1fr);padding:0 10px 8px;}#productDetailView .buy-row{padding:8px 10px;}}
+
+
+/* ===== CORRECTED PRODUCT LIST / DETAIL ===== */
+#products .products > .card{display:flex !important;flex-direction:column !important;cursor:pointer !important;padding:0 0 14px !important;}
+#products .products > .card > .photo{order:1 !important;display:block !important;}
+#products .products > .card > h3{order:2 !important;display:block !important;margin:10px 8px 4px !important;text-align:center !important;font-size:14px !important;}
+#products .products > .card > .price{order:3 !important;display:block !important;margin:0 8px !important;text-align:center !important;font-size:17px !important;}
+#products .products > .card > .product-description,
+#products .products > .card > .size-title,
+#products .products > .card > .size-options,
+#products .products > .card > .buy-row{display:none !important;}
+#products .products > .card .photo-arrow{display:none !important;}
+
+#productDetailView{display:none;max-width:720px !important;padding:10px !important;margin:0 auto !important;background:#fff8fa !important;}
+#productDetailView.show{display:block !important;}
+#productDetailView .detail-back{display:block !important;border:0 !important;background:#f4e6ed !important;color:#6c2450 !important;border-radius:10px !important;padding:10px 16px !important;font-size:16px !important;font-weight:700 !important;margin:4px 0 12px !important;cursor:pointer !important;}
+#productDetailView .detail-card{display:block !important;background:#fff !important;border-radius:16px !important;overflow:hidden !important;padding:0 0 24px !important;box-shadow:0 4px 18px #00000012 !important;cursor:default !important;}
+#productDetailView .detail-card > .photo{display:block !important;width:100% !important;height:auto !important;aspect-ratio:4/5 !important;min-height:420px !important;order:initial !important;}
+#productDetailView .detail-card > .photo .photo-slider{display:flex !important;overflow-x:auto !important;height:100% !important;}
+#productDetailView .detail-card > .photo img{display:block !important;min-width:100% !important;width:100% !important;height:100% !important;object-fit:contain !important;}
+#productDetailView .detail-card > .photo .photo-arrow{display:block !important;}
+#productDetailView .detail-card > h3{display:block !important;margin:18px 18px 8px !important;text-align:left !important;font-size:20px !important;}
+#productDetailView .detail-card > .product-description{display:block !important;margin:0 18px 14px !important;line-height:1.7 !important;font-size:15px !important;}
+#productDetailView .detail-card > .price{display:block !important;margin:0 18px 18px !important;text-align:left !important;font-size:22px !important;}
+#productDetailView .detail-card > .size-title{display:flex !important;margin:14px 18px 8px !important;}
+#productDetailView .detail-card > .size-options{display:flex !important;overflow-x:auto !important;padding:0 18px 5px !important;}
+#productDetailView .detail-card > .buy-row{display:flex !important;flex-wrap:wrap !important;gap:8px !important;padding:12px 18px 0 !important;}
+#productDetailView .detail-card .view-cart{display:block !important;}
+#productDetailView .buy-now-detail{display:block !important;width:calc(100% - 36px) !important;margin:12px 18px 0 !important;height:48px !important;border:0 !important;border-radius:12px !important;background:#6c2450 !important;color:#fff !important;font-size:16px !important;font-weight:700 !important;cursor:pointer !important;}
+@media(max-width:600px){
+ #products .products{grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:10px !important;padding:8px 10px 25px !important;}
+ #products .products > .card > h3{font-size:12px !important;}
+ #products .products > .card > .price{font-size:16px !important;}
+ #productDetailView .detail-card > .photo{min-height:360px !important;}
+}
+
 </style>
 
+
+<style id="classic-kurtis-product-grid-update">
+/* ===== FINAL PRODUCT GRID ===== */
+.products{
+  display:grid !important;
+  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  gap:12px !important;
+}
+.products .card{
+  min-width:0;
+  cursor:pointer;
+  padding-bottom:12px;
+}
+.products .photo{
+  width:100%;
+  aspect-ratio:1 / 1.18;
+}
+.products .product-description,
+.products .size-title,
+.products .size-options,
+.products .buy-row{
+  display:none !important;
+}
+.products .card h3{
+  font-size:14px;
+  text-align:center;
+  margin:10px 6px 4px;
+}
+.products .card .price{
+  display:block;
+  text-align:center;
+  font-size:17px;
+  font-weight:700;
+  margin:4px 6px 8px;
+}
+.product-details-button{
+  display:block;
+  width:calc(100% - 20px);
+  margin:8px 10px 0;
+  height:42px;
+  border:0;
+  border-radius:10px;
+  background:#6c2450;
+  color:#fff;
+  font-size:14px;
+  font-weight:700;
+  cursor:pointer;
+}
+@media(min-width:700px){
+  .products{grid-template-columns:repeat(4,minmax(0,1fr)) !important;}
+}
+@media(max-width:360px){
+  .products{gap:8px !important;}
+  .products .card h3{font-size:12px;}
+  .products .card .price{font-size:15px;}
+  .product-details-button{font-size:12px;width:calc(100% - 12px);margin-left:6px;margin-right:6px;}
+}
+</style>
 </head>
 
 <body>
@@ -1964,15 +2085,19 @@ footer{
 <!-- ================= PRODUCT 19 ================= -->
 
 <div class="card">
+
   <div class="photo">
+
     <div class="photo-slider">
       <img src="IMG_3775.jpeg" alt="Product 19">
       <img src="IMG_3776.jpeg" alt="Product 19">
       <img src="IMG_3777.jpeg" alt="Product 19">
       <img src="IMG_3778.jpeg" alt="Product 19">
     </div>
+
     <button class="photo-arrow left" onclick="movePhoto(this,-1)">❮</button>
     <button class="photo-arrow right" onclick="movePhoto(this,1)">❯</button>
+
   </div>
 
   <h3>PRODUCT NUMBER 19</h3>
@@ -2015,17 +2140,21 @@ footer{
       <span>1</span>
       <button onclick="changeQty(this,1)">+</button>
     </div>
+
     <button class="add-cart" disabled onclick="addToCart(this,19,1250)">
       Add to cart
     </button>
   </div>
+
 </div>
 
 
 <!-- ================= PRODUCT 20 ================= -->
 
 <div class="card">
+
   <div class="photo">
+
     <div class="photo-slider">
       <img src="IMG_3779.jpeg" alt="Product 20">
       <img src="IMG_3780.jpeg" alt="Product 20">
@@ -2033,8 +2162,10 @@ footer{
       <img src="IMG_3782.jpeg" alt="Product 20">
       <img src="IMG_3783.jpeg" alt="Product 20">
     </div>
+
     <button class="photo-arrow left" onclick="movePhoto(this,-1)">❮</button>
     <button class="photo-arrow right" onclick="movePhoto(this,1)">❯</button>
+
   </div>
 
   <h3>PRODUCT NUMBER 20</h3>
@@ -2077,17 +2208,21 @@ footer{
       <span>1</span>
       <button onclick="changeQty(this,1)">+</button>
     </div>
+
     <button class="add-cart" disabled onclick="addToCart(this,20,999)">
       Add to cart
     </button>
   </div>
+
 </div>
 
 
 <!-- ================= PRODUCT 21 ================= -->
 
 <div class="card">
+
   <div class="photo">
+
     <div class="photo-slider">
       <img src="IMG_3785.jpeg" alt="Product 21">
       <img src="IMG_3786.jpeg" alt="Product 21">
@@ -2095,8 +2230,10 @@ footer{
       <img src="IMG_3788.jpeg" alt="Product 21">
       <img src="IMG_3789.jpeg" alt="Product 21">
     </div>
+
     <button class="photo-arrow left" onclick="movePhoto(this,-1)">❮</button>
     <button class="photo-arrow right" onclick="movePhoto(this,1)">❯</button>
+
   </div>
 
   <h3>PRODUCT NUMBER 21</h3>
@@ -2139,17 +2276,21 @@ footer{
       <span>1</span>
       <button onclick="changeQty(this,1)">+</button>
     </div>
+
     <button class="add-cart" disabled onclick="addToCart(this,21,999)">
       Add to cart
     </button>
   </div>
+
 </div>
 
 
 <!-- ================= PRODUCT 22 ================= -->
 
 <div class="card">
+
   <div class="photo">
+
     <div class="photo-slider">
       <img src="IMG_3791.jpeg" alt="Product 22">
       <img src="IMG_3792.jpeg" alt="Product 22">
@@ -2157,8 +2298,10 @@ footer{
       <img src="IMG_3794.jpeg" alt="Product 22">
       <img src="IMG_3795.jpeg" alt="Product 22">
     </div>
+
     <button class="photo-arrow left" onclick="movePhoto(this,-1)">❮</button>
     <button class="photo-arrow right" onclick="movePhoto(this,1)">❯</button>
+
   </div>
 
   <h3>PRODUCT NUMBER 22</h3>
@@ -2201,17 +2344,21 @@ footer{
       <span>1</span>
       <button onclick="changeQty(this,1)">+</button>
     </div>
+
     <button class="add-cart" disabled onclick="addToCart(this,22,999)">
       Add to cart
     </button>
   </div>
+
 </div>
 
 
 <!-- ================= PRODUCT 23 ================= -->
 
 <div class="card">
+
   <div class="photo">
+
     <div class="photo-slider">
       <img src="IMG_3796.jpeg" alt="Product 23">
       <img src="IMG_3797.jpeg" alt="Product 23">
@@ -2219,8 +2366,10 @@ footer{
       <img src="IMG_3799.jpeg" alt="Product 23">
       <img src="IMG_3800.jpeg" alt="Product 23">
     </div>
+
     <button class="photo-arrow left" onclick="movePhoto(this,-1)">❮</button>
     <button class="photo-arrow right" onclick="movePhoto(this,1)">❯</button>
+
   </div>
 
   <h3>PRODUCT NUMBER 23</h3>
@@ -2263,17 +2412,21 @@ footer{
       <span>1</span>
       <button onclick="changeQty(this,1)">+</button>
     </div>
+
     <button class="add-cart" disabled onclick="addToCart(this,23,999)">
       Add to cart
     </button>
   </div>
+
 </div>
 
 
 <!-- ================= PRODUCT 24 ================= -->
 
 <div class="card">
+
   <div class="photo">
+
     <div class="photo-slider">
       <img src="IMG_3802.jpeg" alt="Product 24">
       <img src="IMG_3803.jpeg" alt="Product 24">
@@ -2281,8 +2434,10 @@ footer{
       <img src="IMG_3805.jpeg" alt="Product 24">
       <img src="IMG_3806.jpeg" alt="Product 24">
     </div>
+
     <button class="photo-arrow left" onclick="movePhoto(this,-1)">❮</button>
     <button class="photo-arrow right" onclick="movePhoto(this,1)">❯</button>
+
   </div>
 
   <h3>PRODUCT NUMBER 24</h3>
@@ -2325,17 +2480,21 @@ footer{
       <span>1</span>
       <button onclick="changeQty(this,1)">+</button>
     </div>
+
     <button class="add-cart" disabled onclick="addToCart(this,24,999)">
       Add to cart
     </button>
   </div>
+
 </div>
 
 
 <!-- ================= PRODUCT 25 ================= -->
 
 <div class="card">
+
   <div class="photo">
+
     <div class="photo-slider">
       <img src="IMG_3807.jpeg" alt="Product 25">
       <img src="IMG_3808.jpeg" alt="Product 25">
@@ -2343,8 +2502,10 @@ footer{
       <img src="IMG_3810.jpeg" alt="Product 25">
       <img src="IMG_3811.jpeg" alt="Product 25">
     </div>
+
     <button class="photo-arrow left" onclick="movePhoto(this,-1)">❮</button>
     <button class="photo-arrow right" onclick="movePhoto(this,1)">❯</button>
+
   </div>
 
   <h3>PRODUCT NUMBER 25</h3>
@@ -2387,17 +2548,21 @@ footer{
       <span>1</span>
       <button onclick="changeQty(this,1)">+</button>
     </div>
+
     <button class="add-cart" disabled onclick="addToCart(this,25,999)">
       Add to cart
     </button>
   </div>
+
 </div>
 
 
 <!-- ================= PRODUCT 26 ================= -->
 
 <div class="card">
+
   <div class="photo">
+
     <div class="photo-slider">
       <img src="IMG_3813.jpeg" alt="Product 26">
       <img src="IMG_3814.jpeg" alt="Product 26">
@@ -2405,8 +2570,10 @@ footer{
       <img src="IMG_3817.jpeg" alt="Product 26">
       <img src="IMG_3818.jpeg" alt="Product 26">
     </div>
+
     <button class="photo-arrow left" onclick="movePhoto(this,-1)">❮</button>
     <button class="photo-arrow right" onclick="movePhoto(this,1)">❯</button>
+
   </div>
 
   <h3>PRODUCT NUMBER 26</h3>
@@ -2449,17 +2616,21 @@ footer{
       <span>1</span>
       <button onclick="changeQty(this,1)">+</button>
     </div>
+
     <button class="add-cart" disabled onclick="addToCart(this,26,999)">
       Add to cart
     </button>
   </div>
+
 </div>
 
 
 <!-- ================= PRODUCT 27 ================= -->
 
 <div class="card">
+
   <div class="photo">
+
     <div class="photo-slider">
       <img src="IMG_3819.jpeg" alt="Product 27">
       <img src="IMG_3820.jpeg" alt="Product 27">
@@ -2467,8 +2638,10 @@ footer{
       <img src="IMG_3822.jpeg" alt="Product 27">
       <img src="IMG_3823.jpeg" alt="Product 27">
     </div>
+
     <button class="photo-arrow left" onclick="movePhoto(this,-1)">❮</button>
     <button class="photo-arrow right" onclick="movePhoto(this,1)">❯</button>
+
   </div>
 
   <h3>PRODUCT NUMBER 27</h3>
@@ -2511,17 +2684,21 @@ footer{
       <span>1</span>
       <button onclick="changeQty(this,1)">+</button>
     </div>
+
     <button class="add-cart" disabled onclick="addToCart(this,27,999)">
       Add to cart
     </button>
   </div>
+
 </div>
 
 
 <!-- ================= PRODUCT 28 ================= -->
 
 <div class="card">
+
   <div class="photo">
+
     <div class="photo-slider">
       <img src="IMG_3837.jpeg" alt="Product 28">
       <img src="IMG_3838.jpeg" alt="Product 28">
@@ -2529,8 +2706,10 @@ footer{
       <img src="IMG_3840.jpeg" alt="Product 28">
       <img src="IMG_3841.jpeg" alt="Product 28">
     </div>
+
     <button class="photo-arrow left" onclick="movePhoto(this,-1)">❮</button>
     <button class="photo-arrow right" onclick="movePhoto(this,1)">❯</button>
+
   </div>
 
   <h3>PRODUCT NUMBER 28</h3>
@@ -2573,25 +2752,31 @@ footer{
       <span>1</span>
       <button onclick="changeQty(this,1)">+</button>
     </div>
+
     <button class="add-cart" disabled onclick="addToCart(this,28,999)">
       Add to cart
     </button>
   </div>
+
 </div>
 
 
 <!-- ================= PRODUCT 29 ================= -->
 
 <div class="card">
+
   <div class="photo">
+
     <div class="photo-slider">
       <img src="IMG_3833.jpeg" alt="Product 29">
       <img src="IMG_3834.jpeg" alt="Product 29">
       <img src="IMG_3835.jpeg" alt="Product 29">
       <img src="IMG_3836.jpeg" alt="Product 29">
     </div>
+
     <button class="photo-arrow left" onclick="movePhoto(this,-1)">❮</button>
     <button class="photo-arrow right" onclick="movePhoto(this,1)">❯</button>
+
   </div>
 
   <h3>PRODUCT NUMBER 29</h3>
@@ -2634,17 +2819,21 @@ footer{
       <span>1</span>
       <button onclick="changeQty(this,1)">+</button>
     </div>
+
     <button class="add-cart" disabled onclick="addToCart(this,29,999)">
       Add to cart
     </button>
   </div>
+
 </div>
 
 
 <!-- ================= PRODUCT 30 ================= -->
 
 <div class="card">
+
   <div class="photo">
+
     <div class="photo-slider">
       <img src="IMG_3828.jpeg" alt="Product 30">
       <img src="IMG_3829.jpeg" alt="Product 30">
@@ -2652,8 +2841,10 @@ footer{
       <img src="IMG_3831.jpeg" alt="Product 30">
       <img src="IMG_3832.jpeg" alt="Product 30">
     </div>
+
     <button class="photo-arrow left" onclick="movePhoto(this,-1)">❮</button>
     <button class="photo-arrow right" onclick="movePhoto(this,1)">❯</button>
+
   </div>
 
   <h3>PRODUCT NUMBER 30</h3>
@@ -2685,28 +2876,29 @@ footer{
     <button class="size-btn" onclick="selectSize(this,'5XL')">5XL</button>
     <button class="size-btn" onclick="selectSize(this,'6XL')">6XL</button>
     <button class="size-btn" onclick="selectSize(this,'7XL')">7XL</button>
-    <button class="size-btn" onclick="selectSize(this,'8XL')">8XL</button>
-    <button class="size-btn" onclick="selectSize(this,'9XL')">9XL</button>
-    <button class="size-btn" onclick="selectSize(this,'10XL')">10XL</button>
   </div>
-
+ 
   <div class="buy-row">
     <div class="quantity-box">
       <button onclick="changeQty(this,-1)">−</button>
       <span>1</span>
       <button onclick="changeQty(this,1)">+</button>
     </div>
+
     <button class="add-cart" disabled onclick="addToCart(this,30,999)">
       Add to cart
     </button>
   </div>
+
 </div>
 
 
 <!-- ================= PRODUCT 31 ================= -->
 
 <div class="card">
+
   <div class="photo">
+
     <div class="photo-slider">
       <img src="IMG_3872.jpeg" alt="Product 31">
       <img src="IMG_3873.jpeg" alt="Product 31">
@@ -2714,8 +2906,10 @@ footer{
       <img src="IMG_3875.jpeg" alt="Product 31">
       <img src="IMG_3876.jpeg" alt="Product 31">
     </div>
+
     <button class="photo-arrow left" onclick="movePhoto(this,-1)">❮</button>
     <button class="photo-arrow right" onclick="movePhoto(this,1)">❯</button>
+
   </div>
 
   <h3>PRODUCT NUMBER 31</h3>
@@ -2747,28 +2941,29 @@ footer{
     <button class="size-btn" onclick="selectSize(this,'5XL')">5XL</button>
     <button class="size-btn" onclick="selectSize(this,'6XL')">6XL</button>
     <button class="size-btn" onclick="selectSize(this,'7XL')">7XL</button>
-    <button class="size-btn" onclick="selectSize(this,'8XL')">8XL</button>
-    <button class="size-btn" onclick="selectSize(this,'9XL')">9XL</button>
-    <button class="size-btn" onclick="selectSize(this,'10XL')">10XL</button>
   </div>
-
+    
   <div class="buy-row">
     <div class="quantity-box">
       <button onclick="changeQty(this,-1)">−</button>
       <span>1</span>
       <button onclick="changeQty(this,1)">+</button>
     </div>
-    <button class="add-cart" disabled onclick="addToCart(this,31,999)">
+
+    <button class="add-cart" disabled onclick="addToCart(this,30,999)">
       Add to cart
     </button>
   </div>
+
 </div>
 
 
-<!-- ================= PRODUCT 32 ================= -->
+  <!-- ================= PRODUCT 32 ================= -->
 
 <div class="card">
+
   <div class="photo">
+
     <div class="photo-slider">
       <img src="IMG_3880.jpeg" alt="Product 32">
       <img src="IMG_3878.jpeg" alt="Product 32">
@@ -2776,8 +2971,10 @@ footer{
       <img src="IMG_3877.jpeg" alt="Product 32">
       <img src="IMG_3881.jpeg" alt="Product 32">
     </div>
+
     <button class="photo-arrow left" onclick="movePhoto(this,-1)">❮</button>
     <button class="photo-arrow right" onclick="movePhoto(this,1)">❯</button>
+
   </div>
 
   <h3>PRODUCT NUMBER 32</h3>
@@ -2809,28 +3006,28 @@ footer{
     <button class="size-btn" onclick="selectSize(this,'5XL')">5XL</button>
     <button class="size-btn" onclick="selectSize(this,'6XL')">6XL</button>
     <button class="size-btn" onclick="selectSize(this,'7XL')">7XL</button>
-    <button class="size-btn" onclick="selectSize(this,'8XL')">8XL</button>
-    <button class="size-btn" onclick="selectSize(this,'9XL')">9XL</button>
-    <button class="size-btn" onclick="selectSize(this,'10XL')">10XL</button>
   </div>
-
+    
   <div class="buy-row">
     <div class="quantity-box">
       <button onclick="changeQty(this,-1)">−</button>
       <span>1</span>
       <button onclick="changeQty(this,1)">+</button>
     </div>
-    <button class="add-cart" disabled onclick="addToCart(this,32,999)">
+
+    <button class="add-cart" disabled onclick="addToCart(this,30,999)">
       Add to cart
     </button>
   </div>
-</div>
 
+</div>
 
 <!-- ================= PRODUCT 33 ================= -->
 
 <div class="card">
+
   <div class="photo">
+
     <div class="photo-slider">
       <img src="IMG_3883.jpeg" alt="Product 33">
       <img src="IMG_3884.jpeg" alt="Product 33">
@@ -2838,8 +3035,10 @@ footer{
       <img src="IMG_3886.jpeg" alt="Product 33">
       <img src="IMG_3887.jpeg" alt="Product 33">
     </div>
+
     <button class="photo-arrow left" onclick="movePhoto(this,-1)">❮</button>
     <button class="photo-arrow right" onclick="movePhoto(this,1)">❯</button>
+
   </div>
 
   <h3>PRODUCT NUMBER 33</h3>
@@ -2871,21 +3070,20 @@ footer{
     <button class="size-btn" onclick="selectSize(this,'5XL')">5XL</button>
     <button class="size-btn" onclick="selectSize(this,'6XL')">6XL</button>
     <button class="size-btn" onclick="selectSize(this,'7XL')">7XL</button>
-    <button class="size-btn" onclick="selectSize(this,'8XL')">8XL</button>
-    <button class="size-btn" onclick="selectSize(this,'9XL')">9XL</button>
-    <button class="size-btn" onclick="selectSize(this,'10XL')">10XL</button>
   </div>
-
+    
   <div class="buy-row">
     <div class="quantity-box">
       <button onclick="changeQty(this,-1)">−</button>
       <span>1</span>
       <button onclick="changeQty(this,1)">+</button>
     </div>
-    <button class="add-cart" disabled onclick="addToCart(this,33,999)">
+
+    <button class="add-cart" disabled onclick="addToCart(this,30,999)">
       Add to cart
     </button>
   </div>
+
 </div>
   <!-- ================= PRODUCT 34 ================= -->
 
@@ -5020,7 +5218,7 @@ footer{
   </div>
 
 </div> 
- <!-- ================= PRODUCT 68 ================= -->
+  <!-- ================= PRODUCT 68 ================= -->
 
 <div class="card">
 
@@ -5031,7 +5229,7 @@ footer{
       <img src="IMG_4115.jpeg" alt="Product 68">
       <img src="IMG_4116.jpeg" alt="Product 68">
       <img src="IMG_4117.jpeg" alt="Product 68">
-      <img src="IMG_4118.jpeg" alt="Product 68">
+      <img src="IMG_4118.jpeg" alt="Product 68">   
     </div>
 
     <button class="photo-arrow left" onclick="movePhoto(this,-1)">❮</button>
@@ -5069,29 +5267,21 @@ footer{
     <button class="size-btn" onclick="selectSize(this,'6XL')">6XL</button>
     <button class="size-btn" onclick="selectSize(this,'7XL')">7XL</button>
   </div>
-
+    
   <div class="buy-row">
-
     <div class="quantity-box">
       <button onclick="changeQty(this,-1)">−</button>
       <span>1</span>
       <button onclick="changeQty(this,1)">+</button>
     </div>
 
-    <button class="add-cart" disabled onclick="addToCart(this,68,999)">
+    <button class="add-cart" disabled onclick="addToCart(this,30,999)">
       Add to cart
     </button>
-
-    <button class="view-cart" type="button" onclick="viewCart()">
-      🛒 View Cart
-    </button>
-
   </div>
 
-</div>
-
-
-<!-- ================= PRODUCT 69 ================= -->
+</div> 
+  <!-- ================= PRODUCT 69 ================= -->
 
 <div class="card">
 
@@ -5102,7 +5292,7 @@ footer{
       <img src="IMG_4120.webp" alt="Product 69">
       <img src="IMG_4121.webp" alt="Product 69">
       <img src="IMG_4122.webp" alt="Product 69">
-      <img src="IMG_4123.webp" alt="Product 69">
+      <img src="IMG_4123.webp" alt="Product 69">   
     </div>
 
     <button class="photo-arrow left" onclick="movePhoto(this,-1)">❮</button>
@@ -5140,29 +5330,21 @@ footer{
     <button class="size-btn" onclick="selectSize(this,'6XL')">6XL</button>
     <button class="size-btn" onclick="selectSize(this,'7XL')">7XL</button>
   </div>
-
+    
   <div class="buy-row">
-
     <div class="quantity-box">
       <button onclick="changeQty(this,-1)">−</button>
       <span>1</span>
       <button onclick="changeQty(this,1)">+</button>
     </div>
 
-    <button class="add-cart" disabled onclick="addToCart(this,69,999)">
+    <button class="add-cart" disabled onclick="addToCart(this,30,999)">
       Add to cart
     </button>
-
-    <button class="view-cart" type="button" onclick="viewCart()">
-      🛒 View Cart
-    </button>
-
   </div>
 
-</div>
-
-
-<!-- ================= PRODUCT 70 ================= -->
+</div> 
+  <!-- ================= PRODUCT 70 ================= -->
 
 <div class="card">
 
@@ -5211,29 +5393,21 @@ footer{
     <button class="size-btn" onclick="selectSize(this,'6XL')">6XL</button>
     <button class="size-btn" onclick="selectSize(this,'7XL')">7XL</button>
   </div>
-
+    
   <div class="buy-row">
-
     <div class="quantity-box">
       <button onclick="changeQty(this,-1)">−</button>
       <span>1</span>
       <button onclick="changeQty(this,1)">+</button>
     </div>
 
-    <button class="add-cart" disabled onclick="addToCart(this,70,999)">
+    <button class="add-cart" disabled onclick="addToCart(this,30,999)">
       Add to cart
     </button>
-
-    <button class="view-cart" type="button" onclick="viewCart()">
-      🛒 View Cart
-    </button>
-
   </div>
 
-</div>
-
-
-<!-- ================= PRODUCT 71 ================= -->
+</div> 
+   <!-- ================= PRODUCT 71 ================= -->
 
 <div class="card">
 
@@ -5282,29 +5456,21 @@ footer{
     <button class="size-btn" onclick="selectSize(this,'6XL')">6XL</button>
     <button class="size-btn" onclick="selectSize(this,'7XL')">7XL</button>
   </div>
-
+    
   <div class="buy-row">
-
     <div class="quantity-box">
       <button onclick="changeQty(this,-1)">−</button>
       <span>1</span>
       <button onclick="changeQty(this,1)">+</button>
     </div>
 
-    <button class="add-cart" disabled onclick="addToCart(this,71,999)">
+    <button class="add-cart" disabled onclick="addToCart(this,30,999)">
       Add to cart
     </button>
-
-    <button class="view-cart" type="button" onclick="viewCart()">
-      🛒 View Cart
-    </button>
-
   </div>
 
-</div>
-
-
-<!-- ================= PRODUCT 72 ================= -->
+</div> 
+  <!-- ================= PRODUCT 72 ================= -->
 
 <div class="card">
 
@@ -5353,29 +5519,21 @@ footer{
     <button class="size-btn" onclick="selectSize(this,'6XL')">6XL</button>
     <button class="size-btn" onclick="selectSize(this,'7XL')">7XL</button>
   </div>
-
+    
   <div class="buy-row">
-
     <div class="quantity-box">
       <button onclick="changeQty(this,-1)">−</button>
       <span>1</span>
       <button onclick="changeQty(this,1)">+</button>
     </div>
 
-    <button class="add-cart" disabled onclick="addToCart(this,72,999)">
+    <button class="add-cart" disabled onclick="addToCart(this,30,999)">
       Add to cart
     </button>
-
-    <button class="view-cart" type="button" onclick="viewCart()">
-      🛒 View Cart
-    </button>
-
   </div>
 
-</div>
-
-
-<!-- ================= PRODUCT 73 ================= -->
+</div> 
+  <!-- ================= PRODUCT 73 ================= -->
 
 <div class="card">
 
@@ -5424,29 +5582,21 @@ footer{
     <button class="size-btn" onclick="selectSize(this,'6XL')">6XL</button>
     <button class="size-btn" onclick="selectSize(this,'7XL')">7XL</button>
   </div>
-
+    
   <div class="buy-row">
-
     <div class="quantity-box">
       <button onclick="changeQty(this,-1)">−</button>
       <span>1</span>
       <button onclick="changeQty(this,1)">+</button>
     </div>
 
-    <button class="add-cart" disabled onclick="addToCart(this,73,999)">
+    <button class="add-cart" disabled onclick="addToCart(this,30,999)">
       Add to cart
     </button>
-
-    <button class="view-cart" type="button" onclick="viewCart()">
-      🛒 View Cart
-    </button>
-
   </div>
 
-</div>
-
-
-<!-- ================= PRODUCT 74 ================= -->
+</div> 
+  <!-- ================= PRODUCT 74 ================= -->
 
 <div class="card">
 
@@ -5495,29 +5645,21 @@ footer{
     <button class="size-btn" onclick="selectSize(this,'6XL')">6XL</button>
     <button class="size-btn" onclick="selectSize(this,'7XL')">7XL</button>
   </div>
-
+    
   <div class="buy-row">
-
     <div class="quantity-box">
       <button onclick="changeQty(this,-1)">−</button>
       <span>1</span>
       <button onclick="changeQty(this,1)">+</button>
     </div>
 
-    <button class="add-cart" disabled onclick="addToCart(this,74,999)">
+    <button class="add-cart" disabled onclick="addToCart(this,30,999)">
       Add to cart
     </button>
-
-    <button class="view-cart" type="button" onclick="viewCart()">
-      🛒 View Cart
-    </button>
-
   </div>
 
-</div>
-
-
-<!-- ================= PRODUCT 75 ================= -->
+</div> 
+ <!-- ================= PRODUCT 75 ================= -->
 
 <div class="card">
 
@@ -5566,26 +5708,20 @@ footer{
     <button class="size-btn" onclick="selectSize(this,'6XL')">6XL</button>
     <button class="size-btn" onclick="selectSize(this,'7XL')">7XL</button>
   </div>
-
+    
   <div class="buy-row">
-
     <div class="quantity-box">
       <button onclick="changeQty(this,-1)">−</button>
       <span>1</span>
       <button onclick="changeQty(this,1)">+</button>
     </div>
 
-    <button class="add-cart" disabled onclick="addToCart(this,75,999)">
+    <button class="add-cart" disabled onclick="addToCart(this,30,999)">
       Add to cart
     </button>
-
-    <button class="view-cart" type="button" onclick="viewCart()">
-      🛒 View Cart
-    </button>
-
   </div>
 
-</div> 
+</div>  
 </section>
 
 
@@ -6368,8 +6504,247 @@ function instagram(){
 
 updateCart();
 
+
+
+/* ================= PRODUCT DETAIL SCREEN ================= */
+(function(){
+  const products=document.querySelector('.products');
+  if(!products) return;
+  let detail=document.getElementById('productDetailView');
+  if(!detail){
+    detail=document.createElement('section');
+    detail.id='productDetailView';
+    detail.innerHTML='<button class="detail-back" type="button" onclick="closeProductDetail()">← Back to Products</button><div id="detailCardHolder"></div>';
+    products.parentNode.insertBefore(detail,products);
+  }
+  window.openProductDetail=function(card){
+    const holder=document.getElementById('detailCardHolder');
+    const clone=card.cloneNode(true);
+    clone.classList.add('detail-card');
+    clone.onclick=null;
+    holder.innerHTML='';
+    holder.appendChild(clone);
+    clone.querySelectorAll('.photo-arrow').forEach(b=>b.style.display='block');
+    const buy=document.createElement('button');
+    buy.type='button'; buy.className='buy-now-detail'; buy.textContent='🛍️ Buy Now';
+    const row=clone.querySelector('.buy-row');
+    if(row) row.insertAdjacentElement('afterend',buy);
+    const add=clone.querySelector('.add-cart');
+    const productMatch=(clone.querySelector('h3')?.textContent||'').match(/(\d+)/);
+    const product=productMatch?parseInt(productMatch[1]):0;
+    const priceText=clone.querySelector('.price')?.textContent||'';
+    const priceMatch=priceText.replace(/,/g,'').match(/(\d+)/);
+    const price=priceMatch?parseInt(priceMatch[1]):0;
+    buy.onclick=function(){
+      const selected=clone.querySelector('.size-btn.selected');
+      if(!selected){alert('Please select a size first.');return;}
+      addToCart(add,product,price);
+      viewCart();
+    };
+    products.style.display='none';
+    document.getElementById('products').querySelector('h2').style.display='none';
+    detail.classList.add('show');
+    window.scrollTo({top:0,behavior:'smooth'});
+  };
+  window.closeProductDetail=function(){
+    detail.classList.remove('show');
+    products.style.display='grid';
+    const h=document.getElementById('products').querySelector('h2');
+    if(h) h.style.display='block';
+    window.scrollTo({top:document.getElementById('products').offsetTop,behavior:'smooth'});
+  };
+  products.querySelectorAll('.card').forEach(card=>{
+    card.addEventListener('click',function(e){
+      if(e.target.closest('button,a,input,select,.size-chart')) return;
+      openProductDetail(card);
+    });
+  });
+})();
 </script>
 
+
+<style>
+#productDetailView.ck-detail-open{display:block!important;}
+#productDetailView.ck-detail-open + .products{display:none!important;}
+#productDetailView .ck-detail-inner{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 18px rgba(0,0,0,.08);padding-bottom:22px}
+#productDetailView .ck-detail-inner .photo{width:100%!important;height:auto!important;aspect-ratio:4/5!important;min-height:360px!important}
+#productDetailView .ck-detail-inner .photo-slider{display:flex!important;overflow-x:auto!important;height:100%!important}
+#productDetailView .ck-detail-inner .photo-slider img{min-width:100%!important;width:100%!important;height:100%!important;object-fit:contain!important;display:block!important}
+#productDetailView .ck-detail-inner .product-description,#productDetailView .ck-detail-inner .price,#productDetailView .ck-detail-inner .size-title,#productDetailView .ck-detail-inner .size-options,#productDetailView .ck-detail-inner .buy-row{display:block!important;margin-left:18px!important;margin-right:18px!important}
+#productDetailView .ck-detail-inner h3{margin:18px!important}
+#productDetailView .ck-detail-inner .size-options{display:flex!important;flex-wrap:wrap!important;gap:7px!important}
+#productDetailView .ck-detail-inner .buy-row{display:flex!important;flex-wrap:wrap!important;gap:8px!important}
+#productDetailView .ck-buy-now{display:block!important;width:calc(100% - 36px)!important;margin:12px 18px 0!important;height:50px;border:0;border-radius:10px;background:#6c2450;color:#fff;font-size:16px;font-weight:700}
+</style>
+<script>
+(function(){
+  function initProductClicks(){
+    var products=document.querySelector('.products');
+    if(!products) return;
+    var detail=document.getElementById('productDetailView');
+    if(!detail){
+      detail=document.createElement('section');
+      detail.id='productDetailView';
+      detail.innerHTML='<button class="detail-back" type="button">← Back to Products</button><div id="ckDetailHolder"></div>';
+      products.parentNode.insertBefore(detail,products);
+      detail.querySelector('.detail-back').addEventListener('click',function(){closeCKDetail();});
+    }
+    var cards=products.querySelectorAll('.card');
+    cards.forEach(function(card){
+      if(card.dataset.ckClickBound==='1') return;
+      card.dataset.ckClickBound='1';
+      card.style.cursor='pointer';
+      card.addEventListener('click',function(e){
+        if(e.target.closest('button') || e.target.closest('a') || e.target.closest('input') || e.target.closest('select') || e.target.closest('.size-chart')) return;
+        openCKDetail(card);
+      });
+    });
+    function openCKDetail(card){
+      var holder=document.getElementById('ckDetailHolder');
+      var clone=card.cloneNode(true);
+      clone.classList.add('ck-detail-inner');
+      clone.removeAttribute('onclick');
+      clone.querySelectorAll('[onclick]').forEach(function(el){
+        var oc=el.getAttribute('onclick')||'';
+        if(oc.indexOf('selectSize')===-1 && oc.indexOf('changeQty')===-1 && oc.indexOf('movePhoto')===-1 && oc.indexOf('showSizeChart')===-1) el.removeAttribute('onclick');
+      });
+      holder.innerHTML=''; holder.appendChild(clone);
+      var add=clone.querySelector('.add-cart');
+      var buy=document.createElement('button'); buy.type='button'; buy.className='ck-buy-now'; buy.textContent='🛍️ Buy Now';
+      clone.appendChild(buy);
+      buy.addEventListener('click',function(){
+        var selected=clone.querySelector('.size-btn.selected');
+        if(!selected){alert('Please select a size first.');return;}
+        if(add && typeof add.click==='function') add.click();
+        if(typeof window.viewCart==='function') window.viewCart();
+      });
+      products.style.display='none';
+      var h=document.querySelector('#products > h2'); if(h) h.style.display='none';
+      detail.classList.add('ck-detail-open','show');
+      window.scrollTo({top:document.getElementById('products').offsetTop,behavior:'smooth'});
+    }
+    window.closeCKDetail=function(){
+      detail.classList.remove('ck-detail-open','show');
+      products.style.display='grid';
+      var h=document.querySelector('#products > h2'); if(h) h.style.display='block';
+      window.scrollTo({top:document.getElementById('products').offsetTop,behavior:'smooth'});
+    };
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',initProductClicks); else initProductClicks();
+})();
+</script>
+
+
+<script>
+(function(){
+  function makeCardsClickable(){
+    var cards=document.querySelectorAll('#products .products > .card');
+    if(!cards.length) return;
+    cards.forEach(function(card){
+      card.style.cursor='pointer';
+      card.onclick=function(e){
+        if(e.target.closest('button,a,input,select,.size-chart')) return;
+        var detail=document.getElementById('productDetailView');
+        if(!detail){
+          detail=document.createElement('section');
+          detail.id='productDetailView';
+          detail.innerHTML='<button type="button" class="detail-back" onclick="window.closeProductDetail&&window.closeProductDetail()">← Back to Products</button><div id="detailCardHolder"></div>';
+          var products=document.querySelector('#products .products');
+          products.parentNode.insertBefore(detail,products);
+        }
+        var holder=document.getElementById('detailCardHolder');
+        var clone=card.cloneNode(true);
+        clone.onclick=null;
+        clone.classList.add('detail-card');
+        holder.innerHTML='';
+        holder.appendChild(clone);
+        document.querySelector('#products .products').style.display='none';
+        var h=document.querySelector('#products > h2'); if(h) h.style.display='none';
+        detail.classList.add('show');
+        window.scrollTo(0,0);
+      };
+    });
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',makeCardsClickable); else makeCardsClickable();
+  window.addEventListener('load',makeCardsClickable);
+})();
+</script>
+
+<script>
+(function(){
+  function showProduct(card){
+    var products=document.querySelector('#products .products');
+    if(!products) return;
+    var detail=document.getElementById('productDetailView');
+    if(!detail){
+      detail=document.createElement('section');
+      detail.id='productDetailView';
+      detail.innerHTML='<button type="button" class="detail-back">← Back to Products</button><div id="detailCardHolder"></div>';
+      products.parentNode.insertBefore(detail,products);
+      detail.querySelector('.detail-back').addEventListener('click',function(){
+        detail.classList.remove('show','ck-detail-open');
+        products.style.display='grid';
+        var h=document.querySelector('#products > h2'); if(h) h.style.display='block';
+        window.scrollTo(0,document.getElementById('products').offsetTop);
+      });
+    }
+    var holder=document.getElementById('detailCardHolder');
+    var clone=card.cloneNode(true);
+    clone.classList.add('detail-card');
+    clone.onclick=null;
+    holder.innerHTML=''; holder.appendChild(clone);
+    clone.querySelectorAll('.photo-arrow').forEach(function(b){b.style.display='block';});
+    var buy=document.createElement('button');
+    buy.type='button'; buy.className='buy-now-detail'; buy.textContent='🛍️ Buy Now';
+    clone.appendChild(buy);
+    buy.addEventListener('click',function(e){
+      e.stopPropagation();
+      var selected=clone.querySelector('.size-btn.selected');
+      if(!selected){alert('Please select a size first.');return;}
+      var add=clone.querySelector('.add-cart'); if(add) add.click();
+      if(typeof window.viewCart==='function') window.viewCart();
+    });
+    products.style.display='none';
+    var h=document.querySelector('#products > h2'); if(h) h.style.display='none';
+    detail.classList.add('show','ck-detail-open');
+    window.scrollTo(0,0);
+  }
+  function bind(){
+    var products=document.querySelector('#products .products');
+    if(!products) return;
+    products.querySelectorAll(':scope > .card').forEach(function(card){
+      card.style.cursor='pointer';
+      if(card.dataset.realClick==='1') return;
+      card.dataset.realClick='1';
+      card.addEventListener('pointerup',function(e){
+        if(e.target.closest('button,a,input,select,.size-chart')) return;
+        showProduct(card);
+      },true);
+    });
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',bind); else bind();
+  window.addEventListener('load',bind);
+})();
+</script>
+
+
+<script>
+/* ===== FINAL PRODUCT DETAIL BUTTONS ===== */
+document.addEventListener('DOMContentLoaded', function(){
+  document.querySelectorAll('#products .products .card').forEach(function(card){
+    if(card.querySelector('.product-details-button')) return;
+    const button=document.createElement('button');
+    button.type='button';
+    button.className='product-details-button';
+    button.textContent='View Details';
+    button.addEventListener('click',function(e){
+      e.stopPropagation();
+      if(typeof window.openProductDetail==='function') window.openProductDetail(card);
+    });
+    card.appendChild(button);
+  });
+});
+</script>
 </body>
 
 </html>
