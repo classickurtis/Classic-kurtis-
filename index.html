@@ -704,7 +704,6 @@ footer{
 }
 .products .product-description,
 .products .size-title,
-.products .size-options,
 .products .buy-row{
   display:none !important;
 }
@@ -749,6 +748,24 @@ footer{
 #productDetailView .view-details,
 #productDetailView .product-details-button{
   display:none !important;
+}
+</style>
+  <style>
+.products .size-options{
+  display:flex !important;
+  flex-wrap:wrap !important;
+  overflow:visible !important;
+  gap:6px !important;
+  width:100% !important;
+}
+
+.products .size-options > *{
+  flex:0 0 auto !important;
+  width:auto !important;
+  min-width:38px !important;
+  height:34px !important;
+  padding:0 7px !important;
+  box-sizing:border-box !important;
 }
 </style>
 </head>
