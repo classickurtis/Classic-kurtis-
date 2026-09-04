@@ -787,429 +787,915 @@ footer{
 <div class="products">
 
 <!-- ================= PRODUCT 1 ================= -->
+
 <div class="card">
+
   <div class="photo">
+
     <div class="photo-slider">
-      <img src="IMG_3535.jpeg" alt="Product 1">
-      <img src="IMG_3536.jpeg" alt="Product 1">
-      <img src="IMG_3537.jpeg" alt="Product 1">
-      <img src="IMG_3538.jpeg" alt="Product 1">
+
+      <img src="IMG_3721.jpeg" alt="Product 1">
+      <img src="IMG_3722.jpeg" alt="Product 1">
+      <img src="IMG_3723.jpeg" alt="Product 1">
+      <img src="IMG_3724.jpeg" alt="Product 1">
+      <img src="IMG_3725.jpeg" alt="Product 1">
+
     </div>
+
+    <button class="photo-arrow left" onclick="movePhoto(this,-1)">❮</button>
+    <button class="photo-arrow right" onclick="movePhoto(this,1)">❯</button>
+
   </div>
 
-  <h3>Product 1</h3>
-  <p class="price">₹999</p>
+  <h3>PRODUCT NUMBER 1</h3>
 
-  <p>
-    Beautiful women’s kurti with premium finish.
-  </p>
+  <div class="product-description">
+    • Fabric: Heavy Embroidered Crepe<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
+  </div>
 
-  <label>Select Size</label>
-  <select class="product-size">
-    <option value="">Select Size</option>
-    <option>XS</option>
-    <option>S</option>
-    <option>M</option>
-    <option>L</option>
-    <option>XL</option>
-    <option>2XL</option>
-    <option>3XL</option>
-    <option>4XL</option>
-    <option>5XL</option>
-    <option>6XL</option>
-    <option>7XL</option>
-    <option>8XL</option>
-    <option>9XL</option>
-    <option>10XL</option>
-  </select>
+  <p class="price">PRICE ₹999</p>
 
-  <button class="add-cart" onclick="addToCart('Product 1',999,this)">
-    🛒 Add to Cart
-  </button>
+  <div class="size-title">
+    <strong>Size</strong>
+    <span class="size-chart" onclick="showSizeChart()">Size Chart</span>
+  </div>
 
-  <button class="buy-now" onclick="buyNow('Product 1',999,this)">
-    ⚡ Buy Now
-  </button>
+  <div class="size-options">
+    <button class="size-btn" onclick="selectSize(this,'XS')">XS</button>
+    <button class="size-btn" onclick="selectSize(this,'S')">S</button>
+    <button class="size-btn" onclick="selectSize(this,'M')">M</button>
+    <button class="size-btn" onclick="selectSize(this,'L')">L</button>
+    <button class="size-btn" onclick="selectSize(this,'XL')">XL</button>
+    <button class="size-btn" onclick="selectSize(this,'2XL')">2XL</button>
+    <button class="size-btn" onclick="selectSize(this,'3XL')">3XL</button>
+    <button class="size-btn" onclick="selectSize(this,'4XL')">4XL</button>
+    <button class="size-btn" onclick="selectSize(this,'5XL')">5XL</button>
+    <button class="size-btn" onclick="selectSize(this,'6XL')">6XL</button>
+    <button class="size-btn" onclick="selectSize(this,'7XL')">7XL</button>
+    <button class="size-btn" onclick="selectSize(this,'8XL')">8XL</button>
+    <button class="size-btn" onclick="selectSize(this,'9XL')">9XL</button>
+    <button class="size-btn" onclick="selectSize(this,'10XL')">10XL</button>
+  </div>
+
+  <div class="buy-row">
+    <div class="quantity-box">
+      <button onclick="changeQty(this,-1)">−</button>
+      <span>1</span>
+      <button onclick="changeQty(this,1)">+</button>
+    </div>
+
+    <button class="add-cart" disabled onclick="addToCart(this,1,999)">
+      Add to cart
+    </button>
+  </div>
+
 </div>
 
 
 <!-- ================= PRODUCT 2 ================= -->
+
 <div class="card">
+
   <div class="photo">
+
     <div class="photo-slider">
-      <img src="PRODUCT2-1.jpeg" alt="Product 2">
-      <img src="PRODUCT2-2.jpeg" alt="Product 2">
-      <img src="PRODUCT2-3.jpeg" alt="Product 2">
-      <img src="PRODUCT2-4.jpeg" alt="Product 2">
+
+      <img src="IMG_3843.jpeg" alt="Product 2">
+      <img src="IMG_3844.jpeg" alt="Product 2">
+      <img src="IMG_3845.jpeg" alt="Product 2">
+      <img src="IMG_3846.jpeg" alt="Product 2">
+      <img src="IMG_3847.jpeg" alt="Product 2">
+      <img src="IMG_3848.jpeg" alt="Product 2">
+      <img src="IMG_3849.jpeg" alt="Product 2">
+
     </div>
+
+    <button class="photo-arrow left" onclick="movePhoto(this,-1)">❮</button>
+    <button class="photo-arrow right" onclick="movePhoto(this,1)">❯</button>
+
   </div>
 
-  <h3>Product 2</h3>
-  <p class="price">₹999</p>
+  <h3>PRODUCT NUMBER 2</h3>
 
-  <p>Beautiful women’s kurti with premium finish.</p>
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
+  </div>
 
-  <label>Select Size</label>
-  <select class="product-size">
-    <option value="">Select Size</option>
-    <option>XS</option><option>S</option><option>M</option>
-    <option>L</option><option>XL</option><option>2XL</option>
-    <option>3XL</option><option>4XL</option><option>5XL</option>
-    <option>6XL</option><option>7XL</option><option>8XL</option>
-    <option>9XL</option><option>10XL</option>
-  </select>
+  <p class="price">PRICE ₹999</p>
 
-  <button class="add-cart" onclick="addToCart('Product 2',999,this)">
-    🛒 Add to Cart
-  </button>
-  <button class="buy-now" onclick="buyNow('Product 2',999,this)">
-    ⚡ Buy Now
-  </button>
+  <div class="size-title">
+    <strong>Size</strong>
+    <span class="size-chart" onclick="showSizeChart()">Size Chart</span>
+  </div>
+
+  <div class="size-options">
+    <button class="size-btn" onclick="selectSize(this,'XS')">XS</button>
+    <button class="size-btn" onclick="selectSize(this,'S')">S</button>
+    <button class="size-btn" onclick="selectSize(this,'M')">M</button>
+    <button class="size-btn" onclick="selectSize(this,'L')">L</button>
+    <button class="size-btn" onclick="selectSize(this,'XL')">XL</button>
+    <button class="size-btn" onclick="selectSize(this,'2XL')">2XL</button>
+    <button class="size-btn" onclick="selectSize(this,'3XL')">3XL</button>
+    <button class="size-btn" onclick="selectSize(this,'4XL')">4XL</button>
+    <button class="size-btn" onclick="selectSize(this,'5XL')">5XL</button>
+    <button class="size-btn" onclick="selectSize(this,'6XL')">6XL</button>
+    <button class="size-btn" onclick="selectSize(this,'7XL')">7XL</button>
+    <button class="size-btn" onclick="selectSize(this,'8XL')">8XL</button>
+    <button class="size-btn" onclick="selectSize(this,'9XL')">9XL</button>
+    <button class="size-btn" onclick="selectSize(this,'10XL')">10XL</button>
+  </div>
+
+  <div class="buy-row">
+    <div class="quantity-box">
+      <button onclick="changeQty(this,-1)">−</button>
+      <span>1</span>
+      <button onclick="changeQty(this,1)">+</button>
+    </div>
+
+    <button class="add-cart" disabled onclick="addToCart(this,2,999)">
+      Add to cart
+    </button>
+  </div>
+
 </div>
 
 
 <!-- ================= PRODUCT 3 ================= -->
+
 <div class="card">
+
   <div class="photo">
+
     <div class="photo-slider">
-      <img src="PRODUCT3-1.jpeg" alt="Product 3">
-      <img src="PRODUCT3-2.jpeg" alt="Product 3">
-      <img src="PRODUCT3-3.jpeg" alt="Product 3">
-      <img src="PRODUCT3-4.jpeg" alt="Product 3">
+
+      <img src="IMG_3687.jpeg" alt="Product 3">
+      <img src="IMG_3683.jpeg" alt="Product 3">
+      <img src="IMG_3684.jpeg" alt="Product 3">
+      <img src="IMG_3685.jpeg" alt="Product 3">
+      <img src="IMG_3686.jpeg" alt="Product 3">
+
     </div>
+
+    <button class="photo-arrow left" onclick="movePhoto(this,-1)">❮</button>
+    <button class="photo-arrow right" onclick="movePhoto(this,1)">❯</button>
+
   </div>
 
-  <h3>Product 3</h3>
-  <p class="price">₹999</p>
+  <h3>PRODUCT NUMBER 3</h3>
 
-  <p>Beautiful women’s kurti with premium finish.</p>
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
+  </div>
 
-  <label>Select Size</label>
-  <select class="product-size">
-    <option value="">Select Size</option>
-    <option>XS</option><option>S</option><option>M</option>
-    <option>L</option><option>XL</option><option>2XL</option>
-    <option>3XL</option><option>4XL</option><option>5XL</option>
-    <option>6XL</option><option>7XL</option><option>8XL</option>
-    <option>9XL</option><option>10XL</option>
-  </select>
+  <p class="price">PRICE ₹999</p>
 
-  <button class="add-cart" onclick="addToCart('Product 3',999,this)">
-    🛒 Add to Cart
-  </button>
-  <button class="buy-now" onclick="buyNow('Product 3',999,this)">
-    ⚡ Buy Now
-  </button>
+  <div class="size-title">
+    <strong>Size</strong>
+    <span class="size-chart" onclick="showSizeChart()">Size Chart</span>
+  </div>
+
+  <div class="size-options">
+    <button class="size-btn" onclick="selectSize(this,'XS')">XS</button>
+    <button class="size-btn" onclick="selectSize(this,'S')">S</button>
+    <button class="size-btn" onclick="selectSize(this,'M')">M</button>
+    <button class="size-btn" onclick="selectSize(this,'L')">L</button>
+    <button class="size-btn" onclick="selectSize(this,'XL')">XL</button>
+    <button class="size-btn" onclick="selectSize(this,'2XL')">2XL</button>
+    <button class="size-btn" onclick="selectSize(this,'3XL')">3XL</button>
+    <button class="size-btn" onclick="selectSize(this,'4XL')">4XL</button>
+    <button class="size-btn" onclick="selectSize(this,'5XL')">5XL</button>
+    <button class="size-btn" onclick="selectSize(this,'6XL')">6XL</button>
+    <button class="size-btn" onclick="selectSize(this,'7XL')">7XL</button>
+    <button class="size-btn" onclick="selectSize(this,'8XL')">8XL</button>
+    <button class="size-btn" onclick="selectSize(this,'9XL')">9XL</button>
+    <button class="size-btn" onclick="selectSize(this,'10XL')">10XL</button>
+  </div>
+
+  <div class="buy-row">
+    <div class="quantity-box">
+      <button onclick="changeQty(this,-1)">−</button>
+      <span>1</span>
+      <button onclick="changeQty(this,1)">+</button>
+    </div>
+
+    <button class="add-cart" disabled onclick="addToCart(this,3,999)">
+      Add to cart
+    </button>
+  </div>
+
 </div>
 
 
 <!-- ================= PRODUCT 4 ================= -->
+
 <div class="card">
+
   <div class="photo">
+
     <div class="photo-slider">
-      <img src="PRODUCT4-1.jpeg" alt="Product 4">
-      <img src="PRODUCT4-2.jpeg" alt="Product 4">
-      <img src="PRODUCT4-3.jpeg" alt="Product 4">
-      <img src="PRODUCT4-4.jpeg" alt="Product 4">
+
+      <img src="IMG_3691.jpeg" alt="Product 4">
+      <img src="IMG_3689.jpeg" alt="Product 4">
+      <img src="IMG_3690.jpeg" alt="Product 4">
+      <img src="IMG_3692.jpeg" alt="Product 4">
+      <img src="IMG_3693.jpeg" alt="Product 4">
+
     </div>
+
+    <button class="photo-arrow left" onclick="movePhoto(this,-1)">❮</button>
+    <button class="photo-arrow right" onclick="movePhoto(this,1)">❯</button>
+
   </div>
 
-  <h3>Product 4</h3>
-  <p class="price">₹999</p>
+  <h3>PRODUCT NUMBER 4</h3>
 
-  <p>Beautiful women’s kurti with premium finish.</p>
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
+  </div>
 
-  <label>Select Size</label>
-  <select class="product-size">
-    <option value="">Select Size</option>
-    <option>XS</option><option>S</option><option>M</option>
-    <option>L</option><option>XL</option><option>2XL</option>
-    <option>3XL</option><option>4XL</option><option>5XL</option>
-    <option>6XL</option><option>7XL</option><option>8XL</option>
-    <option>9XL</option><option>10XL</option>
-  </select>
+  <p class="price">PRICE ₹999</p>
 
-  <button class="add-cart" onclick="addToCart('Product 4',999,this)">
-    🛒 Add to Cart
-  </button>
-  <button class="buy-now" onclick="buyNow('Product 4',999,this)">
-    ⚡ Buy Now
-  </button>
+  <div class="size-title">
+    <strong>Size</strong>
+    <span class="size-chart" onclick="showSizeChart()">Size Chart</span>
+  </div>
+
+  <div class="size-options">
+    <button class="size-btn" onclick="selectSize(this,'XS')">XS</button>
+    <button class="size-btn" onclick="selectSize(this,'S')">S</button>
+    <button class="size-btn" onclick="selectSize(this,'M')">M</button>
+    <button class="size-btn" onclick="selectSize(this,'L')">L</button>
+    <button class="size-btn" onclick="selectSize(this,'XL')">XL</button>
+    <button class="size-btn" onclick="selectSize(this,'2XL')">2XL</button>
+    <button class="size-btn" onclick="selectSize(this,'3XL')">3XL</button>
+    <button class="size-btn" onclick="selectSize(this,'4XL')">4XL</button>
+    <button class="size-btn" onclick="selectSize(this,'5XL')">5XL</button>
+    <button class="size-btn" onclick="selectSize(this,'6XL')">6XL</button>
+    <button class="size-btn" onclick="selectSize(this,'7XL')">7XL</button>
+    <button class="size-btn" onclick="selectSize(this,'8XL')">8XL</button>
+    <button class="size-btn" onclick="selectSize(this,'9XL')">9XL</button>
+    <button class="size-btn" onclick="selectSize(this,'10XL')">10XL</button>
+  </div>
+
+  <div class="buy-row">
+    <div class="quantity-box">
+      <button onclick="changeQty(this,-1)">−</button>
+      <span>1</span>
+      <button onclick="changeQty(this,1)">+</button>
+    </div>
+
+    <button class="add-cart" disabled onclick="addToCart(this,4,999)">
+      Add to cart
+    </button>
+  </div>
+
 </div>
 
 
 <!-- ================= PRODUCT 5 ================= -->
+
 <div class="card">
+
   <div class="photo">
+
     <div class="photo-slider">
-      <img src="PRODUCT5-1.jpeg" alt="Product 5">
-      <img src="PRODUCT5-2.jpeg" alt="Product 5">
-      <img src="PRODUCT5-3.jpeg" alt="Product 5">
-      <img src="PRODUCT5-4.jpeg" alt="Product 5">
+
+      <img src="IMG_3695.jpeg" alt="Product 5">
+      <img src="IMG_3696.jpeg" alt="Product 5">
+      <img src="IMG_3697.jpeg" alt="Product 5">
+      <img src="IMG_3698.jpeg" alt="Product 5">
+
     </div>
+
+    <button class="photo-arrow left" onclick="movePhoto(this,-1)">❮</button>
+    <button class="photo-arrow right" onclick="movePhoto(this,1)">❯</button>
+
   </div>
 
-  <h3>Product 5</h3>
-  <p class="price">₹999</p>
+  <h3>PRODUCT NUMBER 5</h3>
 
-  <p>Beautiful women’s kurti with premium finish.</p>
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
+  </div>
 
-  <label>Select Size</label>
-  <select class="product-size">
-    <option value="">Select Size</option>
-    <option>XS</option><option>S</option><option>M</option>
-    <option>L</option><option>XL</option><option>2XL</option>
-    <option>3XL</option><option>4XL</option><option>5XL</option>
-    <option>6XL</option><option>7XL</option><option>8XL</option>
-    <option>9XL</option><option>10XL</option>
-  </select>
+  <p class="price">PRICE ₹999</p>
 
-  <button class="add-cart" onclick="addToCart('Product 5',999,this)">
-    🛒 Add to Cart
-  </button>
-  <button class="buy-now" onclick="buyNow('Product 5',999,this)">
-    ⚡ Buy Now
-  </button>
+  <div class="size-title">
+    <strong>Size</strong>
+    <span class="size-chart" onclick="showSizeChart()">Size Chart</span>
+  </div>
+
+  <div class="size-options">
+    <button class="size-btn" onclick="selectSize(this,'XS')">XS</button>
+    <button class="size-btn" onclick="selectSize(this,'S')">S</button>
+    <button class="size-btn" onclick="selectSize(this,'M')">M</button>
+    <button class="size-btn" onclick="selectSize(this,'L')">L</button>
+    <button class="size-btn" onclick="selectSize(this,'XL')">XL</button>
+    <button class="size-btn" onclick="selectSize(this,'2XL')">2XL</button>
+    <button class="size-btn" onclick="selectSize(this,'3XL')">3XL</button>
+    <button class="size-btn" onclick="selectSize(this,'4XL')">4XL</button>
+    <button class="size-btn" onclick="selectSize(this,'5XL')">5XL</button>
+    <button class="size-btn" onclick="selectSize(this,'6XL')">6XL</button>
+    <button class="size-btn" onclick="selectSize(this,'7XL')">7XL</button>
+    <button class="size-btn" onclick="selectSize(this,'8XL')">8XL</button>
+    <button class="size-btn" onclick="selectSize(this,'9XL')">9XL</button>
+    <button class="size-btn" onclick="selectSize(this,'10XL')">10XL</button>
+  </div>
+
+  <div class="buy-row">
+    <div class="quantity-box">
+      <button onclick="changeQty(this,-1)">−</button>
+      <span>1</span>
+      <button onclick="changeQty(this,1)">+</button>
+    </div>
+
+    <button class="add-cart" disabled onclick="addToCart(this,5,999)">
+      Add to cart
+    </button>
+  </div>
+
 </div>
 
 
 <!-- ================= PRODUCT 6 ================= -->
+
 <div class="card">
+
   <div class="photo">
+
     <div class="photo-slider">
-      <img src="PRODUCT6-1.jpeg" alt="Product 6">
-      <img src="PRODUCT6-2.jpeg" alt="Product 6">
-      <img src="PRODUCT6-3.jpeg" alt="Product 6">
-      <img src="PRODUCT6-4.jpeg" alt="Product 6">
+
+      <img src="IMG_3699.jpeg" alt="Product 6">
+      <img src="IMG_3700.jpeg" alt="Product 6">
+      <img src="IMG_3701.jpeg" alt="Product 6">
+      <img src="IMG_3702.jpeg" alt="Product 6">
+      <img src="IMG_3703.jpeg" alt="Product 6">
+
     </div>
+
+    <button class="photo-arrow left" onclick="movePhoto(this,-1)">❮</button>
+    <button class="photo-arrow right" onclick="movePhoto(this,1)">❯</button>
+
   </div>
 
-  <h3>Product 6</h3>
-  <p class="price">₹999</p>
-  <p>Beautiful women’s kurti with premium finish.</p>
+  <h3>PRODUCT NUMBER 6</h3>
 
-  <label>Select Size</label>
-  <select class="product-size">
-    <option value="">Select Size</option>
-    <option>XS</option><option>S</option><option>M</option>
-    <option>L</option><option>XL</option><option>2XL</option>
-    <option>3XL</option><option>4XL</option><option>5XL</option>
-    <option>6XL</option><option>7XL</option><option>8XL</option>
-    <option>9XL</option><option>10XL</option>
-  </select>
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
+  </div>
 
-  <button class="add-cart" onclick="addToCart('Product 6',999,this)">🛒 Add to Cart</button>
-  <button class="buy-now" onclick="buyNow('Product 6',999,this)">⚡ Buy Now</button>
+  <p class="price">PRICE ₹999</p>
+
+  <div class="size-title">
+    <strong>Size</strong>
+    <span class="size-chart" onclick="showSizeChart()">Size Chart</span>
+  </div>
+
+  <div class="size-options">
+    <button class="size-btn" onclick="selectSize(this,'XS')">XS</button>
+    <button class="size-btn" onclick="selectSize(this,'S')">S</button>
+    <button class="size-btn" onclick="selectSize(this,'M')">M</button>
+    <button class="size-btn" onclick="selectSize(this,'L')">L</button>
+    <button class="size-btn" onclick="selectSize(this,'XL')">XL</button>
+    <button class="size-btn" onclick="selectSize(this,'2XL')">2XL</button>
+    <button class="size-btn" onclick="selectSize(this,'3XL')">3XL</button>
+    <button class="size-btn" onclick="selectSize(this,'4XL')">4XL</button>
+    <button class="size-btn" onclick="selectSize(this,'5XL')">5XL</button>
+    <button class="size-btn" onclick="selectSize(this,'6XL')">6XL</button>
+    <button class="size-btn" onclick="selectSize(this,'7XL')">7XL</button>
+    <button class="size-btn" onclick="selectSize(this,'8XL')">8XL</button>
+    <button class="size-btn" onclick="selectSize(this,'9XL')">9XL</button>
+    <button class="size-btn" onclick="selectSize(this,'10XL')">10XL</button>
+  </div>
+
+  <div class="buy-row">
+    <div class="quantity-box">
+      <button onclick="changeQty(this,-1)">−</button>
+      <span>1</span>
+      <button onclick="changeQty(this,1)">+</button>
+    </div>
+
+    <button class="add-cart" disabled onclick="addToCart(this,6,999)">
+      Add to cart
+    </button>
+  </div>
+
 </div>
 
 
 <!-- ================= PRODUCT 7 ================= -->
+
 <div class="card">
+
   <div class="photo">
+
     <div class="photo-slider">
-      <img src="PRODUCT7-1.jpeg" alt="Product 7">
-      <img src="PRODUCT7-2.jpeg" alt="Product 7">
-      <img src="PRODUCT7-3.jpeg" alt="Product 7">
-      <img src="PRODUCT7-4.jpeg" alt="Product 7">
+
+      <img src="IMG_3705.jpeg" alt="Product 7">
+      <img src="IMG_3706.jpeg" alt="Product 7">
+      <img src="IMG_3707.jpeg" alt="Product 7">
+      <img src="IMG_3708.jpeg" alt="Product 7">
+      <img src="IMG_3709.jpeg" alt="Product 7">
+
     </div>
+
+    <button class="photo-arrow left" onclick="movePhoto(this,-1)">❮</button>
+    <button class="photo-arrow right" onclick="movePhoto(this,1)">❯</button>
+
   </div>
 
-  <h3>Product 7</h3>
-  <p class="price">₹999</p>
-  <p>Beautiful women’s kurti with premium finish.</p>
+  <h3>PRODUCT NUMBER 7</h3>
 
-  <label>Select Size</label>
-  <select class="product-size">
-    <option value="">Select Size</option>
-    <option>XS</option><option>S</option><option>M</option>
-    <option>L</option><option>XL</option><option>2XL</option>
-    <option>3XL</option><option>4XL</option><option>5XL</option>
-    <option>6XL</option><option>7XL</option><option>8XL</option>
-    <option>9XL</option><option>10XL</option>
-  </select>
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
+  </div>
 
-  <button class="add-cart" onclick="addToCart('Product 7',999,this)">🛒 Add to Cart</button>
-  <button class="buy-now" onclick="buyNow('Product 7',999,this)">⚡ Buy Now</button>
+  <p class="price">PRICE ₹999</p>
+
+  <div class="size-title">
+    <strong>Size</strong>
+    <span class="size-chart" onclick="showSizeChart()">Size Chart</span>
+  </div>
+
+  <div class="size-options">
+    <button class="size-btn" onclick="selectSize(this,'XS')">XS</button>
+    <button class="size-btn" onclick="selectSize(this,'S')">S</button>
+    <button class="size-btn" onclick="selectSize(this,'M')">M</button>
+    <button class="size-btn" onclick="selectSize(this,'L')">L</button>
+    <button class="size-btn" onclick="selectSize(this,'XL')">XL</button>
+    <button class="size-btn" onclick="selectSize(this,'2XL')">2XL</button>
+    <button class="size-btn" onclick="selectSize(this,'3XL')">3XL</button>
+    <button class="size-btn" onclick="selectSize(this,'4XL')">4XL</button>
+    <button class="size-btn" onclick="selectSize(this,'5XL')">5XL</button>
+    <button class="size-btn" onclick="selectSize(this,'6XL')">6XL</button>
+    <button class="size-btn" onclick="selectSize(this,'7XL')">7XL</button>
+    <button class="size-btn" onclick="selectSize(this,'8XL')">8XL</button>
+    <button class="size-btn" onclick="selectSize(this,'9XL')">9XL</button>
+    <button class="size-btn" onclick="selectSize(this,'10XL')">10XL</button>
+  </div>
+
+  <div class="buy-row">
+    <div class="quantity-box">
+      <button onclick="changeQty(this,-1)">−</button>
+      <span>1</span>
+      <button onclick="changeQty(this,1)">+</button>
+    </div>
+
+    <button class="add-cart" disabled onclick="addToCart(this,7,999)">
+      Add to cart
+    </button>
+  </div>
+
 </div>
 
 
 <!-- ================= PRODUCT 8 ================= -->
+
 <div class="card">
+
   <div class="photo">
+
     <div class="photo-slider">
-      <img src="PRODUCT8-1.jpeg" alt="Product 8">
-      <img src="PRODUCT8-2.jpeg" alt="Product 8">
-      <img src="PRODUCT8-3.jpeg" alt="Product 8">
-      <img src="PRODUCT8-4.jpeg" alt="Product 8">
+
+      <img src="IMG_3710.jpeg" alt="Product 8">
+      <img src="IMG_3711.jpeg" alt="Product 8">
+      <img src="IMG_3712.jpeg" alt="Product 8">
+      <img src="IMG_3713.jpeg" alt="Product 8">
+      <img src="IMG_3714.jpeg" alt="Product 8">
+
     </div>
+
+    <button class="photo-arrow left" onclick="movePhoto(this,-1)">❮</button>
+    <button class="photo-arrow right" onclick="movePhoto(this,1)">❯</button>
+
   </div>
 
-  <h3>Product 8</h3>
-  <p class="price">₹999</p>
-  <p>Beautiful women’s kurti with premium finish.</p>
+  <h3>PRODUCT NUMBER 8</h3>
 
-  <label>Select Size</label>
-  <select class="product-size">
-    <option value="">Select Size</option>
-    <option>XS</option><option>S</option><option>M</option>
-    <option>L</option><option>XL</option><option>2XL</option>
-    <option>3XL</option><option>4XL</option><option>5XL</option>
-    <option>6XL</option><option>7XL</option><option>8XL</option>
-    <option>9XL</option><option>10XL</option>
-  </select>
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
+  </div>
 
-  <button class="add-cart" onclick="addToCart('Product 8',999,this)">🛒 Add to Cart</button>
-  <button class="buy-now" onclick="buyNow('Product 8',999,this)">⚡ Buy Now</button>
+  <p class="price">PRICE ₹999</p>
+
+  <div class="size-title">
+    <strong>Size</strong>
+    <span class="size-chart" onclick="showSizeChart()">Size Chart</span>
+  </div>
+
+  <div class="size-options">
+    <button class="size-btn" onclick="selectSize(this,'XS')">XS</button>
+    <button class="size-btn" onclick="selectSize(this,'S')">S</button>
+    <button class="size-btn" onclick="selectSize(this,'M')">M</button>
+    <button class="size-btn" onclick="selectSize(this,'L')">L</button>
+    <button class="size-btn" onclick="selectSize(this,'XL')">XL</button>
+    <button class="size-btn" onclick="selectSize(this,'2XL')">2XL</button>
+    <button class="size-btn" onclick="selectSize(this,'3XL')">3XL</button>
+    <button class="size-btn" onclick="selectSize(this,'4XL')">4XL</button>
+    <button class="size-btn" onclick="selectSize(this,'5XL')">5XL</button>
+    <button class="size-btn" onclick="selectSize(this,'6XL')">6XL</button>
+    <button class="size-btn" onclick="selectSize(this,'7XL')">7XL</button>
+    <button class="size-btn" onclick="selectSize(this,'8XL')">8XL</button>
+    <button class="size-btn" onclick="selectSize(this,'9XL')">9XL</button>
+    <button class="size-btn" onclick="selectSize(this,'10XL')">10XL</button>
+  </div>
+
+  <div class="buy-row">
+    <div class="quantity-box">
+      <button onclick="changeQty(this,-1)">−</button>
+      <span>1</span>
+      <button onclick="changeQty(this,1)">+</button>
+    </div>
+
+    <button class="add-cart" disabled onclick="addToCart(this,8,999)">
+      Add to cart
+    </button>
+  </div>
+
 </div>
 
 
 <!-- ================= PRODUCT 9 ================= -->
+
 <div class="card">
+
   <div class="photo">
+
     <div class="photo-slider">
-      <img src="PRODUCT9-1.jpeg" alt="Product 9">
-      <img src="PRODUCT9-2.jpeg" alt="Product 9">
-      <img src="PRODUCT9-3.jpeg" alt="Product 9">
-      <img src="PRODUCT9-4.jpeg" alt="Product 9">
+
+      <img src="IMG_3715.jpeg" alt="Product 9">
+      <img src="IMG_3716.jpeg" alt="Product 9">
+      <img src="IMG_3717.jpeg" alt="Product 9">
+      <img src="IMG_3718.jpeg" alt="Product 9">
+      <img src="IMG_3719.jpeg" alt="Product 9">
+      <img src="IMG_3720.jpeg" alt="Product 9">
+
     </div>
+
+    <button class="photo-arrow left" onclick="movePhoto(this,-1)">❮</button>
+    <button class="photo-arrow right" onclick="movePhoto(this,1)">❯</button>
+
   </div>
 
-  <h3>Product 9</h3>
-  <p class="price">₹999</p>
-  <p>Beautiful women’s kurti with premium finish.</p>
+  <h3>PRODUCT NUMBER 9</h3>
 
-  <label>Select Size</label>
-  <select class="product-size">
-    <option value="">Select Size</option>
-    <option>XS</option><option>S</option><option>M</option>
-    <option>L</option><option>XL</option><option>2XL</option>
-    <option>3XL</option><option>4XL</option><option>5XL</option>
-    <option>6XL</option><option>7XL</option><option>8XL</option>
-    <option>9XL</option><option>10XL</option>
-  </select>
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
+  </div>
 
-  <button class="add-cart" onclick="addToCart('Product 9',999,this)">🛒 Add to Cart</button>
-  <button class="buy-now" onclick="buyNow('Product 9',999,this)">⚡ Buy Now</button>
+  <p class="price">PRICE ₹999</p>
+
+  <div class="size-title">
+    <strong>Size</strong>
+    <span class="size-chart" onclick="showSizeChart()">Size Chart</span>
+  </div>
+
+  <div class="size-options">
+    <button class="size-btn" onclick="selectSize(this,'XS')">XS</button>
+    <button class="size-btn" onclick="selectSize(this,'S')">S</button>
+    <button class="size-btn" onclick="selectSize(this,'M')">M</button>
+    <button class="size-btn" onclick="selectSize(this,'L')">L</button>
+    <button class="size-btn" onclick="selectSize(this,'XL')">XL</button>
+    <button class="size-btn" onclick="selectSize(this,'2XL')">2XL</button>
+    <button class="size-btn" onclick="selectSize(this,'3XL')">3XL</button>
+    <button class="size-btn" onclick="selectSize(this,'4XL')">4XL</button>
+    <button class="size-btn" onclick="selectSize(this,'5XL')">5XL</button>
+    <button class="size-btn" onclick="selectSize(this,'6XL')">6XL</button>
+    <button class="size-btn" onclick="selectSize(this,'7XL')">7XL</button>
+    <button class="size-btn" onclick="selectSize(this,'8XL')">8XL</button>
+    <button class="size-btn" onclick="selectSize(this,'9XL')">9XL</button>
+    <button class="size-btn" onclick="selectSize(this,'10XL')">10XL</button>
+  </div>
+
+  <div class="buy-row">
+    <div class="quantity-box">
+      <button onclick="changeQty(this,-1)">−</button>
+      <span>1</span>
+      <button onclick="changeQty(this,1)">+</button>
+    </div>
+
+    <button class="add-cart" disabled onclick="addToCart(this,9,999)">
+      Add to cart
+    </button>
+  </div>
+
 </div>
 
 
 <!-- ================= PRODUCT 10 ================= -->
+
 <div class="card">
+
   <div class="photo">
+
     <div class="photo-slider">
-      <img src="PRODUCT10-1.jpeg" alt="Product 10">
-      <img src="PRODUCT10-2.jpeg" alt="Product 10">
-      <img src="PRODUCT10-3.jpeg" alt="Product 10">
-      <img src="PRODUCT10-4.jpeg" alt="Product 10">
+
+      <img src="IMG_3726.jpeg" alt="Product 10">
+      <img src="IMG_3727.jpeg" alt="Product 10">
+      <img src="IMG_3728.jpeg" alt="Product 10">
+      <img src="IMG_3729.jpeg" alt="Product 10">
+      <img src="IMG_3730.jpeg" alt="Product 10">
+
     </div>
+
+    <button class="photo-arrow left" onclick="movePhoto(this,-1)">❮</button>
+    <button class="photo-arrow right" onclick="movePhoto(this,1)">❯</button>
+
   </div>
 
-  <h3>Product 10</h3>
-  <p class="price">₹999</p>
-  <p>Beautiful women’s kurti with premium finish.</p>
+  <h3>PRODUCT NUMBER 10</h3>
 
-  <label>Select Size</label>
-  <select class="product-size">
-    <option value="">Select Size</option>
-    <option>XS</option><option>S</option><option>M</option>
-    <option>L</option><option>XL</option><option>2XL</option>
-    <option>3XL</option><option>4XL</option><option>5XL</option>
-    <option>6XL</option><option>7XL</option><option>8XL</option>
-    <option>9XL</option><option>10XL</option>
-  </select>
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
+  </div>
 
-  <button class="add-cart" onclick="addToCart('Product 10',999,this)">🛒 Add to Cart</button>
-  <button class="buy-now" onclick="buyNow('Product 10',999,this)">⚡ Buy Now</button>
+  <p class="price">PRICE ₹999</p>
+
+  <div class="size-title">
+    <strong>Size</strong>
+    <span class="size-chart" onclick="showSizeChart()">Size Chart</span>
+  </div>
+
+  <div class="size-options">
+    <button class="size-btn" onclick="selectSize(this,'XS')">XS</button>
+    <button class="size-btn" onclick="selectSize(this,'S')">S</button>
+    <button class="size-btn" onclick="selectSize(this,'M')">M</button>
+    <button class="size-btn" onclick="selectSize(this,'L')">L</button>
+    <button class="size-btn" onclick="selectSize(this,'XL')">XL</button>
+    <button class="size-btn" onclick="selectSize(this,'2XL')">2XL</button>
+    <button class="size-btn" onclick="selectSize(this,'3XL')">3XL</button>
+    <button class="size-btn" onclick="selectSize(this,'4XL')">4XL</button>
+    <button class="size-btn" onclick="selectSize(this,'5XL')">5XL</button>
+    <button class="size-btn" onclick="selectSize(this,'6XL')">6XL</button>
+    <button class="size-btn" onclick="selectSize(this,'7XL')">7XL</button>
+    <button class="size-btn" onclick="selectSize(this,'8XL')">8XL</button>
+    <button class="size-btn" onclick="selectSize(this,'9XL')">9XL</button>
+    <button class="size-btn" onclick="selectSize(this,'10XL')">10XL</button>
+  </div>
+
+  <div class="buy-row">
+    <div class="quantity-box">
+      <button onclick="changeQty(this,-1)">−</button>
+      <span>1</span>
+      <button onclick="changeQty(this,1)">+</button>
+    </div>
+
+    <button class="add-cart" disabled onclick="addToCart(this,10,999)">
+      Add to cart
+    </button>
+  </div>
+
 </div>
 
 
 <!-- ================= PRODUCT 11 ================= -->
+
 <div class="card">
+
   <div class="photo">
+
     <div class="photo-slider">
-      <img src="PRODUCT11-1.jpeg" alt="Product 11">
-      <img src="PRODUCT11-2.jpeg" alt="Product 11">
-      <img src="PRODUCT11-3.jpeg" alt="Product 11">
-      <img src="PRODUCT11-4.jpeg" alt="Product 11">
+
+      <img src="IMG_3731.jpeg" alt="Product 11">
+      <img src="IMG_3732.jpeg" alt="Product 11">
+      <img src="IMG_3733.jpeg" alt="Product 11">
+      <img src="IMG_3734.jpeg" alt="Product 11">
+      <img src="IMG_3735.jpeg" alt="Product 11">
+
     </div>
+
+    <button class="photo-arrow left" onclick="movePhoto(this,-1)">❮</button>
+    <button class="photo-arrow right" onclick="movePhoto(this,1)">❯</button>
+
   </div>
 
-  <h3>Product 11</h3>
-  <p class="price">₹999</p>
-  <p>Beautiful women’s kurti with premium finish.</p>
+  <h3>PRODUCT NUMBER 11</h3>
 
-  <label>Select Size</label>
-  <select class="product-size">
-    <option value="">Select Size</option>
-    <option>XS</option><option>S</option><option>M</option>
-    <option>L</option><option>XL</option><option>2XL</option>
-    <option>3XL</option><option>4XL</option><option>5XL</option>
-    <option>6XL</option><option>7XL</option><option>8XL</option>
-    <option>9XL</option><option>10XL</option>
-  </select>
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
+  </div>
 
-  <button class="add-cart" onclick="addToCart('Product 11',999,this)">🛒 Add to Cart</button>
-  <button class="buy-now" onclick="buyNow('Product 11',999,this)">⚡ Buy Now</button>
+  <p class="price">PRICE ₹999</p>
+
+  <div class="size-title">
+    <strong>Size</strong>
+    <span class="size-chart" onclick="showSizeChart()">Size Chart</span>
+  </div>
+
+  <div class="size-options">
+    <button class="size-btn" onclick="selectSize(this,'XS')">XS</button>
+    <button class="size-btn" onclick="selectSize(this,'S')">S</button>
+    <button class="size-btn" onclick="selectSize(this,'M')">M</button>
+    <button class="size-btn" onclick="selectSize(this,'L')">L</button>
+    <button class="size-btn" onclick="selectSize(this,'XL')">XL</button>
+    <button class="size-btn" onclick="selectSize(this,'2XL')">2XL</button>
+    <button class="size-btn" onclick="selectSize(this,'3XL')">3XL</button>
+    <button class="size-btn" onclick="selectSize(this,'4XL')">4XL</button>
+    <button class="size-btn" onclick="selectSize(this,'5XL')">5XL</button>
+    <button class="size-btn" onclick="selectSize(this,'6XL')">6XL</button>
+    <button class="size-btn" onclick="selectSize(this,'7XL')">7XL</button>
+    <button class="size-btn" onclick="selectSize(this,'8XL')">8XL</button>
+    <button class="size-btn" onclick="selectSize(this,'9XL')">9XL</button>
+    <button class="size-btn" onclick="selectSize(this,'10XL')">10XL</button>
+  </div>
+
+  <div class="buy-row">
+    <div class="quantity-box">
+      <button onclick="changeQty(this,-1)">−</button>
+      <span>1</span>
+      <button onclick="changeQty(this,1)">+</button>
+    </div>
+
+    <button class="add-cart" disabled onclick="addToCart(this,11,999)">
+      Add to cart
+    </button>
+  </div>
+
 </div>
 
 
 <!-- ================= PRODUCT 12 ================= -->
+
 <div class="card">
+
   <div class="photo">
+
     <div class="photo-slider">
-      <img src="PRODUCT12-1.jpeg" alt="Product 12">
-      <img src="PRODUCT12-2.jpeg" alt="Product 12">
-      <img src="PRODUCT12-3.jpeg" alt="Product 12">
-      <img src="PRODUCT12-4.jpeg" alt="Product 12">
+
+      <img src="IMG_3736.jpeg" alt="Product 12">
+      <img src="IMG_3737.jpeg" alt="Product 12">
+      <img src="IMG_3738.jpeg" alt="Product 12">
+      <img src="IMG_3739.jpeg" alt="Product 12">
+      <img src="IMG_3740.jpeg" alt="Product 12">
+      <img src="IMG_3741.jpeg" alt="Product 12">
+
     </div>
+
+    <button class="photo-arrow left" onclick="movePhoto(this,-1)">❮</button>
+    <button class="photo-arrow right" onclick="movePhoto(this,1)">❯</button>
+
   </div>
 
-  <h3>Product 12</h3>
-  <p class="price">₹999</p>
-  <p>Beautiful women’s kurti with premium finish.</p>
+  <h3>PRODUCT NUMBER 12</h3>
 
-  <label>Select Size</label>
-  <select class="product-size">
-    <option value="">Select Size</option>
-    <option>XS</option><option>S</option><option>M</option>
-    <option>L</option><option>XL</option><option>2XL</option>
-    <option>3XL</option><option>4XL</option><option>5XL</option>
-    <option>6XL</option><option>7XL</option><option>8XL</option>
-    <option>9XL</option><option>10XL</option>
-  </select>
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
+  </div>
 
-  <button class="add-cart" onclick="addToCart('Product 12',999,this)">🛒 Add to Cart</button>
-  <button class="buy-now" onclick="buyNow('Product 12',999,this)">⚡ Buy Now</button>
+  <p class="price">PRICE ₹999</p>
+
+  <div class="size-title">
+    <strong>Size</strong>
+    <span class="size-chart" onclick="showSizeChart()">Size Chart</span>
+  </div>
+
+  <div class="size-options">
+    <button class="size-btn" onclick="selectSize(this,'XS')">XS</button>
+    <button class="size-btn" onclick="selectSize(this,'S')">S</button>
+    <button class="size-btn" onclick="selectSize(this,'M')">M</button>
+    <button class="size-btn" onclick="selectSize(this,'L')">L</button>
+    <button class="size-btn" onclick="selectSize(this,'XL')">XL</button>
+    <button class="size-btn" onclick="selectSize(this,'2XL')">2XL</button>
+    <button class="size-btn" onclick="selectSize(this,'3XL')">3XL</button>
+    <button class="size-btn" onclick="selectSize(this,'4XL')">4XL</button>
+    <button class="size-btn" onclick="selectSize(this,'5XL')">5XL</button>
+    <button class="size-btn" onclick="selectSize(this,'6XL')">6XL</button>
+    <button class="size-btn" onclick="selectSize(this,'7XL')">7XL</button>
+    <button class="size-btn" onclick="selectSize(this,'8XL')">8XL</button>
+    <button class="size-btn" onclick="selectSize(this,'9XL')">9XL</button>
+    <button class="size-btn" onclick="selectSize(this,'10XL')">10XL</button>
+  </div>
+
+  <div class="buy-row">
+    <div class="quantity-box">
+      <button onclick="changeQty(this,-1)">−</button>
+      <span>1</span>
+      <button onclick="changeQty(this,1)">+</button>
+    </div>
+
+    <button class="add-cart" disabled onclick="addToCart(this,12,999)">
+      Add to cart
+    </button>
+  </div>
+
 </div>
 
 
 <!-- ================= PRODUCT 13 ================= -->
+
 <div class="card">
+
   <div class="photo">
+
     <div class="photo-slider">
-      <img src="PRODUCT13-1.jpeg" alt="Product 13">
-      <img src="PRODUCT13-2.jpeg" alt="Product 13">
-      <img src="PRODUCT13-3.jpeg" alt="Product 13">
-      <img src="PRODUCT13-4.jpeg" alt="Product 13">
+
+      <img src="IMG_3742.jpeg" alt="Product 13">
+      <img src="IMG_3743.jpeg" alt="Product 13">
+      <img src="IMG_3744.jpeg" alt="Product 13">
+      <img src="IMG_3745.jpeg" alt="Product 13">
+      <img src="IMG_3746.jpeg" alt="Product 13">
+
     </div>
+
+    <button class="photo-arrow left" onclick="movePhoto(this,-1)">❮</button>
+    <button class="photo-arrow right" onclick="movePhoto(this,1)">❯</button>
+
   </div>
 
-  <h3>Product 13</h3>
-  <p class="price">₹999</p>
-  <p>Beautiful women’s kurti with premium finish.</p>
+  <h3>PRODUCT NUMBER 13</h3>
 
-  <label>Select Size</label>
-  <select class="product-size">
-    <option value="">Select Size</option>
-    <option>XS</option><option>S</option><option>M</option>
-    <option>L</option><option>XL</option><option>2XL</option>
-    <option>3XL</option><option>4XL</option><option>5XL</option>
-    <option>6XL</option><option>7XL</option><option>8XL</option>
-    <option>9XL</option><option>10XL</option>
-  </select>
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
+  </div>
 
-  <button class="add-cart" onclick="addToCart('Product 13',999,this)">🛒 Add to Cart</button>
-  <button class="buy-now" onclick="buyNow('Product 13',999,this)">⚡ Buy Now</button>
+  <p class="price">PRICE ₹999</p>
+
+  <div class="size-title">
+    <strong>Size</strong>
+    <span class="size-chart" onclick="showSizeChart()">Size Chart</span>
+  </div>
+
+  <div class="size-options">
+    <button class="size-btn" onclick="selectSize(this,'XS')">XS</button>
+    <button class="size-btn" onclick="selectSize(this,'S')">S</button>
+    <button class="size-btn" onclick="selectSize(this,'M')">M</button>
+    <button class="size-btn" onclick="selectSize(this,'L')">L</button>
+    <button class="size-btn" onclick="selectSize(this,'XL')">XL</button>
+    <button class="size-btn" onclick="selectSize(this,'2XL')">2XL</button>
+    <button class="size-btn" onclick="selectSize(this,'3XL')">3XL</button>
+    <button class="size-btn" onclick="selectSize(this,'4XL')">4XL</button>
+    <button class="size-btn" onclick="selectSize(this,'5XL')">5XL</button>
+    <button class="size-btn" onclick="selectSize(this,'6XL')">6XL</button>
+    <button class="size-btn" onclick="selectSize(this,'7XL')">7XL</button>
+    <button class="size-btn" onclick="selectSize(this,'8XL')">8XL</button>
+    <button class="size-btn" onclick="selectSize(this,'9XL')">9XL</button>
+    <button class="size-btn" onclick="selectSize(this,'10XL')">10XL</button>
+  </div>
+
+  <div class="buy-row">
+    <div class="quantity-box">
+      <button onclick="changeQty(this,-1)">−</button>
+      <span>1</span>
+      <button onclick="changeQty(this,1)">+</button>
+    </div>
+
+    <button class="add-cart" disabled onclick="addToCart(this,13,999)">
+      Add to cart
+    </button>
+  </div>
+
 </div>
 
 
