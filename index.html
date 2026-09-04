@@ -675,12 +675,11 @@ footer{
   flex-direction:column;
 }
 
-.view-details{
-  order:999;
-  width:100%;
-  margin-top:12px;
-  margin-bottom:5px;
-  padding:12px;
+.view-details,
+.product-details-button{
+  order:999 !important;
+  width:calc(100% - 20px);
+  margin:12px 10px 5px;
   box-sizing:border-box;
   display:block;
 }
@@ -724,7 +723,7 @@ footer{
 .product-details-button{
   display:block;
   width:calc(100% - 20px);
-  margin:8px 10px 0;
+  margin:12px 10px 5px;
   height:42px;
   border:0;
   border-radius:10px;
