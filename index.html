@@ -769,31 +769,6 @@ footer{
 }
 </style>
   <style>
-/* ===== FORCE ALL PRODUCTS SIDE BY SIDE ===== */
-
-#products .products{
-  display:grid !important;
-  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
-  width:100% !important;
-  gap:12px !important;
-  align-items:start !important;
-}
-
-#products .products > .card{
-  width:100% !important;
-  min-width:0 !important;
-  max-width:none !important;
-  box-sizing:border-box !important;
-  float:none !important;
-  clear:none !important;
-}
-
-@media(max-width:600px){
-  #products .products{
-    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
-  }
-}
-</style>
 </head>
 
 <body>
@@ -3564,7 +3539,7 @@ footer{
       <img src="IMG_3717.jpeg" alt="Product 41">
       <img src="IMG_3718.jpeg" alt="Product 41">
       <img src="IMG_3719.jpeg" alt="Product 41">
-      <img src="IMG_3720.jpeg" alt="Product 41"
+      <img src="IMG_3720.jpeg" alt="Product 41">
     </div>
 
     <button class="photo-arrow left" onclick="movePhoto(this,-1)">❮</button>
