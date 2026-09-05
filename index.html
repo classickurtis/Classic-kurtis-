@@ -769,6 +769,32 @@ footer{
 }
 </style>
   <style>
+  <style>
+/* ===== FORCE ALL PRODUCTS SIDE BY SIDE ===== */
+
+#products .products{
+  display:grid !important;
+  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  width:100% !important;
+  gap:12px !important;
+  align-items:start !important;
+}
+
+#products .products > .card{
+  width:100% !important;
+  min-width:0 !important;
+  max-width:none !important;
+  box-sizing:border-box !important;
+  float:none !important;
+  clear:none !important;
+}
+
+@media(max-width:600px){
+  #products .products{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+}
+</style>  
 </head>
 
 <body>
