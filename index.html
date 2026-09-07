@@ -9671,22 +9671,69 @@ document.addEventListener('DOMContentLoaded', function(){
   });
 });
 </script>
-  <script>
-(function () {
-  // Refresh par browser ko previous page par jaane se roko
-  if (window.history && window.history.scrollRestoration) {
-    window.history.scrollRestoration = "manual";
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const KEY = "classicKurtisOpenProduct";
+
+  function getProductNumber(card) {
+    const text = card?.querySelector("h3")?.textContent || "";
+    const match = text.match(/(\d+)/);
+    return match ? match[1] : null;
   }
 
-  // Page load hone par kisi bhi script ko browser history change
-  // karke back navigation trigger karne se prevent nahi kar sakte,
-  // isliye current URL ko stable rakho.
-  window.addEventListener("pageshow", function () {
-    if (location.hash) {
-      history.replaceState(null, "", location.pathname + location.search);
+  // Product detail khulte hi product number save karo
+  document.addEventListener("click", function (e) {
+    const card = e.target.closest(".products .card");
+
+    if (!card) return;
+
+    if (e.target.closest("button,a,input,select,.size-chart")) return;
+
+    const number = getProductNumber(card);
+
+    if (number) {
+      sessionStorage.setItem(KEY, number);
     }
+  }, true);
+
+  // Back to Products dabane par saved product hata do
+  const oldClose = window.closeProductDetail;
+
+  if (typeof oldClose === "function") {
+    window.closeProductDetail = function () {
+      sessionStorage.removeItem(KEY);
+      oldClose();
+    };
+  }
+
+  // Refresh ke baad wahi Product Detail dobara kholo
+  window.addEventListener("load", function () {
+    const saved = sessionStorage.getItem(KEY);
+
+    if (!saved) return;
+
+    setTimeout(function () {
+
+      const cards = document.querySelectorAll(".products .card");
+
+      for (const card of cards) {
+        const number = getProductNumber(card);
+
+        if (number === saved) {
+
+          if (typeof window.openProductDetail === "function") {
+            window.openProductDetail(card);
+          }
+
+          break;
+        }
+      }
+
+    }, 300);
   });
-})();
+
+});
 </script>
 </body>
 
