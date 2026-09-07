@@ -9687,6 +9687,45 @@ updateCart();
 
 })();
 </script>
+ <script>
+document.addEventListener('DOMContentLoaded', function(){
+
+  document.querySelectorAll('#products .products > .card').forEach(function(card){
+
+    if(card.querySelector('.product-details-button')) return;
+
+    var button = document.createElement('button');
+
+    button.type = 'button';
+    button.className = 'product-details-button';
+    button.textContent = 'View Details';
+
+    button.style.display = 'block';
+    button.style.width = 'calc(100% - 20px)';
+    button.style.margin = '12px 10px 5px';
+    button.style.height = '42px';
+    button.style.border = '0';
+    button.style.borderRadius = '10px';
+    button.style.background = '#6c2450';
+    button.style.color = '#fff';
+    button.style.fontSize = '14px';
+    button.style.fontWeight = '700';
+
+    button.onclick = function(e){
+      e.preventDefault();
+      e.stopPropagation();
+
+      if(typeof window.openProductDetail === 'function'){
+        window.openProductDetail(card);
+      }
+    };
+
+    card.appendChild(button);
+
+  });
+
+});
+</script> 
 </body>
 
 </html>
