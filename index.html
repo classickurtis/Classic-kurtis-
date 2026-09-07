@@ -9671,6 +9671,19 @@ document.addEventListener('DOMContentLoaded', function(){
   });
 });
 </script>
+  <script>
+(function () {
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+
+  window.addEventListener('load', function () {
+    setTimeout(function () {
+      window.scrollTo(0, 0);
+    }, 50);
+  });
+})();
+</script>
 </body>
 
 </html>
