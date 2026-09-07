@@ -9427,8 +9427,9 @@ function instagram(){
 
 
 /* ================= START CART ================= */
-
 updateCart();
+</script>
+
 <script>
 (function(){
 
@@ -9715,9 +9716,9 @@ document.addEventListener('DOMContentLoaded', function(){
       e.preventDefault();
       e.stopPropagation();
 
-      if(typeof window.openProductDetail === 'function'){
-        window.openProductDetail(card);
-      }
+      if(typeof window.closeProductDetail === 'function'){
+  // handled by main View Details handler
+}
     };
 
     card.appendChild(button);
