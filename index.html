@@ -9671,70 +9671,7 @@ document.addEventListener('DOMContentLoaded', function(){
   });
 });
 </script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
 
-  const KEY = "classicKurtisOpenProduct";
-
-  function getProductNumber(card) {
-    const text = card?.querySelector("h3")?.textContent || "";
-    const match = text.match(/(\d+)/);
-    return match ? match[1] : null;
-  }
-
-  // Product detail khulte hi product number save karo
-  document.addEventListener("click", function (e) {
-    const card = e.target.closest(".products .card");
-
-    if (!card) return;
-
-    if (e.target.closest("button,a,input,select,.size-chart")) return;
-
-    const number = getProductNumber(card);
-
-    if (number) {
-      sessionStorage.setItem(KEY, number);
-    }
-  }, true);
-
-  // Back to Products dabane par saved product hata do
-  const oldClose = window.closeProductDetail;
-
-  if (typeof oldClose === "function") {
-    window.closeProductDetail = function () {
-      sessionStorage.removeItem(KEY);
-      oldClose();
-    };
-  }
-
-  // Refresh ke baad wahi Product Detail dobara kholo
-  window.addEventListener("load", function () {
-    const saved = sessionStorage.getItem(KEY);
-
-    if (!saved) return;
-
-    setTimeout(function () {
-
-      const cards = document.querySelectorAll(".products .card");
-
-      for (const card of cards) {
-        const number = getProductNumber(card);
-
-        if (number === saved) {
-
-          if (typeof window.openProductDetail === "function") {
-            window.openProductDetail(card);
-          }
-
-          break;
-        }
-      }
-
-    }, 300);
-  });
-
-});
-</script>
 </body>
 
 </html>
