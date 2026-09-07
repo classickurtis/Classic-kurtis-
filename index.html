@@ -9671,7 +9671,23 @@ document.addEventListener('DOMContentLoaded', function(){
   });
 });
 </script>
-  
+  <script>
+(function () {
+  // Refresh par browser ko previous page par jaane se roko
+  if (window.history && window.history.scrollRestoration) {
+    window.history.scrollRestoration = "manual";
+  }
+
+  // Page load hone par kisi bhi script ko browser history change
+  // karke back navigation trigger karne se prevent nahi kar sakte,
+  // isliye current URL ko stable rakho.
+  window.addEventListener("pageshow", function () {
+    if (location.hash) {
+      history.replaceState(null, "", location.pathname + location.search);
+    }
+  });
+})();
+</script>
 </body>
 
 </html>
