@@ -795,7 +795,41 @@ footer{
   }
 }
 </style>
-  
+  <style>
+.product-1-details{
+  display:flex !important;
+  flex-direction:row !important;
+  flex-wrap:nowrap !important;
+  gap:12px !important;
+  width:100% !important;
+  text-align:left !important;
+}
+
+.product-1-details .detail-column{
+  flex:1 1 0 !important;
+  min-width:0 !important;
+}
+
+.product-1-details h4{
+  margin:0 0 6px 0 !important;
+  font-size:15px !important;
+  text-align:center !important;
+}
+
+@media(max-width:600px){
+  .product-1-details{
+    gap:6px !important;
+  }
+
+  .product-1-details .detail-column{
+    font-size:11px !important;
+  }
+
+  .product-1-details h4{
+    font-size:12px !important;
+  }
+}
+</style>
 </head>
 
 <body>
