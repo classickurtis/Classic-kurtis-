@@ -794,7 +794,25 @@ footer{
     grid-template-columns:repeat(2,minmax(0,1fr)) !important;
   }
 }
-</style>  
+</style>
+  <style>
+.product-details-row{
+  display:flex;
+  gap:30px;
+  width:100%;
+  margin-top:15px;
+}
+
+.product-details-row > div{
+  flex:1;
+}
+
+@media(max-width:600px){
+  .product-details-row{
+    gap:15px;
+  }
+}
+</style>
 </head>
 
 <body>
