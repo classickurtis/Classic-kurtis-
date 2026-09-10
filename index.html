@@ -794,7 +794,33 @@ footer{
   }
 }
 </style>
+<style>
+/* ================= -74% SALE BADGE ================= */
 
+.card .photo {
+  position: relative !important;
+}
+
+.card .photo::before {
+  content: "-74%";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 20;
+
+  background: #a90000;
+  color: white;
+
+  padding: 8px 12px;
+  border-radius: 6px;
+
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1;
+
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+}
+</style>
 </head>
 
 <body>
