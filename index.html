@@ -881,6 +881,35 @@ footer{
   transform: scale(0.97);
 }
 </style>  
+  <style>
+/* ================= SMALL SIZE BOXES ================= */
+
+#productDetailView .size-options {
+  display: grid !important;
+  grid-template-columns: repeat(5, 1fr) !important;
+  gap: 6px !important;
+  width: 100% !important;
+  overflow: visible !important;
+}
+
+#productDetailView .size-options > * {
+  width: 100% !important;
+  min-width: 0 !important;
+  height: 38px !important;
+
+  padding: 0 !important;
+  margin: 0 !important;
+
+  box-sizing: border-box !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  font-size: 13px !important;
+  border-radius: 8px !important;
+}
+</style>
 </head>
 
 <body>
