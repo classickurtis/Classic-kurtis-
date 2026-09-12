@@ -685,10 +685,12 @@ footer{
 }
 
 /* ================= CUSTOMER REVIEWS ================= */
-.product-reviews{margin:24px 18px 0;padding:18px;border:1px solid #ead8e1;border-radius:16px;background:#fff9fb;}
-.reviews-title-row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px;}
-.reviews-title-row h4{margin:0;color:#6c2450;font-size:20px;}
-.reviews-average{font-weight:800;color:#d18a00;background:#fff3cf;padding:6px 10px;border-radius:20px;}
+.product-reviews{margin:18px 18px 0;padding:0;border:1px solid #ead8e1;border-radius:12px;background:#fff9fb;overflow:hidden;}
+.reviews-title-row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0;padding:13px 14px;cursor:pointer;}
+.reviews-title-row h4{margin:0;color:#6c2450;font-size:17px;}
+.reviews-average{font-weight:800;color:#d18a00;background:#fff3cf;padding:5px 9px;border-radius:20px;font-size:13px;}
+.review-content{display:none;padding:0 12px 12px;}
+.product-reviews.open .review-content{display:block;}
 .review-form{padding:14px;background:#fff;border-radius:12px;}
 .review-name,.review-text{width:100%;box-sizing:border-box;border:1px solid #d8c8d0;border-radius:10px;padding:11px;font:inherit;margin-bottom:10px;outline:none;}
 .review-text{min-height:90px;resize:vertical;}
@@ -708,7 +710,7 @@ footer{
 .review-image{display:block;width:100%;max-width:260px;max-height:320px;object-fit:cover;border-radius:10px;margin:8px 0;}
 .helpful-review{border:0;background:#f7edf2;color:#6c2450;border-radius:20px;padding:7px 10px;cursor:pointer;font-weight:700;}
 .no-reviews{margin:0;color:#777;text-align:center;padding:10px;}
-@media(max-width:600px){.product-reviews{margin:20px 10px 0;padding:12px;}.reviews-title-row h4{font-size:18px;}.review-image{max-width:100%;}}
+@media(max-width:600px){.product-reviews{margin:16px 10px 0;}.reviews-title-row h4{font-size:17px;}.review-image{max-width:100%;}}
 </style>
 
 
@@ -11072,10 +11074,11 @@ updateCart();
       const reviewBox = document.createElement('section');
       reviewBox.className = 'product-reviews';
       reviewBox.innerHTML = `
-        <div class="reviews-title-row">
+        <div class="reviews-title-row" role="button" tabindex="0" aria-expanded="false">
           <h4>Customer Reviews</h4>
           <span class="reviews-average" data-average>0.0 ★</span>
         </div>
+        <div class="review-content">
         <div class="review-form">
           <input class="review-name" type="text" maxlength="40" placeholder="Your name">
           <div class="review-stars" role="radiogroup" aria-label="Rating">
@@ -11093,8 +11096,24 @@ updateCart();
           <button type="button" class="submit-review">Submit Review</button>
         </div>
         <div class="reviews-list"></div>
+        </div>
       `;
       clone.appendChild(reviewBox);
+
+      (function setupReviewToggle(){
+        const titleRow = reviewBox.querySelector('.reviews-title-row');
+        function toggle(){
+          const open = reviewBox.classList.toggle('open');
+          titleRow.setAttribute('aria-expanded', open ? 'true' : 'false');
+        }
+        titleRow.addEventListener('click', toggle);
+        titleRow.addEventListener('keydown', function(e){
+          if(e.key === 'Enter' || e.key === ' '){
+            e.preventDefault();
+            toggle();
+          }
+        });
+      })();
 
       (function setupReviews(){
         const key = 'classicKurtisReviews_product_' + number;
