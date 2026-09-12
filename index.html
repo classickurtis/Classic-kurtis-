@@ -686,12 +686,9 @@ footer{
 
 /* ================= CUSTOMER REVIEWS ================= */
 .product-reviews{margin:18px 18px 0;padding:0;border:1px solid #ead8e1;border-radius:12px;background:#fff9fb;overflow:hidden;}
-.reviews-title-row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0;padding:13px 14px;cursor:pointer;}
-.reviews-title-row h4{margin:0;color:#6c2450;font-size:17px;}
-.reviews-average{font-weight:800;color:#d18a00;background:#fff3cf;padding:5px 9px;border-radius:20px;font-size:13px;}
-.review-content{display:none;padding:0 12px 12px;}
-.product-reviews.open .review-content{display:block;}
-.review-form{padding:14px;background:#fff;border-radius:12px;}
+.write-review-btn{display:block;width:calc(100% - 24px);margin:12px;height:44px;border:0;border-radius:10px;background:#6c2450;color:#fff;font-weight:800;font-size:15px;cursor:pointer;}
+.review-form-wrap{padding:0 12px 12px;}
+.review-form{padding:14px;background:#fff;border:1px solid #ead8e1;border-radius:12px;}
 .review-name,.review-text{width:100%;box-sizing:border-box;border:1px solid #d8c8d0;border-radius:10px;padding:11px;font:inherit;margin-bottom:10px;outline:none;}
 .review-text{min-height:90px;resize:vertical;}
 .review-stars{display:flex;gap:4px;margin-bottom:10px;}
@@ -700,17 +697,27 @@ footer{
 .review-photo-label{display:inline-flex;align-items:center;gap:6px;border:1px dashed #b996a9;border-radius:10px;padding:10px 12px;color:#6c2450;font-weight:700;cursor:pointer;margin-bottom:10px;}
 .review-photo-label input{display:none;}
 .review-photo-preview img{width:90px;height:90px;object-fit:cover;border-radius:10px;margin:0 0 10px;}
-.submit-review{width:100%;height:44px;border:0;border-radius:10px;background:#6c2450;color:#fff;font-weight:800;font-size:15px;cursor:pointer;}
-.reviews-list{margin-top:14px;display:grid;gap:10px;}
+.submit-review,.cancel-review{width:100%;height:44px;border:0;border-radius:10px;font-weight:800;font-size:15px;cursor:pointer;}
+.submit-review{background:#6c2450;color:#fff;}
+.cancel-review{margin-top:8px;background:#f2e7ec;color:#6c2450;}
+.customer-reviews-section{border-top:1px solid #ead8e1;background:#fff;}
+.reviews-title-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:13px 14px;}
+.reviews-title-row h4{margin:0;color:#6c2450;font-size:17px;}
+.reviews-average{font-weight:800;color:#d18a00;background:#fff3cf;padding:5px 9px;border-radius:20px;font-size:13px;}
+.reviews-list{padding:0 12px 12px;display:grid;gap:10px;}
 .review-item{background:#fff;border:1px solid #ead8e1;border-radius:12px;padding:12px;}
 .review-item-head{display:flex;align-items:center;justify-content:space-between;gap:8px;}
 .review-item-head strong{color:#333;}
 .review-stars-static{color:#f2a900;letter-spacing:1px;white-space:nowrap;}
 .review-item p{margin:8px 0;line-height:1.5;white-space:pre-wrap;word-break:break-word;}
-.review-image{display:block;width:100%;max-width:260px;max-height:320px;object-fit:cover;border-radius:10px;margin:8px 0;}
+.review-image{display:block;width:82px;height:82px;object-fit:cover;border-radius:9px;margin:8px 0;cursor:zoom-in;}
 .helpful-review{border:0;background:#f7edf2;color:#6c2450;border-radius:20px;padding:7px 10px;cursor:pointer;font-weight:700;}
 .no-reviews{margin:0;color:#777;text-align:center;padding:10px;}
-@media(max-width:600px){.product-reviews{margin:16px 10px 0;}.reviews-title-row h4{font-size:17px;}.review-image{max-width:100%;}}
+.review-photo-modal{position:fixed;inset:0;z-index:99999;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.82);padding:24px;box-sizing:border-box;}
+.review-photo-modal.show{display:flex;}
+.review-photo-modal img{max-width:92vw;max-height:88vh;width:auto;height:auto;object-fit:contain;border-radius:10px;}
+.review-photo-close{position:absolute;top:12px;right:14px;width:44px;height:44px;border:0;border-radius:50%;background:#fff;color:#222;font-size:32px;line-height:1;cursor:pointer;}
+@media(max-width:600px){.product-reviews{margin:16px 10px 0;}.reviews-title-row h4{font-size:17px;}}
 </style>
 
 
@@ -11074,51 +11081,45 @@ updateCart();
       const reviewBox = document.createElement('section');
       reviewBox.className = 'product-reviews';
       reviewBox.innerHTML = `
-        <div class="reviews-title-row" role="button" tabindex="0" aria-expanded="false">
-          <h4>Customer Reviews</h4>
-          <span class="reviews-average" data-average>0.0 ★</span>
-        </div>
-        <div class="review-content">
-        <div class="review-form">
-          <input class="review-name" type="text" maxlength="40" placeholder="Your name">
-          <div class="review-stars" role="radiogroup" aria-label="Rating">
-            <button type="button" data-star="1">★</button>
-            <button type="button" data-star="2">★</button>
-            <button type="button" data-star="3">★</button>
-            <button type="button" data-star="4">★</button>
-            <button type="button" data-star="5">★</button>
+        <button type="button" class="write-review-btn">✍️ Write a Review</button>
+
+        <div class="review-form-wrap" hidden>
+          <div class="review-form">
+            <input class="review-name" type="text" maxlength="40" placeholder="Your name">
+            <div class="review-stars" role="radiogroup" aria-label="Rating">
+              <button type="button" data-star="1">★</button>
+              <button type="button" data-star="2">★</button>
+              <button type="button" data-star="3">★</button>
+              <button type="button" data-star="4">★</button>
+              <button type="button" data-star="5">★</button>
+            </div>
+            <textarea class="review-text" maxlength="500" placeholder="Write your review..."></textarea>
+            <label class="review-photo-label">📸 Add photo
+              <input class="review-photo" type="file" accept="image/*">
+            </label>
+            <div class="review-photo-preview"></div>
+            <button type="button" class="submit-review">Submit Review</button>
+            <button type="button" class="cancel-review">Cancel Review</button>
           </div>
-          <textarea class="review-text" maxlength="500" placeholder="Write your review..."></textarea>
-          <label class="review-photo-label">📸 Add photo
-            <input class="review-photo" type="file" accept="image/*">
-          </label>
-          <div class="review-photo-preview"></div>
-          <button type="button" class="submit-review">Submit Review</button>
         </div>
-        <div class="reviews-list"></div>
+
+        <div class="customer-reviews-section">
+          <div class="reviews-title-row">
+            <h4>Customer Reviews</h4>
+            <span class="reviews-average" data-average>0.0 ★</span>
+          </div>
+          <div class="reviews-list"></div>
         </div>
       `;
       clone.appendChild(reviewBox);
-
-      (function setupReviewToggle(){
-        const titleRow = reviewBox.querySelector('.reviews-title-row');
-        function toggle(){
-          const open = reviewBox.classList.toggle('open');
-          titleRow.setAttribute('aria-expanded', open ? 'true' : 'false');
-        }
-        titleRow.addEventListener('click', toggle);
-        titleRow.addEventListener('keydown', function(e){
-          if(e.key === 'Enter' || e.key === ' '){
-            e.preventDefault();
-            toggle();
-          }
-        });
-      })();
 
       (function setupReviews(){
         const key = 'classicKurtisReviews_product_' + number;
         const list = reviewBox.querySelector('.reviews-list');
         const avg = reviewBox.querySelector('[data-average]');
+        const formWrap = reviewBox.querySelector('.review-form-wrap');
+        const writeBtn = reviewBox.querySelector('.write-review-btn');
+        const cancelBtn = reviewBox.querySelector('.cancel-review');
         const nameInput = reviewBox.querySelector('.review-name');
         const textInput = reviewBox.querySelector('.review-text');
         const photoInput = reviewBox.querySelector('.review-photo');
@@ -11132,9 +11133,12 @@ updateCart();
           });
         }
 
+        function getReviews(){
+          try { return JSON.parse(localStorage.getItem(key) || '[]'); } catch(e) { return []; }
+        }
+
         function render(){
-          let reviews = [];
-          try { reviews = JSON.parse(localStorage.getItem(key) || '[]'); } catch(e) {}
+          const reviews = getReviews();
           const total = reviews.reduce((sum,r) => sum + Number(r.rating || 0), 0);
           avg.textContent = reviews.length ? (total / reviews.length).toFixed(1) + ' ★' : '0.0 ★';
           list.innerHTML = reviews.length ? reviews.map(function(r, index){
@@ -11146,6 +11150,24 @@ updateCart();
               '</article>';
           }).join('') : '<p class="no-reviews">No reviews yet. Be the first to review!</p>';
         }
+
+        writeBtn.addEventListener('click', function(){
+          formWrap.hidden = false;
+          writeBtn.hidden = true;
+          setTimeout(function(){ nameInput.focus(); }, 50);
+        });
+
+        cancelBtn.addEventListener('click', function(){
+          nameInput.value = '';
+          textInput.value = '';
+          photoInput.value = '';
+          photoData = '';
+          preview.innerHTML = '';
+          rating = 0;
+          reviewBox.querySelectorAll('[data-star]').forEach(function(b){ b.classList.remove('selected'); });
+          formWrap.hidden = true;
+          writeBtn.hidden = false;
+        });
 
         reviewBox.querySelectorAll('[data-star]').forEach(function(btn){
           btn.addEventListener('click', function(){
@@ -11177,20 +11199,39 @@ updateCart();
           if(!name){ alert('Please enter your name.'); return; }
           if(!rating){ alert('Please select a star rating.'); return; }
           if(!text){ alert('Please write your review.'); return; }
-          let reviews = [];
-          try { reviews = JSON.parse(localStorage.getItem(key) || '[]'); } catch(e) {}
+          const reviews = getReviews();
           reviews.unshift({name:name, rating:rating, text:text, photo:photoData, helpful:0});
-          try { localStorage.setItem(key, JSON.stringify(reviews)); } catch(e){ alert('Could not save this review. Please try a smaller photo.'); return; }
+          try { localStorage.setItem(key, JSON.stringify(reviews)); }
+          catch(e){ alert('Could not save this review. Please try a smaller photo.'); return; }
           nameInput.value=''; textInput.value=''; photoInput.value=''; photoData=''; preview.innerHTML=''; rating=0;
           reviewBox.querySelectorAll('[data-star]').forEach(function(b){ b.classList.remove('selected'); });
+          formWrap.hidden = true;
+          writeBtn.hidden = false;
           render();
         });
 
         list.addEventListener('click', function(e){
+          const image = e.target.closest('.review-image');
+          if(image){
+            let modal = document.getElementById('reviewPhotoModal');
+            if(!modal){
+              modal = document.createElement('div');
+              modal.id = 'reviewPhotoModal';
+              modal.className = 'review-photo-modal';
+              modal.innerHTML = '<button type="button" class="review-photo-close" aria-label="Close">×</button><img alt="Customer review photo enlarged">';
+              document.body.appendChild(modal);
+              modal.addEventListener('click', function(ev){
+                if(ev.target === modal || ev.target.closest('.review-photo-close')) modal.classList.remove('show');
+              });
+            }
+            modal.querySelector('img').src = image.src;
+            modal.classList.add('show');
+            return;
+          }
+
           const btn = e.target.closest('.helpful-review');
           if(!btn) return;
-          let reviews = [];
-          try { reviews = JSON.parse(localStorage.getItem(key) || '[]'); } catch(e) {}
+          const reviews = getReviews();
           const i = Number(btn.dataset.index);
           if(!reviews[i]) return;
           reviews[i].helpful = (Number(reviews[i].helpful)||0) + 1;
