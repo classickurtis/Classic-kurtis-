@@ -683,41 +683,6 @@ footer{
   box-sizing:border-box;
   display:block;
 }
-
-/* ================= CUSTOMER REVIEWS ================= */
-.product-reviews{margin:18px 18px 0;padding:0;border:1px solid #ead8e1;border-radius:12px;background:#fff9fb;overflow:hidden;}
-.write-review-btn{display:block;width:calc(100% - 24px);margin:12px;height:44px;border:0;border-radius:10px;background:#6c2450;color:#fff;font-weight:800;font-size:15px;cursor:pointer;}
-.review-form-wrap{padding:0 12px 12px;}
-.review-form{padding:14px;background:#fff;border:1px solid #ead8e1;border-radius:12px;}
-.review-name,.review-text{width:100%;box-sizing:border-box;border:1px solid #d8c8d0;border-radius:10px;padding:11px;font:inherit;margin-bottom:10px;outline:none;}
-.review-text{min-height:90px;resize:vertical;}
-.review-stars{display:flex;gap:4px;margin-bottom:10px;}
-.review-stars button{border:0;background:none;color:#c9c9c9;font-size:30px;line-height:1;cursor:pointer;padding:0 2px;}
-.review-stars button.selected{color:#f2a900;}
-.review-photo-label{display:inline-flex;align-items:center;gap:6px;border:1px dashed #b996a9;border-radius:10px;padding:10px 12px;color:#6c2450;font-weight:700;cursor:pointer;margin-bottom:10px;}
-.review-photo-label input{display:none;}
-.review-photo-preview img{width:90px;height:90px;object-fit:cover;border-radius:10px;margin:0 0 10px;}
-.submit-review,.cancel-review{width:100%;height:44px;border:0;border-radius:10px;font-weight:800;font-size:15px;cursor:pointer;}
-.submit-review{background:#6c2450;color:#fff;}
-.cancel-review{margin-top:8px;background:#f2e7ec;color:#6c2450;}
-.customer-reviews-section{border-top:1px solid #ead8e1;background:#fff;}
-.reviews-title-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:13px 14px;}
-.reviews-title-row h4{margin:0;color:#6c2450;font-size:17px;}
-.reviews-average{font-weight:800;color:#d18a00;background:#fff3cf;padding:5px 9px;border-radius:20px;font-size:13px;}
-.reviews-list{padding:0 12px 12px;display:grid;gap:10px;}
-.review-item{background:#fff;border:1px solid #ead8e1;border-radius:12px;padding:12px;}
-.review-item-head{display:flex;align-items:center;justify-content:space-between;gap:8px;}
-.review-item-head strong{color:#333;}
-.review-stars-static{color:#f2a900;letter-spacing:1px;white-space:nowrap;}
-.review-item p{margin:8px 0;line-height:1.5;white-space:pre-wrap;word-break:break-word;}
-.review-image{display:block;width:82px;height:82px;object-fit:cover;border-radius:9px;margin:8px 0;cursor:zoom-in;}
-.helpful-review{border:0;background:#f7edf2;color:#6c2450;border-radius:20px;padding:7px 10px;cursor:pointer;font-weight:700;}
-.no-reviews{margin:0;color:#777;text-align:center;padding:10px;}
-.review-photo-modal{position:fixed;inset:0;z-index:99999;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.82);padding:24px;box-sizing:border-box;}
-.review-photo-modal.show{display:flex;}
-.review-photo-modal img{max-width:92vw;max-height:88vh;width:auto;height:auto;object-fit:contain;border-radius:10px;}
-.review-photo-close{position:absolute;top:12px;right:14px;width:44px;height:44px;border:0;border-radius:50%;background:#fff;color:#222;font-size:32px;line-height:1;cursor:pointer;}
-@media(max-width:600px){.product-reviews{margin:16px 10px 0;}.reviews-title-row h4{font-size:17px;}}
 </style>
 
 
@@ -776,37 +741,7 @@ footer{
   .products .card .price{font-size:15px;}
   .product-details-button{font-size:12px;width:calc(100% - 12px);margin-left:6px;margin-right:6px;}
 }
-  /* ================= CLASSIC KURTIS TITLE ================= */
-
-.hero h1 {
-  font-size: 48px !important;
-  font-weight: 800 !important;
-  font-family: Georgia, "Times New Roman", serif !important;
-
-  background: linear-gradient(
-    90deg,
-    #6c2450,
-    #c2185b,
-    #e91e63,
-    #8e24aa
-  );
-
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-
-  letter-spacing: 1px;
-  line-height: 1.15;
-}
-
-/* Mobile */
-@media (max-width: 600px) {
-  .hero h1 {
-    font-size: 42px !important;
-  }
-}
 </style>
-
   <style>
 /* ===== HIDE VIEW DETAILS INSIDE PRODUCT DETAIL ===== */
 
@@ -834,6 +769,7 @@ footer{
 }
 </style>
   <style>
+  <style>
 /* ===== FORCE ALL PRODUCTS SIDE BY SIDE ===== */
 
 #products .products{
@@ -858,101 +794,7 @@ footer{
     grid-template-columns:repeat(2,minmax(0,1fr)) !important;
   }
 }
-</style>
-<style>
-/* ================= -74% SALE BADGE ================= */
-/* Show the badge ONLY on product cards, outside the product photo.
-   It must NOT appear again inside the product-detail view. */
-#products .products > .card {
-  position: relative !important;
-}
-
-#products .products > .card::before {
-  content: "-74%";
-  position: absolute;
-  top: 8px;
-  left: 8px;
-  z-index: 50;
-
-  background: #a90000;
-  color: white;
-
-  padding: 7px 10px;
-  border-radius: 6px;
-
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 1;
-
-  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-}
-
-/* Never show the sale badge in the opened product-detail card. */
-#productDetailView .detail-card::before {
-  content: none !important;
-  display: none !important;
-}
-</style>
-<style>
-/* ================= STYLISH VIEW CART ================= */
-
-.view-cart {
-  background: #6c2450 !important;
-  color: #fff !important;
-  border: none !important;
-  border-radius: 10px !important;
-
-  height: 42px !important;
-  padding: 0 18px !important;
-
-  font-size: 14px !important;
-  font-weight: 700 !important;
-
-  cursor: pointer !important;
-
-  box-shadow: 0 3px 8px rgba(0,0,0,0.18) !important;
-
-  transition: 0.2s ease !important;
-}
-
-.view-cart:hover {
-  transform: translateY(-1px);
-}
-
-.view-cart:active {
-  transform: scale(0.97);
-}
 </style>  
-  <style>
-/* ================= SMALL SIZE BOXES ================= */
-
-#productDetailView .size-options {
-  display: grid !important;
-  grid-template-columns: repeat(5, 1fr) !important;
-  gap: 6px !important;
-  width: 100% !important;
-  overflow: visible !important;
-}
-
-#productDetailView .size-options > * {
-  width: 100% !important;
-  min-width: 0 !important;
-  height: 38px !important;
-
-  padding: 0 !important;
-  margin: 0 !important;
-
-  box-sizing: border-box !important;
-
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-
-  font-size: 13px !important;
-  border-radius: 8px !important;
-}
-
-</style>
 </head>
 
 <body>
@@ -1033,42 +875,12 @@ footer{
 
   <h3>PRODUCT NUMBER 1</h3>
 
-  <div class="product-description"
-       style="margin:12px 10px !important;line-height:1.5 !important;font-size:12px !important;">
-
-    <!-- UPPER DETAILS -->
-    <div style="margin-bottom:14px !important;">
-      <div>• Care: DRY CLEAN</div>
-    </div>
-
-    <!-- TWO COLUMNS -->
-    <div style="display:grid !important;grid-template-columns:1fr 1fr !important;gap:12px !important;align-items:start !important;">
-
-      <!-- LEFT SIDE -->
-      <div>
-        <strong>KURTA</strong><br>
-        • Fabric: Shimmer Georgette<br>
-        • Length: 48"<br>
-        • Front Neck: 7"<br>
-        • Back Neck: Closed<br><br>
-
-        <strong>SLEEVES</strong><br>
-        • Sleeves: 22"
-      </div>
-
-      <!-- RIGHT SIDE -->
-      <div>
-        <strong>DUPATTA</strong><br>
-        • Fabric: Georgette<br>
-        • Length: 2.5 Meter<br><br>
-
-        <strong>PALAZZO</strong><br>
-        • Fabric: Shimmer Georgette<br>
-        • Length: 40"
-      </div>
-
-    </div>
-
+  <div class="product-description">
+    • Fabric: Heavy Embroidered Crepe<br>
+    • Length: 57"<br>           Trousers design:<br>
+    • Front Neck: 7.5"<br> • Embroidered Trousers<br>
+    • Back Neck: 11"<br>   • Partially Elasticated waistband<br>
+    • Sleeves: 7"          • Slip-on closure<br>
   </div>
 
   <p class="price">PRICE ₹999</p>
@@ -1096,7 +908,6 @@ footer{
   </div>
 
   <div class="buy-row">
-
     <div class="quantity-box">
       <button onclick="changeQty(this,-1)">−</button>
       <span>1</span>
@@ -1106,7 +917,6 @@ footer{
     <button class="add-cart" disabled onclick="addToCart(this,1,999)">
       Add to cart
     </button>
-
   </div>
 
 </div>
@@ -1134,42 +944,12 @@ footer{
 
   <h3>PRODUCT NUMBER 2</h3>
 
-  <div class="product-description"
-       style="margin:12px 10px !important;line-height:1.5 !important;font-size:12px !important;">
-
-    <!-- UPPER DETAILS -->
-    <div style="margin-bottom:14px !important;">
-      <div>• Care: DRY CLEAN</div>
-    </div>
-
-    <!-- TWO COLUMNS -->
-    <div style="display:grid !important;grid-template-columns:1fr 1fr !important;gap:12px !important;align-items:start !important;">
-
-      <!-- LEFT SIDE -->
-      <div>
-        <strong>KURTA</strong><br>
-        • Fabric: cotton<br>
-        • Length: 48"<br>
-        • Front Neck: 7"<br>
-        • Back Neck: Closed<br><br>
-
-        <strong>SLEEVES</strong><br>
-        • Sleeves: 22"
-      </div>
-
-      <!-- RIGHT SIDE -->
-      <div>
-        <strong>DUPATTA</strong><br>
-        • Fabric: cotton<br>
-        • Length: 2.5 Meter<br><br>
-
-        <strong>PANT</strong><br>
-        • Fabric: cotton<br>
-        • Length: 40"
-      </div>
-
-    </div>
-
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
   </div>
 
   <p class="price">PRICE ₹999</p>
@@ -1234,42 +1014,12 @@ footer{
 
   <h3>PRODUCT NUMBER 3</h3>
 
-   <div class="product-description"
-       style="margin:12px 10px !important;line-height:1.5 !important;font-size:12px !important;">
-
-    <!-- UPPER DETAILS -->
-    <div style="margin-bottom:14px !important;">
-      <div>• Care: DRY CLEAN</div>
-    </div>
-
-    <!-- TWO COLUMNS -->
-    <div style="display:grid !important;grid-template-columns:1fr 1fr !important;gap:12px !important;align-items:start !important;">
-
-      <!-- LEFT SIDE -->
-      <div>
-        <strong>KURTA</strong><br>
-        • Fabric: cosmos<br>
-        • Length: 33"<br>
-        • Front Neck: 7"<br>
-        • Back Neck: Closed<br><br>
-
-        <strong>SLEEVES</strong><br>
-        • Sleeves: 22"
-      </div>
-
-      <!-- RIGHT SIDE -->
-      <div>
-        <strong>DUPATTA</strong><br>
-        • Fabric: cosmos<br>
-        • Length: 2.5 Meter<br><br>
-
-        <strong>PALAZZO</strong><br>
-        • Fabric: cosmos<br>
-        • Length: 40"
-      </div>
-
-    </div>
-
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
   </div>
 
   <p class="price">PRICE ₹999</p>
@@ -1334,38 +1084,12 @@ footer{
 
   <h3>PRODUCT NUMBER 4</h3>
 
-  <div class="product-description"
-       style="margin:12px 10px !important;line-height:1.5 !important;font-size:12px !important;">
-
-    <!-- UPPER DETAILS -->
-    <div style="margin-bottom:14px !important;">
-      <div>• Care: DRY CLEAN</div>
-    </div>
-
-    <!-- TWO COLUMNS -->
-    <div style="display:grid !important;grid-template-columns:1fr 1fr !important;gap:12px !important;align-items:start !important;">
-
-      <!-- LEFT SIDE -->
-      <div>
-        <strong>KURTA</strong><br>
-        • Fabric: Embroidered crepe<br>
-        • Length: 57"<br>
-        • Front Neck: 7"<br>
-        • Back Neck: 12"<br><br>
-
-        <strong>SLEEVES</strong><br>
-        • Sleeves: sleevless
-      </div>
-
-      <!-- RIGHT SIDE -->
-      <div>
-        <strong>DUPATTA</strong><br>
-        • Fabric: Organza<br>
-        • Length: 2.5 Meter<br><br>
-      </div>
-
-    </div>
-
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
   </div>
 
   <p class="price">PRICE ₹999</p>
@@ -1429,42 +1153,12 @@ footer{
 
   <h3>PRODUCT NUMBER 5</h3>
 
-  <div class="product-description"
-       style="margin:12px 10px !important;line-height:1.5 !important;font-size:12px !important;">
-
-    <!-- UPPER DETAILS -->
-    <div style="margin-bottom:14px !important;">
-      <div>• Care: DRY CLEAN</div>
-    </div>
-
-    <!-- TWO COLUMNS -->
-    <div style="display:grid !important;grid-template-columns:1fr 1fr !important;gap:12px !important;align-items:start !important;">
-
-      <!-- LEFT SIDE -->
-      <div>
-        <strong>KURTA</strong><br>
-        • Fabric: crepe<br>
-        • Length: 48"<br>
-        • Front Neck: 7"<br>
-        • Back Neck: 9-10"<br><br>
-
-        <strong>SLEEVES</strong><br>
-        • Sleeves: Sleeveless
-      </div>
-
-      <!-- RIGHT SIDE -->
-      <div>
-        <strong>DUPATTA</strong><br>
-        • Fabric: Organza<br>
-        • Length: 2.5 Meter<br><br>
-
-        <strong>PALAZZO</strong><br>
-        • Fabric: Crepe<br>
-        • Length: 40"
-      </div>
-
-    </div>
-
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
   </div>
 
   <p class="price">PRICE ₹999</p>
@@ -1514,11 +1208,11 @@ footer{
 
     <div class="photo-slider">
 
-      <img src="IMG_4034.jpeg" alt="Product 6">
-      <img src="IMG_4035.jpeg" alt="Product 6">
-      <img src="IMG_4036.jpeg" alt="Product 6">
-      <img src="IMG_4037.jpeg" alt="Product 6">
-      <img src="IMG_4038.jpeg" alt="Product 6">
+      <img src="IMG_3699.jpeg" alt="Product 6">
+      <img src="IMG_3700.jpeg" alt="Product 6">
+      <img src="IMG_3701.jpeg" alt="Product 6">
+      <img src="IMG_3702.jpeg" alt="Product 6">
+      <img src="IMG_3703.jpeg" alt="Product 6">
 
     </div>
 
@@ -1529,42 +1223,12 @@ footer{
 
   <h3>PRODUCT NUMBER 6</h3>
 
-<div class="product-description"
-       style="margin:12px 10px !important;line-height:1.5 !important;font-size:12px !important;">
-
-    <!-- UPPER DETAILS -->
-    <div style="margin-bottom:14px !important;">
-      <div>• Care: DRY CLEAN</div>
-    </div>
-
-    <!-- TWO COLUMNS -->
-    <div style="display:grid !important;grid-template-columns:1fr 1fr !important;gap:12px !important;align-items:start !important;">
-
-      <!-- LEFT SIDE -->
-      <div>
-        <strong>KURTA</strong><br>
-        • Fabric: crepe<br>
-        • Length: 48"<br>
-        • Front Neck: 7"<br>
-        • Back Neck: 9-10"<br><br>
-
-        <strong>SLEEVES</strong><br>
-        • Sleeves: Sleeveless
-      </div>
-
-      <!-- RIGHT SIDE -->
-      <div>
-        <strong>DUPATTA</strong><br>
-        • Fabric: Organza<br>
-        • Length: 2.5 Meter<br><br>
-
-        <strong>PALAZZO</strong><br>
-        • Fabric: Crepe<br>
-        • Length: 40"
-      </div>
-
-    </div>
-
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
   </div>
 
   <p class="price">PRICE ₹999</p>
@@ -1629,42 +1293,12 @@ footer{
 
   <h3>PRODUCT NUMBER 7</h3>
 
-  <div class="product-description"
-       style="margin:12px 10px !important;line-height:1.5 !important;font-size:12px !important;">
-
-    <!-- UPPER DETAILS -->
-    <div style="margin-bottom:14px !important;">
-      <div>• Care: DRY CLEAN</div>
-    </div>
-
-    <!-- TWO COLUMNS -->
-    <div style="display:grid !important;grid-template-columns:1fr 1fr !important;gap:12px !important;align-items:start !important;">
-
-      <!-- LEFT SIDE -->
-      <div>
-        <strong>KURTA</strong><br>
-        • Fabric: Crushed tissue<br>
-        • Length: 28"<br>
-        • Front Neck: 7"<br>
-        • Back Neck: 8"<br><br>
-
-        <strong>SLEEVES</strong><br>
-        • Sleeves: Sleeveless
-      </div>
-
-      <!-- RIGHT SIDE -->
-      <div>
-        <strong>DUPATTA</strong><br>
-        • Fabric: Crished tissue<br>
-        • Length: 2.5 Meter<br><br>
-
-        <strong>PALAZZO</strong><br>
-        • Fabric: Crushed tussue<br>
-        • Length: 40"
-      </div>
-
-    </div>
-
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
   </div>
 
   <p class="price">PRICE ₹999</p>
@@ -1714,7 +1348,7 @@ footer{
 
     <div class="photo-slider">
 
-      <img src="IMG_4625.jpeg" alt="Product 8">
+      <img src="IMG_4087.jpeg" alt="Product 8">
       <img src="IMG_4090.jpeg" alt="Product 8">
       <img src="IMG_4089.jpeg" alt="Product 8">
       <img src="IMG_4088.jpeg" alt="Product 8">
@@ -1728,42 +1362,12 @@ footer{
 
   <h3>PRODUCT NUMBER 8</h3>
 
-  <div class="product-description"
-       style="margin:12px 10px !important;line-height:1.5 !important;font-size:12px !important;">
-
-    <!-- UPPER DETAILS -->
-    <div style="margin-bottom:14px !important;">
-      <div>• Care: DRY CLEAN</div> 
-    </div>
-
-    <!-- TWO COLUMNS -->
-    <div style="display:grid !important;grid-template-columns:1fr 1fr !important;gap:12px !important;align-items:start !important;">
-
-      <!-- LEFT SIDE -->
-      <div>
-        <strong>KURTA</strong><br>
-        • Fabric: Crushed tissue<br>
-        • Length: 28"<br>
-        • Front Neck: 7"<br>
-        • Back Neck: 8"<br><br>
-
-        <strong>SLEEVES</strong><br>
-        • Sleeves: 22"
-      </div>
-
-      <!-- RIGHT SIDE -->
-      <div>
-        <strong>DUPATTA</strong><br>
-        • Fabric: Crished tissue<br>
-        • Length: 2.5 Meter<br><br>
-
-        <strong>PALAZZO</strong><br>
-        • Fabric: Crushed tussue<br>
-        • Length: 40"
-      </div>
-
-    </div>
-
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
   </div>
 
   <p class="price">PRICE ₹999</p>
@@ -1828,43 +1432,13 @@ footer{
 
   <h3>PRODUCT NUMBER 9</h3>
 
- <div class="product-description"
-       style="margin:12px 10px !important;line-height:1.5 !important;font-size:12px !important;">
-
-    <!-- UPPER DETAILS -->
-    <div style="margin-bottom:14px !important;">
-      <div>• Care: DRY CLEAN</div>
-    </div>
-
-    <!-- TWO COLUMNS -->
-    <div style="display:grid !important;grid-template-columns:1fr 1fr !important;gap:12px !important;align-items:start !important;">
-
-      <!-- LEFT SIDE -->
-      <div>
-        <strong>KURTA</strong><br>
-        • Fabric: Embroidered Crepe<br>
-        • Length: 46"<br>
-        • Front Neck: 7.5"<br>
-        • Back Neck: 10"<br><br>
-
-        <strong>SLEEVES</strong><br>
-        • Sleeves: 22"
-      </div>
-
-      <!-- RIGHT SIDE -->
-      <div>
-        <strong>DUPATTA</strong><br>
-        • Fabric: Russian Silk<br>
-        • Length: 2.5 Meter<br><br>
-
-        <strong>PALAZZO</strong><br>
-        • Fabric: Russian Silk<br>
-        • Length: 40"
-      </div>
-
-    </div>
-
-  </div> 
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
+  </div>
 
   <p class="price">PRICE ₹999</p>
 
@@ -1913,11 +1487,11 @@ footer{
 
     <div class="photo-slider">
 
-      <img src="IMG_4516.jpeg" alt="Product 10">
-      <img src="IMG_4517.jpeg" alt="Product 10">
-      <img src="IMG_4518.jpeg" alt="Product 10">
-      <img src="IMG_4519.jpeg" alt="Product 10">
-      <img src="IMG_4520.jpeg" alt="Product 10">
+      <img src="IMG_3726.jpeg" alt="Product 10">
+      <img src="IMG_3727.jpeg" alt="Product 10">
+      <img src="IMG_3728.jpeg" alt="Product 10">
+      <img src="IMG_3729.jpeg" alt="Product 10">
+      <img src="IMG_3730.jpeg" alt="Product 10">
 
     </div>
 
@@ -1928,43 +1502,13 @@ footer{
 
   <h3>PRODUCT NUMBER 10</h3>
 
-  <div class="product-description"
-       style="margin:12px 10px !important;line-height:1.5 !important;font-size:12px !important;">
-
-    <!-- UPPER DETAILS -->
-    <div style="margin-bottom:14px !important;">
-      <div>• Care: DRY CLEAN</div>
-    </div>
-
-    <!-- TWO COLUMNS -->
-    <div style="display:grid !important;grid-template-columns:1fr 1fr !important;gap:12px !important;align-items:start !important;">
-
-      <!-- LEFT SIDE -->
-      <div>
-        <strong>KURTA</strong><br>
-        • Fabric: Embroidered Crepe<br>
-        • Length: 46"<br>
-        • Front Neck: 7.5"<br>
-        • Back Neck: 10"<br><br>
-
-        <strong>SLEEVES</strong><br>
-        • Sleeves: 18" A Line
-      </div>
-
-      <!-- RIGHT SIDE -->
-      <div>
-        <strong>DUPATTA</strong><br>
-        • Fabric: Russian Silk<br>
-        • Length: 2.5 Meter<br><br>
-
-        <strong>PALAZZO</strong><br>
-        • Fabric: Russian Silk<br>
-        • Length: 40"
-      </div>
-
-    </div>
-
-  </div> 
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
+  </div>
 
   <p class="price">PRICE ₹999</p>
 
@@ -2028,43 +1572,13 @@ footer{
 
   <h3>PRODUCT NUMBER 11</h3>
 
-<div class="product-description"
-       style="margin:12px 10px !important;line-height:1.5 !important;font-size:12px !important;">
-
-    <!-- UPPER DETAILS -->
-    <div style="margin-bottom:14px !important;">
-      <div>• Care: DRY CLEAN</div>
-    </div>
-
-    <!-- TWO COLUMNS -->
-    <div style="display:grid !important;grid-template-columns:1fr 1fr !important;gap:12px !important;align-items:start !important;">
-
-      <!-- LEFT SIDE -->
-      <div>
-        <strong>KURTA</strong><br>
-        • Fabric: Crush Tissue<br>
-        • Length: 48"<br>
-        • Front Neck: 7"<br>
-        • Back Neck: 9"<br><br>
-
-        <strong>SLEEVES</strong><br>
-        • Sleeves: 22" (Chudi Line)
-      </div>
-
-      <!-- RIGHT SIDE -->
-      <div>
-        <strong>DUPATTA</strong><br>
-        • Fabric: Crush Tissue<br>
-        • Length: 2.5 Meter<br><br>
-
-        <strong>PALAZZO</strong><br>
-        • Fabric: Crush Tissue<br>
-        • Length: 40"
-      </div>
-
-    </div>
-
-  </div> 
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
+  </div>
 
   <p class="price">PRICE ₹999</p>
 
@@ -2129,43 +1643,13 @@ footer{
 
   <h3>PRODUCT NUMBER 12</h3>
 
-  <div class="product-description"
-       style="margin:12px 10px !important;line-height:1.5 !important;font-size:12px !important;">
-
-    <!-- UPPER DETAILS -->
-    <div style="margin-bottom:14px !important;">
-      <div>• Care: DRY CLEAN</div>
-    </div>
-
-    <!-- TWO COLUMNS -->
-    <div style="display:grid !important;grid-template-columns:1fr 1fr !important;gap:12px !important;align-items:start !important;">
-
-      <!-- LEFT SIDE -->
-      <div>
-        <strong>KURTA</strong><br>
-        • Fabric: Cotton<br>
-        • Length: 48"<br>
-        • Front Neck: 7.5"<br>
-        • Back Neck: Clossed"<br><br>
-
-        <strong>SLEEVES</strong><br>
-        • Sleeves: 22"
-      </div>
-
-      <!-- RIGHT SIDE -->
-      <div>
-        <strong>DUPATTA</strong><br>
-        • Fabric: Georgette<br>
-        • Length: 2.5 Meter<br><br>
-
-        <strong>PALAZZO</strong><br>
-        • Fabric: Cotton<br>
-        • Length: 40"
-      </div>
-
-    </div>
-
-  </div> 
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
+  </div>
 
   <p class="price">PRICE ₹999</p>
 
@@ -2229,43 +1713,13 @@ footer{
 
   <h3>PRODUCT NUMBER 13</h3>
 
-  <div class="product-description"
-       style="margin:12px 10px !important;line-height:1.5 !important;font-size:12px !important;">
-
-    <!-- UPPER DETAILS -->
-    <div style="margin-bottom:14px !important;">
-      <div>• Care: DRY CLEAN</div>
-    </div>
-
-    <!-- TWO COLUMNS -->
-    <div style="display:grid !important;grid-template-columns:1fr 1fr !important;gap:12px !important;align-items:start !important;">
-
-      <!-- LEFT SIDE -->
-      <div>
-        <strong>KURTA</strong><br>
-        • Fabric: Viscos Crepe Silk (Heavy Worked)<br>
-        • Length: 48"<br>
-        • Front Neck: 7"<br>
-        • Back Neck: 11"<br><br>
-
-        <strong>SLEEVES</strong><br>
-        • Sleeves: 22"
-      </div>
-
-      <!-- RIGHT SIDE -->
-      <div>
-        <strong>DUPATTA</strong><br>
-        • Fabric: Crepe Silk<br>
-        • Length: 2.5 Meter<br><br>
-
-        <strong>PANT</strong><br>
-        • Fabric: Crepe<br>
-        • Length: 40"
-      </div>
-
-    </div>
-
-  </div> 
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
+  </div>
 
   <p class="price">PRICE ₹999</p>
 
@@ -2329,39 +1783,13 @@ footer{
 
   <h3>PRODUCT NUMBER 14</h3>
 
-    <div class="product-description"
-       style="margin:12px 10px !important;line-height:1.5 !important;font-size:12px !important;">
-
-    <!-- UPPER DETAILS -->
-    <div style="margin-bottom:14px !important;">
-      <div>• Care: DRY CLEAN</div>
-    </div>
-
-    <!-- TWO COLUMNS -->
-    <div style="display:grid !important;grid-template-columns:1fr 1fr !important;gap:12px !important;align-items:start !important;">
-
-      <!-- LEFT SIDE -->
-      <div>
-        <strong>KURTA</strong><br>
-        • Fabric: Heavy Emboridered Tissue Cosmos<br>
-        • Length: 56"<br>
-        • Front Neck: 7"<br>
-        • Back Neck: 11"<br><br>
-
-        <strong>SLEEVES</strong><br>
-        • Sleeves: 22"
-      </div>
-
-      <!-- RIGHT SIDE -->
-      <div>
-        <strong>DUPATTA</strong><br>
-        • Fabric: Organza<br>
-        • Length: 2.5 Meter<br><br>
-      </div>
-      
-    </div>
-
-  </div> 
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
+  </div>
 
   <p class="price">PRICE ₹999</p>
 
@@ -2424,43 +1852,13 @@ footer{
 
   <h3>PRODUCT NUMBER 15</h3>
 
-<div class="product-description"
-       style="margin:12px 10px !important;line-height:1.5 !important;font-size:12px !important;">
-
-    <!-- UPPER DETAILS -->
-    <div style="margin-bottom:14px !important;">
-      <div>• Care: DRY CLEAN</div>
-    </div>
-
-    <!-- TWO COLUMNS -->
-    <div style="display:grid !important;grid-template-columns:1fr 1fr !important;gap:12px !important;align-items:start !important;">
-
-      <!-- LEFT SIDE -->
-      <div>
-        <strong>KURTA</strong><br>
-        • Fabric: Muslin<br>
-        • Length: 30"<br>
-        • Front Neck: 8"<br>
-        • Back Neck: Clossed"<br><br>
-
-        <strong>SLEEVES</strong><br>
-        • Sleeves: 22"
-      </div>
-
-      <!-- RIGHT SIDE -->
-      <div>
-        <strong>DUPATTA</strong><br>
-        • Fabric: Muslin<br>
-        • Length: 2.5 Meter<br><br>
-
-        <strong>PANT</strong><br>
-        • Fabric: Muslin<br>
-        • Length: 40"
-      </div>
-
-    </div>
-
-  </div>  
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
+  </div>
 
   <p class="price">PRICE ₹999</p>
 
@@ -2525,42 +1923,13 @@ footer{
 
   <h3>PRODUCT NUMBER 16</h3>
 
-<div class="product-description"
-       style="margin:12px 10px !important;line-height:1.5 !important;font-size:12px !important;">
-
-    <!-- UPPER DETAILS -->
-    <div style="margin-bottom:14px !important;">
-      <div>• Care: DRY CLEAN</div>
-    </div>
-
-    <!-- TWO COLUMNS -->
-    <div style="display:grid !important;grid-template-columns:1fr 1fr !important;gap:12px !important;align-items:start !important;">
-
-      <!-- LEFT SIDE -->
-      <div>
-        <strong>TOP</strong><br>
-        • Fabric: Crepe Heavy Embroidery<br>
-        • Length: 14"<br>
-        • Front Neck: 7"<br>
-        • Back Neck: 11"<br><br>
-
-        <strong>SLEEVES</strong><br>
-        • Sleeves: 8"
-      </div>
-
-      <!-- RIGHT SIDE -->
-      <div>
-        <strong>DUPATTA</strong><br>
-        • Fabric: Hard Organza<br>
-        • Length: 2.5 Meter<br><br>
-
-        <strong>LEHENGA</strong><br>
-        • Length: 42"
-      </div>
-
-    </div>
-
-  </div>  
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
+  </div>
 
   <p class="price">PRICE ₹1250</p>
 
@@ -2624,45 +1993,15 @@ footer{
 
   <h3>PRODUCT NUMBER 17</h3>
 
-  <div class="product-description"
-       style="margin:12px 10px !important;line-height:1.5 !important;font-size:12px !important;">
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
+  </div>
 
-    <!-- UPPER DETAILS -->
-    <div style="margin-bottom:14px !important;">
-      <div>• Care: DRY CLEAN</div>
-    </div>
-
-    <!-- TWO COLUMNS -->
-    <div style="display:grid !important;grid-template-columns:1fr 1fr !important;gap:12px !important;align-items:start !important;">
-
-      <!-- LEFT SIDE -->
-      <div>
-        <strong>KURTA</strong><br>
-        • Fabric: Simmer Georgette<br>
-        • Length: 48"<br>
-        • Front Neck: 7"<br>
-        • Back Neck: 11"<br><br>
-
-        <strong>SLEEVES</strong><br>
-        • Sleeves: 22"
-      </div>
-
-      <!-- RIGHT SIDE -->
-      <div>
-        <strong>DUPATTA</strong><br>
-        • Fabric: Simmer Georgette<br>
-        • Length: 2.5 Meter<br><br>
-
-        <strong>PALAZZO</strong></strong><br>
-        • Fabric: Simmer Georgette<br>
-        • Length: 42"
-      </div>
-
-    </div>
-
-  </div>  
-
-  <p class="price">PRICE ₹999</p>
+  <p class="price">PRICE ₹1250</p>
 
   <div class="size-title">
     <strong>Size</strong>
@@ -2721,45 +2060,15 @@ footer{
 
   <h3>PRODUCT NUMBER 18</h3>
 
-   <div class="product-description"
-       style="margin:12px 10px !important;line-height:1.5 !important;font-size:12px !important;">
-
-    <!-- UPPER DETAILS -->
-    <div style="margin-bottom:14px !important;">
-      <div>• Care: DRY CLEAN</div>
-    </div>
-
-    <!-- TWO COLUMNS -->
-    <div style="display:grid !important;grid-template-columns:1fr 1fr !important;gap:12px !important;align-items:start !important;">
-
-      <!-- LEFT SIDE -->
-      <div>
-        <strong>KURTA</strong><br>
-        • Fabric: Cosmos<br>
-        • Length: 48"<br>
-        • Front Neck: 7"<br>
-        • Back Neck: 11"<br><br>
-
-        <strong>SLEEVES</strong><br>
-        • Sleeves: 22" Chudi Sleelves
-      </div>
-
-      <!-- RIGHT SIDE -->
-      <div>
-        <strong>DUPATTA</strong><br>
-        • Fabric: Organza<br>
-        • Length: 2.5 Meter<br><br>
-
-        <strong>PALAZZO</strong></strong><br>
-        • Fabric: Cosmos<br>
-        • Length: 40"
-      </div>
-
-    </div>
-
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
   </div>
 
-  <p class="price">PRICE ₹999</p>
+  <p class="price">PRICE ₹1250</p>
 
   <div class="size-title">
     <strong>Size</strong>
@@ -2818,42 +2127,15 @@ footer{
 
   <h3>PRODUCT NUMBER 19</h3>
 
-     <div class="product-description"
-       style="margin:12px 10px !important;line-height:1.5 !important;font-size:12px !important;">
-
-    <!-- UPPER DETAILS -->
-    <div style="margin-bottom:14px !important;">
-      <div>• Care: DRY CLEAN</div>
-    </div>
-
-    <!-- TWO COLUMNS -->
-    <div style="display:grid !important;grid-template-columns:1fr 1fr !important;gap:12px !important;align-items:start !important;">
-
-      <!-- LEFT SIDE -->
-      <div>
-        <strong>MAXI</strong><br>
-        • Fabric: Crush Tissue Viscos<br>
-        • Length: 56"<br>
-        • Front Neck: 7"<br>
-        • Back Neck: 11"<br><br>
-
-        <strong>SLEEVES</strong><br>
-        • Sleeves: 17"
-        • Can Can (Yes)
-      </div>
-
-      <!-- RIGHT SIDE -->
-      <div>
-        <strong>DUPATTA</strong><br>
-        • Fabric: Organza<br>
-        • Length: 2.5 Meter<br><br>
-      </div>
-
-    </div>
-
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
   </div>
 
-  <p class="price">PRICE ₹999</p>
+  <p class="price">PRICE ₹1250</p>
 
   <div class="size-title">
     <strong>Size</strong>
@@ -2913,42 +2195,12 @@ footer{
 
   <h3>PRODUCT NUMBER 20</h3>
 
-  <div class="product-description"
-       style="margin:12px 10px !important;line-height:1.5 !important;font-size:12px !important;">
-
-    <!-- UPPER DETAILS -->
-    <div style="margin-bottom:14px !important;">
-      <div>• Care: DRY CLEAN</div>
-    </div>
-
-    <!-- TWO COLUMNS -->
-    <div style="display:grid !important;grid-template-columns:1fr 1fr !important;gap:12px !important;align-items:start !important;">
-
-      <!-- LEFT SIDE -->
-      <div>
-        <strong>KURTA</strong><br>
-        • Fabric: Georgette<br>
-        • Length: 48"<br>
-        • Front Neck: 7"<br>
-        • Back Neck: 10-11"<br><br>
-
-        <strong>SLEEVES</strong><br>
-        • Sleeves: 12"
-      </div>
-
-      <!-- RIGHT SIDE -->
-      <div>
-        <strong>DUPATTA</strong><br>
-        • Fabric: Gorgette<br>
-        • Length: 2.5 Meter<br><br>
-
-        <storng>PALAZZO</storng></storng><br>
-        • Fabric: Georgette"<br>
-        • Length: 40"
-      </div>
-
-    </div>
-
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
   </div>
 
   <p class="price">PRICE ₹999</p>
@@ -3011,42 +2263,12 @@ footer{
 
   <h3>PRODUCT NUMBER 21</h3>
 
-  <div class="product-description"
-       style="margin:12px 10px !important;line-height:1.5 !important;font-size:12px !important;">
-
-    <!-- UPPER DETAILS -->
-    <div style="margin-bottom:14px !important;">
-      <div>• Care: DRY CLEAN</div>
-    </div>
-
-    <!-- TWO COLUMNS -->
-    <div style="display:grid !important;grid-template-columns:1fr 1fr !important;gap:12px !important;align-items:start !important;">
-
-      <!-- LEFT SIDE -->
-      <div>
-        <strong>KURTA</strong><br>
-        • Fabric: H O Silk<br>
-        • Length: 48"<br>
-        • Front Neck: 7.5"<br>
-        • Back Neck: 11"<br><br>
-
-        <strong>SLEEVES</strong><br>
-        • Sleeves: 20"
-      </div>
-
-      <!-- RIGHT SIDE -->
-      <div>
-        <strong>DUPATTA</strong><br>
-        • Fabric: H O Silk<br>
-        • Length: 2.5 Meter<br><br>
-
-        <storng>PALAZZO</storng></storng><br>
-        • Fabric: Russian Silk"<br>
-        • Length: 40"
-      </div>
-
-    </div>
-
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
   </div>
 
   <p class="price">PRICE ₹999</p>
@@ -3109,42 +2331,12 @@ footer{
 
   <h3>PRODUCT NUMBER 22</h3>
 
-  <div class="product-description"
-       style="margin:12px 10px !important;line-height:1.5 !important;font-size:12px !important;">
-
-    <!-- UPPER DETAILS -->
-    <div style="margin-bottom:14px !important;">
-      <div>• Care: DRY CLEAN</div>
-    </div>
-
-    <!-- TWO COLUMNS -->
-    <div style="display:grid !important;grid-template-columns:1fr 1fr !important;gap:12px !important;align-items:start !important;">
-
-      <!-- LEFT SIDE -->
-      <div>
-        <strong>KURTA</strong><br>
-        • Fabric: Muslin<br>
-        • Length: 48"<br>
-        • Front Neck: 7.5"<br>
-        • Back Neck: 11"<br><br>
-
-        <strong>SLEEVES</strong><br>
-        • Sleeves: 18"
-      </div>
-
-      <!-- RIGHT SIDE -->
-      <div>
-        <strong>DUPATTA</strong><br>
-        • Fabric: Muslin<br>
-        • Length: 2.5 Meter<br><br>
-
-        <storng>PALAZZO</storng></storng><br>
-        • Fabric: Muslin"<br>
-        • Length: 40"
-      </div>
-
-    </div>
-
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
   </div>
 
   <p class="price">PRICE ₹999</p>
@@ -3207,42 +2399,12 @@ footer{
 
   <h3>PRODUCT NUMBER 23</h3>
 
-<div class="product-description"
-       style="margin:12px 10px !important;line-height:1.5 !important;font-size:12px !important;">
-
-    <!-- UPPER DETAILS -->
-    <div style="margin-bottom:14px !important;">
-      <div>• Care: DRY CLEAN</div>
-    </div>
-
-    <!-- TWO COLUMNS -->
-    <div style="display:grid !important;grid-template-columns:1fr 1fr !important;gap:12px !important;align-items:start !important;">
-
-      <!-- LEFT SIDE -->
-      <div>
-        <strong>KURTA</strong><br>
-        • Fabric: Organza Simmer<br>
-        • Length: 48"<br>
-        • Front Neck: 7.5"<br>
-        • Back Neck: 11"<br><br>
-
-        <strong>SLEEVES</strong><br>
-        • Sleeves: 23"
-      </div>
-
-      <!-- RIGHT SIDE -->
-      <div>
-        <strong>DUPATTA</strong><br>
-        • Fabric: Organza Simmer<br>
-        • Length: 2.5 Meter<br><br>
-
-        <storng>PALAZZO</storng></storng><br>
-        • Fabric: Organza Simmer"<br>
-        • Length: 40"
-      </div>
-
-    </div>
-
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
   </div>
 
   <p class="price">PRICE ₹999</p>
@@ -3305,42 +2467,12 @@ footer{
 
   <h3>PRODUCT NUMBER 24</h3>
 
-<div class="product-description"
-       style="margin:12px 10px !important;line-height:1.5 !important;font-size:12px !important;">
-
-    <!-- UPPER DETAILS -->
-    <div style="margin-bottom:14px !important;">
-      <div>• Care: DRY CLEAN</div>
-    </div>
-
-    <!-- TWO COLUMNS -->
-    <div style="display:grid !important;grid-template-columns:1fr 1fr !important;gap:12px !important;align-items:start !important;">
-
-      <!-- LEFT SIDE -->
-      <div>
-        <strong>KURTA</strong><br>
-        • Fabric: Organza Simmer<br>
-        • Length: 48"<br>
-        • Front Neck: 7.5"<br>
-        • Back Neck: 11"<br><br>
-
-        <strong>SLEEVES</strong><br>
-        • Sleeves: 23"
-      </div>
-
-      <!-- RIGHT SIDE -->
-      <div>
-        <strong>DUPATTA</strong><br>
-        • Fabric: Organza Simmer<br>
-        • Length: 2.5 Meter<br><br>
-
-        <storng>PALAZZO</storng></storng><br>
-        • Fabric: Organza Simmer"<br>
-        • Length: 40"
-      </div>
-
-    </div>
-
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
   </div>
 
   <p class="price">PRICE ₹999</p>
@@ -3403,43 +2535,13 @@ footer{
 
   <h3>PRODUCT NUMBER 25</h3>
 
- <div class="product-description"
-       style="margin:12px 10px !important;line-height:1.5 !important;font-size:12px !important;">
-
-    <!-- UPPER DETAILS -->
-    <div style="margin-bottom:14px !important;">
-      <div>• Care: DRY CLEAN</div>
-    </div>
-
-    <!-- TWO COLUMNS -->
-    <div style="display:grid !important;grid-template-columns:1fr 1fr !important;gap:12px !important;align-items:start !important;">
-
-      <!-- LEFT SIDE -->
-      <div>
-        <strong>KURTA</strong><br>
-        • Fabric: Viscos Organza<br>
-        • Length: 48"<br>
-        • Front Neck: 7"<br>
-        • Back Neck: 9"<br><br>
-
-        <strong>SLEEVES</strong><br>
-        • Sleeves: 18"
-      </div>
-
-      <!-- RIGHT SIDE -->
-      <div>
-        <strong>DUPATTA</strong><br>
-        • Fabric: Viscos Organza<br>
-        • Length: 2.5 Meter<br><br>
-
-        <storng>PALAZZO</storng></storng><br>
-        • Fabric: Viscos Organza"<br>
-        • Length: 40"
-      </div>
-
-    </div>
-
-  </div> 
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
+  </div>
 
   <p class="price">PRICE ₹999</p>
 
@@ -3501,43 +2603,13 @@ footer{
 
   <h3>PRODUCT NUMBER 26</h3>
 
-<div class="product-description"
-       style="margin:12px 10px !important;line-height:1.5 !important;font-size:12px !important;">
-
-    <!-- UPPER DETAILS -->
-    <div style="margin-bottom:14px !important;">
-      <div>• Care: DRY CLEAN</div>
-    </div>
-
-    <!-- TWO COLUMNS -->
-    <div style="display:grid !important;grid-template-columns:1fr 1fr !important;gap:12px !important;align-items:start !important;">
-
-      <!-- LEFT SIDE -->
-      <div>
-        <strong>KURTA</strong><br>
-        • Fabric: Organza<br>
-        • Length: 48"<br>
-        • Front Neck: 7"<br>
-        • Back Neck: Closed"<br><br>
-
-        <strong>SLEEVES</strong><br>
-        • Sleeves: 22"
-      </div>
-
-      <!-- RIGHT SIDE -->
-      <div>
-        <strong>DUPATTA</strong><br>
-        • Fabric: Organza<br>
-        • Length: 2.5 Meter<br><br>
-
-        <storng>PALAZZO</storng></storng><br>
-        • Fabric: Organza"<br>
-        • Length: 38"
-      </div>
-
-    </div>
-
-  </div> 
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
+  </div>
 
   <p class="price">PRICE ₹999</p>
 
@@ -3599,43 +2671,13 @@ footer{
 
   <h3>PRODUCT NUMBER 27</h3>
 
-  <div class="product-description"
-       style="margin:12px 10px !important;line-height:1.5 !important;font-size:12px !important;">
-
-    <!-- UPPER DETAILS -->
-    <div style="margin-bottom:14px !important;">
-      <div>• Care: DRY CLEAN</div>
-    </div>
-
-    <!-- TWO COLUMNS -->
-    <div style="display:grid !important;grid-template-columns:1fr 1fr !important;gap:12px !important;align-items:start !important;">
-
-      <!-- LEFT SIDE -->
-      <div>
-        <strong>KURTA</strong><br>
-        • Fabric: Cosmos<br>
-        • Length: 48"<br>
-        • Front Neck: 7"<br>
-        • Back Neck: Closed"<br><br>
-
-        <strong>SLEEVES</strong><br>
-        • Sleeves: 22"
-      </div>
-
-      <!-- RIGHT SIDE -->
-      <div>
-        <strong>DUPATTA</strong><br>
-        • Fabric: Silk<br>
-        • Length: 2.5 Meter<br><br>
-
-        <storng>PALAZZO</storng></storng><br>
-        • Fabric: Cosmos"<br>
-        • Length: 40"
-      </div>
-
-    </div>
-
-  </div> 
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
+  </div>
 
   <p class="price">PRICE ₹999</p>
 
@@ -3697,43 +2739,13 @@ footer{
 
   <h3>PRODUCT NUMBER 28</h3>
 
-  <div class="product-description"
-       style="margin:12px 10px !important;line-height:1.5 !important;font-size:12px !important;">
-
-    <!-- UPPER DETAILS -->
-    <div style="margin-bottom:14px !important;">
-      <div>• Care: DRY CLEAN</div>
-    </div>
-
-    <!-- TWO COLUMNS -->
-    <div style="display:grid !important;grid-template-columns:1fr 1fr !important;gap:12px !important;align-items:start !important;">
-
-      <!-- LEFT SIDE -->
-      <div>
-        <strong>KURTA</strong><br>
-        • Fabric: Cotton<br>
-        • Length: 48"<br>
-        • Front Neck: 7.5"<br>
-        • Back Neck: Closed"<br><br>
-
-        <strong>SLEEVES</strong><br>
-        • Sleeves: 22"
-      </div>
-
-      <!-- RIGHT SIDE -->
-      <div>
-        <strong>DUPATTA</strong><br>
-        • Fabric: Cotton<br>
-        • Length: 2.5 Meter<br><br>
-
-        <storng>PALAZZO</storng></storng><br>
-        • Fabric: Cotton"<br>
-        • Length: 40"
-      </div>
-
-    </div>
-
-  </div> 
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
+  </div>
 
   <p class="price">PRICE ₹999</p>
 
@@ -3794,43 +2806,13 @@ footer{
 
   <h3>PRODUCT NUMBER 29</h3>
 
- <div class="product-description"
-       style="margin:12px 10px !important;line-height:1.5 !important;font-size:12px !important;">
-
-    <!-- UPPER DETAILS -->
-    <div style="margin-bottom:14px !important;">
-      <div>• Care: DRY CLEAN</div>
-    </div>
-
-    <!-- TWO COLUMNS -->
-    <div style="display:grid !important;grid-template-columns:1fr 1fr !important;gap:12px !important;align-items:start !important;">
-
-      <!-- LEFT SIDE -->
-      <div>
-        <strong>KURTA</strong><br>
-        • Fabric: Cotton<br>
-        • Length: 48"<br>
-        • Front Neck: 7.5"<br>
-        • Back Neck: Closed"<br><br>
-
-        <strong>SLEEVES</strong><br>
-        • Sleeves: 22"
-      </div>
-
-      <!-- RIGHT SIDE -->
-      <div>
-        <strong>DUPATTA</strong><br>
-        • Fabric: Cotton<br>
-        • Length: 2.5 Meter<br><br>
-
-        <storng>PALAZZO</storng></storng><br>
-        • Fabric: Cotton"<br>
-        • Length: 40"
-      </div>
-
-    </div>
-
-  </div>  
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
+  </div>
 
   <p class="price">PRICE ₹999</p>
 
@@ -3878,7 +2860,7 @@ footer{
   <div class="photo">
 
     <div class="photo-slider">
-      <img src="IMG_4833.jpeg" alt="Product 30">
+      <img src="IMG_3828.jpeg" alt="Product 30">
       <img src="IMG_3829.jpeg" alt="Product 30">
       <img src="IMG_3830.jpeg" alt="Product 30">
       <img src="IMG_3831.jpeg" alt="Product 30">
@@ -3892,43 +2874,13 @@ footer{
 
   <h3>PRODUCT NUMBER 30</h3>
 
-  <div class="product-description"
-       style="margin:12px 10px !important;line-height:1.5 !important;font-size:12px !important;">
-
-    <!-- UPPER DETAILS -->
-    <div style="margin-bottom:14px !important;">
-      <div>• Care: DRY CLEAN</div>
-    </div>
-
-    <!-- TWO COLUMNS -->
-    <div style="display:grid !important;grid-template-columns:1fr 1fr !important;gap:12px !important;align-items:start !important;">
-
-      <!-- LEFT SIDE -->
-      <div>
-        <strong>KURTA</strong><br>
-        • Fabric: Cotton<br>
-        • Length: 48"<br>
-        • Front Neck: 7.5"<br>
-        • Back Neck: Closed"<br><br>
-
-        <strong>SLEEVES</strong><br>
-        • Sleeves: 22"
-      </div>
-
-      <!-- RIGHT SIDE -->
-      <div>
-        <strong>DUPATTA</strong><br>
-        • Fabric: Cotton<br>
-        • Length: 2.5 Meter<br><br>
-
-        <storng>PALAZZO</storng></storng><br>
-        • Fabric: Cotton"<br>
-        • Length: 40"
-      </div>
-
-    </div>
-
-  </div> 
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
+  </div>
 
   <p class="price">PRICE ₹999</p>
 
@@ -3987,43 +2939,13 @@ footer{
 
   <h3>PRODUCT NUMBER 31</h3>
 
-   <div class="product-description"
-       style="margin:12px 10px !important;line-height:1.5 !important;font-size:12px !important;">
-
-    <!-- UPPER DETAILS -->
-    <div style="margin-bottom:14px !important;">
-      <div>• Care: DRY CLEAN</div>
-    </div>
-
-    <!-- TWO COLUMNS -->
-    <div style="display:grid !important;grid-template-columns:1fr 1fr !important;gap:12px !important;align-items:start !important;">
-
-      <!-- LEFT SIDE -->
-      <div>
-        <strong>KURTA</strong><br>
-        • Fabric: Silk<br>
-        • Length: 48"<br>
-        • Front Neck: 7"<br>
-        • Back Neck: 11"<br><br>
-
-        <strong>SLEEVES</strong><br>
-        • Sleeves: 22"
-      </div>
-
-      <!-- RIGHT SIDE -->
-      <div>
-        <strong>DUPATTA</strong><br>
-        • Fabric: Organza<br>
-        • Length: 2.5 Meter<br><br>
-
-        <storng>PANT</storng></storng><br>
-        • Fabric: Cotton"<br>
-        • Length: 38"
-      </div>
-
-    </div>
-
-  </div> 
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
+  </div>
 
   <p class="price">PRICE ₹999</p>
 
@@ -4082,43 +3004,13 @@ footer{
 
   <h3>PRODUCT NUMBER 32</h3>
 
-  <div class="product-description"
-       style="margin:12px 10px !important;line-height:1.5 !important;font-size:12px !important;">
-
-    <!-- UPPER DETAILS -->
-    <div style="margin-bottom:14px !important;">
-      <div>• Care: DRY CLEAN</div>
-    </div>
-
-    <!-- TWO COLUMNS -->
-    <div style="display:grid !important;grid-template-columns:1fr 1fr !important;gap:12px !important;align-items:start !important;">
-
-      <!-- LEFT SIDE -->
-      <div>
-        <strong>KURTA</strong><br>
-        • Fabric: Crepe<br>
-        • Length: 33"<br>
-        • Front Neck: 7"<br>
-        • Back Neck: 9"<br><br>
-
-        <strong>SLEEVES</strong><br>
-        • Sleeves: 22"
-      </div>
-
-      <!-- RIGHT SIDE -->
-      <div>
-        <strong>DUPATTA</strong><br>
-        • Fabric: Crush Tissue<br>
-        • Length: 2.5 Meter<br><br>
-
-        <storng>PALAZZO</storng></storng><br>
-        • Fabric: Crush Tissue"<br>
-        • Length: 40"
-      </div>
-
-    </div>
-
-  </div> 
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
+  </div>
 
   <p class="price">PRICE ₹999</p>
 
@@ -4176,39 +3068,13 @@ footer{
 
   <h3>PRODUCT NUMBER 33</h3>
 
-    <div class="product-description"
-       style="margin:12px 10px !important;line-height:1.5 !important;font-size:12px !important;">
-
-    <!-- UPPER DETAILS -->
-    <div style="margin-bottom:14px !important;">
-      <div>• Care: DRY CLEAN</div>
-    </div>
-
-    <!-- TWO COLUMNS -->
-    <div style="display:grid !important;grid-template-columns:1fr 1fr !important;gap:12px !important;align-items:start !important;">
-
-      <!-- LEFT SIDE -->
-      <div>
-        <strong>KURTA</strong><br>
-        • Fabric: Crepe<br>
-        • Length: 57"<br>
-        • Front Neck: 7"<br>
-        • Back Neck: 9"<br><br>
-
-        <strong>SLEEVES</strong><br>
-        • Sleeves: 12"
-      </div>
-
-      <!-- RIGHT SIDE -->
-      <div>
-        <strong>DUPATTA</strong><br>
-        • Fabric: Organza<br>
-        • Length: 2.5 Meter<br><br>
-      </div>
-
-    </div>
-
-  </div> 
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
+  </div>
 
   <p class="price">PRICE ₹999</p>
 
@@ -4265,43 +3131,13 @@ footer{
 
   <h3>PRODUCT NUMBER 34</h3>
 
- <div class="product-description"
-       style="margin:12px 10px !important;line-height:1.5 !important;font-size:12px !important;">
-
-    <!-- UPPER DETAILS -->
-    <div style="margin-bottom:14px !important;">
-      <div>• Care: DRY CLEAN</div>
-    </div>
-
-    <!-- TWO COLUMNS -->
-    <div style="display:grid !important;grid-template-columns:1fr 1fr !important;gap:12px !important;align-items:start !important;">
-
-      <!-- LEFT SIDE -->
-      <div>
-        <strong>KURTA</strong><br>
-        • Fabric: Cotton<br>
-        • Length: 48"<br>
-        • Front Neck: 7.5"<br>
-        • Back Neck: Closed"<br><br>
-
-        <strong>SLEEVES</strong><br>
-        • Sleeves: 22"
-      </div>
-
-      <!-- RIGHT SIDE -->
-      <div>
-        <strong>DUPATTA</strong><br>
-        • Fabric: Georgette<br>
-        • Length: 2.5 Meter<br><br>
-
-        <storng>PALAZZO</storng></storng><br>
-        • Fabric: Cotton"<br>
-        • Length: 40"
-      </div>
-
-    </div>
-
-  </div>  
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
+  </div>
 
   <p class="price">PRICE ₹999</p>
 
@@ -4359,43 +3195,13 @@ footer{
 
   <h3>PRODUCT NUMBER 35</h3>
 
- <div class="product-description"
-       style="margin:12px 10px !important;line-height:1.5 !important;font-size:12px !important;">
-
-    <!-- UPPER DETAILS -->
-    <div style="margin-bottom:14px !important;">
-      <div>• Care: DRY CLEAN</div>
-    </div>
-
-    <!-- TWO COLUMNS -->
-    <div style="display:grid !important;grid-template-columns:1fr 1fr !important;gap:12px !important;align-items:start !important;">
-
-      <!-- LEFT SIDE -->
-      <div>
-        <strong>KURTA</strong><br>
-        • Fabric: Silk<br>
-        • Length: 33"<br>
-        • Front Neck: 7.5"<br>
-        • Back Neck: Closed"<br><br>
-
-        <strong>SLEEVES</strong><br>
-        • Sleeves: 22-23"
-      </div>
-
-      <!-- RIGHT SIDE -->
-      <div>
-        <strong>DUPATTA</strong><br>
-        • Fabric: Silk<br>
-        • Length: 2.5 Meter<br><br>
-
-        <storng>PALAZZO</storng></storng><br>
-        • Fabric: Silk"<br>
-        • Length: 40"
-      </div>
-
-    </div>
-
-  </div>   
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
+  </div>
 
   <p class="price">PRICE ₹999</p>
 
@@ -4452,43 +3258,13 @@ footer{
 
   <h3>PRODUCT NUMBER 36</h3>
 
-<div class="product-description"
-       style="margin:12px 10px !important;line-height:1.5 !important;font-size:12px !important;">
-
-    <!-- UPPER DETAILS -->
-    <div style="margin-bottom:14px !important;">
-      <div>• Care: DRY CLEAN</div>
-    </div>
-
-    <!-- TWO COLUMNS -->
-    <div style="display:grid !important;grid-template-columns:1fr 1fr !important;gap:12px !important;align-items:start !important;">
-
-      <!-- LEFT SIDE -->
-      <div>
-        <strong>KURTA</strong><br>
-        • Fabric: Silk<br>
-        • Length: 33"<br>
-        • Front Neck: 7.5"<br>
-        • Back Neck: Closed"<br><br>
-
-        <strong>SLEEVES</strong><br>
-        • Sleeves: 22-23"
-      </div>
-
-      <!-- RIGHT SIDE -->
-      <div>
-        <strong>DUPATTA</strong><br>
-        • Fabric: Silk<br>
-        • Length: 2.5 Meter<br><br>
-
-        <storng>PALAZZO</storng></storng><br>
-        • Fabric: Silk"<br>
-        • Length: 40"
-      </div>
-
-    </div>
-
-  </div>  
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
+  </div>
 
   <p class="price">PRICE ₹999</p>
 
@@ -4545,43 +3321,13 @@ footer{
 
   <h3>PRODUCT NUMBER 37</h3>
 
-<div class="product-description"
-       style="margin:12px 10px !important;line-height:1.5 !important;font-size:12px !important;">
-
-    <!-- UPPER DETAILS -->
-    <div style="margin-bottom:14px !important;">
-      <div>• Care: DRY CLEAN</div>
-    </div>
-
-    <!-- TWO COLUMNS -->
-    <div style="display:grid !important;grid-template-columns:1fr 1fr !important;gap:12px !important;align-items:start !important;">
-
-      <!-- LEFT SIDE -->
-      <div>
-        <strong>KURTA</strong><br>
-        • Fabric: Cotton<br>
-        • Length: 30"<br>
-        • Front Neck: 7"<br>
-        • Back Neck: Closed"<br><br>
-
-        <strong>SLEEVES</strong><br>
-        • Sleeves: 22" A-Line
-      </div>
-
-      <!-- RIGHT SIDE -->
-      <div>
-        <strong>DUPATTA</strong><br>
-        • Fabric: Cotton<br>
-        • Length: 2.5 Meter<br><br>
-
-        <storng>PANT</storng></storng><br>
-        • Fabric: Cotton"<br>
-        • Length: 40"
-      </div>
-
-    </div>
-
-  </div>    
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
+  </div>
 
   <p class="price">PRICE ₹999</p>
 
@@ -4638,40 +3384,13 @@ footer{
 
   <h3>PRODUCT NUMBER 38</h3>
 
-<div class="product-description"
-       style="margin:12px 10px !important;line-height:1.5 !important;font-size:12px !important;">
-
-    <!-- UPPER DETAILS -->
-    <div style="margin-bottom:14px !important;">
-      <div>• Care: DRY CLEAN</div>
-    </div>
-
-    <!-- TWO COLUMNS -->
-    <div style="display:grid !important;grid-template-columns:1fr 1fr !important;gap:12px !important;align-items:start !important;">
-
-      <!-- LEFT SIDE -->
-      <div>
-        <strong>MAXI</strong><br>
-        • Fabric: Embroidered<br>
-        • Length: 55"<br>
-        • Front Neck: 7"<br>
-        • Back Neck: 11"<br><br>
-
-        <strong>SLEEVES</strong><br>
-        • Sleeves: 22"
-        • Can Can: (Attached Padded)
-      </div>
-
-      <!-- RIGHT SIDE -->
-      <div>
-        <strong>DUPATTA</strong><br>
-        • Fabric: Organza<br>
-        • Length: 2.5 Meter<br><br>
-      </div>
-
-    </div>
-
-  </div> 
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
+  </div>
 
   <p class="price">PRICE ₹999</p>
 
@@ -4728,43 +3447,13 @@ footer{
 
   <h3>PRODUCT NUMBER 39</h3>
 
-  <div class="product-description"
-       style="margin:12px 10px !important;line-height:1.5 !important;font-size:12px !important;">
-
-    <!-- UPPER DETAILS -->
-    <div style="margin-bottom:14px !important;">
-      <div>• Care: DRY CLEAN</div>
-    </div>
-
-    <!-- TWO COLUMNS -->
-    <div style="display:grid !important;grid-template-columns:1fr 1fr !important;gap:12px !important;align-items:start !important;">
-
-      <!-- LEFT SIDE -->
-      <div>
-        <strong>KURTA</strong><br>
-        • Fabric: Embroidered Crepe<br>
-        • Length: 41"<br>
-        • Front Neck: 7"<br>
-        • Back Neck: Closed"<br><br>
-
-        <strong>SLEEVES</strong><br>
-        • Sleeves: 22"
-      </div>
-
-      <!-- RIGHT SIDE -->
-      <div>
-        <strong>DUPATTA</strong><br>
-        • Fabric: Organza<br>
-        • Length: 2.5 Meter<br><br>
-
-        <storng>PALAZZO</storng></storng><br>
-        • Fabric: Crepe"<br>
-        • Length: 40"
-      </div>
-
-    </div>
-
-  </div>    
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
+  </div>
 
   <p class="price">PRICE ₹999</p>
 
@@ -4821,42 +3510,12 @@ footer{
 
   <h3>PRODUCT NUMBER 40</h3>
 
-    <div class="product-description"
-       style="margin:12px 10px !important;line-height:1.5 !important;font-size:12px !important;">
-
-    <!-- UPPER DETAILS -->
-    <div style="margin-bottom:14px !important;">
-      <div>• Care: DRY CLEAN</div>
-    </div>
-
-    <!-- TWO COLUMNS -->
-    <div style="display:grid !important;grid-template-columns:1fr 1fr !important;gap:12px !important;align-items:start !important;">
-
-      <!-- LEFT SIDE -->
-      <div>
-        <strong>KURTA</strong><br>
-        • Fabric: Banarsi Silk<br>
-        • Length: 48"<br>
-        • Front Neck: 7"<br>
-        • Back Neck: 10"<br><br>
-
-        <strong>SLEEVES</strong><br>
-        • Sleeves: 22"
-      </div>
-
-      <!-- RIGHT SIDE -->
-      <div>
-        <strong>DUPATTA</strong><br>
-        • Fabric: Georgette<br>
-        • Length: 2.5 Meter<br><br>
-
-        <storng>PALAZZO</storng></storng><br>
-        • Fabric: Crepe"<br>
-        • Length: 40"
-      </div>
-
-    </div>
-
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
   </div>
 
   <p class="price">PRICE ₹999</p>
@@ -4915,43 +3574,13 @@ footer{
 
   <h3>PRODUCT NUMBER 41</h3>
 
- <div class="product-description"
-       style="margin:12px 10px !important;line-height:1.5 !important;font-size:12px !important;">
-
-    <!-- UPPER DETAILS -->
-    <div style="margin-bottom:14px !important;">
-      <div>• Care: DRY CLEAN</div>
-    </div>
-
-    <!-- TWO COLUMNS -->
-    <div style="display:grid !important;grid-template-columns:1fr 1fr !important;gap:12px !important;align-items:start !important;">
-
-      <!-- LEFT SIDE -->
-      <div>
-        <strong>TOP</strong></strong><br>
-        • Fabric: Heavy Embroidered Crepe<br>
-        • Length: 30"<br>
-        • Front Neck: 7"<br>
-        • Back Neck: 5"<br><br>
-
-        <strong>SLEEVES</strong><br>
-        • Sleeves: 18"
-      </div>
-
-      <!-- RIGHT SIDE -->
-      <div>
-        <strong>DUPATTA</strong><br>
-        • Fabric: Cosmos<br>
-        • Length: 2.5 Meter<br><br>
-
-        <storng>LEHENGA</storng></storng><br>
-        • Fabric: Cosmos"<br>
-        • Length: 42"
-      </div>
-
-    </div>
-
-  </div> 
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
+  </div>
 
   <p class="price">PRICE ₹999</p>
 
@@ -5008,43 +3637,13 @@ footer{
 
   <h3>PRODUCT NUMBER 42</h3>
 
-   <div class="product-description"
-       style="margin:12px 10px !important;line-height:1.5 !important;font-size:12px !important;">
-
-    <!-- UPPER DETAILS -->
-    <div style="margin-bottom:14px !important;">
-      <div>• Care: DRY CLEAN</div>
-    </div>
-
-    <!-- TWO COLUMNS -->
-    <div style="display:grid !important;grid-template-columns:1fr 1fr !important;gap:12px !important;align-items:start !important;">
-
-      <!-- LEFT SIDE -->
-      <div>
-        <strong>TOP</strong></strong><br>
-        • Fabric: Heavy Embroidered Crepe<br>
-        • Length: 30"<br>
-        • Front Neck: 7"<br>
-        • Back Neck: 5"<br><br>
-
-        <strong>SLEEVES</strong><br>
-        • Sleeves: 18"
-      </div>
-
-      <!-- RIGHT SIDE -->
-      <div>
-        <strong>DUPATTA</strong><br>
-        • Fabric: Cosmos<br>
-        • Length: 2.5 Meter<br><br>
-
-        <storng>LEHENGA</storng></storng><br>
-        • Fabric: Cosmos"<br>
-        • Length: 42"
-      </div>
-
-    </div>
-
-  </div> 
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
+  </div>
 
   <p class="price">PRICE ₹999</p>
 
@@ -5101,39 +3700,13 @@ footer{
 
   <h3>PRODUCT NUMBER 43</h3>
 
-<div class="product-description"
-       style="margin:12px 10px !important;line-height:1.5 !important;font-size:12px !important;">
-
-    <!-- UPPER DETAILS -->
-    <div style="margin-bottom:14px !important;">
-      <div>• Care: DRY CLEAN</div>
-    </div>
-
-    <!-- TWO COLUMNS -->
-    <div style="display:grid !important;grid-template-columns:1fr 1fr !important;gap:12px !important;align-items:start !important;">
-
-      <!-- LEFT SIDE -->
-      <div>
-        <strong>KURTA</strong></strong><br>
-        • Fabric: Cotton<br>
-        • Length: 50"<br>
-        • Front Neck: 7"<br>
-        • Back Neck: 9"<br><br>
-
-        <strong>SLEEVES</strong><br>
-        • Sleeves: 18"
-      </div>
-
-      <!-- RIGHT SIDE -->
-      <div>
-        <storng>PALAZZO</storng></storng><br>
-        • Fabric: Cotton"<br>
-        • Length: 40"
-      </div>
-
-    </div>
-
-  </div> 
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
+  </div>
 
   <p class="price">PRICE ₹999</p>
 
@@ -5176,11 +3749,11 @@ footer{
   <div class="photo">
 
     <div class="photo-slider">
-      <img src="IMG_4577.webp" alt="Product 44">
-      <img src="IMG_4578.webp" alt="Product 44">
-      <img src="IMG_4579.webp" alt="Product 44">
-      <img src="IMG_4580.webp" alt="Product 44">
-      <img src="IMG_4581.webp" alt="Product 44">
+      <img src="IMG_3943.webp" alt="Product 44">
+      <img src="IMG_3945.webp" alt="Product 44">
+      <img src="IMG_3946.webp" alt="Product 44">
+      <img src="IMG_3947.webp" alt="Product 44">
+      <img src="IMG_3948.webp" alt="Product 44">
     </div>
 
     <button class="photo-arrow left" onclick="movePhoto(this,-1)">❮</button>
@@ -5190,39 +3763,13 @@ footer{
 
   <h3>PRODUCT NUMBER 44</h3>
 
-  <div class="product-description"
-       style="margin:12px 10px !important;line-height:1.5 !important;font-size:12px !important;">
-
-    <!-- UPPER DETAILS -->
-    <div style="margin-bottom:14px !important;">
-      <div>• Care: DRY CLEAN</div>
-    </div>
-
-    <!-- TWO COLUMNS -->
-    <div style="display:grid !important;grid-template-columns:1fr 1fr !important;gap:12px !important;align-items:start !important;">
-
-      <!-- LEFT SIDE -->
-      <div>
-        <strong>KURTA</strong></strong><br>
-        • Fabric: Cotton<br>
-        • Length: 48"<br>
-        • Front Neck: 7.5"<br>
-        • Back Neck: 11"<br><br>
-
-        <strong>SLEEVES</strong><br>
-        • Sleeves: 18"
-      </div>
-
-      <!-- RIGHT SIDE -->
-      <div>
-        <storng>PANT</storng></storng><br>
-        • Fabric: Cotton"<br>
-        • Length: 40"
-      </div>
-
-    </div>
-
-  </div> 
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
+  </div>
 
   <p class="price">PRICE ₹999</p>
 
@@ -5279,43 +3826,13 @@ footer{
 
   <h3>PRODUCT NUMBER 45</h3>
 
- <div class="product-description"
-       style="margin:12px 10px !important;line-height:1.5 !important;font-size:12px !important;">
-
-    <!-- UPPER DETAILS -->
-    <div style="margin-bottom:14px !important;">
-      <div>• Care: DRY CLEAN</div>
-    </div>
-
-    <!-- TWO COLUMNS -->
-    <div style="display:grid !important;grid-template-columns:1fr 1fr !important;gap:12px !important;align-items:start !important;">
-
-      <!-- LEFT SIDE -->
-      <div>
-        <strong>KURTA</strong></strong><br>
-        • Fabric: Embroidered Crushed Silk Tissue<br>
-        • Length: 48"<br>
-        • Front Neck: 7"<br>
-        • Back Neck: 11"<br><br>
-
-        <strong>SLEEVES</strong><br>
-        • Sleeves: 22"
-      </div>
-
-      <!-- RIGHT SIDE -->
-      <div>
-        <strong>DUPATTA</strong><br>
-        • Fabric: Embroidered Crushed Silk Tissue<br>
-        • Length: 2.5 Meter<br><br>
-
-        <storng>PALAZZO</storng></storng><br>
-        • Fabric: Embroidered Crushed Silk Tissue"<br>
-        • Length: 38"
-      </div>
-
-    </div>
-
-  </div>  
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
+  </div>
 
   <p class="price">PRICE ₹999</p>
 
@@ -5358,7 +3875,7 @@ footer{
   <div class="photo">
 
     <div class="photo-slider">
-      <img src="IMG_4620.jpeg" alt="Product 46">
+      <img src="IMG_4603.webp" alt="Product 46">
       <img src="IMG_4604.webp" alt="Product 46">
       <img src="IMG_4605.webp" alt="Product 46">
       <img src="IMG_4606.webp" alt="Product 46">
@@ -5372,43 +3889,13 @@ footer{
 
   <h3>PRODUCT NUMBER 46</h3>
 
-  <div class="product-description"
-       style="margin:12px 10px !important;line-height:1.5 !important;font-size:12px !important;">
-
-    <!-- UPPER DETAILS -->
-    <div style="margin-bottom:14px !important;">
-      <div>• Care: DRY CLEAN</div>
-    </div>
-
-    <!-- TWO COLUMNS -->
-    <div style="display:grid !important;grid-template-columns:1fr 1fr !important;gap:12px !important;align-items:start !important;">
-
-      <!-- LEFT SIDE -->
-      <div>
-        <strong>KURTA</strong></strong><br>
-        • Fabric: Embroidered Crushed Silk Tissue<br>
-        • Length: 48"<br>
-        • Front Neck: 7"<br>
-        • Back Neck: 11"<br><br>
-
-        <strong>SLEEVES</strong><br>
-        • Sleeves: 22"
-      </div>
-
-      <!-- RIGHT SIDE -->
-      <div>
-        <strong>DUPATTA</strong><br>
-        • Fabric: Embroidered Crushed Silk Tissue<br>
-        • Length: 2.5 Meter<br><br>
-
-        <storng>PALAZZO</storng></storng><br>
-        • Fabric: Embroidered Crushed Silk Tissue"<br>
-        • Length: 38"
-      </div>
-
-    </div>
-
-  </div>  
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
+  </div>
 
   <p class="price">PRICE ₹999</p>
 
@@ -5465,39 +3952,13 @@ footer{
 
   <h3>PRODUCT NUMBER 47</h3>
 
-   <div class="product-description"
-       style="margin:12px 10px !important;line-height:1.5 !important;font-size:12px !important;">
-
-    <!-- UPPER DETAILS -->
-    <div style="margin-bottom:14px !important;">
-      <div>• Care: DRY CLEAN</div>
-    </div>
-
-    <!-- TWO COLUMNS -->
-    <div style="display:grid !important;grid-template-columns:1fr 1fr !important;gap:12px !important;align-items:start !important;">
-
-      <!-- LEFT SIDE -->
-      <div>
-        <strong>KURTA</strong></strong><br>
-        • Fabric: Crepe<br>
-        • Length: 57"<br>
-        • Front Neck: 7"<br>
-        • Back Neck: 9"<br><br>
-
-        <strong>SLEEVES</strong><br>
-        • Sleeves: 18"
-      </div>
-
-      <!-- RIGHT SIDE -->
-      <div>
-        <strong>DUPATTA</strong><br>
-        • Fabric: Organza<br>
-        • Length: 2.5 Meter<br><br>
-      </div>
-
-    </div>
-
-  </div>  
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
+  </div>
 
   <p class="price">PRICE ₹999</p>
 
@@ -5540,11 +4001,10 @@ footer{
   <div class="photo">
 
     <div class="photo-slider">
-      <img src="IMG_3699.jpeg" alt="Product 48">
-      <img src="IMG_3700.jpeg" alt="Product 48">
-      <img src="IMG_3701.jpeg" alt="Product 48">
-      <img src="IMG_3702.jpeg" alt="Product 48">
-      <img src="IMG_3703.jpeg" alt="Product 48">
+      <img src="IMG_3991.jpeg" alt="Product 48">
+      <img src="IMG_3992.jpeg" alt="Product 48">
+      <img src="IMG_3993.jpeg" alt="Product 48">
+      <img src="IMG_3994.jpeg" alt="Product 48">
     </div>
 
     <button class="photo-arrow left" onclick="movePhoto(this,-1)">❮</button>
@@ -5554,39 +4014,13 @@ footer{
 
   <h3>PRODUCT NUMBER 48</h3>
 
-  <div class="product-description"
-       style="margin:12px 10px !important;line-height:1.5 !important;font-size:12px !important;">
-
-    <!-- UPPER DETAILS -->
-    <div style="margin-bottom:14px !important;">
-      <div>• Care: DRY CLEAN</div>
-    </div>
-
-    <!-- TWO COLUMNS -->
-    <div style="display:grid !important;grid-template-columns:1fr 1fr !important;gap:12px !important;align-items:start !important;">
-
-      <!-- LEFT SIDE -->
-      <div>
-        <strong>KURTA</strong></strong><br>
-        • Fabric: Crepe<br>
-        • Length: 57"<br>
-        • Front Neck: 7"<br>
-        • Back Neck: 9"<br><br>
-
-        <strong>SLEEVES</strong><br>
-        • Sleeves: 18"
-      </div>
-
-      <!-- RIGHT SIDE -->
-      <div>
-        <strong>DUPATTA</strong><br>
-        • Fabric: Organza<br>
-        • Length: 2.5 Meter<br><br>
-      </div>
-
-    </div>
-
-  </div>  
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
+  </div>
 
   <p class="price">PRICE ₹999</p>
 
@@ -5642,43 +4076,13 @@ footer{
 
   <h3>PRODUCT NUMBER 49</h3>
 
-  <div class="product-description"
-       style="margin:12px 10px !important;line-height:1.5 !important;font-size:12px !important;">
-
-    <!-- UPPER DETAILS -->
-    <div style="margin-bottom:14px !important;">
-      <div>• Care: DRY CLEAN</div>
-    </div>
-
-    <!-- TWO COLUMNS -->
-    <div style="display:grid !important;grid-template-columns:1fr 1fr !important;gap:12px !important;align-items:start !important;">
-
-      <!-- LEFT SIDE -->
-      <div>
-        <strong>KURTA</strong></strong><br>
-        • Fabric: Crepe Heavy Embroidered<br>
-        • Length: 33"<br>
-        • Front Neck: 7"<br>
-        • Back Neck: 10.5"<br><br>
-
-        <strong>SLEEVES</strong><br>
-        • Sleeves: 22"
-      </div>
-
-      <!-- RIGHT SIDE -->
-      <div>
-        <strong>DUPATTA</strong><br>
-        • Fabric: Crepe<br>
-        • Length: 2.5 Meter<br><br>
-
-        <storng>PALAZZO</storng></storng><br>
-        • Fabric: Crepe Heavy Embroidered"<br>
-        • Length: 40"
-      </div>
-
-    </div>
-
-  </div>  
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
+  </div>
 
   <p class="price">PRICE ₹999</p>
 
@@ -5735,44 +4139,14 @@ footer{
 
   <h3>PRODUCT NUMBER 50</h3>
 
- <div class="product-description"
-       style="margin:12px 10px !important;line-height:1.5 !important;font-size:12px !important;">
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
+  </div>
 
-    <!-- UPPER DETAILS -->
-    <div style="margin-bottom:14px !important;">
-      <div>• Care: DRY CLEAN</div>
-    </div>
-
-    <!-- TWO COLUMNS -->
-    <div style="display:grid !important;grid-template-columns:1fr 1fr !important;gap:12px !important;align-items:start !important;">
-
-      <!-- LEFT SIDE -->
-      <div>
-        <strong>KURTA</strong></strong><br>
-        • Fabric: Rayon<br>
-        • Length: 48"<br>
-        • Front Neck: 7"<br>
-        • Back Neck: 11"<br><br>
-
-        <strong>SLEEVES</strong><br>
-        • Sleeves: 22"
-      </div>
-
-      <!-- RIGHT SIDE -->
-      <div>
-        <strong>DUPATTA</strong><br>
-        • Fabric: Georgette<br>
-        • Length: 2.5 Meter<br><br>
-
-        <storng>PALAZZO</storng></storng><br>
-        • Fabric: Cotton"<br>
-        • Length: 39-40"
-      </div>
-
-    </div>
-
-  </div>   
-    
   <p class="price">PRICE ₹999</p>
 
   <div class="size-title">
@@ -5828,43 +4202,13 @@ footer{
 
   <h3>PRODUCT NUMBER 51</h3>
 
- <div class="product-description"
-       style="margin:12px 10px !important;line-height:1.5 !important;font-size:12px !important;">
-
-    <!-- UPPER DETAILS -->
-    <div style="margin-bottom:14px !important;">
-      <div>• Care: DRY CLEAN</div>
-    </div>
-
-    <!-- TWO COLUMNS -->
-    <div style="display:grid !important;grid-template-columns:1fr 1fr !important;gap:12px !important;align-items:start !important;">
-
-      <!-- LEFT SIDE -->
-      <div>
-        <strong>KURTA</strong></strong><br>
-        • Fabric: Cosmos<br>
-        • Length: 48"<br>
-        • Front Neck: 7"<br>
-        • Back Neck: 11"<br><br>
-
-        <strong>SLEEVES</strong><br>
-        • Sleeves: 22" Chudi Sleeves
-      </div>
-
-      <!-- RIGHT SIDE -->
-      <div>
-        <strong>DUPATTA</strong><br>
-        • Fabric: Georgette<br>
-        • Length: 2.5 Meter<br><br>
-
-        <storng>PANT</storng></storng><br>
-        • Fabric: Cosmos"<br>
-        • Length: 40"
-      </div>
-
-    </div>
-
-  </div>    
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
+  </div>
 
   <p class="price">PRICE ₹999</p>
 
@@ -5921,43 +4265,13 @@ footer{
 
   <h3>PRODUCT NUMBER 52</h3>
 
- <div class="product-description"
-       style="margin:12px 10px !important;line-height:1.5 !important;font-size:12px !important;">
-
-    <!-- UPPER DETAILS -->
-    <div style="margin-bottom:14px !important;">
-      <div>• Care: DRY CLEAN</div>
-    </div>
-
-    <!-- TWO COLUMNS -->
-    <div style="display:grid !important;grid-template-columns:1fr 1fr !important;gap:12px !important;align-items:start !important;">
-
-      <!-- LEFT SIDE -->
-      <div>
-        <strong>KURTA</strong></strong><br>
-        • Fabric: Cosmos<br>
-        • Length: 48"<br>
-        • Front Neck: 7"<br>
-        • Back Neck: 11"<br><br>
-
-        <strong>SLEEVES</strong><br>
-        • Sleeves: 22" Chudi Sleeves
-      </div>
-
-      <!-- RIGHT SIDE -->
-      <div>
-        <strong>DUPATTA</strong><br>
-        • Fabric: Cosmos<br>
-        • Length: 2.5 Meter<br><br>
-
-        <storng>PANT</storng></storng><br>
-        • Fabric: Cotton"<br>
-        • Length: 40"
-      </div>
-
-    </div>
-
-  </div>    
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
+  </div>
 
   <p class="price">PRICE ₹999</p>
 
@@ -6014,43 +4328,13 @@ footer{
 
   <h3>PRODUCT NUMBER 53</h3>
 
-   <div class="product-description"
-       style="margin:12px 10px !important;line-height:1.5 !important;font-size:12px !important;">
-
-    <!-- UPPER DETAILS -->
-    <div style="margin-bottom:14px !important;">
-      <div>• Care: DRY CLEAN</div>
-    </div>
-
-    <!-- TWO COLUMNS -->
-    <div style="display:grid !important;grid-template-columns:1fr 1fr !important;gap:12px !important;align-items:start !important;">
-
-      <!-- LEFT SIDE -->
-      <div>
-        <strong>KURTA</strong></strong><br>
-        • Fabric: Silk<br>
-        • Length: 28"<br>
-        • Front Neck: 7"<br>
-        • Back Neck: 11"<br><br>
-
-        <strong>SLEEVES</strong><br>
-        • Sleeves: 22"
-      </div>
-
-      <!-- RIGHT SIDE -->
-      <div>
-        <strong>DUPATTA</strong><br>
-        • Fabric: Organza<br>
-        • Length: 2.5 Meter<br><br>
-
-        <storng>PALAZZO</storng></storng><br>
-        • Fabric: Organza"<br>
-        • Length: 40"
-      </div>
-
-    </div>
-
-  </div>    
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
+  </div>
 
   <p class="price">PRICE ₹999</p>
 
@@ -6093,10 +4377,11 @@ footer{
   <div class="photo">
 
     <div class="photo-slider">
-      <img src="IMG_3991.jpeg" alt="Product 54">
-      <img src="IMG_3992.jpeg" alt="Product 54">
-      <img src="IMG_3993.jpeg" alt="Product 54">
-      <img src="IMG_3993.jpeg" alt="Product 54">
+      <img src="IMG_4034.jpeg" alt="Product 54">
+      <img src="IMG_4035.jpeg" alt="Product 54">
+      <img src="IMG_4036.jpeg" alt="Product 54">
+      <img src="IMG_4337.jpeg" alt="Product 54">
+      <img src="IMG_4038.jpeg" alt="Product 54">
     </div>
 
     <button class="photo-arrow left" onclick="movePhoto(this,-1)">❮</button>
@@ -6106,38 +4391,12 @@ footer{
 
   <h3>PRODUCT NUMBER 54</h3>
 
-  <div class="product-description"
-       style="margin:12px 10px !important;line-height:1.5 !important;font-size:12px !important;">
-
-    <!-- UPPER DETAILS -->
-    <div style="margin-bottom:14px !important;">
-      <div>• Care: DRY CLEAN</div>
-    </div>
-
-    <!-- TWO COLUMNS -->
-    <div style="display:grid !important;grid-template-columns:1fr 1fr !important;gap:12px !important;align-items:start !important;">
-
-      <!-- LEFT SIDE -->
-      <div>
-        <strong>KURTA</strong></strong><br>
-        • Fabric: Silk<br>
-        • Length: 57"<br>
-        • Front Neck: 7"<br>
-        • Back Neck: 12"<br><br>
-
-        <strong>SLEEVES</strong><br>
-        • Sleeves: 10"
-      </div>
-
-      <!-- RIGHT SIDE -->
-      <div>
-        <strong>DUPATTA</strong><br>
-        • Fabric: Organza<br>
-        • Length: 2.5 Meter<br><br>
-      </div>
-
-    </div>
-
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
   </div>
 
   <p class="price">PRICE ₹999</p>
@@ -6194,42 +4453,12 @@ footer{
 
   <h3>PRODUCT NUMBER 55</h3>
 
-   <div class="product-description"
-       style="margin:12px 10px !important;line-height:1.5 !important;font-size:12px !important;">
-
-    <!-- UPPER DETAILS -->
-    <div style="margin-bottom:14px !important;">
-      <div>• Care: DRY CLEAN</div>
-    </div>
-
-    <!-- TWO COLUMNS -->
-    <div style="display:grid !important;grid-template-columns:1fr 1fr !important;gap:12px !important;align-items:start !important;">
-
-      <!-- LEFT SIDE -->
-      <div>
-        <strong>KURTA</strong></strong><br>
-        • Fabric: Cotton<br>
-        • Length: 48"<br>
-        • Front Neck: 7"<br>
-        • Back Neck: Clossed"<br><br>
-
-        <strong>SLEEVES</strong><br>
-        • Sleeves: 11-12"
-      </div>
-
-      <!-- RIGHT SIDE -->
-      <div>
-        <strong>DUPATTA</strong><br>
-        • Fabric: Cotton<br>
-        • Length: 2.5 Meter<br><br>
-
-        <strong>PALAZZO</strong></strong><br>
-        • Fabric: Cotton"<br>
-        • Length: 40"
-      </div>
-
-    </div>
-
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
   </div>
 
   <p class="price">PRICE ₹999</p>
@@ -6273,10 +4502,9 @@ footer{
   <div class="photo">
 
     <div class="photo-slider">
-      <img src="IMG_4817.jpeg" alt="Product 56">
-      <img src="IMG_4818.jpeg" alt="Product 56">
-      <img src="IMG_4819.jpeg" alt="Product 56">
-      <img src="IMG_4820.jpeg" alt="Product 56">
+      <img src="IMG_4061.jpeg" alt="Product 56">
+      <img src="IMG_4062.jpeg" alt="Product 56">
+      <img src="IMG_4063.jpeg" alt="Product 56">
     </div>
 
     <button class="photo-arrow left" onclick="movePhoto(this,-1)">❮</button>
@@ -6286,42 +4514,12 @@ footer{
 
   <h3>PRODUCT NUMBER 56</h3>
 
-  <div class="product-description"
-       style="margin:12px 10px !important;line-height:1.5 !important;font-size:12px !important;">
-
-    <!-- UPPER DETAILS -->
-    <div style="margin-bottom:14px !important;">
-      <div>• Care: DRY CLEAN</div>
-    </div>
-
-    <!-- TWO COLUMNS -->
-    <div style="display:grid !important;grid-template-columns:1fr 1fr !important;gap:12px !important;align-items:start !important;">
-
-      <!-- LEFT SIDE -->
-      <div>
-        <strong>KURTA</strong></strong><br>
-        • Fabric: Cotton<br>
-        • Length: 48"<br>
-        • Front Neck: 7.5"<br>
-        • Back Neck: Clossed"<br><br>
-
-        <strong>SLEEVES</strong><br>
-        • Sleeves: 22"
-      </div>
-
-      <!-- RIGHT SIDE -->
-      <div>
-        <strong>DUPATTA</strong><br>
-        • Fabric: Cotton<br>
-        • Length: 2.5 Meter<br><br>
-
-        <strong>PALAZZO</strong></strong><br>
-        • Fabric: Cotton"<br>
-        • Length: 40"
-      </div>
-
-    </div>
-
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
   </div>
 
   <p class="price">PRICE ₹999</p>
@@ -6380,42 +4578,12 @@ footer{
 
   <h3>PRODUCT NUMBER 57</h3>
 
-  <div class="product-description"
-       style="margin:12px 10px !important;line-height:1.5 !important;font-size:12px !important;">
-
-    <!-- UPPER DETAILS -->
-    <div style="margin-bottom:14px !important;">
-      <div>• Care: DRY CLEAN</div>
-    </div>
-
-    <!-- TWO COLUMNS -->
-    <div style="display:grid !important;grid-template-columns:1fr 1fr !important;gap:12px !important;align-items:start !important;">
-
-      <!-- LEFT SIDE -->
-      <div>
-        <strong>KURTA</strong></strong><br>
-        • Fabric: Cosmos<br>
-        • Length: 48"<br>
-        • Front Neck: 7"<br>
-        • Back Neck: 9"<br><br>
-
-        <strong>SLEEVES</strong><br>
-        • Sleeves: 18"
-      </div>
-
-      <!-- RIGHT SIDE -->
-      <div>
-        <strong>DUPATTA</strong><br>
-        • Fabric: Cosmos<br>
-        • Length: 2.5 Meter<br><br>
-
-        <strong>PANT</strong></strong><br>
-        • Fabric: Cotton"<br>
-        • Length: 40"
-      </div>
-
-    </div>
-
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
   </div>
 
   <p class="price">PRICE ₹999</p>
@@ -6473,42 +4641,12 @@ footer{
 
   <h3>PRODUCT NUMBER 58</h3>
 
-  <div class="product-description"
-       style="margin:12px 10px !important;line-height:1.5 !important;font-size:12px !important;">
-
-    <!-- UPPER DETAILS -->
-    <div style="margin-bottom:14px !important;">
-      <div>• Care: DRY CLEAN</div>
-    </div>
-
-    <!-- TWO COLUMNS -->
-    <div style="display:grid !important;grid-template-columns:1fr 1fr !important;gap:12px !important;align-items:start !important;">
-
-      <!-- LEFT SIDE -->
-      <div>
-        <strong>KURTA</strong></strong><br>
-        • Fabric: Cotton<br>
-        • Length: 48"<br>
-        • Front Neck: 7"<br>
-        • Back Neck: 11"<br><br>
-
-        <strong>SLEEVES</strong><br>
-        • Sleeves: 15-16"
-      </div>
-
-      <!-- RIGHT SIDE -->
-      <div>
-        <strong>DUPATTA</strong><br>
-        • Fabric: Cotton<br>
-        • Length: 2.5 Meter<br><br>
-
-        <strong>PANT</strong></strong><br>
-        • Fabric: Cotton"<br>
-        • Length: 40"
-      </div>
-
-    </div>
-
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
   </div>
 
   <p class="price">PRICE ₹999</p>
@@ -6566,42 +4704,12 @@ footer{
 
   <h3>PRODUCT NUMBER 59</h3>
 
-  <div class="product-description"
-       style="margin:12px 10px !important;line-height:1.5 !important;font-size:12px !important;">
-
-    <!-- UPPER DETAILS -->
-    <div style="margin-bottom:14px !important;">
-      <div>• Care: DRY CLEAN</div>
-    </div>
-
-    <!-- TWO COLUMNS -->
-    <div style="display:grid !important;grid-template-columns:1fr 1fr !important;gap:12px !important;align-items:start !important;">
-
-      <!-- LEFT SIDE -->
-      <div>
-        <strong>KURTA</strong></strong><br>
-        • Fabric: Cotton<br>
-        • Length: 30"<br>
-        • Front Neck: 7"<br>
-        • Back Neck: 6"<br><br>
-
-        <strong>SLEEVES</strong><br>
-        • Sleeves: 23" Bell Sleeves
-      </div>
-
-      <!-- RIGHT SIDE -->
-      <div>
-        <strong>DUPATTA</strong><br>
-        • Fabric: Cotton<br>
-        • Length: 2.5 Meter<br><br>
-
-        <strong>PANT</strong></strong><br>
-        • Fabric: Cotton"<br>
-        • Length: 40"
-      </div>
-
-    </div>
-
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
   </div>
 
   <p class="price">PRICE ₹999</p>
@@ -6645,7 +4753,7 @@ footer{
   <div class="photo">
 
     <div class="photo-slider">
-      <img src="IMG_4680.jpeg" alt="Product 60">
+      <img src="IMG_4064.jpeg" alt="Product 60">
       <img src="IMG_4065.jpeg" alt="Product 60">
       <img src="IMG_4066.jpeg" alt="Product 60">
       <img src="IMG_4067.jpeg" alt="Product 60">
@@ -6659,42 +4767,12 @@ footer{
 
   <h3>PRODUCT NUMBER 60</h3>
 
-  <div class="product-description"
-       style="margin:12px 10px !important;line-height:1.5 !important;font-size:12px !important;">
-
-    <!-- UPPER DETAILS -->
-    <div style="margin-bottom:14px !important;">
-      <div>• Care: DRY CLEAN</div>
-    </div>
-
-    <!-- TWO COLUMNS -->
-    <div style="display:grid !important;grid-template-columns:1fr 1fr !important;gap:12px !important;align-items:start !important;">
-
-      <!-- LEFT SIDE -->
-      <div>
-        <strong>KURTA</strong></strong><br>
-        • Fabric: Cotton<br>
-        • Length: 30"<br>
-        • Front Neck: 7"<br>
-        • Back Neck: 6"<br><br>
-
-        <strong>SLEEVES</strong><br>
-        • Sleeves: 23" Bell Sleeves
-      </div>
-
-      <!-- RIGHT SIDE -->
-      <div>
-        <strong>DUPATTA</strong><br>
-        • Fabric: Cotton<br>
-        • Length: 2.5 Meter<br><br>
-
-        <strong>PANT</strong></strong><br>
-        • Fabric: Cotton"<br>
-        • Length: 40"
-      </div>
-
-    </div>
-
+  <div class="product-description">
+    • Fabric: Product Fabric<br>
+    • Length: 57"<br>
+    • Front Neck: 7.5"<br>
+    • Back Neck: 11"<br>
+    • Sleeves: 7"
   </div>
 
   <p class="price">PRICE ₹999</p>
@@ -8120,7 +6198,7 @@ footer{
   <div class="photo">
 
     <div class="photo-slider">
-      <img src="IMG_4674.jpeg" alt="Product 83">
+      <img src="IMG_4291.webp" alt="Product 83">
       <img src="IMG_4293.webp" alt="Product 83">
       <img src="IMG_4294.webp" alt="Product 83">
       <img src="IMG_4295.webp" alt="Product 83">
@@ -8184,11 +6262,11 @@ footer{
   <div class="photo">
 
     <div class="photo-slider">
-      <img src="IMG_4541.jpeg" alt="Product 84">
-      <img src="IMG_4542.jpeg" alt="Product 84">
-      <img src="IMG_4543.jpeg" alt="Product 84">
-      <img src="IMG_4544.jpeg" alt="Product 84">
-      <img src="IMG_4545.jpeg" alt="Product 84">
+      <img src="IMG_4300.jpeg" alt="Product 84">
+      <img src="IMG_4301.jpeg" alt="Product 84">
+      <img src="IMG_4302.jpeg" alt="Product 84">
+      <img src="IMG_4303.jpeg" alt="Product 84">
+      <img src="IMG_4304.jpeg" alt="Product 84">
     </div>
 
     <button class="photo-arrow left" onclick="movePhoto(this,-1)">❮</button>
@@ -8373,11 +6451,11 @@ footer{
   <div class="photo">
 
     <div class="photo-slider">
-      <img src="IMG_4415.jpeg" alt="Product 87">
-      <img src="IMG_4416.jpeg" alt="Product 87">
-      <img src="IMG_4417.jpeg" alt="Product 87">
-      <img src="IMG_4418.jpeg" alt="Product 87">
-      <img src="IMG_4419.jpeg" alt="Product 87">
+      <img src="IMG_4315.jpeg" alt="Product 87">
+      <img src="IMG_4316.jpeg" alt="Product 87">
+      <img src="IMG_4317.jpeg" alt="Product 87">
+      <img src="IMG_4318.jpeg" alt="Product 87">
+      <img src="IMG_4319.jpeg" alt="Product 87">
     </div>
 
     <button class="photo-arrow left" onclick="movePhoto(this,-1)">❮</button>
@@ -8940,11 +7018,11 @@ footer{
   <div class="photo">
 
     <div class="photo-slider">
-      <img src="IMG_4572.jpeg" alt="Product 96">
-      <img src="IMG_4573.jpeg" alt="Product 96">
-      <img src="IMG_4574.jpeg" alt="Product 96">
-      <img src="IMG_4575.jpeg" alt="Product 96">
-      <img src="IMG_4576.jpeg" alt="Product 96">
+      <img src="IMG_4372.jpeg" alt="Product 96">
+      <img src="IMG_4373.jpeg" alt="Product 96">
+      <img src="IMG_4374.jpeg" alt="Product 96">
+      <img src="IMG_4375.jpeg" alt="Product 96">
+      <img src="IMG_4376.jpeg" alt="Product 96">
     </div>
 
     <button class="photo-arrow left" onclick="movePhoto(this,-1)">❮</button>
@@ -9191,11 +7269,11 @@ footer{
   <div class="photo">
 
     <div class="photo-slider">
-      <img src="IMG_4372.jpeg" alt="Product 100">
-      <img src="IMG_4373.jpeg" alt="Product 100">
-      <img src="IMG_4374.jpeg" alt="Product 100">
-      <img src="IMG_4375.jpeg" alt="Product 100">
-      <img src="IMG_4376.jpeg" alt="Product 100">
+      <img src="IMG_4393.jpeg" alt="Product 100">
+      <img src="IMG_4394.jpeg" alt="Product 100">
+      <img src="IMG_4395.jpeg" alt="Product 100">
+      <img src="IMG_4396.jpeg" alt="Product 100">
+      <img src="IMG_4397.jpeg" alt="Product 100">
     </div>
 
     <button class="photo-arrow left" onclick="movePhoto(this,-1)">❮</button>
@@ -9380,11 +7458,11 @@ footer{
   <div class="photo">
 
     <div class="photo-slider">
-      <img src="IMG_4561.jpeg" alt="Product 103">
-      <img src="IMG_4562.jpeg" alt="Product 103">
-      <img src="IMG_4563.jpeg" alt="Product 103">
-      <img src="IMG_4564.jpeg" alt="Product 103">
-      <img src="IMG_4565.jpeg" alt="Product 103">
+      <img src="IMG_4430.jpeg" alt="Product 103">
+      <img src="IMG_4431.jpeg" alt="Product 103">
+      <img src="IMG_4432.jpeg" alt="Product 103">
+      <img src="IMG_4433.jpeg" alt="Product 103">
+      <img src="IMG_4434.jpeg" alt="Product 103">
     </div>
 
     <button class="photo-arrow left" onclick="movePhoto(this,-1)">❮</button>
@@ -9884,11 +7962,11 @@ footer{
   <div class="photo">
 
     <div class="photo-slider">
-      <img src="IMG_4315.jpeg" alt="Product 111">
-      <img src="IMG_4316.jpeg" alt="Product 111">
-      <img src="IMG_4317.jpeg" alt="Product 111">
-      <img src="IMG_4318.jpeg" alt="Product 111">
-      <img src="IMG_4319.jpeg" alt="Product 111">
+      <img src="IMG_4415.jpeg" alt="Product 111">
+      <img src="IMG_4416.jpeg" alt="Product 111">
+      <img src="IMG_4417.jpeg" alt="Product 111">
+      <img src="IMG_4418.jpeg" alt="Product 111">
+      <img src="IMG_4419.jpeg" alt="Product 111">
     </div>
 
     <button class="photo-arrow left" onclick="movePhoto(this,-1)">❮</button>
@@ -9947,11 +8025,11 @@ footer{
   <div class="photo">
 
     <div class="photo-slider">
-      <img src="IMG_4300.jpeg" alt="Product 112">
-      <img src="IMG_4301.jpeg" alt="Product 112">
-      <img src="IMG_4302.jpeg" alt="Product 112">
-      <img src="IMG_4303.jpeg" alt="Product 112">
-      <img src="IMG_4304.jpeg" alt="Product 112">
+      <img src="IMG_4541.jpeg" alt="Product 112">
+      <img src="IMG_4542.jpeg" alt="Product 112">
+      <img src="IMG_4543.jpeg" alt="Product 112">
+      <img src="IMG_4544.jpeg" alt="Product 112">
+      <img src="IMG_4545.jpeg" alt="Product 112">
     </div>
 
     <button class="photo-arrow left" onclick="movePhoto(this,-1)">❮</button>
@@ -10199,11 +8277,11 @@ footer{
   <div class="photo">
 
     <div class="photo-slider">
-      <img src="IMG_4430.jpeg" alt="Product 116">
-      <img src="IMG_4431.jpeg" alt="Product 116">
-      <img src="IMG_4432.jpeg" alt="Product 116">
-      <img src="IMG_4433.jpeg" alt="Product 116">
-      <img src="IMG_4435.jpeg" alt="Product 116">
+      <img src="IMG_4561.jpeg" alt="Product 116">
+      <img src="IMG_4562.jpeg" alt="Product 116">
+      <img src="IMG_4563.jpeg" alt="Product 116">
+      <img src="IMG_4564.jpeg" alt="Product 116">
+      <img src="IMG_4565.jpeg" alt="Product 116">
     </div>
 
     <button class="photo-arrow left" onclick="movePhoto(this,-1)">❮</button>
@@ -10325,11 +8403,11 @@ footer{
   <div class="photo">
 
     <div class="photo-slider">
-      <img src="IMG_4393.jpeg" alt="Product 118">
-      <img src="IMG_4394.jpeg" alt="Product 118">
-      <img src="IMG_4395.jpeg" alt="Product 118">
-      <img src="IMG_4396.jpeg" alt="Product 118">
-      <img src="IMG_4397.jpeg" alt="Product 118">
+      <img src="IMG_4572.jpeg" alt="Product 118">
+      <img src="IMG_4573.jpeg" alt="Product 118">
+      <img src="IMG_4573.jpeg" alt="Product 118">
+      <img src="IMG_4574.jpeg" alt="Product 118">
+      <img src="IMG_4575.jpeg" alt="Product 118">
     </div>
 
     <button class="photo-arrow left" onclick="movePhoto(this,-1)">❮</button>
@@ -10388,11 +8466,11 @@ footer{
   <div class="photo">
 
     <div class="photo-slider">
-      <img src="IMG_3726.jpeg" alt="Product 119">
-      <img src="IMG_3727.jpeg" alt="Product 119">
-      <img src="IMG_3728.jpeg" alt="Product 119">
-      <img src="IMG_3729.jpeg" alt="Product 119">
-      <img src="IMG_3730.jpeg" alt="Product 119">
+      <img src="IMG_4516.jpeg" alt="Product 119">
+      <img src="IMG_4517.jpeg" alt="Product 119">
+      <img src="IMG_4518.jpeg" alt="Product 119">
+      <img src="IMG_4519.jpeg" alt="Product 119">
+      <img src="IMG_4520.jpeg" alt="Product 119">
     </div>
 
     <button class="photo-arrow left" onclick="movePhoto(this,-1)">❮</button>
@@ -10451,11 +8529,11 @@ footer{
   <div class="photo">
 
     <div class="photo-slider">
-      <img src="IMG_3943.webp" alt="Product 120">
-      <img src="IMG_3945.webp" alt="Product 120">
-      <img src="IMG_3946.webp" alt="Product 120">
-      <img src="IMG_3947.webp" alt="Product 120">
-      <img src="IMG_3948.webp" alt="Product 120">
+      <img src="IMG_4577.webp" alt="Product 120">
+      <img src="IMG_4578.webp" alt="Product 120">
+      <img src="IMG_4579.webp" alt="Product 120">
+      <img src="IMG_4580.webp" alt="Product 120">
+      <img src="IMG_4581.webp" alt="Product 120">
     </div>
 
     <button class="photo-arrow left" onclick="movePhoto(this,-1)">❮</button>
@@ -10623,15 +8701,6 @@ footer{
 
 
 <label>
-  Colour
-</label>
-
-<input
-  id="colour"
-  placeholder="Enter colour e.g. Red, Black, Pink">
-
-
-<label>
   Full Name
 </label>
 
@@ -10674,20 +8743,10 @@ footer{
 
 <button
   class="btn"
-  style="margin-top:15px;width:100%;text-align:center"
-  onclick="copyOrder()">
-
-  📋 Copy Order Details
-
-</button>
-
-
-<button
-  class="btn"
   style="margin-top:10px;width:100%;text-align:center"
-  onclick="instagram()">
+  onclick="whatsapp()">
 
-  📲 Open Instagram
+  💬 Order on WhatsApp
 
 </button>
 
@@ -10712,19 +8771,12 @@ footer{
 
   <br><br>
 
-  <b>📋 Copy Order Details</b>
+  <b>💬 Order on WhatsApp</b>
   par click karein.
 
   <br><br>
 
-  Uske baad
-  <b>📲 Open Instagram</b>
-  par click karke hamare profile ke DM mein
-  details <b>Paste</b> karke <b>Send</b> karein.
-
-  <br><br>
-
-  Instagram DM par <b>QR Code</b> maangein.
+  WhatsApp par <b>QR Code</b> maangein.
 
   <br><br>
 
@@ -10735,7 +8787,7 @@ footer{
 
   Payment screenshot receive hone ke baad
   aapka order <b>Confirm</b> kar diya jayega
-  aur aapko <b>Tracking ID</b> Instagram DM par mil jayegi.
+  aur aapko <b>Tracking ID</b> WhatsApp par mil jayegi.
 
 </div>
 
@@ -11175,8 +9227,6 @@ function validateOrder(){
   }
 
 
-  const colour =
-    document.getElementById('colour').value.trim();
 
   const name =
     document.getElementById('name').value.trim();
@@ -11191,13 +9241,6 @@ function validateOrder(){
     document.getElementById('pincode').value.trim();
 
 
-  if(!colour){
-
-    alert('Please enter Colour.');
-
-    return false;
-
-  }
 
 
   if(!name){
@@ -11245,570 +9288,274 @@ function validateOrder(){
 }
 
 
-/* ================= COPY ORDER ================= */
-
-function copyOrder(){
-
+/* ================= WHATSAPP ORDER ================= */
+function whatsapp(){
   if(!validateOrder()) return;
 
-
-  const colour =
-    document.getElementById('colour').value.trim();
-
-  const name =
-    document.getElementById('name').value.trim();
-
-  const phone =
-    document.getElementById('phone').value.trim();
-
-  const address =
-    document.getElementById('address').value.trim();
-
-  const pincode =
-    document.getElementById('pincode').value.trim();
-
+  const name = document.getElementById('name').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const address = document.getElementById('address').value.trim();
+  const pincode = document.getElementById('pincode').value.trim();
 
   let total = 0;
-
   let productsText = '';
 
-
-  cart.forEach((item,index)=>{
-
-    const itemTotal =
-      item.price * item.quantity;
-
+  cart.forEach((item)=>{
+    const itemTotal = item.price * item.quantity;
     total += itemTotal;
-
-
-    productsText +=
-
-`Product ${item.product}
-Size: ${item.size}
-Quantity: ${item.quantity}
-Price: ₹${item.price}
-Subtotal: ₹${itemTotal}
-
-`;
-
+    productsText += `Product ${item.product}\nSize: ${item.size}\nQuantity: ${item.quantity}\nPrice: ₹${item.price}\nSubtotal: ₹${itemTotal}\n\n`;
   });
 
+  const msg = `🛍️ NEW ORDER - CLASSIC KURTIS\n\n${productsText}TOTAL: ₹${total}\n\nName: ${name}\nMobile: ${phone}\nAddress: ${address}\nPIN Code: ${pincode}`;
 
-  const msg =
-
-`🛍️ NEW ORDER - CLASSIC KURTIS
-
-${productsText}
-TOTAL: ₹${total}
-
-Colour: ${colour}
-
-Name: ${name}
-
-Mobile: ${phone}
-
-Address: ${address}
-
-PIN Code: ${pincode}`;
-
-
-  navigator.clipboard.writeText(msg)
-
-  .then(()=>{
-
-    alert(
-      'Order details copied! Now open Instagram and paste the message.'
-    );
-
-  })
-
-  .catch(()=>{
-
-    alert(
-      'Copy failed. Please try again.'
-    );
-
-  });
-
+  window.open('https://wa.me/918107909933?text=' + encodeURIComponent(msg), '_blank');
 }
-
-
-/* ================= INSTAGRAM ================= */
-function instagram(){
-  if(!validateOrder()) return;
-  window.open(
-    'https://ig.me/m/classic.___kurtis',
-    '_blank'
-  );
-}
-
 
 /* ================= START CART ================= */
+
 updateCart();
+
+
+
+/* ================= PRODUCT DETAIL SCREEN ================= */
+(function(){
+  const products=document.querySelector('.products');
+  if(!products) return;
+  let detail=document.getElementById('productDetailView');
+  if(!detail){
+    detail=document.createElement('section');
+    detail.id='productDetailView';
+    detail.innerHTML='<button class="detail-back" type="button" onclick="closeProductDetail()">← Back to Products</button><div id="detailCardHolder"></div>';
+    products.parentNode.insertBefore(detail,products);
+  }
+  window.openProductDetail=function(card){
+    const holder=document.getElementById('detailCardHolder');
+    const clone=card.cloneNode(true);
+    clone.classList.add('detail-card');
+    clone.onclick=null;
+    holder.innerHTML='';
+    holder.appendChild(clone);
+    clone.querySelectorAll('.photo-arrow').forEach(b=>b.style.display='block');
+    const buy=document.createElement('button');
+    buy.type='button'; buy.className='buy-now-detail'; buy.textContent='🛍️ Buy Now';
+    const row=clone.querySelector('.buy-row');
+    if(row) row.insertAdjacentElement('afterend',buy);
+    const add=clone.querySelector('.add-cart');
+    const productMatch=(clone.querySelector('h3')?.textContent||'').match(/(\d+)/);
+    const product=productMatch?parseInt(productMatch[1]):0;
+    const priceText=clone.querySelector('.price')?.textContent||'';
+    const priceMatch=priceText.replace(/,/g,'').match(/(\d+)/);
+    const price=priceMatch?parseInt(priceMatch[1]):0;
+    buy.onclick=function(){
+      const selected=clone.querySelector('.size-btn.selected');
+      if(!selected){alert('Please select a size first.');return;}
+      addToCart(add,product,price);
+      viewCart();
+    };
+    products.style.display='none';
+    document.getElementById('products').querySelector('h2').style.display='none';
+    detail.classList.add('show');
+    window.scrollTo({top:0,behavior:'smooth'});
+  };
+  window.closeProductDetail=function(){
+    detail.classList.remove('show');
+    products.style.display='grid';
+    const h=document.getElementById('products').querySelector('h2');
+    if(h) h.style.display='block';
+    window.scrollTo({top:document.getElementById('products').offsetTop,behavior:'smooth'});
+  };
+  products.querySelectorAll('.card').forEach(card=>{
+    card.addEventListener('click',function(e){
+      if(e.target.closest('button,a,input,select,.size-chart')) return;
+      openProductDetail(card);
+    });
+  });
+})();
+</script>
+
+
+<style>
+#productDetailView.ck-detail-open{display:block!important;}
+#productDetailView.ck-detail-open + .products{display:none!important;}
+#productDetailView .ck-detail-inner{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 18px rgba(0,0,0,.08);padding-bottom:22px}
+#productDetailView .ck-detail-inner .photo{width:100%!important;height:auto!important;aspect-ratio:4/5!important;min-height:360px!important}
+#productDetailView .ck-detail-inner .photo-slider{display:flex!important;overflow-x:auto!important;height:100%!important}
+#productDetailView .ck-detail-inner .photo-slider img{min-width:100%!important;width:100%!important;height:100%!important;object-fit:contain!important;display:block!important}
+#productDetailView .ck-detail-inner .product-description,#productDetailView .ck-detail-inner .price,#productDetailView .ck-detail-inner .size-title,#productDetailView .ck-detail-inner .size-options,#productDetailView .ck-detail-inner .buy-row{display:block!important;margin-left:18px!important;margin-right:18px!important}
+#productDetailView .ck-detail-inner h3{margin:18px!important}
+#productDetailView .ck-detail-inner .size-options{display:flex!important;flex-wrap:wrap!important;gap:7px!important}
+#productDetailView .ck-detail-inner .buy-row{display:flex!important;flex-wrap:wrap!important;gap:8px!important}
+#productDetailView .ck-buy-now{display:block!important;width:calc(100% - 36px)!important;margin:12px 18px 0!important;height:50px;border:0;border-radius:10px;background:#6c2450;color:#fff;font-size:16px;font-weight:700}
+</style>
+<script>
+(function(){
+  function initProductClicks(){
+    var products=document.querySelector('.products');
+    if(!products) return;
+    var detail=document.getElementById('productDetailView');
+    if(!detail){
+      detail=document.createElement('section');
+      detail.id='productDetailView';
+      detail.innerHTML='<button class="detail-back" type="button">← Back to Products</button><div id="ckDetailHolder"></div>';
+      products.parentNode.insertBefore(detail,products);
+      detail.querySelector('.detail-back').addEventListener('click',function(){closeCKDetail();});
+    }
+    var cards=products.querySelectorAll('.card');
+    cards.forEach(function(card){
+      if(card.dataset.ckClickBound==='1') return;
+      card.dataset.ckClickBound='1';
+      card.style.cursor='pointer';
+      card.addEventListener('click',function(e){
+        if(e.target.closest('button') || e.target.closest('a') || e.target.closest('input') || e.target.closest('select') || e.target.closest('.size-chart')) return;
+        openCKDetail(card);
+      });
+    });
+    function openCKDetail(card){
+      var holder=document.getElementById('ckDetailHolder');
+      var clone=card.cloneNode(true);
+      clone.classList.add('ck-detail-inner');
+      clone.removeAttribute('onclick');
+      clone.querySelectorAll('[onclick]').forEach(function(el){
+        var oc=el.getAttribute('onclick')||'';
+        if(oc.indexOf('selectSize')===-1 && oc.indexOf('changeQty')===-1 && oc.indexOf('movePhoto')===-1 && oc.indexOf('showSizeChart')===-1) el.removeAttribute('onclick');
+      });
+      holder.innerHTML=''; holder.appendChild(clone);
+      var add=clone.querySelector('.add-cart');
+      var buy=document.createElement('button'); buy.type='button'; buy.className='ck-buy-now'; buy.textContent='🛍️ Buy Now';
+      clone.appendChild(buy);
+      buy.addEventListener('click',function(){
+        var selected=clone.querySelector('.size-btn.selected');
+        if(!selected){alert('Please select a size first.');return;}
+        if(add && typeof add.click==='function') add.click();
+        if(typeof window.viewCart==='function') window.viewCart();
+      });
+      products.style.display='none';
+      var h=document.querySelector('#products > h2'); if(h) h.style.display='none';
+      detail.classList.add('ck-detail-open','show');
+      window.scrollTo({top:document.getElementById('products').offsetTop,behavior:'smooth'});
+    }
+    window.closeCKDetail=function(){
+      detail.classList.remove('ck-detail-open','show');
+      products.style.display='grid';
+      var h=document.querySelector('#products > h2'); if(h) h.style.display='block';
+      window.scrollTo({top:document.getElementById('products').offsetTop,behavior:'smooth'});
+    };
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',initProductClicks); else initProductClicks();
+})();
+</script>
+
+
+<script>
+(function(){
+  function makeCardsClickable(){
+    var cards=document.querySelectorAll('#products .products > .card');
+    if(!cards.length) return;
+    cards.forEach(function(card){
+      card.style.cursor='pointer';
+      card.onclick=function(e){
+        if(e.target.closest('button,a,input,select,.size-chart')) return;
+        var detail=document.getElementById('productDetailView');
+        if(!detail){
+          detail=document.createElement('section');
+          detail.id='productDetailView';
+          detail.innerHTML='<button type="button" class="detail-back" onclick="window.closeProductDetail&&window.closeProductDetail()">← Back to Products</button><div id="detailCardHolder"></div>';
+          var products=document.querySelector('#products .products');
+          products.parentNode.insertBefore(detail,products);
+        }
+        var holder=document.getElementById('detailCardHolder');
+        var clone=card.cloneNode(true);
+        clone.onclick=null;
+        clone.classList.add('detail-card');
+        holder.innerHTML='';
+        holder.appendChild(clone);
+        document.querySelector('#products .products').style.display='none';
+        var h=document.querySelector('#products > h2'); if(h) h.style.display='none';
+        detail.classList.add('show');
+        window.scrollTo(0,0);
+      };
+    });
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',makeCardsClickable); else makeCardsClickable();
+  window.addEventListener('load',makeCardsClickable);
+})();
 </script>
 
 <script>
 (function(){
-
-  function startProductDetails(){
-
-    const grid = document.querySelector('#products .products');
-    const section = document.getElementById('products');
-
-    if(!grid || !section) return;
-
-    let detail = document.getElementById('productDetailView');
-
+  function showProduct(card){
+    var products=document.querySelector('#products .products');
+    if(!products) return;
+    var detail=document.getElementById('productDetailView');
     if(!detail){
-      detail = document.createElement('section');
-      detail.id = 'productDetailView';
-
-      detail.innerHTML = `
-        <button type="button" class="detail-back">
-          ← Back to Products
-        </button>
-        <div id="detailCardHolder"></div>
-      `;
-
-      grid.parentNode.insertBefore(detail, grid);
-    }
-
-    const holder = document.getElementById('detailCardHolder');
-
-    function getNumber(card){
-      const h3 = card.querySelector('h3');
-      if(!h3) return '';
-
-      const m = h3.textContent.match(/\d+/);
-      return m ? m[0] : '';
-    }
-
-    function openDetail(card, changeUrl){
-
-      const number = getNumber(card);
-      if(!number) return;
-
-      const clone = card.cloneNode(true);
-
-      clone.classList.add('detail-card');
-
-      clone.onclick = null;
-
-      holder.innerHTML = '';
-      holder.appendChild(clone);
-
-      const buy = document.createElement('button');
-
-      buy.type = 'button';
-      buy.className = 'buy-now-detail';
-      buy.textContent = '🛍️ Buy Now';
-
-      clone.appendChild(buy);
-
-      /* ================= PRODUCT REVIEWS ================= */
-      const reviewBox = document.createElement('section');
-      reviewBox.className = 'product-reviews';
-      reviewBox.innerHTML = `
-        <button type="button" class="write-review-btn">✍️ Write a Review</button>
-
-        <div class="review-form-wrap" hidden>
-          <div class="review-form">
-            <input class="review-name" type="text" maxlength="40" placeholder="Your name">
-            <div class="review-stars" role="radiogroup" aria-label="Rating">
-              <button type="button" data-star="1">★</button>
-              <button type="button" data-star="2">★</button>
-              <button type="button" data-star="3">★</button>
-              <button type="button" data-star="4">★</button>
-              <button type="button" data-star="5">★</button>
-            </div>
-            <textarea class="review-text" maxlength="500" placeholder="Write your review..."></textarea>
-            <label class="review-photo-label">📸 Add photo
-              <input class="review-photo" type="file" accept="image/*">
-            </label>
-            <div class="review-photo-preview"></div>
-            <button type="button" class="submit-review">Submit Review</button>
-            <button type="button" class="cancel-review">Cancel Review</button>
-          </div>
-        </div>
-
-        <div class="customer-reviews-section">
-          <div class="reviews-title-row">
-            <h4>Customer Reviews</h4>
-            <span class="reviews-average" data-average>0.0 ★</span>
-          </div>
-          <div class="reviews-list"></div>
-        </div>
-      `;
-      clone.appendChild(reviewBox);
-
-      (function setupReviews(){
-        const key = 'classicKurtisReviews_product_' + number;
-        const list = reviewBox.querySelector('.reviews-list');
-        const avg = reviewBox.querySelector('[data-average]');
-        const formWrap = reviewBox.querySelector('.review-form-wrap');
-        const writeBtn = reviewBox.querySelector('.write-review-btn');
-        const cancelBtn = reviewBox.querySelector('.cancel-review');
-        const nameInput = reviewBox.querySelector('.review-name');
-        const textInput = reviewBox.querySelector('.review-text');
-        const photoInput = reviewBox.querySelector('.review-photo');
-        const preview = reviewBox.querySelector('.review-photo-preview');
-        let rating = 0;
-        let photoData = '';
-
-        function escapeHtml(value){
-          return String(value || '').replace(/[&<>\"]/g, function(c){
-            return {'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;'}[c];
-          });
-        }
-
-        function getReviews(){
-          try { return JSON.parse(localStorage.getItem(key) || '[]'); } catch(e) { return []; }
-        }
-
-        function render(){
-          const reviews = getReviews();
-          const total = reviews.reduce((sum,r) => sum + Number(r.rating || 0), 0);
-          avg.textContent = reviews.length ? (total / reviews.length).toFixed(1) + ' ★' : '0.0 ★';
-          list.innerHTML = reviews.length ? reviews.map(function(r, index){
-            return '<article class="review-item">' +
-              '<div class="review-item-head"><strong>' + escapeHtml(r.name || 'Customer') + '</strong><span class="review-stars-static">' + '★'.repeat(Number(r.rating)||0) + '☆'.repeat(5-(Number(r.rating)||0)) + '</span></div>' +
-              '<p>' + escapeHtml(r.text || '') + '</p>' +
-              (r.photo ? '<img class="review-image" src="' + r.photo + '" alt="Customer review photo">' : '') +
-              '<button type="button" class="helpful-review" data-index="' + index + '">👍 Helpful <span>' + (Number(r.helpful)||0) + '</span></button>' +
-              '</article>';
-          }).join('') : '<p class="no-reviews">No reviews yet. Be the first to review!</p>';
-        }
-
-        writeBtn.addEventListener('click', function(){
-          formWrap.hidden = false;
-          writeBtn.hidden = true;
-          setTimeout(function(){ nameInput.focus(); }, 50);
-        });
-
-        cancelBtn.addEventListener('click', function(){
-          nameInput.value = '';
-          textInput.value = '';
-          photoInput.value = '';
-          photoData = '';
-          preview.innerHTML = '';
-          rating = 0;
-          reviewBox.querySelectorAll('[data-star]').forEach(function(b){ b.classList.remove('selected'); });
-          formWrap.hidden = true;
-          writeBtn.hidden = false;
-        });
-
-        reviewBox.querySelectorAll('[data-star]').forEach(function(btn){
-          btn.addEventListener('click', function(){
-            rating = Number(btn.dataset.star);
-            reviewBox.querySelectorAll('[data-star]').forEach(function(b){
-              b.classList.toggle('selected', Number(b.dataset.star) <= rating);
-            });
-          });
-        });
-
-        photoInput.addEventListener('change', function(){
-          const file = photoInput.files && photoInput.files[0];
-          if(!file){ photoData=''; preview.innerHTML=''; return; }
-          if(file.size > 3 * 1024 * 1024){
-            alert('Please choose a photo smaller than 3 MB.');
-            photoInput.value=''; photoData=''; preview.innerHTML=''; return;
-          }
-          const reader = new FileReader();
-          reader.onload = function(){
-            photoData = reader.result;
-            preview.innerHTML = '<img src="' + photoData + '" alt="Preview">';
-          };
-          reader.readAsDataURL(file);
-        });
-
-        reviewBox.querySelector('.submit-review').addEventListener('click', function(){
-          const name = nameInput.value.trim();
-          const text = textInput.value.trim();
-          if(!name){ alert('Please enter your name.'); return; }
-          if(!rating){ alert('Please select a star rating.'); return; }
-          if(!text){ alert('Please write your review.'); return; }
-          const reviews = getReviews();
-          reviews.unshift({name:name, rating:rating, text:text, photo:photoData, helpful:0});
-          try { localStorage.setItem(key, JSON.stringify(reviews)); }
-          catch(e){ alert('Could not save this review. Please try a smaller photo.'); return; }
-          nameInput.value=''; textInput.value=''; photoInput.value=''; photoData=''; preview.innerHTML=''; rating=0;
-          reviewBox.querySelectorAll('[data-star]').forEach(function(b){ b.classList.remove('selected'); });
-          formWrap.hidden = true;
-          writeBtn.hidden = false;
-          render();
-        });
-
-        list.addEventListener('click', function(e){
-          const image = e.target.closest('.review-image');
-          if(image){
-            let modal = document.getElementById('reviewPhotoModal');
-            if(!modal){
-              modal = document.createElement('div');
-              modal.id = 'reviewPhotoModal';
-              modal.className = 'review-photo-modal';
-              modal.innerHTML = '<button type="button" class="review-photo-close" aria-label="Close">×</button><img alt="Customer review photo enlarged">';
-              document.body.appendChild(modal);
-              modal.addEventListener('click', function(ev){
-                if(ev.target === modal || ev.target.closest('.review-photo-close')) modal.classList.remove('show');
-              });
-            }
-            modal.querySelector('img').src = image.src;
-            modal.classList.add('show');
-            return;
-          }
-
-          const btn = e.target.closest('.helpful-review');
-          if(!btn) return;
-          const reviews = getReviews();
-          const i = Number(btn.dataset.index);
-          if(!reviews[i]) return;
-          reviews[i].helpful = (Number(reviews[i].helpful)||0) + 1;
-          localStorage.setItem(key, JSON.stringify(reviews));
-          render();
-        });
-
-        render();
-      })();
-
-      buy.onclick = function(e){
-        e.stopPropagation();
-
-        const selected =
-          clone.querySelector('.size-btn.selected');
-
-        if(!selected){
-          alert('Please select a size first.');
-          return;
-        }
-
-        const add =
-          clone.querySelector('.add-cart');
-
-        if(add) add.click();
-
-        if(typeof window.viewCart === 'function'){
-          window.viewCart();
-        }
-      };
-
-      grid.style.display = 'none';
-
-      const h2 = section.querySelector(':scope > h2');
-      if(h2) h2.style.display = 'none';
-
-      detail.classList.add('show');
-
-      if(changeUrl){
-        history.pushState(
-          {product:number},
-          '',
-          '#product-' + number
-        );
-      }
-
-      window.scrollTo(0,0);
-    }
-
-    function closeDetail(){
-
-      detail.classList.remove('show');
-
-      holder.innerHTML = '';
-
-      grid.style.display = 'grid';
-
-      const h2 = section.querySelector(':scope > h2');
-      if(h2) h2.style.display = 'block';
-
-      if(location.hash.indexOf('#product-') === 0){
-        history.pushState(
-          {},
-          '',
-          location.pathname + location.search
-        );
-      }
-
-      window.scrollTo(0, section.offsetTop);
-    }
-
-    window.closeProductDetail = closeDetail;
-
-    const back = detail.querySelector('.detail-back');
-
-    if(back && !back.dataset.ready){
-
-      back.dataset.ready = '1';
-
-      back.onclick = function(){
-        closeDetail();
-      };
-    }
-
-    /* VIEW DETAILS BUTTON */
-
-    grid.querySelectorAll(':scope > .card').forEach(function(card){
-
-      if(card.querySelector('.product-details-button')){
-        return;
-      }
-
-      const button = document.createElement('button');
-
-      button.type = 'button';
-      button.className = 'product-details-button';
-      button.textContent = 'View Details';
-
-      button.onclick = function(e){
-        e.preventDefault();
-        e.stopPropagation();
-
-        openDetail(card,true);
-      };
-
-      card.appendChild(button);
-
-    });
-
-    /* CARD CLICK */
-
-    if(!grid.dataset.detailReady){
-
-      grid.dataset.detailReady = '1';
-
-      grid.addEventListener('click',function(e){
-
-        if(
-          e.target.closest(
-            'button,a,input,select,.size-chart'
-          )
-        ){
-          return;
-        }
-
-        const card =
-          e.target.closest(':scope > .card');
-
-        if(card){
-          openDetail(card,true);
-        }
-
+      detail=document.createElement('section');
+      detail.id='productDetailView';
+      detail.innerHTML='<button type="button" class="detail-back">← Back to Products</button><div id="detailCardHolder"></div>';
+      products.parentNode.insertBefore(detail,products);
+      detail.querySelector('.detail-back').addEventListener('click',function(){
+        detail.classList.remove('show','ck-detail-open');
+        products.style.display='grid';
+        var h=document.querySelector('#products > h2'); if(h) h.style.display='block';
+        window.scrollTo(0,document.getElementById('products').offsetTop);
       });
-
     }
-
-    /* REFRESH KE BAAD DETAIL RESTORE */
-
-    function restore(){
-
-      const match =
-        location.hash.match(/^#product-(\d+)$/);
-
-      if(!match) return;
-
-      const number = match[1];
-
-      const cards =
-        grid.querySelectorAll(':scope > .card');
-
-      cards.forEach(function(card){
-
-        if(getNumber(card) === number){
-
-          setTimeout(function(){
-            openDetail(card,false);
-          },100);
-
-        }
-
-      });
-
-    }
-
-    restore();
-
-    window.addEventListener('popstate',function(){
-
-      const match =
-        location.hash.match(/^#product-(\d+)$/);
-
-      if(match){
-
-        const cards =
-          grid.querySelectorAll(':scope > .card');
-
-        cards.forEach(function(card){
-
-          if(getNumber(card) === match[1]){
-            openDetail(card,false);
-          }
-
-        });
-
-      }else{
-
-        detail.classList.remove('show');
-        holder.innerHTML = '';
-        grid.style.display = 'grid';
-
-        const h2 = section.querySelector(':scope > h2');
-        if(h2) h2.style.display = 'block';
-
-      }
-
+    var holder=document.getElementById('detailCardHolder');
+    var clone=card.cloneNode(true);
+    clone.classList.add('detail-card');
+    clone.onclick=null;
+    holder.innerHTML=''; holder.appendChild(clone);
+    clone.querySelectorAll('.photo-arrow').forEach(function(b){b.style.display='block';});
+    var buy=document.createElement('button');
+    buy.type='button'; buy.className='buy-now-detail'; buy.textContent='🛍️ Buy Now';
+    clone.appendChild(buy);
+    buy.addEventListener('click',function(e){
+      e.stopPropagation();
+      var selected=clone.querySelector('.size-btn.selected');
+      if(!selected){alert('Please select a size first.');return;}
+      var add=clone.querySelector('.add-cart'); if(add) add.click();
+      if(typeof window.viewCart==='function') window.viewCart();
     });
-
+    products.style.display='none';
+    var h=document.querySelector('#products > h2'); if(h) h.style.display='none';
+    detail.classList.add('show','ck-detail-open');
+    window.scrollTo(0,0);
   }
-
-  if(document.readyState === 'loading'){
-    document.addEventListener(
-      'DOMContentLoaded',
-      startProductDetails
-    );
-  }else{
-    startProductDetails();
+  function bind(){
+    var products=document.querySelector('#products .products');
+    if(!products) return;
+    products.querySelectorAll(':scope > .card').forEach(function(card){
+      card.style.cursor='pointer';
+      if(card.dataset.realClick==='1') return;
+      card.dataset.realClick='1';
+      card.addEventListener('pointerup',function(e){
+        if(e.target.closest('button,a,input,select,.size-chart')) return;
+        showProduct(card);
+      },true);
+    });
   }
-
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',bind); else bind();
+  window.addEventListener('load',bind);
 })();
 </script>
- <script>
+
+
+<script>
+/* ===== FINAL PRODUCT DETAIL BUTTONS ===== */
 document.addEventListener('DOMContentLoaded', function(){
-
-  document.querySelectorAll('#products .products > .card').forEach(function(card){
-
+  document.querySelectorAll('#products .products .card').forEach(function(card){
     if(card.querySelector('.product-details-button')) return;
-
-    var button = document.createElement('button');
-
-    button.type = 'button';
-    button.className = 'product-details-button';
-    button.textContent = 'View Details';
-
-    button.style.display = 'block';
-    button.style.width = 'calc(100% - 20px)';
-    button.style.margin = '12px 10px 5px';
-    button.style.height = '42px';
-    button.style.border = '0';
-    button.style.borderRadius = '10px';
-    button.style.background = '#6c2450';
-    button.style.color = '#fff';
-    button.style.fontSize = '14px';
-    button.style.fontWeight = '700';
-
-    button.onclick = function(e){
-      e.preventDefault();
+    const button=document.createElement('button');
+    button.type='button';
+    button.className='product-details-button';
+    button.textContent='View Details';
+    button.addEventListener('click',function(e){
       e.stopPropagation();
-
-      if(typeof window.closeProductDetail === 'function'){
-  // handled by main View Details handler
-}
-    };
-
+      if(typeof window.openProductDetail==='function') window.openProductDetail(card);
+    });
     card.appendChild(button);
-
   });
-
 });
-</script> 
+</script>
 </body>
 
 </html>
