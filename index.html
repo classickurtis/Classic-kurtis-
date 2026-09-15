@@ -9378,6 +9378,31 @@ updateCart();
       openProductDetail(card);
     });
   });
+  // Add visible View Details + View Cart buttons to every product card
+  products.querySelectorAll('.card').forEach(function(card){
+    if(!card.querySelector('.product-details-button')){
+      var detailsBtn=document.createElement('button');
+      detailsBtn.type='button';
+      detailsBtn.className='product-details-button';
+      detailsBtn.textContent='View Details';
+      detailsBtn.addEventListener('click',function(e){
+        e.preventDefault(); e.stopPropagation();
+        openProductDetail(card);
+      });
+      card.appendChild(detailsBtn);
+    }
+    if(!card.querySelector('.view-cart-card')){
+      var cartBtn=document.createElement('button');
+      cartBtn.type='button';
+      cartBtn.className='view-cart-card';
+      cartBtn.textContent='🛒 View Cart';
+      cartBtn.addEventListener('click',function(e){
+        e.preventDefault(); e.stopPropagation();
+        viewCart();
+      });
+      card.appendChild(cartBtn);
+    }
+  });
 })();
 </script>
 
@@ -9394,6 +9419,27 @@ updateCart();
 #productDetailView .ck-detail-inner .size-options{display:flex!important;flex-wrap:wrap!important;gap:7px!important}
 #productDetailView .ck-detail-inner .buy-row{display:flex!important;flex-wrap:wrap!important;gap:8px!important}
 #productDetailView .ck-buy-now{display:block!important;width:calc(100% - 36px)!important;margin:12px 18px 0!important;height:50px;border:0;border-radius:10px;background:#6c2450;color:#fff;font-size:16px;font-weight:700}
+
+/* ===== PRODUCT ACTION BUTTONS ===== */
+.products .product-details-button,
+.products .view-cart-card{
+  display:block !important;
+  width:calc(100% - 20px) !important;
+  height:42px !important;
+  margin:8px 10px 0 !important;
+  border:0 !important;
+  border-radius:10px !important;
+  background:#6c2450 !important;
+  color:#fff !important;
+  font-size:14px !important;
+  font-weight:700 !important;
+  cursor:pointer !important;
+  position:relative !important;
+  z-index:20 !important;
+}
+.products .view-cart-card{background:#241b20 !important;}
+#productDetailView .product-details-button,
+#productDetailView .view-cart-card{display:none !important;}
 </style>
 </body>
 
