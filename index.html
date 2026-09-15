@@ -790,13 +790,49 @@ footer{
   }
 }
 </style>
-</head>
-<body><button aria-label="View Cart" id="fixedViewCart" onclick="if(window.openCart) window.openCart(); else if(window.viewCart) window.viewCart();" type="button">🛒 View Cart</button>
+<style id="detail-layout-final-fix">
+#productDetailView .detail-topbar{display:flex!important;align-items:center!important;gap:10px!important;margin:4px 0 12px!important}
+#productDetailView .detail-topbar .detail-back{flex:1!important;width:auto!important;margin:0!important}
+#productDetailView .detail-close{flex:0 0 46px!important;width:46px!important;height:46px!important;border:0!important;border-radius:10px!important;background:#241b20!important;color:#fff!important;font-size:30px!important;line-height:1!important;cursor:pointer!important}
+#productDetailView .detail-card{display:flex!important;flex-direction:column!important}
+#productDetailView .detail-card>.photo{order:1!important}
+#productDetailView .detail-card>h3{order:2!important}
+#productDetailView .detail-card>.product-description{order:3!important}
+#productDetailView .detail-card>.price{order:4!important}
+#productDetailView .detail-card>.size-title{order:5!important}
+#productDetailView .detail-card>.size-options{order:6!important}
+#productDetailView .detail-card>.buy-row{order:7!important}
+#productDetailView .detail-card>.buy-now-detail{order:8!important}
+</style>
+<style id="final-view-details-fix">
+/* FINAL: one clearly visible View Details button below every product */
+#products .products > .card > .product-details-button{
+  display:block !important;
+  visibility:visible !important;
+  opacity:1 !important;
+  width:calc(100% - 20px) !important;
+  height:42px !important;
+  margin:10px 10px 0 !important;
+  padding:0 10px !important;
+  border:0 !important;
+  border-radius:10px !important;
+  background:#6c2450 !important;
+  color:#fff !important;
+  font-size:14px !important;
+  font-weight:700 !important;
+  cursor:pointer !important;
+  position:relative !important;
+  z-index:50 !important;
+}
+#productDetailView .product-details-button{display:none !important;}
+</style></head>
+<body>
 <!-- ================= HEADER ================= -->
 <header>
 <div class="logo">
 <img alt="Classic Kurtis" src="IMG_3612.jpeg"/>
 </div>
+<button class="header-cart-btn" onclick="viewCart()" type="button">🛒 View Cart</button>
 <div class="tag">
     PREPAID ONLY â¢ NO COD
   </div>
@@ -873,7 +909,7 @@ footer{
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 2 ================= -->
 <div class="card">
 <div class="photo">
@@ -925,7 +961,7 @@ footer{
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 3 ================= -->
 <div class="card">
 <div class="photo">
@@ -978,7 +1014,7 @@ footer{
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 4 ================= -->
 <div class="card">
 <div class="photo">
@@ -1031,7 +1067,7 @@ footer{
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 5 ================= -->
 <div class="card">
 <div class="photo">
@@ -1083,7 +1119,7 @@ footer{
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 6 ================= -->
 <div class="card">
 <div class="photo">
@@ -1136,7 +1172,7 @@ footer{
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 7 ================= -->
 <div class="card">
 <div class="photo">
@@ -1189,7 +1225,7 @@ footer{
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 8 ================= -->
 <div class="card">
 <div class="photo">
@@ -1241,7 +1277,7 @@ footer{
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 9 ================= -->
 <div class="card">
 <div class="photo">
@@ -1294,7 +1330,7 @@ footer{
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 10 ================= -->
 <div class="card">
 <div class="photo">
@@ -1347,7 +1383,7 @@ footer{
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 11 ================= -->
 <div class="card">
 <div class="photo">
@@ -1400,7 +1436,7 @@ footer{
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 12 ================= -->
 <div class="card">
 <div class="photo">
@@ -1454,7 +1490,7 @@ footer{
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 13 ================= -->
 <div class="card">
 <div class="photo">
@@ -1507,7 +1543,7 @@ footer{
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 14 ================= -->
 <div class="card">
 <div class="photo">
@@ -1560,7 +1596,7 @@ footer{
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 15 ================= -->
 <div class="card">
 <div class="photo">
@@ -1612,7 +1648,7 @@ footer{
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 16 ================= -->
 <div class="card">
 <div class="photo">
@@ -1666,7 +1702,7 @@ footer{
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 17 ================= -->
 <div class="card">
 <div class="photo">
@@ -1719,7 +1755,7 @@ footer{
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 18 ================= -->
 <div class="card">
 <div class="photo">
@@ -1771,7 +1807,7 @@ footer{
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 19 ================= -->
 <div class="card">
 <div class="photo">
@@ -1823,7 +1859,7 @@ footer{
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 20 ================= -->
 <div class="card">
 <div class="photo">
@@ -1876,7 +1912,7 @@ footer{
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 21 ================= -->
 <div class="card">
 <div class="photo">
@@ -1929,7 +1965,7 @@ footer{
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 22 ================= -->
 <div class="card">
 <div class="photo">
@@ -1982,7 +2018,7 @@ footer{
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 23 ================= -->
 <div class="card">
 <div class="photo">
@@ -2035,7 +2071,7 @@ footer{
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 24 ================= -->
 <div class="card">
 <div class="photo">
@@ -2088,7 +2124,7 @@ footer{
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 25 ================= -->
 <div class="card">
 <div class="photo">
@@ -2141,7 +2177,7 @@ footer{
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 26 ================= -->
 <div class="card">
 <div class="photo">
@@ -2194,7 +2230,7 @@ footer{
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 27 ================= -->
 <div class="card">
 <div class="photo">
@@ -2247,7 +2283,7 @@ footer{
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 28 ================= -->
 <div class="card">
 <div class="photo">
@@ -2300,7 +2336,7 @@ footer{
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 29 ================= -->
 <div class="card">
 <div class="photo">
@@ -2352,7 +2388,7 @@ footer{
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 30 ================= -->
 <div class="card">
 <div class="photo">
@@ -2398,11 +2434,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 31 ================= -->
 <div class="card">
 <div class="photo">
@@ -2448,11 +2484,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 32 ================= -->
 <div class="card">
 <div class="photo">
@@ -2498,11 +2534,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 33 ================= -->
 <div class="card">
 <div class="photo">
@@ -2548,11 +2584,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 34 ================= -->
 <div class="card">
 <div class="photo">
@@ -2598,11 +2634,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 35 ================= -->
 <div class="card">
 <div class="photo">
@@ -2648,11 +2684,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 36 ================= -->
 <div class="card">
 <div class="photo">
@@ -2698,11 +2734,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 37 ================= -->
 <div class="card">
 <div class="photo">
@@ -2748,11 +2784,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 38 ================= -->
 <div class="card">
 <div class="photo">
@@ -2798,11 +2834,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 39 ================= -->
 <div class="card">
 <div class="photo">
@@ -2848,11 +2884,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 40 ================= -->
 <div class="card">
 <div class="photo">
@@ -2898,11 +2934,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 41 ================= -->
 <div class="card">
 <div class="photo">
@@ -2949,11 +2985,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 42 ================= -->
 <div class="card">
 <div class="photo">
@@ -2999,11 +3035,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 43 ================= -->
 <div class="card">
 <div class="photo">
@@ -3049,11 +3085,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 44 ================= -->
 <div class="card">
 <div class="photo">
@@ -3099,11 +3135,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 45 ================= -->
 <div class="card">
 <div class="photo">
@@ -3149,11 +3185,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 46 ================= -->
 <div class="card">
 <div class="photo">
@@ -3199,11 +3235,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 47 ================= -->
 <div class="card">
 <div class="photo">
@@ -3249,11 +3285,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 48 ================= -->
 <div class="card">
 <div class="photo">
@@ -3298,11 +3334,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 49 ================= -->
 <div class="card">
 <div class="photo">
@@ -3347,11 +3383,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 50 ================= -->
 <div class="card">
 <div class="photo">
@@ -3397,11 +3433,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 51 ================= -->
 <div class="card">
 <div class="photo">
@@ -3447,11 +3483,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 52 ================= -->
 <div class="card">
 <div class="photo">
@@ -3497,11 +3533,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 53 ================= -->
 <div class="card">
 <div class="photo">
@@ -3547,11 +3583,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 54 ================= -->
 <div class="card">
 <div class="photo">
@@ -3597,11 +3633,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 55 ================= -->
 <div class="card">
 <div class="photo">
@@ -3646,11 +3682,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 56 ================= -->
 <div class="card">
 <div class="photo">
@@ -3694,11 +3730,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 57 ================= -->
 <div class="card">
 <div class="photo">
@@ -3744,11 +3780,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 58 ================= -->
 <div class="card">
 <div class="photo">
@@ -3794,11 +3830,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 59 ================= -->
 <div class="card">
 <div class="photo">
@@ -3844,11 +3880,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 60 ================= -->
 <div class="card">
 <div class="photo">
@@ -3894,11 +3930,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 61 ================= -->
 <div class="card">
 <div class="photo">
@@ -3943,11 +3979,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 62 ================= -->
 <div class="card">
 <div class="photo">
@@ -3992,11 +4028,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 63 ================= -->
 <div class="card">
 <div class="photo">
@@ -4042,11 +4078,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 64 ================= -->
 <div class="card">
 <div class="photo">
@@ -4092,11 +4128,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 65 ================= -->
 <div class="card">
 <div class="photo">
@@ -4140,11 +4176,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 66 ================= -->
 <div class="card">
 <div class="photo">
@@ -4190,11 +4226,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 67 ================= -->
 <div class="card">
 <div class="photo">
@@ -4239,11 +4275,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 68 ================= -->
 <div class="card">
 <div class="photo">
@@ -4289,11 +4325,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 69 ================= -->
 <div class="card">
 <div class="photo">
@@ -4339,11 +4375,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 70 ================= -->
 <div class="card">
 <div class="photo">
@@ -4389,11 +4425,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 71 ================= -->
 <div class="card">
 <div class="photo">
@@ -4439,11 +4475,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 72 ================= -->
 <div class="card">
 <div class="photo">
@@ -4489,11 +4525,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 73 ================= -->
 <div class="card">
 <div class="photo">
@@ -4539,11 +4575,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 74 ================= -->
 <div class="card">
 <div class="photo">
@@ -4589,11 +4625,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 75 ================= -->
 <div class="card">
 <div class="photo">
@@ -4639,11 +4675,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 76 ================= -->
 <div class="card">
 <div class="photo">
@@ -4689,11 +4725,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 77 ================= -->
 <div class="card">
 <div class="photo">
@@ -4739,11 +4775,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 78 ================= -->
 <div class="card">
 <div class="photo">
@@ -4789,11 +4825,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 79 ================= -->
 <div class="card">
 <div class="photo">
@@ -4839,11 +4875,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 80 ================= -->
 <div class="card">
 <div class="photo">
@@ -4889,11 +4925,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 81 ================= -->
 <div class="card">
 <div class="photo">
@@ -4939,11 +4975,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 82 ================= -->
 <div class="card">
 <div class="photo">
@@ -4989,11 +5025,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 83 ================= -->
 <div class="card">
 <div class="photo">
@@ -5039,11 +5075,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 84 ================= -->
 <div class="card">
 <div class="photo">
@@ -5089,11 +5125,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 85 ================= -->
 <div class="card">
 <div class="photo">
@@ -5139,11 +5175,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 86 ================= -->
 <div class="card">
 <div class="photo">
@@ -5189,11 +5225,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 87 ================= -->
 <div class="card">
 <div class="photo">
@@ -5239,11 +5275,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 88 ================= -->
 <div class="card">
 <div class="photo">
@@ -5289,11 +5325,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 89 ================= -->
 <div class="card">
 <div class="photo">
@@ -5339,11 +5375,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 90 ================= -->
 <div class="card">
 <div class="photo">
@@ -5389,11 +5425,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 91 ================= -->
 <div class="card">
 <div class="photo">
@@ -5439,11 +5475,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 92 ================= -->
 <div class="card">
 <div class="photo">
@@ -5489,11 +5525,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 93 ================= -->
 <div class="card">
 <div class="photo">
@@ -5539,11 +5575,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 94 ================= -->
 <div class="card">
 <div class="photo">
@@ -5589,11 +5625,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 95 ================= -->
 <div class="card">
 <div class="photo">
@@ -5639,11 +5675,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 96 ================= -->
 <div class="card">
 <div class="photo">
@@ -5689,11 +5725,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 97 ================= -->
 <div class="card">
 <div class="photo">
@@ -5739,11 +5775,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 98 ================= -->
 <div class="card">
 <div class="photo">
@@ -5788,11 +5824,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 99 ================= -->
 <div class="card">
 <div class="photo">
@@ -5838,11 +5874,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 100 ================= -->
 <div class="card">
 <div class="photo">
@@ -5888,11 +5924,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 101 ================= -->
 <div class="card">
 <div class="photo">
@@ -5938,11 +5974,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 102 ================= -->
 <div class="card">
 <div class="photo">
@@ -5988,11 +6024,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 103 ================= -->
 <div class="card">
 <div class="photo">
@@ -6038,11 +6074,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 104 ================= -->
 <div class="card">
 <div class="photo">
@@ -6088,11 +6124,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 105 ================= -->
 <div class="card">
 <div class="photo">
@@ -6138,11 +6174,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 106 ================= -->
 <div class="card">
 <div class="photo">
@@ -6188,11 +6224,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 107 ================= -->
 <div class="card">
 <div class="photo">
@@ -6238,11 +6274,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 108 ================= -->
 <div class="card">
 <div class="photo">
@@ -6288,11 +6324,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 109 ================= -->
 <div class="card">
 <div class="photo">
@@ -6338,11 +6374,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 110 ================= -->
 <div class="card">
 <div class="photo">
@@ -6388,11 +6424,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 111 ================= -->
 <div class="card">
 <div class="photo">
@@ -6438,11 +6474,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 112 ================= -->
 <div class="card">
 <div class="photo">
@@ -6488,11 +6524,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 113 ================= -->
 <div class="card">
 <div class="photo">
@@ -6538,11 +6574,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 114 ================= -->
 <div class="card">
 <div class="photo">
@@ -6588,11 +6624,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 115 ================= -->
 <div class="card">
 <div class="photo">
@@ -6638,11 +6674,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 116 ================= -->
 <div class="card">
 <div class="photo">
@@ -6688,11 +6724,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 117 ================= -->
 <div class="card">
 <div class="photo">
@@ -6738,11 +6774,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 118 ================= -->
 <div class="card">
 <div class="photo">
@@ -6788,11 +6824,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 119 ================= -->
 <div class="card">
 <div class="photo">
@@ -6838,11 +6874,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 120 ================= -->
 <div class="card">
 <div class="photo">
@@ -6888,11 +6924,11 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 <!-- ================= PRODUCT 121 ================= -->
 <div class="card">
 <div class="photo">
@@ -6938,17 +6974,54 @@ footer{
 <span>1</span>
 <button onclick="changeQty(this,1)">+</button>
 </div>
-<button class="add-cart" disabled="" onclick="addToCart(this,30,999)">
+<button class="add-cart" disabled="" onclick="addToCart(this)">
       Add to cart
     </button>
 </div>
-<button class="product-details-button" onclick="event.stopPropagation(); if(window.openProductDetail) window.openProductDetail(this.closest('.card'));" type="button">View Details</button></div>
+<button class="product-details-button" onclick="event.stopPropagation(); openProductDetail(this.closest('.card'))" type="button">View Details</button></div>
 </div></section>
+<style id="cart-fix">
+.cart-heading-row{display:flex;align-items:center;justify-content:space-between;gap:12px;}
+.cart-heading-row h2{margin:0;}
+.view-cart-main{border:0;border-radius:10px;background:#6c2450;color:#fff;padding:10px 14px;font-size:14px;font-weight:700;cursor:pointer;}
+@media(max-width:600px){.cart-heading-row{flex-wrap:wrap}.view-cart-main{width:100%;}}
+</style>
+<style id="cart-drawer-style">
+.header-cart-btn{position:fixed !important;right:12px !important;top:190px !important;z-index:99999 !important;border:0 !important;background:#6c2450 !important;color:#fff !important;border-radius:10px !important;padding:10px 13px !important;font-size:13px !important;font-weight:700 !important;cursor:pointer !important;white-space:nowrap !important;box-shadow:0 3px 10px #00000022 !important;}
+#cart{
+  position:fixed !important;top:0;right:0;width:min(420px,92vw);height:100vh;
+  z-index:1001;background:#fff;padding:18px;overflow-y:auto;
+  box-shadow:-8px 0 28px #00000022;transform:translateX(105%);
+  transition:transform .28s ease;
+}
+#cart.cart-open{transform:translateX(0);}
+#cart .view-cart-main{display:none !important;}
+#cart .cart-heading-row{margin-bottom:14px;}
+.cart-close-btn{
+  border:0;background:#f3edf0;color:#241b20;width:38px;height:38px;
+  border-radius:50%;font-size:24px;line-height:1;cursor:pointer;
+}
+#cartOverlay{
+  position:fixed;inset:0;background:#0006;z-index:1000;opacity:0;
+  pointer-events:none;transition:opacity .28s ease;
+}
+#cartOverlay.cart-open{opacity:1;pointer-events:auto;}
+@media(max-width:600px){
+  .header-cart-btn{font-size:12px !important;padding:9px 11px !important;right:10px !important;top:185px !important;border-radius:10px !important;}
+  #cart{width:92vw;padding:16px;}
+}
+</style>
+<div id="cartOverlay" onclick="closeCart()"></div>
 <!-- ================= CART ================= -->
 <section class="cart-section" id="cart">
+<div class="cart-heading-row">
 <h2>
-  🛒 Your Cart
-</h2>
+    🛒 Your Cart
+  </h2>
+<button class="view-cart-main" onclick="viewCart()" type="button">
+    🛒 View Cart
+  </button>
+</div>
 <div class="cart-box">
 <div class="cart-empty" id="cartItems">
     Your cart is empty.
@@ -6959,9 +7032,11 @@ footer{
       ₹0
     </span>
 </div>
-<button class="btn continue-order-btn" disabled="disabled" id="continueOrderBtn" type="button">
+<a class="btn" href="#order" style="display:block;text-align:center;margin-top:18px;">
+
     Continue to Order
-  </button>
+
+  </a>
 </div>
 </section>
 <!-- ================= ORDER FORM ================= -->
@@ -6986,14 +7061,9 @@ footer{
   PIN Code
 </label>
 <input id="pincode" maxlength="6" placeholder="6-digit PIN code" type="tel"/>
-<button class="btn" onclick="copyOrder()" style="margin-top:15px;width:100%;text-align:center">
+<button class="btn" onclick="whatsapp()" style="margin-top:10px;width:100%;text-align:center">
 
-  📋 Copy Order Details
-
-</button>
-<button class="btn" onclick="instagram()" style="margin-top:10px;width:100%;text-align:center">
-
-  📲 Open Instagram
+  💬 Order on WhatsApp
 
 </button>
 <div class="note">
@@ -7013,19 +7083,12 @@ footer{
   Cart complete karne ke baad apni delivery details fill karein.
 
   <br/><br/>
-<b>📋 Copy Order Details</b>
+<b>💬 Order on WhatsApp</b>
   par click karein.
 
   <br/><br/>
 
-  Uske baad
-  <b>📲 Open Instagram</b>
-  par click karke hamare profile ke DM mein
-  details <b>Paste</b> karke <b>Send</b> karein.
-
-  <br/><br/>
-
-  Instagram DM par <b>QR Code</b> maangein.
+  WhatsApp par <b>QR Code</b> maangein.
 
   <br/><br/>
 
@@ -7036,7 +7099,7 @@ footer{
 
   Payment screenshot receive hone ke baad
   aapka order <b>Confirm</b> kar diya jayega
-  aur aapko <b>Tracking ID</b> Instagram DM par mil jayegi.
+  aur aapko <b>Tracking ID</b> WhatsApp par mil jayegi.
 
 </div>
 </div>
@@ -7055,7 +7118,6 @@ footer{
 <script>
 
 let cart = [];
-window.cart = cart;
 
 
 /* ================= PHOTO SLIDER ================= */
@@ -7127,10 +7189,20 @@ function changeQty(button,direction){
 
 /* ================= ADD TO CART ================= */
 
-function addToCart(button,product,price){
+function addToCart(button){
 
   const card =
     button.closest('.card');
+
+  if(!card) return;
+
+  const productText = card.querySelector('h3')?.textContent || '';
+  const productMatch = productText.match(/(\d+)/);
+  const product = productMatch ? parseInt(productMatch[1],10) : 0;
+
+  const priceText = card.querySelector('.price')?.textContent || '';
+  const priceMatch = priceText.replace(/,/g,'').match(/₹\s*(\d+)/);
+  const price = priceMatch ? parseInt(priceMatch[1],10) : 0;
 
   const selected =
     card.querySelector('.size-btn.selected');
@@ -7173,13 +7245,16 @@ function addToCart(button,product,price){
 }
 function viewCart() {
   const cartSection = document.getElementById("cart");
+  const overlay = document.getElementById("cartOverlay");
+  if (cartSection) cartSection.classList.add("cart-open");
+  if (overlay) overlay.classList.add("cart-open");
+}
 
-  if (cartSection) {
-    cartSection.scrollIntoView({
-      behavior: "smooth",
-      block: "start"
-    });
-  }
+function closeCart(){
+  const cartSection = document.getElementById("cart");
+  const overlay = document.getElementById("cartOverlay");
+  if (cartSection) cartSection.classList.remove("cart-open");
+  if (overlay) overlay.classList.remove("cart-open");
 }
 
 /* ================= UPDATE CART ================= */
@@ -7203,7 +7278,6 @@ function updateCart(){
 
     cartTotal.textContent =
       '₹0';
-    updateContinueOrderButton && updateContinueOrderButton();
 
     return;
 
@@ -7274,7 +7348,6 @@ function updateCart(){
 
   cartTotal.textContent =
     '₹' + total;
-  if(typeof updateContinueOrderButton==='function') updateContinueOrderButton();
 
 }
 
@@ -7453,7 +7526,10 @@ function validateOrder(){
     return false;
 
   }
-const name =
+
+
+
+  const name =
     document.getElementById('name').value.trim();
 
   const phone =
@@ -7464,7 +7540,11 @@ const name =
 
   const pincode =
     document.getElementById('pincode').value.trim();
-if(!name){
+
+
+
+
+  if(!name){
 
     alert('Please enter Full Name.');
 
@@ -7509,102 +7589,28 @@ if(!name){
 }
 
 
-/* ================= COPY ORDER ================= */
-
-function copyOrder(){
-
+/* ================= WHATSAPP ORDER ================= */
+function whatsapp(){
   if(!validateOrder()) return;
-const name =
-    document.getElementById('name').value.trim();
 
-  const phone =
-    document.getElementById('phone').value.trim();
-
-  const address =
-    document.getElementById('address').value.trim();
-
-  const pincode =
-    document.getElementById('pincode').value.trim();
-
+  const name = document.getElementById('name').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const address = document.getElementById('address').value.trim();
+  const pincode = document.getElementById('pincode').value.trim();
 
   let total = 0;
-
   let productsText = '';
 
-
-  cart.forEach((item,index)=>{
-
-    const itemTotal =
-      item.price * item.quantity;
-
+  cart.forEach((item)=>{
+    const itemTotal = item.price * item.quantity;
     total += itemTotal;
-
-
-    productsText +=
-
-`Product ${item.product}
-Size: ${item.size}
-Quantity: ${item.quantity}
-Price: ₹${item.price}
-Subtotal: ₹${itemTotal}
-
-`;
-
+    productsText += `Product ${item.product}\nSize: ${item.size}\nQuantity: ${item.quantity}\nPrice: ₹${item.price}\nSubtotal: ₹${itemTotal}\n\n`;
   });
 
+  const msg = `🛍️ NEW ORDER - CLASSIC KURTIS\n\n${productsText}TOTAL: ₹${total}\n\nName: ${name}\nMobile: ${phone}\nAddress: ${address}\nPIN Code: ${pincode}`;
 
-  const msg =
-
-`🛍️ NEW ORDER - CLASSIC KURTIS
-
-${productsText}
-TOTAL: ₹${total}
-
-
-Name: ${name}
-
-Mobile: ${phone}
-
-Address: ${address}
-
-PIN Code: ${pincode}`;
-
-
-  navigator.clipboard.writeText(msg)
-
-  .then(()=>{
-
-    alert(
-      'Order details copied! Now open Instagram and paste the message.'
-    );
-
-  })
-
-  .catch(()=>{
-
-    alert(
-      'Copy failed. Please try again.'
-    );
-
-  });
-
+  window.open('https://wa.me/918107909933?text=' + encodeURIComponent(msg), '_blank');
 }
-
-
-/* ================= INSTAGRAM ================= */
-
-function instagram(){
-
-  if(!validateOrder()) return;
-
-
-  window.open(
-    'https://www.instagram.com/classic.___kurtis/',
-    '_blank'
-  );
-
-}
-
 
 /* ================= START CART ================= */
 
@@ -7620,7 +7626,7 @@ updateCart();
   if(!detail){
     detail=document.createElement('section');
     detail.id='productDetailView';
-    detail.innerHTML='<button class="detail-back" type="button" onclick="closeProductDetail()">← Back to Products</button><div id="detailCardHolder"></div>';
+    detail.innerHTML='<div class="detail-topbar"><button class="detail-back" type="button" onclick="closeProductDetail()">← Back to Home</button><button class="detail-close" type="button" aria-label="Close product details" onclick="closeProductDetail()">×</button></div><div id="detailCardHolder"></div>';
     products.parentNode.insertBefore(detail,products);
   }
   window.openProductDetail=function(card){
@@ -7644,7 +7650,7 @@ updateCart();
     buy.onclick=function(){
       const selected=clone.querySelector('.size-btn.selected');
       if(!selected){alert('Please select a size first.');return;}
-      addToCart(add,product,price);
+      addToCart(add);
       viewCart();
     };
     products.style.display='none';
@@ -7665,6 +7671,20 @@ updateCart();
       openProductDetail(card);
     });
   });
+  // Add visible View Details + View Cart buttons to every product card
+  products.querySelectorAll('.card').forEach(function(card){
+    if(!card.querySelector('.product-details-button')){
+      var detailsBtn=document.createElement('button');
+      detailsBtn.type='button';
+      detailsBtn.className='product-details-button';
+      detailsBtn.textContent='View Details';
+      detailsBtn.addEventListener('click',function(e){
+        e.preventDefault(); e.stopPropagation();
+        openProductDetail(card);
+      });
+      card.appendChild(detailsBtn);
+    }
+  });
 })();
 </script>
 <style>
@@ -7679,326 +7699,27 @@ updateCart();
 #productDetailView .ck-detail-inner .size-options{display:flex!important;flex-wrap:wrap!important;gap:7px!important}
 #productDetailView .ck-detail-inner .buy-row{display:flex!important;flex-wrap:wrap!important;gap:8px!important}
 #productDetailView .ck-buy-now{display:block!important;width:calc(100% - 36px)!important;margin:12px 18px 0!important;height:50px;border:0;border-radius:10px;background:#6c2450;color:#fff;font-size:16px;font-weight:700}
+
+/* ===== PRODUCT ACTION BUTTONS ===== */
+.products .product-details-button,
+.products .view-cart-card{
+  display:block !important;
+  width:calc(100% - 20px) !important;
+  height:42px !important;
+  margin:8px 10px 0 !important;
+  border:0 !important;
+  border-radius:10px !important;
+  background:#6c2450 !important;
+  color:#fff !important;
+  font-size:14px !important;
+  font-weight:700 !important;
+  cursor:pointer !important;
+  position:relative !important;
+  z-index:20 !important;
+}
+.products .view-cart-card{background:#241b20 !important;}
+#productDetailView .product-details-button,
+#productDetailView .view-cart-card{display:none !important;}
 </style>
-<script>
-(function(){
-  function initProductClicks(){
-    var products=document.querySelector('.products');
-    if(!products) return;
-    var detail=document.getElementById('productDetailView');
-    if(!detail){
-      detail=document.createElement('section');
-      detail.id='productDetailView';
-      detail.innerHTML='<button class="detail-back" type="button">← Back to Products</button><div id="ckDetailHolder"></div>';
-      products.parentNode.insertBefore(detail,products);
-      detail.querySelector('.detail-back').addEventListener('click',function(){closeCKDetail();});
-    }
-    var cards=products.querySelectorAll('.card');
-    cards.forEach(function(card){
-      if(card.dataset.ckClickBound==='1') return;
-      card.dataset.ckClickBound='1';
-      card.style.cursor='pointer';
-      card.addEventListener('click',function(e){
-        if(e.target.closest('button') || e.target.closest('a') || e.target.closest('input') || e.target.closest('select') || e.target.closest('.size-chart')) return;
-        openCKDetail(card);
-      });
-    });
-    function openCKDetail(card){
-      var holder=document.getElementById('ckDetailHolder');
-      var clone=card.cloneNode(true);
-      clone.classList.add('ck-detail-inner');
-      clone.removeAttribute('onclick');
-      clone.querySelectorAll('[onclick]').forEach(function(el){
-        var oc=el.getAttribute('onclick')||'';
-        if(oc.indexOf('selectSize')===-1 && oc.indexOf('changeQty')===-1 && oc.indexOf('movePhoto')===-1 && oc.indexOf('showSizeChart')===-1) el.removeAttribute('onclick');
-      });
-      holder.innerHTML=''; holder.appendChild(clone);
-      var add=clone.querySelector('.add-cart');
-      var buy=document.createElement('button'); buy.type='button'; buy.className='ck-buy-now'; buy.textContent='🛍️ Buy Now';
-      clone.appendChild(buy);
-      buy.addEventListener('click',function(){
-        var selected=clone.querySelector('.size-btn.selected');
-        if(!selected){alert('Please select a size first.');return;}
-        if(add && typeof add.click==='function') add.click();
-        if(typeof window.viewCart==='function') window.viewCart();
-      });
-      products.style.display='none';
-      var h=document.querySelector('#products > h2'); if(h) h.style.display='none';
-      detail.classList.add('ck-detail-open','show');
-      window.scrollTo({top:document.getElementById('products').offsetTop,behavior:'smooth'});
-    }
-    window.closeCKDetail=function(){
-      detail.classList.remove('ck-detail-open','show');
-      products.style.display='grid';
-      var h=document.querySelector('#products > h2'); if(h) h.style.display='block';
-      window.scrollTo({top:document.getElementById('products').offsetTop,behavior:'smooth'});
-    };
-  }
-  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',initProductClicks); else initProductClicks();
-})();
-</script>
-<script>
-(function(){
-  function makeCardsClickable(){
-    var cards=document.querySelectorAll('#products .products > .card');
-    if(!cards.length) return;
-    cards.forEach(function(card){
-      card.style.cursor='pointer';
-      card.onclick=function(e){
-        if(e.target.closest('button,a,input,select,.size-chart')) return;
-        var detail=document.getElementById('productDetailView');
-        if(!detail){
-          detail=document.createElement('section');
-          detail.id='productDetailView';
-          detail.innerHTML='<button type="button" class="detail-back" onclick="window.closeProductDetail&&window.closeProductDetail()">← Back to Products</button><div id="detailCardHolder"></div>';
-          var products=document.querySelector('#products .products');
-          products.parentNode.insertBefore(detail,products);
-        }
-        var holder=document.getElementById('detailCardHolder');
-        var clone=card.cloneNode(true);
-        clone.onclick=null;
-        clone.classList.add('detail-card');
-        holder.innerHTML='';
-        holder.appendChild(clone);
-        document.querySelector('#products .products').style.display='none';
-        var h=document.querySelector('#products > h2'); if(h) h.style.display='none';
-        detail.classList.add('show');
-        window.scrollTo(0,0);
-      };
-    });
-  }
-  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',makeCardsClickable); else makeCardsClickable();
-  window.addEventListener('load',makeCardsClickable);
-})();
-</script>
-<script>
-(function(){
-  function showProduct(card){
-    var products=document.querySelector('#products .products');
-    if(!products) return;
-    var detail=document.getElementById('productDetailView');
-    if(!detail){
-      detail=document.createElement('section');
-      detail.id='productDetailView';
-      detail.innerHTML='<button type="button" class="detail-back">← Back to Products</button><div id="detailCardHolder"></div>';
-      products.parentNode.insertBefore(detail,products);
-      detail.querySelector('.detail-back').addEventListener('click',function(){
-        detail.classList.remove('show','ck-detail-open');
-        products.style.display='grid';
-        var h=document.querySelector('#products > h2'); if(h) h.style.display='block';
-        window.scrollTo(0,document.getElementById('products').offsetTop);
-      });
-    }
-    var holder=document.getElementById('detailCardHolder');
-    var clone=card.cloneNode(true);
-    clone.classList.add('detail-card');
-    clone.onclick=null;
-    holder.innerHTML=''; holder.appendChild(clone);
-    clone.querySelectorAll('.photo-arrow').forEach(function(b){b.style.display='block';});
-    var buy=document.createElement('button');
-    buy.type='button'; buy.className='buy-now-detail'; buy.textContent='🛍️ Buy Now';
-    clone.appendChild(buy);
-    buy.addEventListener('click',function(e){
-      e.stopPropagation();
-      var selected=clone.querySelector('.size-btn.selected');
-      if(!selected){alert('Please select a size first.');return;}
-      var add=clone.querySelector('.add-cart'); if(add) add.click();
-      if(typeof window.viewCart==='function') window.viewCart();
-    });
-    products.style.display='none';
-    var h=document.querySelector('#products > h2'); if(h) h.style.display='none';
-    detail.classList.add('show','ck-detail-open');
-    window.scrollTo(0,0);
-  }
-  function bind(){
-    var products=document.querySelector('#products .products');
-    if(!products) return;
-    products.querySelectorAll(':scope > .card').forEach(function(card){
-      card.style.cursor='pointer';
-      if(card.dataset.realClick==='1') return;
-      card.dataset.realClick='1';
-      card.addEventListener('pointerup',function(e){
-        if(e.target.closest('button,a,input,select,.size-chart')) return;
-        showProduct(card);
-      },true);
-    });
-  }
-  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',bind); else bind();
-  window.addEventListener('load',bind);
-})();
-</script>
-<script>
-/* ===== FINAL PRODUCT DETAIL BUTTONS ===== */
-document.addEventListener('DOMContentLoaded', function(){
-  document.querySelectorAll('#products .products .card').forEach(function(card){
-    if(card.querySelector('.product-details-button')) return;
-    const button=document.createElement('button');
-    button.type='button';
-    button.className='product-details-button';
-    button.textContent='View Details';
-    button.addEventListener('click',function(e){
-      e.stopPropagation();
-      if(typeof window.openProductDetail==='function') window.openProductDetail(card);
-    });
-    card.appendChild(button);
-  });
-});
-</script>
-<style id="final-cart-detail-fix">
-/* ===== FIXED VIEW CART ===== */
-#fixedViewCart{
-  position:fixed; right:14px; top:92px; z-index:2147483000;
-  border:0; border-radius:12px; padding:11px 14px;
-  background:#6c2450; color:#fff; font-weight:700; font-size:14px;
-  box-shadow:0 5px 18px rgba(0,0,0,.18); cursor:pointer;
-}
-/* Cart is a right-side drawer. Closing it never changes cart data. */
-#cart{
-  position:fixed !important; top:0; right:0; bottom:0; z-index:2147482000;
-  width:min(420px,92vw); height:100vh; box-sizing:border-box;
-  margin:0 !important; padding:72px 18px 24px !important;
-  background:#fff; overflow-y:auto; box-shadow:-8px 0 28px rgba(0,0,0,.18);
-  transform:translateX(110%); transition:transform .28s ease;
-}
-#cart.cart-open{transform:translateX(0);}
-#cart .cart-close{
-  position:absolute; top:16px; right:16px; width:42px; height:42px;
-  border:0; border-radius:50%; background:#f4e8ed; color:#6c2450;
-  font-size:28px; line-height:1; cursor:pointer;
-}
-#cartBackdrop{
-  position:fixed; inset:0; z-index:2147481000; background:rgba(0,0,0,.28);
-  display:none;
-}
-#cartBackdrop.show{display:block;}
-#cart .btn.continue-order-btn{display:block !important; width:100%; text-align:center; margin-top:18px;}
-#cart .btn.continue-order-btn:disabled{opacity:.5;cursor:not-allowed;}
-#cart{z-index:2147482000 !important;}
-#fixedViewCart{z-index:2147483000 !important;}
-/* Hide every old per-product View Cart button. */
-.products .view-cart, .buy-row .view-cart{display:none !important;}
-
-/* ===== PRODUCT DETAIL MODAL ===== */
-#productDetailView.detail-modal{
-  position:fixed !important; inset:0; z-index:2147482500;
-  max-width:none !important; margin:0 !important; padding:20px !important;
-  background:rgba(0,0,0,.48); overflow-y:auto;
-  display:none !important;
-}
-#productDetailView.detail-modal.show{display:flex !important; align-items:flex-start; justify-content:center;}
-#productDetailView.detail-modal .detail-modal-card{
-  position:relative; width:min(700px,100%); margin:20px auto 40px;
-  background:#fff; border-radius:18px; overflow:hidden;
-  box-shadow:0 10px 35px rgba(0,0,0,.25);
-}
-#productDetailView.detail-modal .detail-close{
-  position:absolute; top:10px; right:10px; z-index:20;
-  width:42px; height:42px; border:0; border-radius:50%;
-  background:rgba(255,255,255,.95); color:#241b20; font-size:30px;
-  line-height:1; cursor:pointer; box-shadow:0 2px 10px rgba(0,0,0,.15);
-}
-@media(max-width:600px){
-  #fixedViewCart{top:88px;right:10px;font-size:13px;padding:10px 12px;}
-  #cart{width:92vw;padding:70px 14px 20px !important;}
-  #productDetailView.detail-modal{padding:10px !important;}
-  #productDetailView.detail-modal .detail-modal-card{margin:8px auto 25px;}
-}
-</style>
-<script id="final-cart-detail-fix-js">
-(function(){
-  function setupCart(){
-    var cart=document.getElementById('cart');
-    if(!cart) return;
-    // Remove old per-product View Cart buttons.
-    document.querySelectorAll('.products .view-cart, .buy-row .view-cart').forEach(function(b){b.remove();});
-    var old= document.getElementById('fixedViewCart');
-    if(!old){
-      old=document.createElement('button'); old.id='fixedViewCart'; old.type='button'; old.textContent='🛒 View Cart';
-      document.body.appendChild(old);
-    }
-    if(!document.getElementById('cartBackdrop')){
-      var bd=document.createElement('div'); bd.id='cartBackdrop'; document.body.appendChild(bd);
-      bd.addEventListener('click',closeCart);
-    }
-    if(!cart.querySelector('.cart-close')){
-      var x=document.createElement('button'); x.className='cart-close'; x.type='button'; x.setAttribute('aria-label','Close cart'); x.textContent='×';
-      cart.insertBefore(x,cart.firstChild); x.addEventListener('click',closeCart);
-    }
-    var cont=document.getElementById('continueOrderBtn');
-    if(cont && !cont.dataset.bound){
-      cont.dataset.bound='1';
-      cont.addEventListener('click',function(){
-        if(!Array.isArray(window.cart) || window.cart.length===0){
-          alert('Please add at least one product to cart first.');
-          return;
-        }
-        closeCart();
-        var order=document.getElementById('order');
-        if(order) order.scrollIntoView({behavior:'smooth',block:'start'});
-      });
-    }
-    updateContinueOrderButton();
-    old.onclick=openCart;
-    window.viewCart=openCart;
-  }
-  function updateContinueOrderButton(){
-    var b=document.getElementById('continueOrderBtn');
-    if(!b) return;
-    var hasItems=Array.isArray(window.cart) && window.cart.length>0;
-    b.disabled=!hasItems;
-  }
-
-  function openCart(){
-    var cart=document.getElementById('cart'), bd=document.getElementById('cartBackdrop');
-    if(!cart) return;
-    cart.classList.add('cart-open'); if(bd) bd.classList.add('show');
-  }
-  function closeCart(){
-    var cart=document.getElementById('cart'), bd=document.getElementById('cartBackdrop');
-    if(cart) cart.classList.remove('cart-open'); if(bd) bd.classList.remove('show');
-  }
-  window.closeCart=closeCart;
-  window.openCart=openCart;
-  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',setupCart); else setupCart();
-  window.addEventListener('load',setupCart);
-
-  // Turn the existing detail view into a modal with X and outside-click close.
-  function setupDetail(){
-    var detail=document.getElementById('productDetailView');
-    if(!detail || detail.dataset.modalFixed==='1') return;
-    detail.dataset.modalFixed='1'; detail.classList.add('detail-modal');
-    var oldOpen=window.openProductDetail;
-    if(typeof oldOpen!=='function') return;
-    window.openProductDetail=function(card){
-      oldOpen(card);
-      setTimeout(function(){
-        detail.classList.add('detail-modal','show');
-        var holder=detail.querySelector('#detailCardHolder, #ckDetailHolder');
-        if(!holder) return;
-        var inner=holder.querySelector('.detail-card, .ck-detail-inner');
-        if(inner && !inner.parentElement.classList.contains('detail-modal-card')){
-          var wrap=document.createElement('div'); wrap.className='detail-modal-card';
-          holder.replaceChild(wrap,inner); wrap.appendChild(inner);
-          var x=document.createElement('button'); x.className='detail-close'; x.type='button'; x.textContent='×'; x.setAttribute('aria-label','Close details');
-          wrap.insertBefore(x,wrap.firstChild); x.addEventListener('click',function(e){e.stopPropagation();window.closeProductDetail&&window.closeProductDetail();});
-        }
-      },0);
-    };
-    detail.addEventListener('click',function(e){
-      if(e.target===detail) window.closeProductDetail&&window.closeProductDetail();
-    });
-  }
-  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',setupDetail); else setupDetail();
-  window.addEventListener('load',setupDetail);
-})();
-</script>
-<style id="guaranteed-cart-details-ui">
-/* GUARANTEED CART + VIEW DETAILS UI */
-#fixedViewCart{position:fixed!important;right:14px!important;top:120px!important;z-index:2147483646!important;display:block!important;visibility:visible!important;opacity:1!important;pointer-events:auto!important;}
-.products .product-details-button{display:block!important;visibility:visible!important;position:relative!important;z-index:5!important;width:calc(100% - 20px)!important;margin:12px 10px 10px!important;height:42px!important;border:0!important;border-radius:10px!important;background:#6c2450!important;color:#fff!important;font-size:14px!important;font-weight:700!important;cursor:pointer!important;}
-#cart{z-index:2147482000!important;}
-#productDetailView.detail-modal{z-index:2147482500!important;}
-#productDetailView.detail-modal .detail-modal-card{z-index:2147482501!important;}
-@media(max-width:600px){#fixedViewCart{right:10px!important;top:120px!important;font-size:13px!important;padding:10px 12px!important;}}
-</style></body>
+</body>
 </html>
