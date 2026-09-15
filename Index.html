@@ -9227,8 +9227,6 @@ function validateOrder(){
   }
 
 
-  const colour =
-    document.getElementById('colour').value.trim();
 
   const name =
     document.getElementById('name').value.trim();
@@ -9243,13 +9241,6 @@ function validateOrder(){
     document.getElementById('pincode').value.trim();
 
 
-  if(!colour){
-
-    alert('Please enter Colour.');
-
-    return false;
-
-  }
 
 
   if(!name){
@@ -9301,7 +9292,6 @@ function validateOrder(){
 function whatsapp(){
   if(!validateOrder()) return;
 
-  const colour = document.getElementById('colour').value.trim();
   const name = document.getElementById('name').value.trim();
   const phone = document.getElementById('phone').value.trim();
   const address = document.getElementById('address').value.trim();
@@ -9316,7 +9306,7 @@ function whatsapp(){
     productsText += `Product ${item.product}\nSize: ${item.size}\nQuantity: ${item.quantity}\nPrice: ₹${item.price}\nSubtotal: ₹${itemTotal}\n\n`;
   });
 
-  const msg = `🛍️ NEW ORDER - CLASSIC KURTIS\n\n${productsText}TOTAL: ₹${total}\n\nColour: ${colour}\nName: ${name}\nMobile: ${phone}\nAddress: ${address}\nPIN Code: ${pincode}`;
+  const msg = `🛍️ NEW ORDER - CLASSIC KURTIS\n\n${productsText}TOTAL: ₹${total}\n\nName: ${name}\nMobile: ${phone}\nAddress: ${address}\nPIN Code: ${pincode}`;
 
   window.open('https://wa.me/918107909933?text=' + encodeURIComponent(msg), '_blank');
 }
