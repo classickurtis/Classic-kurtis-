@@ -10758,16 +10758,14 @@ footer{
 
     </button>
 
+ <button
+  class="btn"
+  style="margin-top:10px;width:100%;text-align:center"
+  onclick="whatsapp()">
 
-    <button
-      class="btn"
-      style="margin-top:10px;width:100%;text-align:center"
-      onclick="instagram()">
+  💬 Open WhatsApp
 
-      📲 Open Instagram
-
-    </button>
-
+</button>
 
     <div class="note">
 
@@ -11361,14 +11359,53 @@ PIN Code: ${pincode}`;
 }
 
 
-/* ================= INSTAGRAM ================= */
-
-function instagram(){
+function whatsapp(){
 
   if(!validateOrder()) return;
 
+  const colour = document.getElementById("colour").value.trim();
+  const name = document.getElementById("name").value.trim();
+  const phone = document.getElementById("phone").value.trim();
+  const address = document.getElementById("address").value.trim();
+  const pincode = document.getElementById("pincode").value.trim();
+
+  let total = 0;
+  let productsText = "";
+
+  cart.forEach(function(item){
+
+    const itemTotal = item.price * item.quantity;
+
+    total += itemTotal;
+
+    productsText +=
+`Product ${item.product}
+Size: ${item.size}
+Quantity: ${item.quantity}
+Price: ₹${item.price}
+Subtotal: ₹${itemTotal}
+
+`;
+
+  });
+
+  const msg =
+`🛍️ NEW ORDER
+
+${productsText}
+TOTAL: ₹${total}
+
+Name: ${name}
+
+Mobile: ${phone}
+
+Address: ${address}
+
+PIN Code: ${pincode}`;
+
   window.open(
-    "https://ig.me/m/classic.___kurtis",
+    "https://wa.me/918107909933?text=" +
+    encodeURIComponent(msg),
     "_blank"
   );
 }
