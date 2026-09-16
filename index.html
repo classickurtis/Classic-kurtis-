@@ -10749,15 +10749,6 @@ footer{
       placeholder="6-digit PIN code">
 
 
-    <button
-      class="btn"
-      style="margin-top:15px;width:100%;text-align:center"
-      onclick="copyOrder()">
-
-      📋 Copy Order Details
-
-    </button>
-
  <button
   class="btn"
   style="margin-top:10px;width:100%;text-align:center"
@@ -10786,16 +10777,6 @@ footer{
       Cart complete karne ke baad apni delivery details fill karein.
 
       <br><br>
-
-      <b>📋 Copy Order Details</b>
-      par click karein.
-
-      <br><br>
-
-      Uske baad
-      <b>📲 Open Instagram</b>
-      par click karke hamare profile ke DM mein
-      details <b>Paste</b> karke <b>Send</b> karein.
 
       <br><br>
 
@@ -11256,16 +11237,11 @@ function validateOrder(){
     return false;
   }
 
-  const colour = document.getElementById("colour").value.trim();
   const name = document.getElementById("name").value.trim();
   const phone = document.getElementById("phone").value.trim();
   const address = document.getElementById("address").value.trim();
   const pincode = document.getElementById("pincode").value.trim();
 
-  if(!colour){
-    alert("Please enter Colour.");
-    return false;
-  }
 
   if(!name){
     alert("Please enter Full Name.");
@@ -11290,80 +11266,11 @@ function validateOrder(){
   return true;
 }
 
-
-/* ================= COPY ORDER ================= */
-
-function copyOrder(){
-
-  if(!validateOrder()) return;
-
-  const colour = document.getElementById("colour").value.trim();
-  const name = document.getElementById("name").value.trim();
-  const phone = document.getElementById("phone").value.trim();
-  const address = document.getElementById("address").value.trim();
-  const pincode = document.getElementById("pincode").value.trim();
-
-  let total = 0;
-  let productsText = "";
-
-  cart.forEach(function(item){
-
-    const itemTotal = item.price * item.quantity;
-
-    total += itemTotal;
-
-    productsText +=
-`Product ${item.product}
-Size: ${item.size}
-Quantity: ${item.quantity}
-Price: ₹${item.price}
-Subtotal: ₹${itemTotal}
-
-`;
-
-  });
-
-  const msg =
-`🛍️ NEW ORDER - CLASSIC KURTIS
-
-${productsText}
-TOTAL: ₹${total}
-
-Colour: ${colour}
-
-Name: ${name}
-
-Mobile: ${phone}
-
-Address: ${address}
-
-PIN Code: ${pincode}`;
-
-  navigator.clipboard.writeText(msg)
-
-    .then(function(){
-
-      alert(
-        "Order details copied! Now open Instagram and paste the message."
-      );
-
-    })
-
-    .catch(function(){
-
-      alert(
-        "Copy failed. Please try again."
-      );
-
-    });
-}
-
-
 function whatsapp(){
 
   if(!validateOrder()) return;
 
-  const colour = document.getElementById("colour").value.trim();
+  
   const name = document.getElementById("name").value.trim();
   const phone = document.getElementById("phone").value.trim();
   const address = document.getElementById("address").value.trim();
@@ -11394,8 +11301,6 @@ Subtotal: ₹${itemTotal}
 
 ${productsText}
 TOTAL: ₹${total}
-
-Colour: ${colour}
 
 Name: ${name}
 
