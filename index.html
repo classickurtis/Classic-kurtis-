@@ -10950,7 +10950,7 @@ function addToCart(button, product, price) {
     card.querySelector('.quantity-box span').textContent
   );
 
-  cart.push({
+    cart.push({
 
     product: product,
     size: size,
@@ -10960,6 +10960,7 @@ function addToCart(button, product, price) {
   });
 
   updateCart();
+  updateTopCart();
 
   alert(
     'Product ' + product +
@@ -11086,10 +11087,10 @@ function removeCartItem(index) {
   cart.splice(index, 1);
 
   updateCart();
+  updateTopCart();
 
 }
-
-
+  
 /* ================= ADD VIEW CART BUTTON ================= */
 
 document.querySelectorAll('.buy-row').forEach(function(row) {
