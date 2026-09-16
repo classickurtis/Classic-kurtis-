@@ -11395,6 +11395,8 @@ Subtotal: ₹${itemTotal}
 ${productsText}
 TOTAL: ₹${total}
 
+Colour: ${colour}
+
 Name: ${name}
 
 Mobile: ${phone}
@@ -11403,11 +11405,11 @@ Address: ${address}
 
 PIN Code: ${pincode}`;
 
-  window.open(
+  const whatsappURL =
     "https://wa.me/918107909933?text=" +
-    encodeURIComponent(msg),
-    "_blank"
-  );
+    encodeURIComponent(msg);
+
+  window.location.href = whatsappURL;
 }
 
 
