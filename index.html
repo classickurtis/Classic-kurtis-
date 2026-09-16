@@ -10830,7 +10830,48 @@ footer{
 <script>
 
 let cart = [];
+/* ================= TOP CART BUTTON ================= */
 
+function updateTopCart(){
+
+  const count = document.getElementById("topCartCount");
+
+  if(count){
+    count.textContent = cart.length;
+    count.style.display = cart.length > 0 ? "inline-flex" : "none";
+  }
+
+}
+
+/* ================= TOP CART BUTTON SETUP ================= */
+
+document.addEventListener("DOMContentLoaded", function(){
+
+  const header = document.querySelector("header");
+
+  if(!header) return;
+
+  if(document.getElementById("topCartButton")) return;
+
+  const cartButton = document.createElement("button");
+
+  cartButton.id = "topCartButton";
+  cartButton.type = "button";
+
+  cartButton.innerHTML = `
+    🛒
+    <span id="topCartCount">0</span>
+  `;
+
+  cartButton.onclick = function(){
+    viewCart();
+  };
+
+  header.appendChild(cartButton);
+
+  updateTopCart();
+
+});
 
 /* ================= PHOTO SLIDER ================= */
 
