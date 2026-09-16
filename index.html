@@ -39,6 +39,19 @@ header{
   align-items:center;
 }
 
+#topCartButton{
+  border:0;
+  background:#6c2450;
+  color:#fff;
+  border-radius:12px;
+  padding:12px 18px;
+  min-width:58px;
+  min-height:48px;
+  font-size:20px;
+  font-weight:700;
+  cursor:pointer;
+}  
+  
 .logo img{
   height:50px;
   width:auto;
@@ -11095,28 +11108,7 @@ function removeCartItem(index) {
 
 }
   
-/* ================= ADD VIEW CART BUTTON ================= */
 
-document.querySelectorAll('.buy-row').forEach(function(row) {
-
-  if (!row.querySelector('.view-cart')) {
-
-    const button =
-      document.createElement('button');
-
-    button.className = 'view-cart';
-    button.style.cssText = 'display:block !important; width:100% !important; min-height:52px !important; padding:15px 28px !important; font-size:18px !important; box-sizing:border-box !important;';
-    button.type = 'button';
-
-    button.textContent = '🛒 View Cart';
-
-    button.onclick = viewCart;
-
-    row.appendChild(button);
-
-  }
-
-});
 
 </script> 
 
