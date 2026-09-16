@@ -294,12 +294,12 @@ h2{
 
 .quantity-box{
   height:48px;
+  flex:0 0 125px;
   border:2px solid #ddd;
   border-radius:12px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  min-width:125px;
   overflow:hidden;
 }
 
@@ -307,9 +307,10 @@ h2{
   border:0;
   background:#fff;
   width:40px;
-  height:100%;
+  height:48px;
   font-size:25px;
   cursor:pointer;
+  flex-shrink:0;
 }
 
 .quantity-box span{
@@ -320,6 +321,7 @@ h2{
 .add-cart{
   flex:1;
   height:48px;
+  min-width:0;
   border:0;
   border-radius:12px;
   background:#d47f91;
