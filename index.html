@@ -10829,7 +10829,7 @@ footer{
 
 <script>
 
-let cart = [];
+let cart = JSON.parse(localStorage.getItem("cart") || "[]");
 /* ================= TOP CART BUTTON ================= */
 
 function updateTopCart(){
@@ -10950,17 +10950,19 @@ function addToCart(button, product, price) {
     card.querySelector('.quantity-box span').textContent
   );
 
-    cart.push({
+   cart.push({
 
-    product: product,
-    size: size,
-    quantity: quantity,
-    price: price
+  product: product,
+  size: size,
+  quantity: quantity,
+  price: price
 
-  });
+});
 
-  updateCart();
-  updateTopCart();
+localStorage.setItem("cart", JSON.stringify(cart));
+
+updateCart();
+updateTopCart(); 
 
   alert(
     'Product ' + product +
@@ -11076,7 +11078,7 @@ function updateCart() {
 
   cartTotal.textContent =
     '₹' + total;
-
+updateTopCart();
 }
 
 
@@ -11085,6 +11087,8 @@ function updateCart() {
 function removeCartItem(index) {
 
   cart.splice(index, 1);
+
+  localStorage.setItem("cart", JSON.stringify(cart));
 
   updateCart();
   updateTopCart();
