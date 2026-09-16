@@ -11105,7 +11105,7 @@ document.querySelectorAll('.buy-row').forEach(function(row) {
       document.createElement('button');
 
     button.className = 'view-cart';
-
+    button.style.cssText = 'display:block !important; width:100% !important; min-height:52px !important; padding:15px 28px !important; font-size:18px !important; box-sizing:border-box !important;';
     button.type = 'button';
 
     button.textContent = '🛒 View Cart';
@@ -11119,14 +11119,7 @@ document.querySelectorAll('.buy-row').forEach(function(row) {
 });
 
 </script> 
-<style>
-.view-cart {
-  padding: 15px 28px !important;
-  font-size: 18px !important;
-  min-height: 50px !important;
-  min-width: 150px !important;
-}
-</style>
+
 <!-- ================= SIZE CHART ================= -->
 
 <script>
