@@ -12114,12 +12114,45 @@ updateCart();
       }
 
 
-      window.scrollTo(
-        0,
-        section.offsetTop
+      const lastProductCard =
+  sessionStorage.getItem("lastProductCard");
+
+if(lastProductCard){
+
+  const cards =
+    grid.querySelectorAll(":scope > .card");
+
+  const card =
+    Array.from(cards).find(function(item){
+
+      return (
+        (item.dataset.id || "") ===
+        lastProductCard
       );
 
-    }
+    });
+
+  if(card){
+
+    setTimeout(function(){
+
+      card.scrollIntoView({
+        behavior: "instant",
+        block: "center"
+      });
+
+    }, 50);
+
+  }
+
+}else{
+
+  window.scrollTo(
+    0,
+    section.offsetTop
+  );
+
+}
 
 
     window.closeProductDetail =
@@ -12183,7 +12216,8 @@ updateCart();
           e.preventDefault();
           e.stopPropagation();
 
-          openDetail(card,true);
+         openDetail(card, true);
+sessionStorage.setItem("lastProductCard", card.dataset.id || "");
 
         };
 
