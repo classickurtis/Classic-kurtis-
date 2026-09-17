@@ -12217,7 +12217,12 @@ if(lastProductCard){
           e.stopPropagation();
 
          openDetail(card, true);
-sessionStorage.setItem("lastProductCard", card.dataset.id || "");
+ sessionStorage.setItem(
+  "lastProductCard",
+  Array.from(
+    grid.querySelectorAll(":scope > .card")
+  ).indexOf(card)
+);
 
         };
 
