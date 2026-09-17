@@ -11084,9 +11084,148 @@ function removeCartItem(index) {
 }
   
 
+/* ================= PRODUCT DETAILS ================= */
 
-</script> 
+(function(){
 
+  function startProductDetails(){
+
+    const grid = document.querySelector("#products .products");
+    const section = document.getElementById("products");
+
+    if(!grid || !section) return;
+
+    let detail = document.getElementById("productDetailView");
+
+    if(!detail){
+      detail = document.createElement("section");
+      detail.id = "productDetailView";
+
+      detail.innerHTML = `
+        <button type="button" class="detail-back">
+          ← Back to Products
+        </button>
+        <div id="detailCardHolder"></div>
+      `;
+
+      grid.parentNode.insertBefore(detail, grid);
+    }
+
+    const holder =
+      document.getElementById("detailCardHolder");
+
+    function openDetail(card){
+
+      const clone = card.cloneNode(true);
+
+      clone.classList.add("detail-card");
+
+      clone.querySelectorAll(
+        ".product-details-button"
+      ).forEach(function(btn){
+        btn.remove();
+      });
+
+      holder.innerHTML = "";
+      holder.appendChild(clone);
+
+      grid.style.display = "none";
+
+      const h2 =
+        section.querySelector(":scope > h2");
+
+      if(h2){
+        h2.style.display = "none";
+      }
+
+      detail.classList.add("show");
+
+      window.scrollTo(0,0);
+    }
+
+    function closeDetail(){
+
+      detail.classList.remove("show");
+      holder.innerHTML = "";
+
+      grid.style.display = "grid";
+
+      const h2 =
+        section.querySelector(":scope > h2");
+
+      if(h2){
+        h2.style.display = "block";
+      }
+
+    }
+
+    window.closeProductDetail = closeDetail;
+
+    const back =
+      detail.querySelector(".detail-back");
+
+    if(back){
+
+      back.onclick = function(){
+        closeDetail();
+      };
+
+    }
+
+    grid
+      .querySelectorAll(":scope > .card")
+      .forEach(function(card){
+
+        if(
+          card.querySelector(
+            ".product-details-button"
+          )
+        ){
+          return;
+        }
+
+        const button =
+          document.createElement("button");
+
+        button.type = "button";
+        button.className =
+          "product-details-button";
+
+        button.textContent =
+          "View Details";
+
+        button.onclick = function(e){
+
+          e.preventDefault();
+          e.stopPropagation();
+
+          openDetail(card);
+
+        };
+
+        card.appendChild(button);
+
+      });
+
+  }
+
+  if(document.readyState === "loading"){
+
+    document.addEventListener(
+      "DOMContentLoaded",
+      startProductDetails
+    );
+
+  }else{
+
+    startProductDetails();
+
+  }
+
+})();
+  
+</script>
+  
 <!-- ================= SIZE CHART ================= -->
 
 <script>
