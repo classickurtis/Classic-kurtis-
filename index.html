@@ -12363,18 +12363,19 @@ if(lastProductCard){
 
         button.onclick = function(e){
 
-          e.preventDefault();
-          e.stopPropagation();
+  e.preventDefault();
+  e.stopPropagation();
 
-         openDetail(card, true);
- sessionStorage.setItem(
-  "lastProductCard",
-  Array.from(
-    grid.querySelectorAll(":scope > .card")
-  ).indexOf(card)
-);
+  sessionStorage.setItem(
+    "lastProductCard",
+    Array.from(
+      grid.querySelectorAll(":scope > .card")
+    ).indexOf(card)
+  );
 
-        };
+  openDetail(card, true);
+
+};
 
 
         card.appendChild(button);
