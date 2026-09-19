@@ -12972,8 +12972,8 @@ updateCart();
           console.error(error);
 
           alert(
-            "Review save nahi ho paya. Please try again."
-          );
+  "ERROR: " + (error && error.message ? error.message : error)
+);
 
         }finally{
 
