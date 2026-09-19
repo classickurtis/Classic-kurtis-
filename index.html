@@ -13077,7 +13077,7 @@ updateCart();
 
       const { data: review } =
         await supabaseClient
-          .from("reviews")
+          .from("Reviews")
           .select("helpful")
           .eq("id", reviewId)
           .single();
