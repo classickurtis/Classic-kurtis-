@@ -12897,7 +12897,7 @@ updateCart();
             const { data: publicData } =
               supabaseClient
                 .storage
-                .from("review-photos")
+                .from("reviews-photos")
                 .getPublicUrl(filePath);
 
 
@@ -12911,7 +12911,7 @@ updateCart();
 
           const { error } =
             await supabaseClient
-              .from("reviews")
+              .from("Reviews")
               .insert({
 
                 product_number:productNumber,
