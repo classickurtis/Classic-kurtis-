@@ -12871,7 +12871,7 @@ updateCart();
             const { error: uploadError } =
               await supabaseClient
                 .storage
-                .from("review-photos")
+                .from("reviews-photos")
                 .upload(
                   filePath,
                   photoFile,
@@ -13088,7 +13088,7 @@ updateCart();
 
       const { error } =
         await supabaseClient
-          .from("reviews")
+          .from("Reviews")
           .update({
             helpful:
               (Number(review.helpful) || 0) + 1
@@ -13125,7 +13125,7 @@ updateCart();
       {
         event:"*",
         schema:"public",
-        table:"reviews",
+        table:"Reviews",
         filter:
           "product_number=eq." + productNumber
       },
