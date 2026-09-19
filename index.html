@@ -13233,25 +13233,16 @@ updateCart();
         );
 
       }
-
-
       const lastProductCard =
   sessionStorage.getItem("lastProductCard");
 
-if(lastProductCard){
+if(lastProductCard !== null){
 
   const cards =
     grid.querySelectorAll(":scope > .card");
 
   const card =
-    Array.from(cards).find(function(item){
-
-      return (
-        (item.dataset.id || "") ===
-        lastProductCard
-      );
-
-    });
+    cards[Number(lastProductCard)];
 
   if(card){
 
@@ -13274,6 +13265,7 @@ if(lastProductCard){
   );
 
 }
+      
 }else{
 
   window.scrollTo(
