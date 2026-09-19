@@ -13153,58 +13153,42 @@ window.closeProductDetail =
     }
 
 
-    /* ================= VIEW DETAILS BUTTON ================= */
+  /* ================= VIEW DETAILS BUTTON ================= */
 
-    grid
-      .querySelectorAll(":scope > .card")
-      .forEach(function(card){
+grid
+  .querySelectorAll(":scope > .card")
+  .forEach(function(card){
 
-        if(
-          card.querySelector(
-            ".product-details-button"
-          )
-        ){
+    if(card.querySelector(".product-details-button")){
+      return;
+    }
 
-          return;
+    const button = document.createElement("button");
 
-        }
+    button.type = "button";
+    button.className = "product-details-button";
+    button.textContent = "View Details";
 
+    button.onclick = function(e){
 
-        const button =
-          document.createElement("button");
+      e.preventDefault();
+      e.stopPropagation();
 
+      sessionStorage.setItem(
+        "lastProductCard",
+        Array.from(
+          grid.querySelectorAll(":scope > .card")
+        ).indexOf(card)
+      );
 
-        button.type = "button";
+      openDetail(card, true);
 
-        button.className =
-          "product-details-button";
+    };
 
-        button.textContent =
-          "View Details";
+    card.appendChild(button);
 
-
-        button.onclick = function(e){
-
-  e.preventDefault();
-  e.stopPropagation();
-
-  sessionStorage.setItem(
-    "lastProductCard",
-    Array.from(
-      grid.querySelectorAll(":scope > .card")
-    ).indexOf(card)
-  );
-
-  openDetail(card, true);
-
-};
-
-
-        card.appendChild(button);
-
-      });
-
-
+  }); 
+    
     /* ================= CARD CLICK ================= */
 
     if(!grid.dataset.detailReady){
