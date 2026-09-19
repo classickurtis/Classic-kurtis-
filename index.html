@@ -12260,52 +12260,49 @@ function validateOrder(){
 }
 
 function whatsapp(){
-
   if(!validateOrder()) return;
-
-  
-  const name = document.getElementById("name").value.trim();
-  const phone = document.getElementById("phone").value.trim();
-  const address = document.getElementById("address").value.trim();
-  const pincode = document.getElementById("pincode").value.trim();
-
+  const name =
+    document.getElementById("name").value.trim();
+  const phone =
+    document.getElementById("phone").value.trim();
+  const address =
+    document.getElementById("address").value.trim();
+  const pincode =
+    document.getElementById("pincode").value.trim();
   let total = 0;
   let productsText = "";
-
   cart.forEach(function(item){
-
-    const itemTotal = item.price * item.quantity;
-
+    const itemTotal =
+      item.price * item.quantity;
     total += itemTotal;
-
     productsText +=
-`Product ${item.product}
-Size: ${item.size}
-Quantity: ${item.quantity}
-Price: ₹${item.price}
-
+`🛍️ Product ${item.product}
+📏 Size: ${item.size}
+🔢 Quantity: ${item.quantity}
+💰 Price: ₹${item.price} × ${item.quantity}
+💵 Item Total: ₹${itemTotal}
 `;
-
   });
-
-  const msg =
-`🛍️ NEW ORDER
-
+  const orderMessage =
+`🛒 CLASSIC KURTIS
+━━━━━━━━━━━━━━━━━━
+📦 NEW ORDER
 ${productsText}
-TOTAL: ₹${total}
-
+━━━━━━━━━━━━━━━━━━
+💰 TOTAL: ₹${total}
+👤 CUSTOMER DETAILS
 Name: ${name}
-
 Mobile: ${phone}
-
-Address: ${address}
-
-PIN Code: ${pincode}`;
-
+📍 DELIVERY ADDRESS
+${address}
+PIN Code: ${pincode}
+💳 PAYMENT
+QR / UPI Payment
+━━━━━━━━━━━━━━━━━━
+Please confirm my order.`;
   const whatsappURL =
     "https://wa.me/918107909933?text=" +
-    encodeURIComponent(msg);
-
+    encodeURIComponent(orderMessage);
   window.location.href = whatsappURL;
 }
 
