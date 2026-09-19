@@ -12560,7 +12560,7 @@ updateCart();
 
     const { data, error } =
       await supabaseClient
-        .from("reviews")
+        .from("Reviews")
         .select("*")
         .eq("product_number", productNumber)
         .order("created_at", { ascending:false });
@@ -13091,7 +13091,7 @@ updateCart();
           .from("Reviews")
           .update({
             helpful:
-              (Number(review.helpful) || 0) + 1
+              (Number(Review.helpful) || 0) + 1
           })
           .eq("id", reviewId);
 
@@ -13118,7 +13118,7 @@ updateCart();
 
   supabaseClient
     .channel(
-      "reviews-product-" + productNumber
+      "Reviews-product-" + productNumber
     )
     .on(
       "postgres_changes",
