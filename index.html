@@ -1065,9 +1065,10 @@ footer{
 .photo{
   position:relative;
   width:100%;
-  aspect-ratio:4 / 5;
+  aspect-ratio:1 / 1;
   background:#F3E7EB;
   overflow:hidden;
+  box-sizing:border-box;
 }
 
 .photo-slider{
@@ -1086,15 +1087,18 @@ footer{
 }
 
 .photo-slider img{
-  width:auto !important;
-  height:auto !important;
+  width:100% !important;
+  height:100% !important;
+  min-width:100% !important;
+  max-width:100% !important;
+  min-height:0 !important;
   max-height:100% !important;
-  min-width:0 !important;
   flex:0 0 100% !important;
   object-fit:contain !important;
   object-position:center center !important;
   display:block;
   scroll-snap-align:start;
+  box-sizing:border-box;
 }
   
 </style>
