@@ -1060,46 +1060,6 @@ footer{
 
 }
 
-/* ================= PRODUCT PHOTOS - NO CROP ================= */
-
-.photo{
-  position:relative;
-  width:100%;
-  aspect-ratio:1 / 1;
-  background:#F3E7EB;
-  overflow:hidden;
-  box-sizing:border-box;
-}
-
-.photo-slider{
-  width:100%;
-  height:100%;
-  display:flex;
-  overflow-x:auto;
-  overflow-y:hidden;
-  scroll-snap-type:x mandatory;
-  scrollbar-width:none;
-  align-items:center;
-}
-
-.photo-slider::-webkit-scrollbar{
-  display:none;
-}
-
-.photo-slider img{
-  width:auto !important;
-  height:auto !important;
-  max-width:100% !important;
-  max-height:100% !important;
-  min-width:0 !important;
-  min-height:0 !important;
-  flex:0 0 100% !important;
-  object-fit:contain !important;
-  object-position:center center !important;
-  display:block;
-  scroll-snap-align:start;
-}
-  
 </style>
   
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
