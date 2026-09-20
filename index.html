@@ -1059,8 +1059,7 @@ footer{
   }
 
 }
-  
-/* ================= PRODUCT PHOTOS - NO CROP ================= */
+  /* ================= PRODUCT PHOTOS - SAME SIZE NO CROP ================= */
 
 .photo{
   position:relative;
@@ -1085,15 +1084,13 @@ footer{
 }
 
 .photo-slider img{
-  width:auto !important;
+  width:100% !important;
   height:100% !important;
-  max-width:100% !important;
-  min-width:0 !important;
+  min-width:100% !important;
   flex:0 0 100% !important;
   object-fit:contain !important;
   object-position:center center !important;
   display:block;
-  margin:0 auto;
   scroll-snap-align:start;
 }
   
