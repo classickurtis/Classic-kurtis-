@@ -12109,20 +12109,48 @@ const supabaseClient = window.supabase.createClient(
 <script>
 
 let cart = JSON.parse(localStorage.getItem("cart") || "[]");
-/* ================= TOP CART BUTTON ================= */
 
-function updateTopCart(){
+<style>
+#topCartButton {
+  position: relative;
+  background: none;
+  border: none;
+  padding: 5px;
+  font-size: 27px;
+  cursor: pointer;
+}
+
+#topCartCount {
+  position: absolute;
+  top: -3px;
+  right: -5px;
+
+  width: 18px;
+  height: 18px;
+
+  background: #000;
+  color: #fff;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 11px;
+  font-weight: bold;
+}
+</style>
+
+  function updateTopCart(){
 
   const count = document.getElementById("topCartCount");
 
   if(count){
     count.textContent = cart.length;
-    count.style.display = "inline-flex";   
   }
 
 }
-
-/* ================= TOP CART BUTTON SETUP ================= */
 
 document.addEventListener("DOMContentLoaded", function(){
 
@@ -12151,7 +12179,7 @@ document.addEventListener("DOMContentLoaded", function(){
   updateTopCart();
 
 });
-
+  
 /* ================= PHOTO SLIDER ================= */
 
 function movePhoto(button, direction) {
