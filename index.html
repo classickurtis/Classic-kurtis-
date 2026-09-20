@@ -1095,6 +1095,25 @@ footer{
   display:block;
   scroll-snap-align:start;
 }
+
+  /* FINAL PRODUCT IMAGE - FORCE NO CROP */
+
+.card .photo,
+.card .photo-slider,
+.card .photo-slider img{
+  box-sizing:border-box !important;
+}
+
+.card .photo-slider img{
+  width:100% !important;
+  height:100% !important;
+  min-width:100% !important;
+  max-width:100% !important;
+  min-height:0 !important;
+  max-height:100% !important;
+  object-fit:contain !important;
+  object-position:center !important;
+}
   
 </style>
   
