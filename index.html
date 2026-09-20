@@ -163,6 +163,9 @@ h2{
   overflow:hidden;
   width:100%;
   aspect-ratio:1 / 1.18;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
 .photo-slider{
@@ -174,6 +177,7 @@ h2{
   scroll-snap-type:x mandatory;
   scroll-behavior:smooth;
   scrollbar-width:none;
+  align-items:center;
 }
 
 .photo-slider::-webkit-scrollbar{
@@ -181,10 +185,11 @@ h2{
 }
 
 .photo-slider img{
-  min-width:100%;
   width:100%;
   height:100%;
-  object-fit:contain;
+  min-width:100%;
+  max-width:100%;
+  object-fit:contain !important;
   object-position:center center;
   scroll-snap-align:start;
   flex:0 0 100%;
