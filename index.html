@@ -12747,8 +12747,9 @@ QR / UPI Payment
 Please confirm my order.`;
 
 const whatsappURL =
-  "https://api.whatsapp.com/send?phone=918107909933&text=" +
-  encodeURIComponent(orderMessage);
+  "intent://send?phone=918107909933&text=" +
+  encodeURIComponent(orderMessage) +
+  "#Intent;scheme=whatsapp;package=com.whatsapp.w4b;end";
 
 window.location.href = whatsappURL;
 }
