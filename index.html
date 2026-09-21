@@ -11880,8 +11880,7 @@ const supabaseClient = window.supabase.createClient(
   </div>
 
 </div>
-
-
+  
 <!-- ================= PRODUCT 121 ================= -->
 
 <div class="card">
@@ -11973,6 +11972,97 @@ const supabaseClient = window.supabase.createClient(
 
 </div>
 
+<!-- ================= PRODUCT 122 ================= -->
+
+<div class="card">
+
+  <div class="photo">
+
+    <div class="photo-slider">
+      <img src="IMG_4005.jpeg" alt="Product 122">
+      <img src="IMG_4006.jpeg" alt="Product 122">
+      <img src="IMG_4007.jpeg" alt="Product 122">
+      <img src="IMG_4008.jpeg" alt="Product 122">
+      <img src="IMG_4009.jpeg" alt="Product 122">
+    </div>
+
+    <button class="photo-arrow left" onclick="movePhoto(this,-1)">❮</button>
+    <button class="photo-arrow right" onclick="movePhoto(this,1)">❯</button>
+
+  </div>
+
+  <h3>PRODUCT NUMBER 122</h3>
+
+  <div class="product-description"
+       style="margin:12px 10px !important;line-height:1.5 !important;font-size:12px !important;">
+
+    <div style="margin-bottom:14px !important;">
+      <div>• Care: DRY CLEAN</div>
+    </div>
+
+    <div style="display:grid !important;grid-template-columns:1fr 1fr !important;gap:12px !important;align-items:start !important;">
+
+      <div>
+        <strong>KURTA</strong><br>
+        • Fabric: Cosmos<br>
+        • Length: 30"<br>
+        • Front Neck: 7"<br>
+        • Back Neck: 10"<br><br>
+
+        <strong>SLEEVES</strong><br>
+        • Sleeves: 12"
+      </div>
+
+      <div>
+        <strong>DUPATTA</strong><br>
+        • Fabric: Cosmos<br>
+        • Length: 2.5 Meter<br><br>
+        
+        <strong>PALAZZO</strong><br> 
+        • Fabric: Cosmos<br>
+        • Length: 40"
+      </div>
+
+    </div>
+
+  </div> 
+
+  <p class="price">PRICE ₹999</p>
+
+  <div class="size-title">
+    <strong>Size</strong>
+    <span class="size-chart" onclick="showSizeChart()">Size Chart</span>
+  </div>
+
+  <div class="size-options">
+    <button class="size-btn" onclick="selectSize(this,'XS')">XS</button>
+    <button class="size-btn" onclick="selectSize(this,'S')">S</button>
+    <button class="size-btn" onclick="selectSize(this,'M')">M</button>
+    <button class="size-btn" onclick="selectSize(this,'L')">L</button>
+    <button class="size-btn" onclick="selectSize(this,'XL')">XL</button>
+    <button class="size-btn" onclick="selectSize(this,'2XL')">2XL</button>
+    <button class="size-btn" onclick="selectSize(this,'3XL')">3XL</button>
+    <button class="size-btn" onclick="selectSize(this,'4XL')">4XL</button>
+    <button class="size-btn" onclick="selectSize(this,'5XL')">5XL</button>
+    <button class="size-btn" onclick="selectSize(this,'6XL')">6XL</button>
+  </div>
+
+  <div class="buy-row">
+
+    <div class="quantity-box">
+      <button onclick="changeQty(this,-1)">−</button>
+      <span>1</span>
+      <button onclick="changeQty(this,1)">+</button>
+    </div>
+
+    <button class="add-cart" disabled onclick="addToCart(this,122,999)">
+      Add to cart
+    </button>
+
+  </div>
+
+</div>
+  
 </section>
 
 
