@@ -12711,31 +12711,35 @@ function whatsapp(){
     document.getElementById("pincode").value.trim();
   let total = 0;
   let productsText = "";
-  cart.forEach(function(item){
-    const itemTotal =
-      item.price * item.quantity;
-    total += itemTotal;
-    productsText +=
-`🛍️ Product ${item.product}
-📏 Size: ${item.size}
-🔢 Quantity: ${item.quantity}
-💰 Price: ₹${item.price} × ${item.quantity}
+
+cart.forEach(function(item){
+  const itemTotal =
+    item.price * item.quantity;
+
+  total += itemTotal;
+
+  productsText +=
+`\u{1F6CD}\uFE0F Product ${item.product}
+\u{1F4CF} Size: ${item.size}
+\u{1F522} Quantity: ${item.quantity}
+\u{1F4B0} Price: ₹${item.price} × ${item.quantity}
 `;
-  });
-  const orderMessage =
-`🛒 CLASSIC KURTIS
+});
+
+const orderMessage =
+`\u{1F6D2} CLASSIC KURTIS
 ━━━━━━━━━━━━━━━━━━
-📦 NEW ORDER
+\u{1F4E6} NEW ORDER
 ${productsText}
 ━━━━━━━━━━━━━━━━━━
-💰 TOTAL: ₹${total}
-👤 CUSTOMER DETAILS
+\u{1F4B0} TOTAL: ₹${total}
+\u{1F464} CUSTOMER DETAILS
 Name: ${name}
 Mobile: ${phone}
-📍 DELIVERY ADDRESS
+\u{1F4CD} DELIVERY ADDRESS
 ${address}
 PIN Code: ${pincode}
-💳 PAYMENT
+\u{1F4B3} PAYMENT
 QR / UPI Payment
 ━━━━━━━━━━━━━━━━━━
 Please confirm my order.`;
