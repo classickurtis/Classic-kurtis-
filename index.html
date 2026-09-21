@@ -12721,35 +12721,36 @@ function whatsapp(){
     total += itemTotal;
 
     productsText +=
-`%F0%9F%9B%8D%EF%B8%8F Product ${item.product}
-%F0%9F%93%8F Size: ${item.size}
-%F0%9F%94%A2 Quantity: ${item.quantity}
-%F0%9F%92%B0 Price: %E2%82%B9${item.price} %C3%97 ${item.quantity}
+`🛍️ Product ${item.product}
+📏 Size: ${item.size}
+🔢 Quantity: ${item.quantity}
+💰 Price: ₹${item.price} × ${item.quantity}
 `;
   });
 
   const orderMessage =
-`%F0%9F%9B%92 CLASSIC KURTIS
+`🛒 CLASSIC KURTIS
 ━━━━━━━━━━━━━━━━━━
-%F0%9F%93%A6 NEW ORDER
+📦 NEW ORDER
 ${productsText}
 ━━━━━━━━━━━━━━━━━━
-%F0%9F%92%B0 TOTAL: %E2%82%B9${total}
-%F0%9F%91%A4 CUSTOMER DETAILS
+💰 TOTAL: ₹${total}
+👤 CUSTOMER DETAILS
 Name: ${name}
 Mobile: ${phone}
-%F0%9F%93%8D DELIVERY ADDRESS
+📍 DELIVERY ADDRESS
 ${address}
 PIN Code: ${pincode}
-%F0%9F%92%B3 PAYMENT
+💳 PAYMENT
 QR / UPI Payment
 ━━━━━━━━━━━━━━━━━━
 Please confirm my order.`;
 
   const whatsappURL =
-    "https://wa.me/918107909933?text=" + orderMessage;
+    "https://wa.me/918107909933?text=" +
+    encodeURIComponent(orderMessage);
 
-  window.open(whatsappURL, "_blank");
+  window.location.href = whatsappURL;
 }
   
 /* ================= START CART ================= */
