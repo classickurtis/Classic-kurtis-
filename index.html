@@ -716,6 +716,38 @@ footer{
   color:#fff !important;
 }
   
+
+#topCartButton{
+  position:relative;
+  border:0;
+  background:#54213F;
+  color:#fff;
+  border-radius:12px;
+  min-width:58px;
+  min-height:48px;
+  padding:8px 14px;
+  font-size:24px;
+  font-weight:700;
+  cursor:pointer;
+}
+
+#topCartCount{
+  position:absolute;
+  top:-5px;
+  right:-5px;
+  min-width:20px;
+  height:20px;
+  padding:0 5px;
+  background:#000;
+  color:#fff;
+  border-radius:999px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:11px;
+  font-weight:700;
+}
+
 /* ================= DESKTOP ================= */
 
 @media(min-width:700px){
@@ -732,6 +764,13 @@ footer{
 
   .hero h1{
     font-size:42px;
+  }
+
+  #topCartButton{
+    min-width:48px;
+    min-height:44px;
+    padding:6px 10px;
+    font-size:21px;
   }
 
   .tag{
@@ -857,6 +896,11 @@ footer{
   <div class="tag">
         Welcome to Classic Kurtis
   </div>
+
+  <button id="topCartButton" type="button" aria-label="View Cart" onclick="viewCart()">
+    🛒
+    <span id="topCartCount">0</span>
+  </button>
 
 </header>
 
@@ -11967,377 +12011,205 @@ footer{
 </footer>
 
 
-<!-- ================= JAVASCRIPT ================= -->
-
-<style>
-#topCartButton {
-  position: relative;
-  background: none;
-  border: none;
-  padding: 5px;
-  font-size: 27px;
-  cursor: pointer;
-}
-
-#topCartCount {
-  position: absolute;
-  top: -3px;
-  right: -5px;
-  width: 18px;
-  height: 18px;
-  background: #000;
-  color: #fff;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 11px;
-  font-weight: bold;
-}
-</style>
-  
 <script>
+/* ================= CLEAN WEBSITE JAVASCRIPT ================= */
 
-let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+let cart = [];
 
-  function updateTopCart(){
-
-  const count = document.getElementById("topCartCount");
-
-  if(count){
-    count.textContent = cart.length;
-  }
-
+try {
+  const savedCart = JSON.parse(localStorage.getItem("cart") || "[]");
+  cart = Array.isArray(savedCart) ? savedCart : [];
+} catch (e) {
+  cart = [];
+  localStorage.removeItem("cart");
 }
 
-document.addEventListener("DOMContentLoaded", function(){
+function saveCart(){
+  localStorage.setItem("cart", JSON.stringify(cart));
+}
 
-  const header = document.querySelector("header");
+function updateTopCart(){
+  const count = document.getElementById("topCartCount");
+  if (!count) return;
 
-  if(!header) return;
+  const totalQuantity = cart.reduce(function(total, item){
+    return total + (Number(item.quantity) || 0);
+  }, 0);
 
-  if(document.getElementById("topCartButton")) return;
+  count.textContent = totalQuantity;
+}
 
-  const cartButton = document.createElement("button");
-
-  cartButton.id = "topCartButton";
-  cartButton.type = "button";
-
-  cartButton.innerHTML = `
-    🛒
-    <span id="topCartCount">0</span>
-  `;
-
-  cartButton.onclick = function(){
-    viewCart();
-  };
-
-  header.appendChild(cartButton);
-  cartButton.style.display = "block";
-  updateTopCart();
-
-});
-  
 /* ================= PHOTO SLIDER ================= */
+function movePhoto(button, direction){
+  const photo = button.closest(".photo");
+  if (!photo) return;
 
-function movePhoto(button, direction) {
-
-  const photo = button.closest('.photo');
-  const slider = photo.querySelector('.photo-slider');
+  const slider = photo.querySelector(".photo-slider");
+  if (!slider) return;
 
   slider.scrollBy({
     left: direction * slider.clientWidth,
-    behavior: 'smooth'
+    behavior: "smooth"
   });
-
 }
-
 
 /* ================= SIZE SELECT ================= */
+function selectSize(button, size){
+  const card = button.closest(".card");
+  if (!card) return;
 
-function selectSize(button, size) {
-
-  const card = button.closest('.card');
-  const buttons = card.querySelectorAll('.size-btn');
-
-  buttons.forEach(btn => {
-    btn.classList.remove('selected');
+  card.querySelectorAll(".size-btn").forEach(function(btn){
+    btn.classList.remove("selected");
   });
 
-  button.classList.add('selected');
+  button.classList.add("selected");
 
-  const addButton = card.querySelector('.add-cart');
-
-  addButton.disabled = false;
-
+  const addButton = card.querySelector(".add-cart");
+  if (addButton) addButton.disabled = false;
 }
-
 
 /* ================= QUANTITY ================= */
+function changeQty(button, direction){
+  const box = button.closest(".quantity-box");
+  if (!box) return;
 
-function changeQty(button, direction) {
+  const number = box.querySelector("span");
+  if (!number) return;
 
-  const box = button.closest('.quantity-box');
-  const number = box.querySelector('span');
-
-  let qty = parseInt(number.textContent);
-
+  let qty = parseInt(number.textContent, 10) || 1;
   qty += direction;
-
-  if (qty < 1) {
-    qty = 1;
-  }
+  if (qty < 1) qty = 1;
 
   number.textContent = qty;
-
 }
-
 
 /* ================= ADD TO CART ================= */
+function addToCart(button, product, price){
+  const card = button.closest(".card");
+  if (!card) return;
 
-function addToCart(button, product, price) {
-
-  const card = button.closest('.card');
-
-  const selected = card.querySelector('.size-btn.selected');
-
-  if (!selected) {
-
-    alert('Please select a size first.');
-
+  const selected = card.querySelector(".size-btn.selected");
+  if (!selected){
+    alert("Please select a size first.");
     return;
-
   }
 
-  const size = selected.textContent;
+  const quantityElement = card.querySelector(".quantity-box span");
+  const quantity = quantityElement ? (parseInt(quantityElement.textContent, 10) || 1) : 1;
+  const size = selected.textContent.trim();
 
-  const quantity = parseInt(
-    card.querySelector('.quantity-box span').textContent
-  );
-
-   cart.push({
-
-  product: product,
-  size: size,
-  quantity: quantity,
-  price: price
-
-});
-
-localStorage.setItem("cart", JSON.stringify(cart));
-
-updateCart();
-updateTopCart(); 
-
-  alert(
-    'Product ' + product +
-    ' added to cart.'
-  );
-
-}
-
-
-/* ================= VIEW CART ================= */
-
-function viewCart() {
-
-  const cartSection =
-    document.getElementById('cart');
-
-  if (cartSection) {
-
-    cartSection.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start'
-    });
-
-  }
-
-}
-
-
-/* ================= UPDATE CART ================= */
-
-function updateCart() {
-
-  const cartItems =
-    document.getElementById('cartItems');
-
-  const cartTotal =
-    document.getElementById('cartTotal');
-
-
-  if (cart.length === 0) {
-
-    cartItems.innerHTML =
-      'Your cart is empty.';
-
-    cartItems.className =
-      'cart-empty';
-
-    cartTotal.textContent =
-      '₹0';
-
-    return;
-
-  }
-
-
-  cartItems.className = '';
-
-  let html = '';
-  let total = 0;
-
-
-  cart.forEach((item, index) => {
-
-    const itemTotal =
-      item.price * item.quantity;
-
-    total += itemTotal;
-
-
-    html += `
-
-      <div class="cart-item">
-
-        <div class="cart-item-top">
-
-          <div>
-
-            <div class="cart-item-name">
-              Product ${item.product}
-            </div>
-
-            <div class="cart-item-details">
-
-              Size: ${item.size}<br>
-
-              Quantity: ${item.quantity}<br>
-
-              Price: ₹${item.price} × ${item.quantity}
-
-            </div>
-
-          </div>
-
-
-          <button
-            class="remove-btn"
-            onclick="removeCartItem(${index})">
-
-            Remove
-
-          </button>
-
-        </div>
-
-      </div>
-
-    `;
-
+  cart.push({
+    product: product,
+    size: size,
+    quantity: quantity,
+    price: Number(price)
   });
 
-
-  cartItems.innerHTML = html;
-
-  cartTotal.textContent =
-    '₹' + total;
-updateTopCart();
-}
-
-
-/* ================= REMOVE CART ================= */
-
-function removeCartItem(index) {
-
-  cart.splice(index, 1);
-
-  localStorage.setItem("cart", JSON.stringify(cart));
-
+  saveCart();
   updateCart();
   updateTopCart();
 
+  alert("Product " + product + " added to cart.");
 }
-  
 
+/* ================= VIEW CART ================= */
+function viewCart(){
+  const cartSection = document.getElementById("cart");
+  if (!cartSection) return;
 
-  
+  cartSection.scrollIntoView({
+    behavior: "smooth",
+    block: "start"
+  });
+}
+
+/* ================= UPDATE CART ================= */
+function updateCart(){
+  const cartItems = document.getElementById("cartItems");
+  const cartTotal = document.getElementById("cartTotal");
+
+  if (!cartItems || !cartTotal) return;
+
+  if (cart.length === 0){
+    cartItems.className = "cart-empty";
+    cartItems.textContent = "Your cart is empty.";
+    cartTotal.textContent = "₹0";
+    updateTopCart();
+    return;
+  }
+
+  cartItems.className = "";
+
+  let html = "";
+  let total = 0;
+
+  cart.forEach(function(item, index){
+    const quantity = Number(item.quantity) || 1;
+    const price = Number(item.price) || 0;
+    const itemTotal = price * quantity;
+    total += itemTotal;
+
+    html += `
+      <div class="cart-item">
+        <div class="cart-item-top">
+          <div>
+            <div class="cart-item-name">Product ${item.product}</div>
+            <div class="cart-item-details">
+              Size: ${item.size}<br>
+              Quantity: ${quantity}<br>
+              Price: ₹${price} × ${quantity}
+            </div>
+          </div>
+          <button type="button" class="remove-btn" onclick="removeCartItem(${index})">Remove</button>
+        </div>
+      </div>
+    `;
+  });
+
+  cartItems.innerHTML = html;
+  cartTotal.textContent = "₹" + total;
+  updateTopCart();
+}
+
+/* ================= REMOVE CART ================= */
+function removeCartItem(index){
+  if (index < 0 || index >= cart.length) return;
+
+  cart.splice(index, 1);
+  saveCart();
+  updateCart();
+  updateTopCart();
+}
+
 /* ================= SIZE CHART ================= */
-
 function showSizeChart(){
+  if (document.getElementById("sizeChartPopup")) return;
 
   const chart = document.createElement("div");
-
   chart.id = "sizeChartPopup";
-
   chart.style.cssText = `
     position:fixed;
     inset:0;
     z-index:999999;
-    background:rgba(0,0,0,0.65);
+    background:rgba(0,0,0,.65);
     display:flex;
     align-items:center;
     justify-content:center;
     padding:15px;
-    box-sizing:border-box;
   `;
 
   chart.innerHTML = `
-    <div style="
-      width:100%;
-      max-width:600px;
-      max-height:90vh;
-      overflow-y:auto;
-      background:#1f1f1f;
-      color:#fff;
-      border-radius:24px;
-      padding:25px 20px 20px;
-      box-sizing:border-box;
-      position:relative;
-    ">
-
-      <button onclick="closeSizeChart()" style="
-        position:absolute;
-        top:8px;
-        right:12px;
-        background:none;
-        border:0;
-        color:#fff;
-        font-size:36px;
-        cursor:pointer;
-      ">×</button>
-
-      <h2 style="
-        margin:0 0 25px;
-        font-size:27px;
-      ">
-        WOMEN SIZE CHART
-      </h2>
-
-      <div style="
-        text-align:center;
-        font-weight:bold;
-        font-size:22px;
-        margin-bottom:8px;
-      ">
-        inches
-      </div>
-
-      <table style="
-        width:100%;
-        border-collapse:collapse;
-        text-align:center;
-        font-size:18px;
-      ">
-
+    <div style="width:100%;max-width:600px;max-height:90vh;overflow-y:auto;background:#1f1f1f;color:#fff;border-radius:24px;padding:25px 20px 20px;box-sizing:border-box;position:relative;">
+      <button type="button" onclick="closeSizeChart()" style="position:absolute;top:8px;right:12px;background:none;border:0;color:#fff;font-size:36px;cursor:pointer;">×</button>
+      <h2 style="margin:0 0 25px;font-size:27px;">WOMEN SIZE CHART</h2>
+      <div style="text-align:center;font-weight:bold;font-size:22px;margin-bottom:8px;">inches</div>
+      <table style="width:100%;border-collapse:collapse;text-align:center;font-size:18px;">
         <tr>
           <th style="padding:8px 3px 12px;text-align:left;">STANDARD</th>
           <th style="padding:8px 3px 12px;">BUST</th>
           <th style="padding:8px 3px 12px;">WAIST</th>
           <th style="padding:8px 3px 12px;">HIP</th>
         </tr>
-
         <tr><td style="padding:8px;text-align:left;border-top:1px solid #444;">XS</td><td style="padding:8px;border-top:1px solid #444;">32</td><td style="padding:8px;border-top:1px solid #444;">26</td><td style="padding:8px;border-top:1px solid #444;">36</td></tr>
         <tr><td style="padding:8px;text-align:left;border-top:1px solid #444;">S</td><td style="padding:8px;border-top:1px solid #444;">34</td><td style="padding:8px;border-top:1px solid #444;">28</td><td style="padding:8px;border-top:1px solid #444;">38</td></tr>
         <tr><td style="padding:8px;text-align:left;border-top:1px solid #444;">M</td><td style="padding:8px;border-top:1px solid #444;">36</td><td style="padding:8px;border-top:1px solid #444;">30</td><td style="padding:8px;border-top:1px solid #444;">40</td></tr>
@@ -12349,38 +12221,10 @@ function showSizeChart(){
         <tr><td style="padding:8px;text-align:left;border-top:1px solid #444;">5XL</td><td style="padding:8px;border-top:1px solid #444;">48</td><td style="padding:8px;border-top:1px solid #444;">42</td><td style="padding:8px;border-top:1px solid #444;">52</td></tr>
         <tr><td style="padding:8px;text-align:left;border-top:1px solid #444;">6XL</td><td style="padding:8px;border-top:1px solid #444;">50</td><td style="padding:8px;border-top:1px solid #444;">44</td><td style="padding:8px;border-top:1px solid #444;">54</td></tr>
         <tr><td style="padding:8px;text-align:left;border-top:1px solid #444;">7XL</td><td style="padding:8px;border-top:1px solid #444;">52</td><td style="padding:8px;border-top:1px solid #444;">46</td><td style="padding:8px;border-top:1px solid #444;">56</td></tr>
-
       </table>
-
-      <div style="
-        margin-top:25px;
-        font-size:18px;
-        font-weight:bold;
-      ">
-        MEASURED IN 'INCHES'
-      </div>
-
-      <div style="
-        margin-top:6px;
-        font-size:15px;
-        line-height:1.5;
-      ">
-        These are Garment sizes, take your body
-        measurements and match the garment accordingly
-      </div>
-
-      <button onclick="closeSizeChart()" style="
-        display:block;
-        margin:18px 0 0 auto;
-        border:0;
-        background:none;
-        color:#5d94ff;
-        font-size:18px;
-        cursor:pointer;
-      ">
-        Close
-      </button>
-
+      <div style="margin-top:25px;font-size:18px;font-weight:bold;">MEASURED IN 'INCHES'</div>
+      <div style="margin-top:6px;font-size:15px;line-height:1.5;">These are Garment sizes, take your body measurements and match the garment accordingly</div>
+      <button type="button" onclick="closeSizeChart()" style="display:block;margin:18px 0 0 auto;border:0;background:none;color:#5d94ff;font-size:18px;cursor:pointer;">Close</button>
     </div>
   `;
 
@@ -12388,26 +12232,15 @@ function showSizeChart(){
   document.body.style.overflow = "hidden";
 }
 
-
-/* ================= CLOSE SIZE CHART ================= */
-
 function closeSizeChart(){
-
   const chart = document.getElementById("sizeChartPopup");
-
-  if(chart){
-    chart.remove();
-  }
-
+  if (chart) chart.remove();
   document.body.style.overflow = "";
 }
 
-
-/* ================= VALIDATION ================= */
-
+/* ================= ORDER VALIDATION ================= */
 function validateOrder(){
-
-  if(cart.length === 0){
+  if (cart.length === 0){
     alert("Please add at least one product to cart.");
     return false;
   }
@@ -12417,23 +12250,22 @@ function validateOrder(){
   const address = document.getElementById("address").value.trim();
   const pincode = document.getElementById("pincode").value.trim();
 
-
-  if(!name){
+  if (!name){
     alert("Please enter Full Name.");
     return false;
   }
 
-  if(!/^[0-9]{10}$/.test(phone)){
+  if (!/^[0-9]{10}$/.test(phone)){
     alert("Please enter a valid 10-digit mobile number.");
     return false;
   }
 
-  if(!address){
+  if (!address){
     alert("Please enter Delivery Address.");
     return false;
   }
 
-  if(!/^[0-9]{6}$/.test(pincode)){
+  if (!/^[0-9]{6}$/.test(pincode)){
     alert("Please enter a valid 6-digit PIN Code.");
     return false;
   }
@@ -12441,41 +12273,36 @@ function validateOrder(){
   return true;
 }
 
+/* ================= WHATSAPP ORDER ================= */
 function whatsapp(){
-  if(!validateOrder()) return;
+  if (!validateOrder()) return;
 
-  const name =
-    document.getElementById("name").value.trim();
-  const phone =
-    document.getElementById("phone").value.trim();
-  const address =
-    document.getElementById("address").value.trim();
-  const pincode =
-    document.getElementById("pincode").value.trim();
+  const name = document.getElementById("name").value.trim();
+  const phone = document.getElementById("phone").value.trim();
+  const address = document.getElementById("address").value.trim();
+  const pincode = document.getElementById("pincode").value.trim();
 
   let total = 0;
   let productsText = "";
 
   cart.forEach(function(item){
-    const itemTotal =
-      item.price * item.quantity;
-
-    total += itemTotal;
+    const quantity = Number(item.quantity) || 1;
+    const price = Number(item.price) || 0;
+    total += price * quantity;
 
     productsText +=
 `🛍️ Product ${item.product}
 📏 Size: ${item.size}
-🔢 Quantity: ${item.quantity}
-💰 Price: ₹${item.price} × ${item.quantity}
-`;
+🔢 Quantity: ${quantity}
+💰 Price: ₹${price} × ${quantity}
+\n`;
   });
 
   const orderMessage =
 `🛒 CLASSIC KURTIS
 ━━━━━━━━━━━━━━━━━━
 📦 NEW ORDER
-${productsText}
-━━━━━━━━━━━━━━━━━━
+${productsText}━━━━━━━━━━━━━━━━━━
 💰 TOTAL: ₹${total}
 👤 CUSTOMER DETAILS
 Name: ${name}
@@ -12488,467 +12315,193 @@ QR / UPI Payment
 ━━━━━━━━━━━━━━━━━━
 Please confirm my order.`;
 
-const whatsappURL =
-  "whatsapp://send?phone=918107909933&text=" +
-  encodeURIComponent(orderMessage);
+  const whatsappURL =
+    "https://wa.me/918107909933?text=" + encodeURIComponent(orderMessage);
 
-window.location.href = whatsappURL;
- }
-  
-/* ================= START CART ================= */
-
-updateCart();
-
-</script>
-
-
-<script>
+  window.location.href = whatsappURL;
+}
 
 /* ================= PRODUCT DETAILS ================= */
-
 (function(){
+  function getProductNumber(card){
+    const title = card.querySelector("h3");
+    if (!title) return "";
+    const match = title.textContent.match(/\d+/);
+    return match ? match[0] : "";
+  }
 
   function startProductDetails(){
-
     const grid = document.querySelector("#products .products");
     const section = document.getElementById("products");
-
-    if(!grid || !section) return;
+    if (!grid || !section) return;
 
     let detail = document.getElementById("productDetailView");
-
-    if(!detail){
-
+    if (!detail){
       detail = document.createElement("section");
-
       detail.id = "productDetailView";
-
       detail.innerHTML = `
-        <button type="button" class="detail-back">
-          ← Back to Products
-        </button>
-
+        <button type="button" class="detail-back">← Back to Products</button>
         <div id="detailCardHolder"></div>
       `;
-
       grid.parentNode.insertBefore(detail, grid);
     }
 
-    const holder =
-      document.getElementById("detailCardHolder");
+    const holder = document.getElementById("detailCardHolder");
+    const back = detail.querySelector(".detail-back");
 
+    function showGrid(){
+      detail.classList.remove("show");
+      holder.innerHTML = "";
+      grid.style.display = "grid";
 
-    /* ================= GET PRODUCT NUMBER ================= */
-
-    function getNumber(card){
-
-      const h3 = card.querySelector("h3");
-
-      if(!h3) return "";
-
-      const match =
-        h3.textContent.match(/\d+/);
-
-      return match ? match[0] : "";
+      const heading = section.querySelector(":scope > h2");
+      if (heading) heading.style.display = "block";
     }
 
+    function closeDetail(){
+      showGrid();
 
-    /* ================= OPEN PRODUCT DETAIL ================= */
+      if (location.hash.indexOf("#product-") === 0){
+        history.pushState({}, "", location.pathname + location.search);
+      }
 
-    function openDetail(card, changeUrl){
+      const lastIndex = sessionStorage.getItem("lastProductCard");
+      if (lastIndex !== null){
+        const cards = grid.querySelectorAll(":scope > .card");
+        const card = cards[Number(lastIndex)];
+        if (card){
+          setTimeout(function(){
+            card.scrollIntoView({behavior:"auto", block:"center"});
+          }, 50);
+        }
+      }
+    }
 
-      const number = getNumber(card);
+    window.closeProductDetail = closeDetail;
+    if (back) back.onclick = closeDetail;
 
-      if(!number) return;
+    function openDetail(card, updateUrl){
+      const number = getProductNumber(card);
+      if (!number) return;
 
       const clone = card.cloneNode(true);
-
       clone.classList.add("detail-card");
-
       clone.onclick = null;
 
       holder.innerHTML = "";
       holder.appendChild(clone);
 
+      const addButton = clone.querySelector(".add-cart");
+      if (addButton) addButton.disabled = !clone.querySelector(".size-btn.selected");
 
-      /* ================= BUY NOW ================= */
+      const buyButton = document.createElement("button");
+      buyButton.type = "button";
+      buyButton.className = "buy-now-detail";
+      buyButton.textContent = "🛍️ Buy Now";
+      clone.appendChild(buyButton);
 
-      const buy = document.createElement("button");
-
-      buy.type = "button";
-      buy.className = "buy-now-detail";
-      buy.textContent = "🛍️ Buy Now";
-
-      clone.appendChild(buy);
-
-      
-      /* ================= BUY NOW ================= */
-
-      buy.onclick = function(e){
-
-        e.stopPropagation();
-
-        const selected =
-          clone.querySelector(
-            ".size-btn.selected"
-          );
-
-
-        if(!selected){
-
-          alert(
-            "Please select a size first."
-          );
-
+      buyButton.onclick = function(event){
+        event.stopPropagation();
+        const selected = clone.querySelector(".size-btn.selected");
+        if (!selected){
+          alert("Please select a size first.");
           return;
         }
-
-
-        const add =
-          clone.querySelector(".add-cart");
-
-
-        if(add){
-          add.click();
-        }
-
-
-        if(
-          typeof window.viewCart === "function"
-        ){
-
-          window.viewCart();
-
-        }
-
+        if (addButton) addButton.click();
+        viewCart();
       };
-
-
-      /* ================= SHOW DETAIL ================= */
 
       grid.style.display = "none";
-
-
-      const h2 =
-        section.querySelector(":scope > h2");
-
-      if(h2){
-        h2.style.display = "none";
-      }
-
-
+      const heading = section.querySelector(":scope > h2");
+      if (heading) heading.style.display = "none";
       detail.classList.add("show");
 
-
-      if(changeUrl){
-
-        history.pushState(
-          {product:number},
-          "",
-          "#product-" + number
-        );
-
+      if (updateUrl){
+        history.pushState({product:number}, "", "#product-" + number);
       }
 
-
-      window.scrollTo(0,0);
-
+      window.scrollTo(0, 0);
     }
 
+    const cards = grid.querySelectorAll(":scope > .card");
 
-    /* ================= CLOSE DETAIL ================= */
+    cards.forEach(function(card, index){
+      if (card.querySelector(".product-details-button")) return;
 
-    function closeDetail(){
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "product-details-button";
+      button.textContent = "View Details";
 
-      detail.classList.remove("show");
-
-      holder.innerHTML = "";
-
-      grid.style.display = "grid";
-
-
-      const h2 =
-        section.querySelector(":scope > h2");
-
-      if(h2){
-        h2.style.display = "block";
-      }
-
-
-      if(
-        location.hash.indexOf("#product-") === 0
-      ){
-
-        history.pushState(
-          {},
-          "",
-          location.pathname +
-          location.search
-        );
-
-      }
-      const lastProductCard =
-  sessionStorage.getItem("lastProductCard");
-
-if(lastProductCard !== null){
-
-  const cards =
-    grid.querySelectorAll(":scope > .card");
-
-  const card =
-    cards[Number(lastProductCard)];
-
-  if(card){
-
-    setTimeout(function(){
-
-      card.scrollIntoView({
-        behavior: "instant",
-        block: "center"
-      });
-
-    }, 50);
-
-  }
-
-}else{
-
-  window.scrollTo(
-    0,
-    section.offsetTop
-  );
-
-}
-
-}   // closeDetail function
-
-window.closeProductDetail =
-  closeDetail;
-
-
-    /* ================= BACK BUTTON ================= */
-
-    const back =
-      detail.querySelector(".detail-back");
-
-
-    if(
-      back &&
-      !back.dataset.ready
-    ){
-
-      back.dataset.ready = "1";
-
-      back.onclick = function(){
-
-        closeDetail();
-
+      button.onclick = function(event){
+        event.preventDefault();
+        event.stopPropagation();
+        sessionStorage.setItem("lastProductCard", index);
+        openDetail(card, true);
       };
 
-    }
+      card.appendChild(button);
+    });
 
-
-  /* ================= VIEW DETAILS BUTTON ================= */
-
-grid
-  .querySelectorAll(":scope > .card")
-  .forEach(function(card){
-
-    if(card.querySelector(".product-details-button")){
-      return;
-    }
-
-    const button = document.createElement("button");
-
-    button.type = "button";
-    button.className = "product-details-button";
-    button.textContent = "View Details";
-
-    button.onclick = function(e){
-
-      e.preventDefault();
-      e.stopPropagation();
-
-      sessionStorage.setItem(
-        "lastProductCard",
-        Array.from(
-          grid.querySelectorAll(":scope > .card")
-        ).indexOf(card)
-      );
-
-      openDetail(card, true);
-
-    };
-
-    card.appendChild(button);
-
-  }); 
-    
-    /* ================= CARD CLICK ================= */
-
-    if(!grid.dataset.detailReady){
-
+    if (!grid.dataset.detailReady){
       grid.dataset.detailReady = "1";
 
+      grid.addEventListener("click", function(event){
+        if (event.target.closest("button,a,input,select,.size-chart")) return;
 
-      grid.addEventListener(
-        "click",
-        function(e){
+        const card = event.target.closest(".card");
+        if (!card || !grid.contains(card)) return;
 
-          if(
-            e.target.closest(
-              "button,a,input,select,.size-chart"
-            )
-          ){
+        sessionStorage.setItem(
+          "lastProductCard",
+          Array.from(grid.querySelectorAll(":scope > .card")).indexOf(card)
+        );
 
-            return;
-
-          }
-
-
-          const card =
-            e.target.closest(
-              ":scope > .card"
-            );
-
-
-          if(card){
-
-            openDetail(card,true);
-
-          }
-
-        }
-      );
-
+        openDetail(card, true);
+      });
     }
 
-
-    /* ================= RESTORE AFTER REFRESH ================= */
-
-    function restore(){
-
-      const match =
-        location.hash.match(
-          /^#product-(\d+)$/
-        );
-
-
-      if(!match) return;
-
-
-      const number =
-        match[1];
-
-
-      const cards =
-        grid.querySelectorAll(
-          ":scope > .card"
-        );
-
+    function restoreFromHash(){
+      const match = location.hash.match(/^#product-(\d+)$/);
+      if (!match) return;
 
       cards.forEach(function(card){
-
-        if(getNumber(card) === number){
-
-          setTimeout(function(){
-
-            openDetail(
-              card,
-              false
-            );
-
-          },100);
-
+        if (getProductNumber(card) === match[1]){
+          setTimeout(function(){ openDetail(card, false); }, 100);
         }
-
       });
-
     }
 
+    window.addEventListener("popstate", function(){
+      const match = location.hash.match(/^#product-(\d+)$/);
 
-    restore();
-
-
-    /* ================= BROWSER BACK/FORWARD ================= */
-
-    window.addEventListener(
-      "popstate",
-      function(){
-
-        const match =
-          location.hash.match(
-            /^#product-(\d+)$/
-          );
-
-
-        if(match){
-
-          const cards =
-            grid.querySelectorAll(
-              ":scope > .card"
-            );
-
-
-          cards.forEach(function(card){
-
-            if(
-              getNumber(card) === match[1]
-            ){
-
-              openDetail(
-                card,
-                false
-              );
-
-            }
-
-          });
-
-        }else{
-
-          detail.classList.remove("show");
-
-          holder.innerHTML = "";
-
-          grid.style.display = "grid";
-
-
-          const h2 =
-            section.querySelector(
-              ":scope > h2"
-            );
-
-
-          if(h2){
-            h2.style.display = "block";
-          }
-
-        }
-
+      if (!match){
+        showGrid();
+        return;
       }
-    );
 
+      cards.forEach(function(card){
+        if (getProductNumber(card) === match[1]){
+          openDetail(card, false);
+        }
+      });
+    });
+
+    restoreFromHash();
   }
 
-
-  if(
-    document.readyState === "loading"
-  ){
-
-    document.addEventListener(
-      "DOMContentLoaded",
-      startProductDetails
-    );
-
+  if (document.readyState === "loading"){
+    document.addEventListener("DOMContentLoaded", function(){
+      updateCart();
+      updateTopCart();
+      startProductDetails();
+    });
   }else{
-
+    updateCart();
+    updateTopCart();
     startProductDetails();
-
   }
-
 })();
-
 </script>
 
 </body>
